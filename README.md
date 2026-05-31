@@ -3,7 +3,7 @@
 A visual command center for the keyboard shortcuts you keep forgetting. It turns your custom shortcuts into a spatial keyboard map, searchable cheat sheet, conflict checker, text-trigger notebook, and printable reference.
 
 <p align="center">
-  <img src="screenshots/Shortcut%20Dashboard%20(dark).jpeg" alt="Shortcut Dashboard dark mode keyboard map" width="900">
+  <img src="screenshots/Shortcut%20Dashboard%20(daylight).jpeg" alt="Shortcut Dashboard light mode" width="900">
 </p>
 
 ## What It Does
@@ -12,8 +12,9 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 
 - See shortcuts on a full visual keyboard
 - Switch between modifier layers like Fn, Hyper, Cmd+Ctrl+Option, and imported custom layers
+- Choose which layer groups stay visible from a compact group menu
 - Search by app, action, category, shortcut, or note
-- Spot conflicts between active shortcuts
+- Spot conflicts between active shortcuts and inspect them in one place
 - Star favorites for a focused top-level view
 - Keep freeform text-trigger notes in a three-column board
 - Import BetterTouchTool `.bttpreset` files offline
@@ -24,15 +25,19 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 
 | Dashboard | Search |
 | --- | --- |
-| <img src="screenshots/Shortcut%20Dashboard%20(daylight).jpeg" alt="Shortcut Dashboard light mode" width="420"> | <img src="screenshots/Shortcut%20Dashboard%20(search).png" alt="Shortcut Dashboard search" width="420"> |
+| <img src="screenshots/Shortcut%20Dashboard%20(dark).jpeg" alt="Shortcut Dashboard dark mode keyboard map" width="420"> | <img src="screenshots/Shortcut%20Dashboard%20(search).png" alt="Shortcut Dashboard search" width="420"> |
 
 | Text Triggers | Importer |
 | --- | --- |
 | <img src="screenshots/Shortcut%20Dashboard%20(3%20columns).png" alt="Three-column text trigger board" width="420"> | <img src="screenshots/Shortcut%20Importer.png" alt="Shortcut Importer" width="420"> |
 
-| Printable Cheat Sheet |
-| --- |
-| <img src="screenshots/Shortcut%20Print.png" alt="Printable shortcut cheat sheet" width="860"> |
+| Conflicts | Printable Cheat Sheet |
+| --- | --- |
+| <img src="screenshots/Shortcut%20Conflicts.jpeg" alt="Shortcut conflict inspection" width="420"> | <img src="screenshots/Shortcut%20Print.png" alt="Printable shortcut cheat sheet" width="420"> |
+
+## v1.1 Polish
+
+Layer groups now have a compact Notion-style menu for showing or hiding groups, conflicts live near the category filters, and the keyboard layout better matches MacBook geography with a wider Esc key and Delete beside `=`.
 
 ## Quick Start
 
@@ -62,20 +67,16 @@ Everything runs locally. Your preset is not uploaded anywhere.
 - `screenshots/` - images used in this README
 - `roadmap.md` - future ideas
 
-## Installation Options
+## Installation
 
-For now, the easiest install is: download the repo and double-click `shortcuts.html`.
-
-Once this is on GitHub, a one-line curl installer can work well:
+Download the repo and double-click `shortcuts.html`.
 
 ```sh
 mkdir -p ~/Keyboard\ Shortcuts && cd ~/Keyboard\ Shortcuts
-curl -LO https://raw.githubusercontent.com/YOURNAME/shortcut-dashboard/main/shortcuts.html
-curl -LO https://raw.githubusercontent.com/YOURNAME/shortcut-dashboard/main/import_shortcuts.html
-curl -LO https://raw.githubusercontent.com/YOURNAME/shortcut-dashboard/main/shortcuts_example.json
+curl -LO https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/shortcuts.html
+curl -LO https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/import_shortcuts.html
+curl -LO https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/shortcuts_example.json
 ```
-
-Homebrew can also work later via a small tap or cask, but it is extra maintenance. `pip` is not a natural fit because this is not a Python app.
 
 ## Privacy
 
