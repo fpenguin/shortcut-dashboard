@@ -284,6 +284,7 @@
       overflow-x: auto;
       padding-bottom: 3px;
       scrollbar-width: thin;
+      min-width: 0;
     }
 
     .layer-btn {
@@ -393,19 +394,81 @@
       border: 0;
     }
 
-    .stats {
-      display: flex;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 12px;
+    .layer-menu-wrap {
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .layer-menu-button {
+      min-width: 42px;
+      justify-content: center;
+      font-family: var(--mono);
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .layer-menu-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 30;
+      width: min(310px, calc(100vw - 44px));
+      display: none;
+      padding: 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel-strong) 92%, black 8%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+    }
+
+    .layer-menu-panel.open {
+      display: grid;
+      gap: 4px;
+    }
+
+    .layer-menu-title {
+      padding: 4px 6px 7px;
+      color: var(--faint);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .layer-menu-item {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      padding: 8px 7px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .layer-menu-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .layer-menu-item input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--accent);
+    }
+
+    .layer-menu-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
       white-space: nowrap;
     }
 
-    .stat {
-      padding: 8px 10px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.035);
+    .layer-menu-count {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 12px;
     }
 
     .keyboard-shell {
@@ -632,11 +695,19 @@
       pointer-events: none;
     }
 
+    .filter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
     .category-rail {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      min-width: 0;
     }
 
     .chip {
@@ -661,6 +732,18 @@
       border-radius: 99px;
       background: var(--chip-color, var(--accent));
       box-shadow: 0 0 18px var(--chip-color, var(--accent));
+    }
+
+    .conflict-chip {
+      flex: 0 0 auto;
+      --chip-color: var(--faint);
+    }
+
+    .conflict-chip.has-conflicts {
+      --chip-color: var(--danger);
+      color: var(--text);
+      border-color: rgba(255, 92, 122, 0.6);
+      background: rgba(255, 92, 122, 0.11);
     }
 
     .side-panel {
@@ -1216,8 +1299,12 @@
         grid-template-columns: 1fr;
       }
 
-      .stats {
-        overflow-x: auto;
+      .filter-row {
+        flex-direction: column;
+      }
+
+      .conflict-chip {
+        align-self: flex-start;
       }
 
       .keyboard {
@@ -1321,9 +1408,9 @@
       <section class="main-stage" aria-label="Visual keyboard map">
         <div class="status-row">
           <nav class="layer-tabs" id="layerTabs" aria-label="Modifier layers"></nav>
-          <div class="stats" aria-label="Shortcut stats">
-            <div class="stat"><strong id="visibleCount">0</strong> visible</div>
-            <div class="stat"><strong id="conflictCount">0</strong> conflicts</div>
+          <div class="layer-menu-wrap">
+            <button class="layer-btn layer-menu-button" id="layerMenuButton" type="button" aria-label="Choose visible shortcut groups" aria-expanded="false">...</button>
+            <div class="layer-menu-panel" id="layerMenuPanel" role="menu" aria-label="Visible shortcut groups"></div>
           </div>
         </div>
 
@@ -1349,7 +1436,10 @@
           </section>
         </div>
 
-        <div class="category-rail" id="categoryRail" aria-label="Category filters"></div>
+        <div class="filter-row">
+          <div class="category-rail" id="categoryRail" aria-label="Category filters"></div>
+          <button class="chip conflict-chip" id="conflictButton" type="button" aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
+        </div>
         <div class="kbd-help">Tip: press ? or Cmd+K for the command palette. Press a real shortcut to light it up.</div>
       </section>
 
@@ -1612,7 +1702,7 @@
     let loadedSourceName = "sample data";
     let editorInitialSnapshot = "";
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
-    let prefs = readJson(PREFS_KEY, { theme: "dark", compact: false });
+    let prefs = readJson(PREFS_KEY, { theme: "dark", compact: false, hiddenLayers: [] });
     let analytics = readJson(ANALYTICS_KEY, { usage: {}, recent: [] });
 
     const el = {
@@ -1628,10 +1718,12 @@
       ],
       layerTabs: document.getElementById("layerTabs"),
       categoryRail: document.getElementById("categoryRail"),
+      layerMenuButton: document.getElementById("layerMenuButton"),
+      layerMenuPanel: document.getElementById("layerMenuPanel"),
+      conflictButton: document.getElementById("conflictButton"),
+      conflictButtonText: document.getElementById("conflictButtonText"),
       searchInput: document.getElementById("searchInput"),
       detailPanel: document.getElementById("detailPanel"),
-      visibleCount: document.getElementById("visibleCount"),
-      conflictCount: document.getElementById("conflictCount"),
       paletteOverlay: document.getElementById("paletteOverlay"),
       paletteInput: document.getElementById("paletteInput"),
       paletteResults: document.getElementById("paletteResults"),
@@ -1703,6 +1795,12 @@
       document.getElementById("importExportButton").addEventListener("click", openJsonModal);
       document.getElementById("printButton").addEventListener("click", () => { renderPrintSheet(); window.print(); });
       document.getElementById("aboutButton").addEventListener("click", openAboutModal);
+      el.layerMenuButton.addEventListener("click", event => {
+        event.stopPropagation();
+        toggleLayerMenu();
+      });
+      el.layerMenuPanel.addEventListener("click", event => event.stopPropagation());
+      el.conflictButton.addEventListener("click", showConflictDetails);
       document.getElementById("closeJsonButton").addEventListener("click", closeJsonModal);
       document.getElementById("closeAboutButton").addEventListener("click", closeAboutModal);
       document.getElementById("openJsonFileButton").addEventListener("click", openJsonFile);
@@ -1747,6 +1845,7 @@
         if (event.target === el.editOverlay) event.stopPropagation();
       });
 
+      document.addEventListener("click", closeLayerMenu);
       document.addEventListener("keydown", handleGlobalKeydown, true);
     }
 
@@ -1785,21 +1884,78 @@
         renderAll();
         showTextTriggerDetails();
       });
+      renderLayerMenu();
     }
 
     function getLayerTabs() {
+      const hidden = hiddenLayerSet();
+      const options = getLayerOptions();
+      const visibleLayers = options
+        .filter(layer => !hidden.has(layer.id))
+        .map(layer => layer.id);
+      const ids = visibleLayers.length ? visibleLayers : options.slice(0, 1).map(layer => layer.id);
+      return ids.map(id => ({ id, label: layerDisplayName(id) }));
+    }
+
+    function getLayerOptions() {
       const activeLayers = Array.from(new Set(shortcuts
         .filter(item => item.active !== false && item.layer)
         .map(item => item.layer)));
-      const visibleLayers = activeLayers
-        .map(id => ({ id, count: filteredShortcuts({ ignoreLayer: false, layerId: id }).length }))
-        .filter(layer => layer.count > 0)
-        .sort(compareLayerTabs)
-        .map(layer => layer.id);
-      const favoriteCount = filteredShortcuts({ ignoreLayer: false, layerId: FAVORITES_LAYER_ID }).length;
-      const ids = visibleLayers.length ? visibleLayers : [activeLayer || "Fn"];
-      const withFavorites = favoriteCount > 0 ? [FAVORITES_LAYER_ID, ...ids] : ids;
-      return withFavorites.map(id => ({ id, label: layerDisplayName(id) }));
+      const layers = activeLayers
+        .map(id => ({ id, count: layerTotalCount(id) }))
+        .filter(layer => layer.count > 0);
+      const favoriteCount = layerTotalCount(FAVORITES_LAYER_ID);
+      if (favoriteCount > 0) layers.push({ id: FAVORITES_LAYER_ID, count: favoriteCount });
+      return layers.sort(compareLayerTabs);
+    }
+
+    function layerTotalCount(layerId) {
+      return shortcuts.filter(item => item.active !== false && layerMatches(item.layer, layerId, item)).length;
+    }
+
+    function hiddenLayerSet() {
+      return new Set(Array.isArray(prefs.hiddenLayers) ? prefs.hiddenLayers : []);
+    }
+
+    function setLayerHidden(layerId, hidden) {
+      const hiddenLayers = hiddenLayerSet();
+      if (hidden) hiddenLayers.add(layerId);
+      else hiddenLayers.delete(layerId);
+      prefs.hiddenLayers = Array.from(hiddenLayers);
+      safeSetStorage(PREFS_KEY, prefs);
+      if (activeMode === "keyboard" && hidden && activeLayer === layerId) {
+        const next = getLayerTabs()[0];
+        activeLayer = next ? next.id : activeLayer;
+      }
+      renderAll();
+    }
+
+    function renderLayerMenu() {
+      const options = getLayerOptions();
+      const hidden = hiddenLayerSet();
+      el.layerMenuPanel.innerHTML = `
+        <div class="layer-menu-title">Visible Groups</div>
+        ${options.map(layer => `
+          <label class="layer-menu-item" role="menuitemcheckbox" aria-checked="${!hidden.has(layer.id)}">
+            <input type="checkbox" data-layer-toggle="${escapeHtml(layer.id)}" ${hidden.has(layer.id) ? "" : "checked"}>
+            <span class="layer-menu-name">${layerGlyph(layer.id)} ${escapeHtml(layerDisplayName(layer.id))}</span>
+            <span class="layer-menu-count">${layer.count}</span>
+          </label>
+        `).join("")}
+      `;
+      el.layerMenuPanel.querySelectorAll("input[data-layer-toggle]").forEach(input => {
+        input.addEventListener("change", () => setLayerHidden(input.dataset.layerToggle, !input.checked));
+      });
+    }
+
+    function toggleLayerMenu() {
+      const isOpen = el.layerMenuPanel.classList.toggle("open");
+      el.layerMenuButton.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    function closeLayerMenu() {
+      el.layerMenuPanel.classList.remove("open");
+      el.layerMenuButton.setAttribute("aria-expanded", "false");
     }
 
     function compareLayerTabs(a, b) {
@@ -1933,8 +2089,33 @@
 
     function renderStats() {
       const conflicts = conflictGroups();
-      el.visibleCount.textContent = activeMode === "textTrigger" ? 3 : filteredShortcuts().length;
-      el.conflictCount.textContent = conflicts.length;
+      const count = conflicts.length;
+      el.conflictButtonText.textContent = count === 1 ? "1 conflict" : `${count} conflicts`;
+      el.conflictButton.classList.toggle("has-conflicts", count > 0);
+    }
+
+    function showConflictDetails() {
+      activeMode = "keyboard";
+      selectedId = null;
+      const groups = conflictGroups();
+      el.detailPanel.innerHTML = `
+        <div class="panel-header">
+          <div>
+            <div class="panel-kicker">Conflict Check</div>
+            <h2 class="panel-title">${groups.length ? `${groups.length} ${groups.length === 1 ? "Conflict" : "Conflicts"}` : "No Conflicts"}</h2>
+          </div>
+        </div>
+        <div class="section">
+          <p>${groups.length ? "Active shortcuts sharing the same layer and key are listed below." : "No active shortcuts share the same layer and key."}</p>
+        </div>
+        ${groups.map(group => `
+          <div class="section conflict-list">
+            <h3>${escapeHtml(group[0]?.shortcut || "Shortcut conflict")}</h3>
+            ${group.map(item => mappingCard(item, true)).join("")}
+          </div>
+        `).join("")}
+      `;
+      renderKeyboard();
     }
 
     function showTextTriggerDetails() {
