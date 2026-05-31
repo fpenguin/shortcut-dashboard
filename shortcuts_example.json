@@ -1395,6 +1395,13 @@
           "enabled": false
         }
       ]
+    },
+    "hyperKey": {
+      "enabled": false,
+      "physicalKey": "CapsLock",
+      "displayLabel": "Caps",
+      "showModifierGlyphs": true,
+      "previewWhileHeld": true
     }
   }
 }

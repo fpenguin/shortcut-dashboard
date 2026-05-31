@@ -861,8 +861,58 @@
       font-size: 14px;
     }
 
+    .hyper-key-settings {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) minmax(130px, 0.7fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .hyper-option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hyper-option-row strong {
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .hyper-key-preview {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hyper-preview-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(103, 232, 203, 0.42);
+      border-radius: 8px;
+      background: rgba(103, 232, 203, 0.1);
+      color: var(--text);
+      font-weight: 900;
+    }
+
     @media (max-width: 760px) {
       .modifier-layout-editor,
+      .hyper-key-settings,
       .import-options {
         grid-template-columns: 1fr;
       }
@@ -1660,6 +1710,36 @@
           </div>
         </div>
       </div>
+      <div class="settings-section">
+        <h3>Hyper Key</h3>
+        <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Useful when Caps Lock, Fn, or an F-key is remapped to Command+Control+Option+Shift by another tool.</p>
+        <label class="hyper-option-row">
+          <span><strong>Enable Hyper Key Alias</strong><br>Show and preview a physical key for Hyper.</span>
+          <input type="checkbox" id="hyperKeyEnabled">
+        </label>
+        <div class="hyper-key-settings">
+          <label>
+            <span class="field-label">Physical Key</span>
+            <select id="hyperKeyPhysical"></select>
+          </label>
+          <label>
+            <span class="field-label">Display Label</span>
+            <input type="text" id="hyperKeyLabel" placeholder="Caps">
+          </label>
+        </div>
+        <label class="hyper-option-row">
+          <span><strong>Show Modifier Glyphs</strong><br>Display the alias next to ⇧⌃⌥⌘ in the Hyper group.</span>
+          <input type="checkbox" id="hyperKeyGlyphs">
+        </label>
+        <label class="hyper-option-row">
+          <span><strong>Preview While Held</strong><br>Switch to Hyper while the physical key is held down.</span>
+          <input type="checkbox" id="hyperKeyPreview">
+        </label>
+        <div class="hyper-key-preview">
+          <span>Preview</span>
+          <span class="hyper-preview-pill" id="hyperKeyPreviewPill"></span>
+        </div>
+      </div>
       <div class="modal-actions simple-actions">
         <div><button class="pill-btn" id="closeSettingsButton">Close</button></div>
         <div><button class="pill-btn" id="saveSettingsButton">Save</button></div>
@@ -1824,6 +1904,13 @@
     const defaultSettings = {
       platform: "mac",
       nightmode: true,
+      hyperKey: {
+        enabled: false,
+        physicalKey: "CapsLock",
+        displayLabel: "Caps",
+        showModifierGlyphs: true,
+        previewWhileHeld: true
+      },
       modifierLayout: {
         left: [
           { id: "fn", keyCode: "Fn", label: "Fn", enabled: true },
@@ -1838,6 +1925,24 @@
         ]
       }
     };
+
+    const hyperKeyOptions = [
+      { value: "", label: "None / modifier combo only", shortLabel: "" },
+      { value: "CapsLock", label: "Caps Lock", shortLabel: "Caps" },
+      { value: "Fn", label: "Fn / Globe", shortLabel: "Fn" },
+      { value: "ShiftLeft", label: "Left Shift", shortLabel: "Shift" },
+      { value: "ShiftRight", label: "Right Shift", shortLabel: "Shift R" },
+      { value: "Control", label: "Left Control", shortLabel: "Ctrl" },
+      { value: "ControlRight", label: "Right Control", shortLabel: "Ctrl R" },
+      { value: "Option", label: "Left Option / Alt", shortLabel: "Opt" },
+      { value: "OptionRight", label: "Right Option / Alt", shortLabel: "Opt R" },
+      { value: "Meta", label: "Left Command / Windows", shortLabel: "Cmd" },
+      { value: "MetaRight", label: "Right Command / Windows", shortLabel: "Cmd R" },
+      { value: "F13", label: "F13", shortLabel: "F13" },
+      { value: "F14", label: "F14", shortLabel: "F14" },
+      { value: "F15", label: "F15", shortLabel: "F15" },
+      { value: "F16", label: "F16", shortLabel: "F16" }
+    ];
 
     const platformPresets = {
       mac: defaultSettings.modifierLayout,
@@ -1968,6 +2073,12 @@
       settingsOverlay: document.getElementById("settingsOverlay"),
       leftModifierList: document.getElementById("leftModifierList"),
       rightModifierList: document.getElementById("rightModifierList"),
+      hyperKeyEnabled: document.getElementById("hyperKeyEnabled"),
+      hyperKeyPhysical: document.getElementById("hyperKeyPhysical"),
+      hyperKeyLabel: document.getElementById("hyperKeyLabel"),
+      hyperKeyGlyphs: document.getElementById("hyperKeyGlyphs"),
+      hyperKeyPreview: document.getElementById("hyperKeyPreview"),
+      hyperKeyPreviewPill: document.getElementById("hyperKeyPreviewPill"),
       duplicateMode: document.getElementById("duplicateMode"),
       jsonArea: document.getElementById("jsonArea"),
       jsonFileInput: document.getElementById("jsonFileInput"),
@@ -2076,6 +2187,14 @@
       document.getElementById("saveSettingsButton").addEventListener("click", saveSettingsFromModal);
       document.getElementById("platformMac").addEventListener("click", () => setSettingsPlatform("mac"));
       document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
+      el.hyperKeyEnabled.addEventListener("change", updateHyperKeyPreviewFromForm);
+      el.hyperKeyPhysical.addEventListener("change", () => {
+        if (!el.hyperKeyLabel.value.trim()) el.hyperKeyLabel.value = hyperKeyDefaultLabel(el.hyperKeyPhysical.value);
+        updateHyperKeyPreviewFromForm();
+      });
+      el.hyperKeyLabel.addEventListener("input", updateHyperKeyPreviewFromForm);
+      el.hyperKeyGlyphs.addEventListener("change", updateHyperKeyPreviewFromForm);
+      el.hyperKeyPreview.addEventListener("change", updateHyperKeyPreviewFromForm);
       document.getElementById("openJsonFileButton").addEventListener("click", openJsonFile);
       document.getElementById("exportJsonButton").addEventListener("click", downloadJson);
       document.getElementById("saveJsonFileButton").addEventListener("click", saveJsonFile);
@@ -2287,6 +2406,7 @@
       if (layerId === DRAFTS_LAYER_ID) return `<span class="fn-glyph">Drafts</span>`;
       if (layerId === OTHERS_LAYER_ID) return `<span class="fn-glyph">Others</span>`;
       if (layerId === "Fn") return `<span class="fn-glyph">Fn</span>`;
+      if (layerId === "Hyper" && settings.hyperKey?.enabled) return hyperLayerGlyph();
       const mods = layerToModifierSet(layerId);
       const symbols = modifierGlyphSymbols(mods);
 
@@ -2296,6 +2416,30 @@
         </span>
         <span class="sr-only">${escapeHtml(layerId)}</span>
       `;
+    }
+
+    function hyperLayerGlyph() {
+      const label = hyperKeyDisplayLabel();
+      const modifierGlyphs = settings.hyperKey?.showModifierGlyphs === false ? "" : `
+        <span class="mod-glyph" aria-hidden="true">
+          ${modifierGlyphSymbols(layerToModifierSet("Hyper")).map(item => `<span class="mod-symbol ${item.kind === "fn" ? "fn" : ""} ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}
+        </span>
+      `;
+      return `
+        <span class="fn-glyph">${escapeHtml(label)}</span>
+        ${modifierGlyphs}
+        <span class="sr-only">Hyper</span>
+      `;
+    }
+
+    function hyperKeyDisplayLabel() {
+      const value = settings.hyperKey?.displayLabel || hyperKeyDefaultLabel(settings.hyperKey?.physicalKey);
+      return value || "Hyper";
+    }
+
+    function hyperKeyDefaultLabel(value) {
+      const option = hyperKeyOptions.find(item => item.value === value);
+      return option?.shortLabel || option?.label || "";
     }
 
     function modifierGlyphSymbols(mods) {
@@ -2674,6 +2818,12 @@
 
       if (inTextField || modalWasOpen || writingTextTrigger) return;
 
+      if (isHyperPhysicalKeyEvent(event)) {
+        event.preventDefault();
+        applyHyperKeyPreview();
+        return;
+      }
+
       refreshHeldModifiersFromEvent(event, true);
       if (isModifierKeyEvent(event)) {
         applyModifierPreview();
@@ -2692,6 +2842,10 @@
 
     function handleGlobalKeyup(event) {
       if (isWritingTextTrigger()) return;
+      if (isHyperPhysicalKeyEvent(event)) {
+        clearModifierPreview();
+        return;
+      }
       if (!hasModifierState(event) && !isModifierKeyEvent(event)) return;
       refreshHeldModifiersFromEvent(event, false);
       applyModifierPreview();
@@ -2726,6 +2880,31 @@
       } catch {
         return false;
       }
+    }
+
+    function isHyperPhysicalKeyEvent(event) {
+      const hyper = settings.hyperKey;
+      if (!hyper?.enabled || !hyper.previewWhileHeld || !hyper.physicalKey) return false;
+      return eventMatchesPhysicalKey(event, hyper.physicalKey);
+    }
+
+    function eventMatchesPhysicalKey(event, physicalKey) {
+      const key = event.key || "";
+      const code = event.code || "";
+      const normalized = eventKey(event);
+      const checks = {
+        CapsLock: () => key === "CapsLock" || code === "CapsLock",
+        Fn: () => eventHasFn(event) || key === "Fn" || code === "Fn",
+        ShiftLeft: () => key === "Shift" && code !== "ShiftRight",
+        ShiftRight: () => key === "Shift" && code === "ShiftRight",
+        Control: () => key === "Control" && code !== "ControlRight",
+        ControlRight: () => key === "Control" && code === "ControlRight",
+        Option: () => (key === "Alt" || key === "Option") && code !== "AltRight" && code !== "OptionRight",
+        OptionRight: () => (key === "Alt" || key === "Option") && (code === "AltRight" || code === "OptionRight"),
+        Meta: () => (key === "Meta" || key === "Command") && code !== "MetaRight",
+        MetaRight: () => (key === "Meta" || key === "Command") && code === "MetaRight"
+      };
+      return checks[physicalKey]?.() || code === physicalKey || key === physicalKey || normalized === physicalKey;
     }
 
     function modifierFromEvent(event) {
@@ -2770,8 +2949,22 @@
 
     function layerModifierKeys() {
       if (activeMode !== "keyboard") return new Set();
+      if (activeLayer === "Hyper" && settings.hyperKey?.enabled && settings.hyperKey?.physicalKey) {
+        return new Set([settings.hyperKey.physicalKey]);
+      }
       const mods = layerToModifierSet(activeLayer);
       return new Set([...mods].map(keyCodeForModifier).filter(Boolean));
+    }
+
+    function applyHyperKeyPreview() {
+      if (!modifierPreviewState) {
+        modifierPreviewState = { layer: activeLayer, mode: activeMode, selectedId };
+      }
+      activeMode = "keyboard";
+      activeLayer = "Hyper";
+      selectedId = null;
+      liveKeys = new Set([settings.hyperKey?.physicalKey].filter(Boolean));
+      renderAll();
     }
 
     function applyModifierPreview() {
@@ -2823,7 +3016,7 @@
     }
 
     function isModifierPhysicalKey(keyCode) {
-      return ["Fn", "ShiftLeft", "ShiftRight", "Control", "Option", "OptionRight", "Meta", "MetaRight"].includes(keyCode);
+      return ["Fn", "ShiftLeft", "ShiftRight", "Control", "ControlRight", "Option", "OptionRight", "Meta", "MetaRight"].includes(keyCode);
     }
 
     function findShortcutFromEvent(event, pressed = eventKey(event)) {
@@ -3247,6 +3440,39 @@
       document.getElementById("platformPc").classList.toggle("active", settings.platform === "pc");
       renderModifierList("left");
       renderModifierList("right");
+      renderHyperKeySettings();
+    }
+
+    function renderHyperKeySettings() {
+      const hyper = normalizeHyperKey(settings.hyperKey);
+      el.hyperKeyEnabled.checked = hyper.enabled;
+      el.hyperKeyPhysical.innerHTML = hyperKeyOptions.map(option => `<option value="${escapeHtml(option.value)}" ${option.value === hyper.physicalKey ? "selected" : ""}>${escapeHtml(option.label)}</option>`).join("");
+      el.hyperKeyLabel.value = hyper.displayLabel;
+      el.hyperKeyGlyphs.checked = hyper.showModifierGlyphs;
+      el.hyperKeyPreview.checked = hyper.previewWhileHeld;
+      updateHyperKeyPreviewPill(hyper);
+    }
+
+    function updateHyperKeyPreviewFromForm() {
+      updateHyperKeyPreviewPill(hyperKeyFromSettingsForm());
+    }
+
+    function updateHyperKeyPreviewPill(hyper) {
+      const enabled = hyper.enabled && hyper.physicalKey;
+      const label = enabled ? (hyper.displayLabel || hyperKeyDefaultLabel(hyper.physicalKey) || "Hyper") : "Modifier combo only";
+      const glyphs = enabled && hyper.showModifierGlyphs ? ` <span class="mod-glyph" aria-hidden="true">${modifierGlyphSymbols(layerToModifierSet("Hyper")).map(item => `<span class="mod-symbol ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}</span>` : "";
+      el.hyperKeyPreviewPill.innerHTML = `${escapeHtml(label)}${glyphs}`;
+    }
+
+    function hyperKeyFromSettingsForm() {
+      const physicalKey = el.hyperKeyPhysical.value || "";
+      return normalizeHyperKey({
+        enabled: el.hyperKeyEnabled.checked,
+        physicalKey,
+        displayLabel: el.hyperKeyLabel.value || hyperKeyDefaultLabel(physicalKey),
+        showModifierGlyphs: el.hyperKeyGlyphs.checked,
+        previewWhileHeld: el.hyperKeyPreview.checked
+      });
     }
 
     function renderModifierList(side) {
@@ -3336,6 +3562,7 @@
     }
 
     function saveSettingsFromModal() {
+      settings.hyperKey = hyperKeyFromSettingsForm();
       settings = normalizeSettings(settings);
       persistSettings();
       renderModifierGridLabels();
@@ -3768,10 +3995,26 @@
       return {
         platform,
         nightmode: normalizeNightMode(source),
+        hyperKey: normalizeHyperKey(source.hyperKey),
         modifierLayout: {
           left: normalizeModifierSide(layout.left, preset.left),
           right: normalizeModifierSide(layout.right, preset.right)
         }
+      };
+    }
+
+    function normalizeHyperKey(value) {
+      const source = value && typeof value === "object" ? value : defaultSettings.hyperKey;
+      const physicalKey = hyperKeyOptions.some(option => option.value === source.physicalKey)
+        ? source.physicalKey
+        : defaultSettings.hyperKey.physicalKey;
+      const displayLabel = String(source.displayLabel || hyperKeyDefaultLabel(physicalKey) || defaultSettings.hyperKey.displayLabel).trim().slice(0, 18);
+      return {
+        enabled: Boolean(source.enabled) && Boolean(physicalKey),
+        physicalKey,
+        displayLabel,
+        showModifierGlyphs: source.showModifierGlyphs !== false,
+        previewWhileHeld: source.previewWhileHeld !== false
       };
     }
 
@@ -3866,6 +4109,7 @@
         Meta: "cmd",
         MetaRight: "cmd",
         Control: "ctrl",
+        ControlRight: "ctrl",
         Option: "opt",
         OptionRight: "opt",
         ShiftLeft: "Shift",

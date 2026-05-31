@@ -14,7 +14,8 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 - See shortcuts on a full visual keyboard
 - Switch between modifier layers like Fn, Hyper, Cmd+Ctrl+Option, and imported custom layers
 - Configure macOS or Windows-style modifier key layouts
-- Carry keyboard settings and night mode in the exported JSON config
+- Alias Hyper to a physical key like Caps Lock, Fn, or F13
+- Carry keyboard settings, Hyper key settings, and night mode in the exported JSON config
 - Choose which layer groups stay visible from a compact group menu
 - Search by app, action, category, shortcut, or note
 - Spot conflicts between active shortcuts and inspect them in one place
@@ -43,9 +44,14 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 
 Shortcut Dashboard does not automatically scan your whole computer or magically pull shortcuts from macOS, Raycast, Alfred, Keyboard Maestro, every app, or every script. You add shortcuts yourself, import a JSON backup, or use the included BetterTouchTool importer for `.bttpreset` files. The upside is simple: your data stays local, editable, portable, and understandable.
 
-## v1.3 Highlights
+## Highlights of recent updates (v1.3 & v1.4)
 
-Layer groups have a compact Notion-style menu, conflicts live near the category filters, and the keyboard layout better matches MacBook geography with a wider Esc key and Delete beside `=`. v1.3 adds Windows-style modifier layout settings, stores night mode in the exported config, and includes a safer import engine that can ignore, overwrite, or save duplicate imported shortcuts as drafts.
+- Configure macOS or Windows-style keyboard layouts.
+- Alias Hyper to a physical key like Caps Lock, Fn, or F13.
+- Show the configured physical key in the Hyper group label, such as `Caps ⇧⌃⌥⌘`.
+- Preview the Hyper layer while the chosen physical key is held down.
+- Use the safer import engine to ignore, overwrite, or save duplicate imported shortcuts as drafts.
+- Store shortcuts, text triggers, keyboard configuration, Hyper Key settings, and night mode in the exported JSON config.
 
 ## Quick Start
 
@@ -99,7 +105,7 @@ Shortcut Dashboard is local-first:
 - No CDN or external assets
 - Browser storage stays inside that browser/profile
 
-Important: use `Download` in the save window to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, modifier layout settings, and night mode.
+Important: use `Download` in the save window to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, modifier layout settings, Hyper Key settings, and night mode.
 
 ## Support
 
