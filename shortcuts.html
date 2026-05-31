@@ -1712,6 +1712,9 @@
     let selectedId = null;
     let paletteIndex = 0;
     let lastLiveKey = null;
+    let liveKeys = new Set();
+    let heldModifiers = new Set();
+    let modifierPreviewState = null;
     let loadedSourceName = "sample data";
     let editorInitialSnapshot = "";
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
@@ -1862,6 +1865,8 @@
 
       document.addEventListener("click", closeLayerMenu);
       document.addEventListener("keydown", handleGlobalKeydown, true);
+      document.addEventListener("keyup", handleGlobalKeyup, true);
+      window.addEventListener("blur", clearModifierPreview);
     }
 
     function renderAll() {
@@ -1876,7 +1881,7 @@
 
     function renderLayers() {
       const tabs = getLayerTabs();
-      if (activeMode === "keyboard" && tabs.length && !tabs.some(layer => layer.id === activeLayer)) {
+      if (activeMode === "keyboard" && tabs.length && !modifierPreviewState && !tabs.some(layer => layer.id === activeLayer)) {
         activeLayer = tabs[0].id;
       }
       const layerButtons = tabs.map(layer => {
@@ -1913,6 +1918,9 @@
         .filter(layer => !hidden.has(layer.id))
         .map(layer => layer.id);
       const ids = visibleLayers.length ? visibleLayers : options.slice(0, 1).map(layer => layer.id);
+      if (modifierPreviewState && activeLayer && !ids.includes(activeLayer)) {
+        ids.push(activeLayer);
+      }
       return ids.map(id => ({ id, label: layerDisplayName(id) }));
     }
 
@@ -2067,7 +2075,7 @@
           const conflict = mappings.length > 1 ? "conflict" : "";
           const selected = mappings.some(m => m.id === selectedId) ? "selected" : "";
           const searchHit = mappings.some(m => queryMatches.has(m.id)) ? "search-hit" : "";
-          const live = lastLiveKey === keyInfo.code ? "live" : "";
+          const live = liveKeys.has(keyInfo.code) || lastLiveKey === keyInfo.code ? "live" : "";
           const heat = Math.min((analytics.usage[primary?.id] || 0) / 10, 0.42);
           const title = mappings.length ? mappings.map(formatMappingTitle).join(" | ") : keyInfo.label;
           return `
@@ -2307,7 +2315,7 @@
     }
 
     function handleGlobalKeydown(event) {
-      const inTextField = ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName);
+      const inTextField = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName);
 
       if (el.paletteOverlay.classList.contains("open")) {
         if (event.key === "Escape") {
@@ -2333,11 +2341,13 @@
         }
       }
 
-      if (event.key === "Escape") {
+      const modalWasOpen = isModalOpen();
+      if (event.key === "Escape" && modalWasOpen) {
         closePalette();
         closeJsonModal();
         closeAboutModal();
         requestCloseShortcutEditor();
+        return;
       }
 
       if ((event.metaKey && event.key.toLowerCase() === "k") || (!inTextField && event.key === "?")) {
@@ -2352,14 +2362,137 @@
         return;
       }
 
-      const matched = findShortcutFromEvent(event);
+      if (inTextField || modalWasOpen) return;
+
+      refreshHeldModifiersFromEvent(event, true);
+      if (isModifierKeyEvent(event)) {
+        applyModifierPreview();
+        return;
+      }
+
+      const pressed = eventKey(event);
+      if (pressed === "Tab") event.preventDefault();
+      const matched = findShortcutFromEvent(event, pressed);
       if (matched) {
         flashShortcut(matched);
+        return;
+      }
+      selectPhysicalKey(pressed);
+    }
+
+    function handleGlobalKeyup(event) {
+      if (!hasModifierState(event) && !isModifierKeyEvent(event)) return;
+      refreshHeldModifiersFromEvent(event, false);
+      applyModifierPreview();
+    }
+
+    function isModalOpen() {
+      return el.jsonOverlay.classList.contains("open")
+        || el.aboutOverlay.classList.contains("open")
+        || el.editOverlay.classList.contains("open");
+    }
+
+    function isModifierKeyEvent(event) {
+      return Boolean(modifierFromEvent(event));
+    }
+
+    function hasModifierState(event) {
+      return event.shiftKey || event.ctrlKey || event.altKey || event.metaKey || Boolean(modifierFromEvent(event));
+    }
+
+    function modifierFromEvent(event) {
+      const code = event.code || "";
+      if (event.key === "Fn" || code === "Fn") return "Fn";
+      if (event.key === "Shift") return code === "ShiftRight" ? "RightShift" : "Shift";
+      if (event.key === "Control") return "Ctrl";
+      if (event.key === "Alt" || event.key === "Option") return code === "AltRight" || code === "OptionRight" ? "RightOption" : "Option";
+      if (event.key === "Meta" || event.key === "Command") return code === "MetaRight" ? "RightCmd" : "Cmd";
+      return "";
+    }
+
+    function refreshHeldModifiersFromEvent(event, includeDirectKey) {
+      const directModifier = includeDirectKey ? modifierFromEvent(event) : "";
+      const next = new Set();
+      if (event.shiftKey || directModifier === "Shift" || directModifier === "RightShift") next.add(directModifier === "RightShift" ? "RightShift" : "Shift");
+      if (event.ctrlKey || directModifier === "Ctrl") next.add("Ctrl");
+      if (event.altKey || directModifier === "Option" || directModifier === "RightOption") next.add(directModifier === "RightOption" ? "RightOption" : "Option");
+      if (event.metaKey || directModifier === "Cmd" || directModifier === "RightCmd") next.add(directModifier === "RightCmd" ? "RightCmd" : "Cmd");
+      if (directModifier === "Fn") next.add("Fn");
+      heldModifiers = next;
+      syncModifierLiveKeys();
+    }
+
+    function syncModifierLiveKeys() {
+      liveKeys = new Set([...heldModifiers].map(keyCodeForModifier).filter(Boolean));
+    }
+
+    function keyCodeForModifier(modifier) {
+      const map = {
+        Fn: "Fn",
+        Shift: "ShiftLeft",
+        RightShift: "ShiftRight",
+        Ctrl: "Control",
+        Option: "Option",
+        RightOption: "OptionRight",
+        Cmd: "Meta",
+        RightCmd: "MetaRight"
+      };
+      return map[modifier] || "";
+    }
+
+    function applyModifierPreview() {
+      const nextLayer = heldModifiers.size ? modifiersToLayer([...heldModifiers]) : "";
+      if (!nextLayer) {
+        clearModifierPreview();
+        return;
+      }
+      if (!modifierPreviewState) {
+        modifierPreviewState = { layer: activeLayer, mode: activeMode, selectedId };
+      }
+      activeMode = "keyboard";
+      activeLayer = nextLayer;
+      selectedId = null;
+      renderAll();
+    }
+
+    function clearModifierPreview() {
+      heldModifiers.clear();
+      liveKeys = new Set();
+      if (modifierPreviewState) {
+        activeLayer = modifierPreviewState.layer;
+        activeMode = modifierPreviewState.mode;
+        selectedId = modifierPreviewState.selectedId;
+        modifierPreviewState = null;
+        renderAll();
+        if (selectedId) showDetails(shortcuts.find(item => item.id === selectedId));
+        else if (activeMode === "textTrigger") showTextTriggerDetails();
+      } else {
+        renderKeyboard();
       }
     }
 
-    function findShortcutFromEvent(event) {
-      const pressed = eventKey(event);
+    function selectPhysicalKey(keyCode) {
+      if (!keyCode || isModifierPhysicalKey(keyCode)) return;
+      activeMode = "keyboard";
+      lastLiveKey = keyCode;
+      const mappings = shortcutsForLayer(activeLayer).filter(item => item.key === keyCode || item.keyLabel === keyCode);
+      const primary = choosePrimaryMapping(mappings);
+      selectedId = primary ? primary.id : null;
+      renderAll();
+      showDetails(primary, mappings, keyCode);
+      window.setTimeout(() => {
+        if (lastLiveKey === keyCode) {
+          lastLiveKey = null;
+          renderKeyboard();
+        }
+      }, 700);
+    }
+
+    function isModifierPhysicalKey(keyCode) {
+      return ["Fn", "ShiftLeft", "ShiftRight", "Control", "Option", "OptionRight", "Meta", "MetaRight"].includes(keyCode);
+    }
+
+    function findShortcutFromEvent(event, pressed = eventKey(event)) {
       return shortcuts.find(item => shortcutMatchesEvent(item, event, pressed));
     }
 
