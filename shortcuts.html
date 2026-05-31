@@ -366,6 +366,13 @@
       transition: opacity 150ms ease, filter 150ms ease, transform 150ms ease;
     }
 
+    .mod-symbol.fn {
+      min-width: 22px;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 850;
+    }
+
     .mod-symbol.on {
       opacity: 0.98;
       color: currentColor;
@@ -656,6 +663,19 @@
       line-height: 1;
     }
 
+    .key-shortcut {
+      width: 100%;
+      color: color-mix(in srgb, var(--key-color, var(--focus)) 62%, white 30%);
+      font-family: var(--mono);
+      font-size: clamp(7px, 0.95vw, 9px);
+      font-weight: 850;
+      line-height: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0.88;
+    }
+
     .key-action {
       width: 100%;
       color: rgba(255, 255, 255, 0.86);
@@ -666,6 +686,7 @@
       text-overflow: ellipsis;
     }
 
+    [data-theme="light"] .key-shortcut,
     [data-theme="light"] .key-action {
       color: rgba(20, 24, 33, 0.8);
     }
@@ -675,6 +696,7 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.36);
     }
 
+    [data-theme="light"] .key.assigned .key-shortcut,
     [data-theme="light"] .key.assigned .key-action {
       color: rgba(248, 251, 255, 0.9);
     }
@@ -2027,27 +2049,42 @@
 
       return `
         <span class="mod-glyph" aria-hidden="true">
-          ${symbols.map(item => `<span class="mod-symbol ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}
+          ${symbols.map(item => `<span class="mod-symbol ${item.kind === "fn" ? "fn" : ""} ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}
         </span>
         <span class="sr-only">${escapeHtml(layerId)}</span>
       `;
     }
 
     function modifierGlyphSymbols(mods) {
+      const prefix = mods.has("Fn") ? [{ symbol: "Fn", on: true, kind: "fn" }] : [];
       const hasRightSide = mods.has("RightCmd") || mods.has("RightOption") || mods.has("RightShift");
       if (hasRightSide) {
-        return [
+        return prefix.concat([
           { symbol: "⌘ʳ", on: mods.has("RightCmd") },
           { symbol: "⌥ʳ", on: mods.has("RightOption") },
           { symbol: "⇧ʳ", on: mods.has("RightShift") }
-        ];
+        ]);
       }
-      return [
+      return prefix.concat([
         { symbol: "⇧", on: mods.has("Shift") },
         { symbol: "⌃", on: mods.has("Ctrl") },
         { symbol: "⌥", on: mods.has("Option") },
         { symbol: "⌘", on: mods.has("Cmd") }
-      ];
+      ]);
+    }
+
+    function shortcutTokenForKey(item) {
+      const mods = layerToModifierSet(item.layer || inferLayer(item.shortcut));
+      const symbols = [];
+      if (mods.has("Fn")) symbols.push("Fn");
+      if (mods.has("Shift")) symbols.push("⇧");
+      if (mods.has("Ctrl")) symbols.push("⌃");
+      if (mods.has("Option")) symbols.push("⌥");
+      if (mods.has("Cmd")) symbols.push("⌘");
+      if (mods.has("RightCmd")) symbols.push("⌘ʳ");
+      if (mods.has("RightOption")) symbols.push("⌥ʳ");
+      if (mods.has("RightShift")) symbols.push("⇧ʳ");
+      return `${symbols.join("")}${labelForKey(item.key || inferKey(item.shortcut))}`;
     }
 
     function renderKeyboard() {
@@ -2082,6 +2119,7 @@
             <button class="key ${assigned} ${conflict} ${selected} ${searchHit} ${live}" data-key="${escapeHtml(keyInfo.code)}" style="--w:${keyInfo.w};--key-color:${color};--heat:${heat}" title="${escapeHtml(title)}">
               <span class="heat"></span>
               <span class="key-label">${escapeHtml(keyInfo.label)}</span>
+              <span class="key-shortcut">${primary ? escapeHtml(shortcutTokenForKey(primary)) : ""}</span>
               <span class="key-action">${primary ? escapeHtml(primary.action) : ""}</span>
               ${mappings.length > 1 ? `<span class="key-badge">${mappings.length}</span>` : ""}
             </button>
