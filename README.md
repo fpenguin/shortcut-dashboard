@@ -1,15 +1,16 @@
 # Shortcut Dashboard
 
-A visual command center for the keyboard shortcuts you keep forgetting. It turns your custom shortcuts into a spatial keyboard map, searchable cheat sheet, conflict checker, text-trigger notebook, and printable reference.
+Too many shortcuts and not enough memory? Shortcut Dashboard turns your personal keyboard shortcuts into a visual command center: a spatial keyboard map, searchable cheat sheet, conflict checker, text-trigger notebook, and printable reference that runs locally as plain HTML.
 
 <p align="center">
   <img src="screenshots/Shortcut%20Dashboard%20(daylight).jpeg" alt="Shortcut Dashboard light mode" width="900">
 </p>
 
-## What It Does
+## Why You’ll Want It
 
-Shortcut Dashboard helps you remember shortcuts by where they live on the keyboard, not by scrolling through a spreadsheet.
+Shortcut Dashboard helps you remember shortcuts by where they live on the keyboard, not by scrolling through a spreadsheet. It is built for people who use tools like BetterTouchTool, Raycast, Keyboard Maestro, Alfred, macOS shortcuts, app-specific shortcuts, and custom scripts.
 
+- Build a personal shortcut map you can actually remember
 - See shortcuts on a full visual keyboard
 - Switch between modifier layers like Fn, Hyper, Cmd+Ctrl+Option, and imported custom layers
 - Choose which layer groups stay visible from a compact group menu
@@ -35,19 +36,23 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 | --- | --- |
 | <img src="screenshots/Shortcut%20Conflicts.jpeg" alt="Shortcut conflict inspection" width="420"> | <img src="screenshots/Shortcut%20Print.png" alt="Printable shortcut cheat sheet" width="420"> |
 
+## Important Disclaimer
+
+Shortcut Dashboard does not automatically scan your whole computer or magically pull shortcuts from macOS, Raycast, Alfred, Keyboard Maestro, every app, or every script. You add shortcuts yourself, import a JSON backup, or use the included BetterTouchTool importer for `.bttpreset` files. The upside is simple: your data stays local, editable, portable, and understandable.
+
 ## v1.1 Polish
 
 Layer groups now have a compact Notion-style menu for showing or hiding groups, conflicts live near the category filters, and the keyboard layout better matches MacBook geography with a wider Esc key and Delete beside `=`.
 
 ## Quick Start
 
-1. Download this folder.
+1. Download the repo or use the curl commands below.
 2. Open `shortcuts.html` in your browser.
 3. Click the save icon.
-4. Choose `Open` and load `shortcuts_example.json`, or use `Import` to load your own JSON.
+4. Choose `Open` and load `shortcuts_example.json`, import your own JSON, or add shortcuts manually.
 5. Click `Save to Browser` so your shortcuts stay in this browser profile.
 
-No install step is required. The app is just HTML plus JSON.
+No install step is required. No server, account, or build tool. The app is just HTML plus JSON.
 
 ## Import BetterTouchTool
 
@@ -69,7 +74,9 @@ Everything runs locally. Your preset is not uploaded anywhere.
 
 ## Installation
 
-Download the repo and double-click `shortcuts.html`.
+Fastest path: download the repo and double-click `shortcuts.html`.
+
+Prefer terminal?
 
 ```sh
 mkdir -p ~/Keyboard\ Shortcuts && cd ~/Keyboard\ Shortcuts
@@ -89,7 +96,7 @@ Shortcut Dashboard is local-first:
 - No CDN or external assets
 - Browser storage stays inside that browser/profile
 
-Important: use `Download` in the save window to keep a portable JSON backup. If your browser profile or cache is cleared, browser-saved shortcuts can disappear.
+Important: use `Download` in the save window to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear.
 
 ## Support
 

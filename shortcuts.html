@@ -1587,6 +1587,7 @@
     const ANALYTICS_KEY = "shortcut-os-dashboard-analytics-v1";
     const OTHERS_LAYER_ID = "__others__";
     const FAVORITES_LAYER_ID = "__favorites__";
+    const TEXT_TRIGGER_LAYER_ID = "__text_trigger__";
 
     const layers = [
       { id: "Fn", label: "Fn" },
@@ -1882,7 +1883,8 @@
         const count = filteredShortcuts({ ignoreLayer: false, layerId: layer.id }).length;
         return `<button class="layer-btn ${activeMode === "keyboard" && activeLayer === layer.id ? "active" : ""}" data-layer="${escapeHtml(layer.id)}" title="${escapeHtml(layer.label)}" aria-label="${escapeHtml(layer.label)} layer, ${count} shortcuts">${layerGlyph(layer.id)} <span class="layer-count">${count}</span></button>`;
       }).join("");
-      el.layerTabs.innerHTML = `${layerButtons}<button class="mode-tab ${activeMode === "textTrigger" ? "active" : ""}" id="textTriggerTab" type="button">Text Trigger</button>`;
+      const textTriggerButton = isTextTriggerVisible() ? `<button class="mode-tab ${activeMode === "textTrigger" ? "active" : ""}" id="textTriggerTab" type="button">Text Trigger</button>` : "";
+      el.layerTabs.innerHTML = `${layerButtons}${textTriggerButton}`;
       el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
         button.addEventListener("click", () => {
           activeMode = "keyboard";
@@ -1892,12 +1894,15 @@
           showDetails(filteredShortcuts()[0] || null);
         });
       });
-      document.getElementById("textTriggerTab").addEventListener("click", () => {
-        activeMode = "textTrigger";
-        selectedId = null;
-        renderAll();
-        showTextTriggerDetails();
-      });
+      const textTriggerTab = document.getElementById("textTriggerTab");
+      if (textTriggerTab) {
+        textTriggerTab.addEventListener("click", () => {
+          activeMode = "textTrigger";
+          selectedId = null;
+          renderAll();
+          showTextTriggerDetails();
+        });
+      }
       renderLayerMenu();
     }
 
@@ -1909,6 +1914,14 @@
         .map(layer => layer.id);
       const ids = visibleLayers.length ? visibleLayers : options.slice(0, 1).map(layer => layer.id);
       return ids.map(id => ({ id, label: layerDisplayName(id) }));
+    }
+
+    function isTextTriggerVisible() {
+      return !hiddenLayerSet().has(TEXT_TRIGGER_LAYER_ID);
+    }
+
+    function getLayerMenuOptions() {
+      return getLayerOptions().concat([{ id: TEXT_TRIGGER_LAYER_ID, count: 3, label: "Text Trigger", isMode: true }]);
     }
 
     function getLayerOptions() {
@@ -1937,6 +1950,12 @@
       else hiddenLayers.delete(layerId);
       prefs.hiddenLayers = Array.from(hiddenLayers);
       safeSetStorage(PREFS_KEY, prefs);
+      if (layerId === TEXT_TRIGGER_LAYER_ID && hidden && activeMode === "textTrigger") {
+        activeMode = "keyboard";
+        const next = getLayerTabs()[0];
+        activeLayer = next ? next.id : activeLayer;
+        selectedId = null;
+      }
       if (activeMode === "keyboard" && hidden && activeLayer === layerId) {
         const next = getLayerTabs()[0];
         activeLayer = next ? next.id : activeLayer;
@@ -1945,14 +1964,14 @@
     }
 
     function renderLayerMenu() {
-      const options = getLayerOptions();
+      const options = getLayerMenuOptions();
       const hidden = hiddenLayerSet();
       el.layerMenuPanel.innerHTML = `
         <div class="layer-menu-title">Visible Groups</div>
         ${options.map(layer => `
           <label class="layer-menu-item" role="menuitemcheckbox" aria-checked="${!hidden.has(layer.id)}">
             <input type="checkbox" data-layer-toggle="${escapeHtml(layer.id)}" ${hidden.has(layer.id) ? "" : "checked"}>
-            <span class="layer-menu-name">${layerGlyph(layer.id)} ${escapeHtml(layerDisplayName(layer.id))}</span>
+            <span class="layer-menu-name">${layer.isMode ? "" : layerGlyph(layer.id)} ${escapeHtml(layer.label || layerDisplayName(layer.id))}</span>
             <span class="layer-menu-count">${layer.count}</span>
           </label>
         `).join("")}
