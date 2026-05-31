@@ -13,12 +13,15 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 - Build a personal shortcut map you can actually remember
 - See shortcuts on a full visual keyboard
 - Switch between modifier layers like Fn, Hyper, Cmd+Ctrl+Option, and imported custom layers
+- Configure macOS or Windows-style modifier key layouts
+- Carry keyboard settings and night mode in the exported JSON config
 - Choose which layer groups stay visible from a compact group menu
 - Search by app, action, category, shortcut, or note
 - Spot conflicts between active shortcuts and inspect them in one place
 - Star favorites for a focused top-level view
 - Keep freeform text-trigger notes in a three-column board
 - Import BetterTouchTool `.bttpreset` files offline
+- Merge imports by shortcut, with duplicate handling: ignore, overwrite, or save as draft
 - Export/import portable JSON backups
 - Print a clean cheat sheet
 
@@ -40,9 +43,9 @@ Shortcut Dashboard helps you remember shortcuts by where they live on the keyboa
 
 Shortcut Dashboard does not automatically scan your whole computer or magically pull shortcuts from macOS, Raycast, Alfred, Keyboard Maestro, every app, or every script. You add shortcuts yourself, import a JSON backup, or use the included BetterTouchTool importer for `.bttpreset` files. The upside is simple: your data stays local, editable, portable, and understandable.
 
-## v1.1 Polish
+## v1.3 Highlights
 
-Layer groups now have a compact Notion-style menu for showing or hiding groups, conflicts live near the category filters, and the keyboard layout better matches MacBook geography with a wider Esc key and Delete beside `=`.
+Layer groups have a compact Notion-style menu, conflicts live near the category filters, and the keyboard layout better matches MacBook geography with a wider Esc key and Delete beside `=`. v1.3 adds Windows-style modifier layout settings, stores night mode in the exported config, and includes a safer import engine that can ignore, overwrite, or save duplicate imported shortcuts as drafts.
 
 ## Quick Start
 
@@ -62,7 +65,7 @@ No install step is required. No server, account, or build tool. The app is just 
 4. Copy or download the generated JSON.
 5. Open `shortcuts.html`, click the save icon, import the JSON, then `Save to Browser`.
 
-Everything runs locally. Your preset is not uploaded anywhere.
+Everything runs locally. Your preset is not uploaded anywhere. If an imported shortcut already exists, choose whether to ignore it, overwrite the existing entry, or save it as a draft for review. Existing text trigger notes and keyboard settings are preserved unless the imported JSON explicitly includes replacements for them.
 
 ## Files
 
@@ -70,7 +73,7 @@ Everything runs locally. Your preset is not uploaded anywhere.
 - `import_shortcuts.html` - offline preset importer, currently focused on BetterTouchTool
 - `shortcuts_example.json` - safe sample data you can try or publish
 - `screenshots/` - images used in this README
-- `roadmap.md` - future ideas
+- `LICENSE` - MIT license
 
 ## Installation
 
@@ -96,7 +99,7 @@ Shortcut Dashboard is local-first:
 - No CDN or external assets
 - Browser storage stays inside that browser/profile
 
-Important: use `Download` in the save window to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear.
+Important: use `Download` in the save window to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, modifier layout settings, and night mode.
 
 ## Support
 
@@ -106,4 +109,4 @@ If Shortcut Dashboard saves you a few trips through settings, menus, or muscle-m
 
 ## License
 
-MIT is recommended before publishing.
+MIT

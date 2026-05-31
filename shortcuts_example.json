@@ -1344,5 +1344,57 @@
       ":: BTT Triggers ::\n\n`BTT-ClaudeCoworkTryAgain` : Auto-click \"Try Again\" at a set time while away/asleep.\n"
     ],
     "fontSize": 16
+  },
+  "settings": {
+    "platform": "mac",
+    "nightmode": true,
+    "modifierLayout": {
+      "left": [
+        {
+          "id": "fn",
+          "keyCode": "Fn",
+          "label": "Fn",
+          "enabled": true
+        },
+        {
+          "id": "control",
+          "keyCode": "Control",
+          "label": "Control",
+          "enabled": true
+        },
+        {
+          "id": "option",
+          "keyCode": "Option",
+          "label": "Option",
+          "enabled": true
+        },
+        {
+          "id": "command",
+          "keyCode": "Meta",
+          "label": "Command",
+          "enabled": true
+        }
+      ],
+      "right": [
+        {
+          "id": "command",
+          "keyCode": "MetaRight",
+          "label": "Command",
+          "enabled": true
+        },
+        {
+          "id": "option",
+          "keyCode": "OptionRight",
+          "label": "Option",
+          "enabled": true
+        },
+        {
+          "id": "copilot",
+          "keyCode": "Copilot",
+          "label": "Copilot",
+          "enabled": false
+        }
+      ]
+    }
   }
 }

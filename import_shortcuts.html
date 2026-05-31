@@ -472,8 +472,7 @@
           const result = parsePreset(preset);
           imported = result.shortcuts;
           lastPayload = {
-            shortcuts: imported,
-            textTrigger: { columns: ["", "", ""], fontSize: 16 }
+            shortcuts: imported
           };
           els.json.value = JSON.stringify(lastPayload, null, 2);
           renderSummary(result, file.name);
@@ -535,12 +534,14 @@
       if (parsed) {
         const action = getActionName(node) || nextParents[nextParents.length - 1] || "BTT Action";
         found.push({
-          id: node.BTTUUID ? `btt-${node.BTTUUID}` : "",
+          id: "",
           shortcut: parsed.shortcut,
           layer: parsed.layer,
           key: parsed.key,
           action,
           app: `BetterTouchTool / ${scopeName}`,
+          importSource: "BetterTouchTool",
+          importKey: `BetterTouchTool|${nextParents.join(" / ") || scopeName}|${parsed.shortcut}|${action}`,
           sourceFolder: nextParents.length ? nextParents.join(" / ") : scopeName,
           active,
           category: categorize(action, node),
@@ -844,7 +845,6 @@
       if (childActions.length) parts.push(`BTT actions: ${childActions.join(" -> ")}`);
       if (node.BTTShortcutModifierKeys !== undefined) parts.push(`BTT modifier mask: ${node.BTTShortcutModifierKeys}`);
       if (!isActiveNode(node)) parts.push("BTT status: inactive");
-      if (node.BTTUUID) parts.push(`BTT UUID: ${node.BTTUUID}`);
       return parts.join("\n");
     }
 

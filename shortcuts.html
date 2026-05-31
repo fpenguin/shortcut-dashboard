@@ -765,6 +765,109 @@
       background: rgba(255, 92, 122, 0.11);
     }
 
+
+    .import-options {
+      display: grid;
+      grid-template-columns: auto minmax(220px, 1fr);
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .settings-card {
+      max-width: 780px;
+    }
+
+    .settings-section {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .settings-section h3,
+    .settings-section h4 {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .segmented {
+      display: inline-grid;
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .segment-btn {
+      min-height: 38px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .segment-btn.active {
+      color: var(--text);
+      background: rgba(103, 232, 203, 0.16);
+      box-shadow: inset 0 0 0 1px rgba(103, 232, 203, 0.45);
+    }
+
+    .modifier-layout-editor {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .modifier-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .modifier-row {
+      display: grid;
+      grid-template-columns: 24px 22px minmax(0, 1fr);
+      gap: 8px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .modifier-row.dragging {
+      opacity: 0.55;
+    }
+
+    .drag-handle {
+      color: var(--muted);
+      cursor: grab;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .modifier-row input[type="text"] {
+      min-width: 0;
+      height: 34px;
+      padding: 0 9px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .modifier-layout-editor,
+      .import-options {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .side-panel {
       position: sticky;
       top: 88px;
@@ -847,6 +950,25 @@
     .mapping-card.conflict-card {
       border-color: rgba(255, 92, 122, 0.58);
       background: rgba(255, 92, 122, 0.08);
+    }
+
+    .mapping-card-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+
+    .mapping-card-action {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+    }
+
+    .mapping-card-action.danger:hover {
+      border-color: rgba(255, 92, 122, 0.72);
+      color: var(--danger);
+      background: rgba(255, 92, 122, 0.12);
     }
 
     .mapping-top {
@@ -1242,18 +1364,25 @@
     }
 
     .editor-actions {
-      display: grid;
-      grid-template-columns: auto auto 1fr auto;
+      display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 12px;
     }
 
-    .editor-actions button {
-      justify-self: start;
+    .editor-action-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .editor-action-group.right {
+      justify-content: flex-end;
+      margin-left: auto;
     }
 
     .editor-actions #saveShortcutButton {
-      justify-self: end;
       min-width: 118px;
     }
 
@@ -1414,7 +1543,7 @@
         <button class="pill-btn" id="paletteButton" title="Open command palette">Cmd+K</button>
         <div class="utility-group">
           <button class="icon-btn icon-only" id="addButton" title="Add shortcut" aria-label="Add shortcut" data-icon="plus"></button>
-          <button class="icon-btn icon-only toggle-btn" id="compactButton" title="Toggle compact mode" aria-label="Toggle compact mode" aria-pressed="false" data-icon="minimize"></button>
+          <button class="icon-btn icon-only" id="settingsButton" title="Settings" aria-label="Settings" data-icon="settings"></button>
           <button class="icon-btn icon-only toggle-btn" id="themeButton" title="Toggle theme" aria-label="Toggle theme" aria-pressed="false" data-icon="moon"></button>
           <button class="icon-btn icon-only" id="importExportButton" title="Save shortcuts" aria-label="Save shortcuts" data-icon="save"></button>
           <button class="icon-btn icon-only" id="printButton" title="Print cheat sheet" aria-label="Print cheat sheet" data-icon="print"></button>
@@ -1481,6 +1610,14 @@
         <h2>Shortcut Data</h2>
       </div>
       <textarea class="json-area" id="jsonArea" spellcheck="false" placeholder="Paste shortcuts JSON here, then choose Save to Browser."></textarea>
+      <div class="import-options" aria-label="Import behavior">
+        <label for="duplicateMode">Duplicate shortcuts</label>
+        <select id="duplicateMode">
+          <option value="ignore">Ignore imported duplicate</option>
+          <option value="overwrite">Overwrite existing shortcut</option>
+          <option value="draft">Save imported duplicate as draft</option>
+        </select>
+      </div>
       <p class="modal-note" id="jsonFileStatus">Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.</p>
       <input id="jsonFileInput" type="file" accept="application/json,.json" hidden>
       <div class="modal-actions simple-actions">
@@ -1497,6 +1634,39 @@
     </div>
   </div>
 
+  <div class="overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-label="Settings">
+    <div class="modal-card settings-card">
+      <div class="modal-head">
+        <h2>Settings</h2>
+      </div>
+      <div class="settings-section">
+        <h3>Keyboard Platform</h3>
+        <div class="segmented" role="group" aria-label="Keyboard platform">
+          <button class="segment-btn" id="platformMac" type="button" data-platform="mac">macOS</button>
+          <button class="segment-btn" id="platformPc" type="button" data-platform="pc">Windows PC</button>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3>Modifier Layout</h3>
+        <p class="modal-note">Drag rows to reorder. Checkbox controls whether a modifier key appears on the keyboard. Renaming a left modifier updates the matching right-side label.</p>
+        <div class="modifier-layout-editor">
+          <div>
+            <h4>Left</h4>
+            <div class="modifier-list" id="leftModifierList"></div>
+          </div>
+          <div>
+            <h4>Right</h4>
+            <div class="modifier-list" id="rightModifierList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions simple-actions">
+        <div><button class="pill-btn" id="closeSettingsButton">Close</button></div>
+        <div><button class="pill-btn" id="saveSettingsButton">Save</button></div>
+      </div>
+    </div>
+  </div>
+
   <div class="overlay" id="aboutOverlay" role="dialog" aria-modal="true" aria-label="About Shortcut Dashboard">
     <div class="modal-card">
       <div class="modal-head">
@@ -1505,8 +1675,8 @@
       <div class="about-body">
         <div>
           <p>A local-first shortcut dashboard for keyboard geography, text triggers, and command memory. It runs as plain offline HTML with browser-saved JSON, no build step, no backend, and no external dependencies.</p>
-          <p>Future GitHub link:</p>
-          <a class="about-link" href="https://github.com/yourname/shortcut-dashboard" target="_blank" rel="noreferrer">github.com/yourname/shortcut-dashboard</a>
+          <p>GitHub link:</p>
+          <a class="about-link" href="https://github.com/fpenguin/shortcut-dashboard" target="_blank" rel="noreferrer">github.com/fpenguin/shortcut-dashboard</a>
           <p style="margin-top:18px">Support the developer - URL link:</p>
           <a class="about-link" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">https://dhahn.gumroad.com/coffee</a>
         </div>
@@ -1536,14 +1706,14 @@
         <div class="field full">
           <label>Modifier</label>
           <div class="modifier-grid" id="modifierGrid">
-            <label class="modifier-check"><input type="checkbox" data-modifier="Fn">Fn</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="Shift">Shift</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="Ctrl">Control</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="Option">Option</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="Cmd">Command</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="RightShift">Right Shift</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="RightCmd">Right Command</label>
-            <label class="modifier-check"><input type="checkbox" data-modifier="RightOption">Right Option</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Fn"><span class="modifier-label-text">Fn</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Shift"><span class="modifier-label-text">Shift</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Ctrl"><span class="modifier-label-text">Control</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Option"><span class="modifier-label-text">Option</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Cmd"><span class="modifier-label-text">Command</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightShift"><span class="modifier-label-text">Right Shift</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightCmd"><span class="modifier-label-text">Right Command</span></label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightOption"><span class="modifier-label-text">Right Option</span></label>
           </div>
         </div>
         <div class="field">
@@ -1556,7 +1726,7 @@
         </div>
         <div class="field">
           <label for="editApp">App / Source</label>
-          <input id="editApp" placeholder="BetterTouchTool">
+          <input id="editApp" placeholder="">
         </div>
         <div class="field">
           <label for="editCategory">Category</label>
@@ -1574,10 +1744,14 @@
         </div>
         <div class="form-error" id="shortcutFormError"></div>
         <div class="modal-actions editor-actions field full">
-          <button class="pill-btn" type="button" id="closeEditButton">Close</button>
-          <button class="pill-btn" type="button" id="deleteShortcutButton">Delete</button>
-          <span></span>
-          <button class="pill-btn" type="submit" id="saveShortcutButton">Save</button>
+          <div class="editor-action-group left">
+            <button class="pill-btn" type="button" id="closeEditButton">Close</button>
+            <button class="pill-btn" type="button" id="deleteShortcutButton">Delete</button>
+          </div>
+          <div class="editor-action-group right">
+            <button class="pill-btn" type="button" id="saveDuplicateButton">Save and Duplicate</button>
+            <button class="pill-btn" type="submit" id="saveShortcutButton">Save</button>
+          </div>
         </div>
       </form>
     </div>
@@ -1590,11 +1764,14 @@
 
     const STORAGE_KEY = "shortcut-os-dashboard-data-v1";
     const TEXT_TRIGGER_KEY = "shortcut-dashboard-text-trigger-v1";
+    const SETTINGS_KEY = "shortcut-dashboard-settings-v1";
+    const DRAFTS_KEY = "shortcut-dashboard-drafts-v1";
     const PREFS_KEY = "shortcut-os-dashboard-prefs-v1";
     const ANALYTICS_KEY = "shortcut-os-dashboard-analytics-v1";
     const OTHERS_LAYER_ID = "__others__";
     const FAVORITES_LAYER_ID = "__favorites__";
     const TEXT_TRIGGER_LAYER_ID = "__text_trigger__";
+    const DRAFTS_LAYER_ID = "__drafts__";
 
     const layers = [
       { id: "Fn", label: "Fn" },
@@ -1644,6 +1821,41 @@
 
     const shortcutCategoryNames = Object.keys(categoryColors);
 
+    const defaultSettings = {
+      platform: "mac",
+      nightmode: true,
+      modifierLayout: {
+        left: [
+          { id: "fn", keyCode: "Fn", label: "Fn", enabled: true },
+          { id: "control", keyCode: "Control", label: "Control", enabled: true },
+          { id: "option", keyCode: "Option", label: "Option", enabled: true },
+          { id: "command", keyCode: "Meta", label: "Command", enabled: true }
+        ],
+        right: [
+          { id: "command", keyCode: "MetaRight", label: "Command", enabled: true },
+          { id: "option", keyCode: "OptionRight", label: "Option", enabled: true },
+          { id: "copilot", keyCode: "Copilot", label: "Copilot", enabled: false }
+        ]
+      }
+    };
+
+    const platformPresets = {
+      mac: defaultSettings.modifierLayout,
+      pc: {
+        left: [
+          { id: "control", keyCode: "Control", label: "Control", enabled: true },
+          { id: "command", keyCode: "Meta", label: "Windows", enabled: true },
+          { id: "option", keyCode: "Option", label: "Alt", enabled: true },
+          { id: "fn", keyCode: "Fn", label: "Fn", enabled: false }
+        ],
+        right: [
+          { id: "option", keyCode: "OptionRight", label: "Alt", enabled: true },
+          { id: "command", keyCode: "MetaRight", label: "Windows", enabled: true },
+          { id: "copilot", keyCode: "Copilot", label: "Copilot", enabled: true }
+        ]
+      }
+    };
+
     let shortcuts = [
       { id: "win-left", layer: "Hyper", key: "ArrowLeft", keyLabel: "Left", shortcut: "Hyper+Left", action: "Left Half", app: "BetterTouchTool", category: "Window Management", notes: "Snap the active window to the left half of the current display.", mnemonic: "Arrow points where the window lands.", favorite: true },
       { id: "win-right", layer: "Hyper", key: "ArrowRight", keyLabel: "Right", shortcut: "Hyper+Right", action: "Right Half", app: "BetterTouchTool", category: "Window Management", notes: "Snap the active window to the right half of the current display.", mnemonic: "Arrow points where the window lands.", favorite: true },
@@ -1690,28 +1902,27 @@
 
     const sampleShortcuts = structuredClone(shortcuts);
 
-    const keyboardRows = [
-      [
-        key("Escape", "Esc", 1.6), key("F1"), key("F2"), key("F3"), key("F4"), key("F5"), key("F6"),
-        key("F7"), key("F8"), key("F9"), key("F10"), key("F11"), key("F12")
-      ],
-      [
-        key("`", "`"), key("1"), key("2"), key("3"), key("4"), key("5"), key("6"), key("7"), key("8"), key("9"), key("0"), key("-", "-"), key("=", "="), key("Backspace", "Delete", 1.6)
-      ],
-      [
-        key("Tab", "Tab", 1.45), key("Q"), key("W"), key("E"), key("R"), key("T"), key("Y"), key("U"), key("I"), key("O"), key("P"), key("[", "["), key("]", "]"), key("\\", "\\", 1.2)
-      ],
-      [
-        key("CapsLock", "Caps", 1.75), key("A"), key("S"), key("D"), key("F"), key("G"), key("H"), key("J"), key("K"), key("L"), key(";", ";"), key("'", "'"), key("Enter", "Return", 1.8)
-      ],
-      [
-        key("ShiftLeft", "Shift", 2.15), key("Z"), key("X"), key("C"), key("V"), key("B"), key("N"), key("M"), key(",", ","), key(".", "."), key("/", "/"), key("ShiftRight", "Shift", 2.15)
-      ],
-      [
-        key("Fn", "fn", 1), key("Control", "ctrl", 1.1), key("Option", "opt", 1.1), key("Meta", "cmd", 1.15), key("Space", "Space", 5.6), key("MetaRight", "cmd", 1.15), key("OptionRight", "opt", 1.1),
-        key("ArrowLeft", "Left"), key("ArrowUp", "Up"), key("ArrowDown", "Down"), key("ArrowRight", "Right")
-      ]
-    ];
+    function keyboardRows() {
+      return [
+        [
+          key("Escape", "Esc", 1.6), key("F1"), key("F2"), key("F3"), key("F4"), key("F5"), key("F6"),
+          key("F7"), key("F8"), key("F9"), key("F10"), key("F11"), key("F12")
+        ],
+        [
+          key("`", "`"), key("1"), key("2"), key("3"), key("4"), key("5"), key("6"), key("7"), key("8"), key("9"), key("0"), key("-", "-"), key("=", "="), key("Backspace", "Delete", 1.6)
+        ],
+        [
+          key("Tab", "Tab", 1.45), key("Q"), key("W"), key("E"), key("R"), key("T"), key("Y"), key("U"), key("I"), key("O"), key("P"), key("[", "["), key("]", "]"), key("\\", "\\", 1.2)
+        ],
+        [
+          key("CapsLock", "Caps", 1.75), key("A"), key("S"), key("D"), key("F"), key("G"), key("H"), key("J"), key("K"), key("L"), key(";", ";"), key("'", "'"), key("Enter", "Return", 1.8)
+        ],
+        [
+          key("ShiftLeft", "Shift", 2.15), key("Z"), key("X"), key("C"), key("V"), key("B"), key("N"), key("M"), key(",", ","), key(".", "."), key("/", "/"), key("ShiftRight", "Shift", 2.15)
+        ],
+        modifierKeyboardRow()
+      ];
+    }
 
     let activeLayer = "Hyper";
     let activeCategory = "All";
@@ -1725,7 +1936,9 @@
     let loadedSourceName = "sample data";
     let editorInitialSnapshot = "";
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
-    let prefs = readJson(PREFS_KEY, { theme: "dark", compact: false, hiddenLayers: [] });
+    let settings = normalizeSettings(readJson(SETTINGS_KEY, defaultSettings));
+    let drafts = normalizeShortcuts(readJson(DRAFTS_KEY, []));
+    let prefs = readJson(PREFS_KEY, { theme: "dark", hiddenLayers: [] });
     let analytics = readJson(ANALYTICS_KEY, { usage: {}, recent: [] });
 
     const el = {
@@ -1752,6 +1965,10 @@
       paletteResults: document.getElementById("paletteResults"),
       jsonOverlay: document.getElementById("jsonOverlay"),
       aboutOverlay: document.getElementById("aboutOverlay"),
+      settingsOverlay: document.getElementById("settingsOverlay"),
+      leftModifierList: document.getElementById("leftModifierList"),
+      rightModifierList: document.getElementById("rightModifierList"),
+      duplicateMode: document.getElementById("duplicateMode"),
       jsonArea: document.getElementById("jsonArea"),
       jsonFileInput: document.getElementById("jsonFileInput"),
       jsonFileStatus: document.getElementById("jsonFileStatus"),
@@ -1770,8 +1987,13 @@
       if (storedData && !Array.isArray(storedData) && Array.isArray(storedData.shortcuts)) {
         shortcuts = normalizeShortcuts(storedData.shortcuts);
         textTrigger = normalizeTextTrigger(storedData.textTrigger || storedData.alfred || textTrigger);
+        settings = normalizeSettings(storedData.settings || settings);
+        if (storedData.settings) prefs.theme = settings.nightmode ? "dark" : "light";
+        drafts = normalizeShortcuts(storedData.drafts || drafts);
         persistShortcuts();
         persistTextTrigger();
+        persistSettings();
+        persistDrafts();
       } else {
         shortcuts = normalizeShortcuts(storedData);
         textTrigger = normalizeTextTrigger(textTrigger);
@@ -1786,6 +2008,25 @@
 
     function key(code, label = code, w = 1) {
       return { code, label, w };
+    }
+
+    function modifierKeyboardRow() {
+      const left = settings.modifierLayout.left
+        .filter(item => item.enabled)
+        .map(item => key(item.keyCode, modifierKeyLabel(item), modifierKeyWidth(item.keyCode)));
+      const right = settings.modifierLayout.right
+        .filter(item => item.enabled)
+        .map(item => key(item.keyCode, modifierKeyLabel(item), modifierKeyWidth(item.keyCode)));
+      return [...left, key("Space", "Space", 5.6), ...right, key("ArrowLeft", "Left"), key("ArrowUp", "Up"), key("ArrowDown", "Down"), key("ArrowRight", "Right")];
+    }
+
+    function modifierKeyLabel(item) {
+      const label = item.label || item.id || item.keyCode;
+      return label.toLowerCase() === "control" ? "ctrl" : label.toLowerCase() === "command" ? "cmd" : label.toLowerCase() === "option" ? "opt" : label;
+    }
+
+    function modifierKeyWidth(keyCode) {
+      return keyCode === "Fn" ? 1 : 1.15;
     }
 
     function renderStaticIcons() {
@@ -1805,8 +2046,11 @@
         info: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
         sliders: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"/><path d="M2 14h4M10 8h4M18 16h4"/></svg>',
         more: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2.1"/><circle cx="12" cy="12" r="2.1"/><circle cx="19" cy="12" r="2.1"/></svg>',
+        settings: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.51 1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.36.56.94.96 1.6 1h.09a2 2 0 1 1 0 4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>',
         star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>',
-        "star-filled": '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="filled" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>'
+        "star-filled": '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="filled" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>',
+        edit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
+        trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>'
       };
       return icons[name] || "";
     }
@@ -1816,7 +2060,7 @@
       document.getElementById("paletteButton").addEventListener("click", openPalette);
       document.getElementById("addButton").addEventListener("click", () => openShortcutEditor());
       document.getElementById("themeButton").addEventListener("click", toggleTheme);
-      document.getElementById("compactButton").addEventListener("click", toggleCompact);
+      document.getElementById("settingsButton").addEventListener("click", openSettingsModal);
       document.getElementById("importExportButton").addEventListener("click", openJsonModal);
       document.getElementById("printButton").addEventListener("click", () => { renderPrintSheet(); window.print(); });
       document.getElementById("aboutButton").addEventListener("click", openAboutModal);
@@ -1828,11 +2072,16 @@
       el.conflictButton.addEventListener("click", showConflictDetails);
       document.getElementById("closeJsonButton").addEventListener("click", closeJsonModal);
       document.getElementById("closeAboutButton").addEventListener("click", closeAboutModal);
+      document.getElementById("closeSettingsButton").addEventListener("click", closeSettingsModal);
+      document.getElementById("saveSettingsButton").addEventListener("click", saveSettingsFromModal);
+      document.getElementById("platformMac").addEventListener("click", () => setSettingsPlatform("mac"));
+      document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
       document.getElementById("openJsonFileButton").addEventListener("click", openJsonFile);
       document.getElementById("exportJsonButton").addEventListener("click", downloadJson);
       document.getElementById("saveJsonFileButton").addEventListener("click", saveJsonFile);
       document.getElementById("closeEditButton").addEventListener("click", requestCloseShortcutEditor);
       document.getElementById("deleteShortcutButton").addEventListener("click", deleteCurrentShortcut);
+      document.getElementById("saveDuplicateButton").addEventListener("click", saveAndDuplicateShortcut);
       document.getElementById("editFavoriteToggle").addEventListener("click", () => {
         setFavoriteValue(document.getElementById("editFavorite").value !== "true");
       });
@@ -1866,6 +2115,9 @@
       el.aboutOverlay.addEventListener("click", event => {
         if (event.target === el.aboutOverlay) event.stopPropagation();
       });
+      el.settingsOverlay.addEventListener("click", event => {
+        if (event.target === el.settingsOverlay) event.stopPropagation();
+      });
       el.editOverlay.addEventListener("click", event => {
         if (event.target === el.editOverlay) event.stopPropagation();
       });
@@ -1883,7 +2135,7 @@
       renderCategories();
       renderStats();
       renderPrintSheet();
-      if (selectedId) showDetails(shortcuts.find(item => item.id === selectedId));
+      if (selectedId) showDetails(findShortcutById(selectedId));
     }
 
     function renderLayers() {
@@ -1947,11 +2199,14 @@
         .map(id => ({ id, count: layerTotalCount(id) }))
         .filter(layer => layer.count > 0);
       const favoriteCount = layerTotalCount(FAVORITES_LAYER_ID);
+      const draftCount = drafts.length;
       if (favoriteCount > 0) layers.push({ id: FAVORITES_LAYER_ID, count: favoriteCount });
+      if (draftCount > 0) layers.push({ id: DRAFTS_LAYER_ID, count: draftCount });
       return layers.sort(compareLayerTabs);
     }
 
     function layerTotalCount(layerId) {
+      if (layerId === DRAFTS_LAYER_ID) return drafts.length;
       return shortcuts.filter(item => item.active !== false && layerMatches(item.layer, layerId, item)).length;
     }
 
@@ -2015,6 +2270,8 @@
     }
 
     function layerSortIndex(id) {
+      if (id === DRAFTS_LAYER_ID) return -2;
+      if (id === FAVORITES_LAYER_ID) return -1;
       const index = layerOrder.indexOf(id);
       return index === -1 ? 100 : index;
     }
@@ -2027,6 +2284,7 @@
 
     function layerGlyph(layerId) {
       if (layerId === FAVORITES_LAYER_ID) return `<span class="fn-glyph">★ Favorite</span>`;
+      if (layerId === DRAFTS_LAYER_ID) return `<span class="fn-glyph">Drafts</span>`;
       if (layerId === OTHERS_LAYER_ID) return `<span class="fn-glyph">Others</span>`;
       if (layerId === "Fn") return `<span class="fn-glyph">Fn</span>`;
       const mods = layerToModifierSet(layerId);
@@ -2074,7 +2332,7 @@
         shortcutMap.set(item.key, list);
       });
 
-      el.keyboard.innerHTML = keyboardRows.map(row => {
+      el.keyboard.innerHTML = keyboardRows().map(row => {
         const keysHtml = row.map(keyInfo => {
           const mappings = shortcutMap.get(keyInfo.code) || [];
           const primary = choosePrimaryMapping(mappings);
@@ -2138,7 +2396,7 @@
 
     function renderStats() {
       const conflicts = conflictGroups();
-      const count = conflicts.length;
+      const count = conflictEntryCount(conflicts);
       el.conflictButtonText.textContent = count === 1 ? "1 conflict" : `${count} conflicts`;
       el.conflictButton.classList.toggle("has-conflicts", count > 0);
     }
@@ -2147,11 +2405,12 @@
       activeMode = "keyboard";
       selectedId = null;
       const groups = conflictGroups();
+      const conflictCount = conflictEntryCount(groups);
       el.detailPanel.innerHTML = `
         <div class="panel-header">
           <div>
             <div class="panel-kicker">Conflict Check</div>
-            <h2 class="panel-title">${groups.length ? `${groups.length} ${groups.length === 1 ? "Conflict" : "Conflicts"}` : "No Conflicts"}</h2>
+            <h2 class="panel-title">${conflictCount ? `${conflictCount} ${conflictCount === 1 ? "Conflict" : "Conflicts"}` : "No Conflicts"}</h2>
           </div>
         </div>
         <div class="section">
@@ -2164,6 +2423,7 @@
           </div>
         `).join("")}
       `;
+      bindMappingCardActions({ view: "conflicts" });
       renderKeyboard();
     }
 
@@ -2264,10 +2524,16 @@
         renderAll();
       });
       document.getElementById("editShortcutButton").addEventListener("click", () => openShortcutEditor(shortcut));
+      bindMappingCardActions({ view: "details" });
       renderKeyboard();
     }
 
     function mappingCard(item, isConflict) {
+      const actions = isConflict ? `
+        <div class="mapping-card-actions">
+          <button class="icon-btn icon-only mapping-card-action" type="button" data-conflict-edit="${escapeHtml(item.id)}" title="Edit ${escapeHtml(item.action)}" aria-label="Edit ${escapeHtml(item.action)}">${iconSvg("edit")}</button>
+          <button class="icon-btn icon-only mapping-card-action danger" type="button" data-conflict-delete="${escapeHtml(item.id)}" title="Remove ${escapeHtml(item.action)}" aria-label="Remove ${escapeHtml(item.action)}">${iconSvg("trash")}</button>
+        </div>` : `<span class="shortcut-token">${escapeHtml(item.shortcut)}</span>`;
       return `
         <div class="mapping-card ${isConflict ? "conflict-card" : ""}">
           <div class="mapping-top">
@@ -2275,11 +2541,45 @@
               <div class="mapping-action">${escapeHtml(item.action)}</div>
               <div class="mapping-source">${escapeHtml(item.app)} - ${escapeHtml(item.category)}</div>
             </div>
-            <span class="shortcut-token">${escapeHtml(item.shortcut)}</span>
+            ${actions}
           </div>
           <div class="mapping-source">${escapeHtml(item.mnemonic || "")}</div>
+          ${isConflict ? `<span class="shortcut-token">${escapeHtml(item.shortcut)}</span>` : ""}
         </div>
       `;
+    }
+    function bindMappingCardActions(context = {}) {
+      el.detailPanel.querySelectorAll("[data-conflict-edit]").forEach(button => {
+        button.addEventListener("click", () => {
+          const item = findShortcutById(button.dataset.conflictEdit);
+          if (item) openShortcutEditor(item);
+        });
+      });
+
+      el.detailPanel.querySelectorAll("[data-conflict-delete]").forEach(button => {
+        button.addEventListener("click", () => {
+          const item = shortcuts.find(shortcut => shortcut.id === button.dataset.conflictDelete);
+          if (!item) return;
+          if (!confirm(`Remove "${item.action}"? This cannot be undone.`)) return;
+          const deletedKey = item.key;
+          shortcuts = shortcuts.filter(shortcut => shortcut.id !== item.id);
+          analytics.recent = analytics.recent.filter(recentId => recentId !== item.id);
+          delete analytics.usage[item.id];
+          persistShortcuts();
+          safeSetStorage(ANALYTICS_KEY, analytics);
+          if (selectedId === item.id) selectedId = null;
+          renderAll();
+          if (context.view === "conflicts") {
+            showConflictDetails();
+          } else {
+            const sameMappings = shortcutsForLayer(activeLayer).filter(shortcut => shortcut.key === deletedKey);
+            const next = sameMappings[0] || (selectedId ? findShortcutById(selectedId) : null) || filteredShortcuts()[0] || shortcuts[0] || null;
+            showDetails(next, sameMappings.length ? sameMappings : undefined, deletedKey);
+          }
+          renderStats();
+          toast(`Removed ${item.action}.`);
+        });
+      });
     }
 
     function openPalette() {
@@ -2355,6 +2655,7 @@
         closePalette();
         closeJsonModal();
         closeAboutModal();
+        closeSettingsModal();
         requestCloseShortcutEditor();
         return;
       }
@@ -2404,6 +2705,7 @@
     function isModalOpen() {
       return el.jsonOverlay.classList.contains("open")
         || el.aboutOverlay.classList.contains("open")
+        || el.settingsOverlay.classList.contains("open")
         || el.editOverlay.classList.contains("open");
     }
 
@@ -2496,7 +2798,7 @@
         selectedId = modifierPreviewState.selectedId;
         modifierPreviewState = null;
         renderAll();
-        if (selectedId) showDetails(shortcuts.find(item => item.id === selectedId));
+        if (selectedId) showDetails(findShortcutById(selectedId));
         else if (activeMode === "textTrigger") showTextTriggerDetails();
       } else {
         renderKeyboard();
@@ -2576,6 +2878,7 @@
     }
 
     function openShortcutEditor(shortcut = null, preset = {}) {
+      renderModifierGridLabels();
       const item = shortcut || {
         id: "",
         layer: preset.layer || activeLayer,
@@ -2607,6 +2910,7 @@
       setFormValue("editMnemonic", item.mnemonic);
       setFavoriteValue(Boolean(item.favorite));
       document.getElementById("deleteShortcutButton").style.display = shortcut ? "inline-flex" : "none";
+      el.editOverlay.dataset.duplicateDraft = "false";
       el.editOverlay.classList.add("open");
       editorInitialSnapshot = getEditorSnapshot();
       requestAnimationFrame(() => document.getElementById("editAction").focus());
@@ -2621,44 +2925,19 @@
     function closeShortcutEditor() {
       el.editOverlay.classList.remove("open");
       editorInitialSnapshot = "";
+      el.editOverlay.dataset.duplicateDraft = "false";
     }
 
     function saveShortcutFromForm(event) {
       event.preventDefault();
       try {
-        clearFormError();
-        const existingId = document.getElementById("editId").value;
-        const actionValue = document.getElementById("editAction").value.trim();
-        const parsedEditorShortcut = derivedShortcutFromForm();
-        const layerValue = parsedEditorShortcut.layerValue;
-        const keyValue = parsedEditorShortcut.keyValue;
-        const normalizedShortcut = parsedEditorShortcut.shortcutValue;
-        const next = {
-          id: existingId || makeShortcutId(normalizedShortcut, actionValue),
-          layer: layerValue,
-          key: keyValue,
-          keyLabel: labelForKey(keyValue),
-          shortcut: normalizedShortcut,
-          action: actionValue,
-          app: document.getElementById("editApp").value.trim() || "Custom",
-          category: document.getElementById("editCategory").value || "Contextual",
-          notes: document.getElementById("editNotes").value.trim(),
-          mnemonic: document.getElementById("editMnemonic").value.trim(),
-          favorite: document.getElementById("editFavorite").value === "true",
-          aliases: []
-        };
-
-        if (!next.layer) throw new Error("Choose at least one modifier.");
-        if (!next.shortcut) throw new Error("Shortcut is required when no key is specified.");
-        if (!next.action) throw new Error("Action is required.");
-
-        const index = shortcuts.findIndex(item => item.id === existingId);
-        if (index >= 0) shortcuts[index] = next;
-        else shortcuts.push(next);
-        activeMode = "keyboard";
-        activeLayer = isOtherLayer(next.layer) ? OTHERS_LAYER_ID : next.layer;
+        const previousLayer = activeLayer;
+        const previousMode = activeMode;
+        const requireUnique = el.editOverlay.dataset.duplicateDraft === "true";
+        const { next, index } = saveEditorShortcut({ requireUnique });
+        activeMode = previousMode;
+        activeLayer = previousLayer;
         selectedId = next.id;
-        persistShortcuts();
         closeShortcutEditor();
         renderAll();
         showDetails(next);
@@ -2668,17 +2947,88 @@
       }
     }
 
+    function saveAndDuplicateShortcut() {
+      try {
+        const requireUnique = el.editOverlay.dataset.duplicateDraft === "true";
+        const { next, index } = saveEditorShortcut({ requireUnique });
+        toast(`${next.action} saved.`);
+        const copyName = next.action.endsWith(" (Copy)") ? next.action : `${next.action} (Copy)`;
+        const copyId = makeShortcutId(next.shortcut, copyName);
+        setFormValue("editId", copyId);
+        setFormValue("editAction", copyName);
+        document.getElementById("deleteShortcutButton").style.display = "none";
+        el.editOverlay.dataset.duplicateDraft = "true";
+        editorInitialSnapshot = getEditorSnapshot();
+        clearFormError();
+        selectedId = next.id;
+        renderAll();
+        showDetails(next);
+      } catch (error) {
+        showFormError(error.message || "Could not save this shortcut.");
+      }
+    }
+
+    function saveEditorShortcut({ requireUnique }) {
+      clearFormError();
+      const existingId = document.getElementById("editId").value;
+      const actionValue = document.getElementById("editAction").value.trim();
+      const parsedEditorShortcut = derivedShortcutFromForm();
+      const layerValue = parsedEditorShortcut.layerValue;
+      const keyValue = parsedEditorShortcut.keyValue;
+      const normalizedShortcut = parsedEditorShortcut.shortcutValue;
+      const next = {
+        id: existingId || makeShortcutId(normalizedShortcut, actionValue),
+        layer: layerValue,
+        key: keyValue,
+        keyLabel: labelForKey(keyValue),
+        shortcut: normalizedShortcut,
+        action: actionValue,
+        app: document.getElementById("editApp").value.trim() || "Custom",
+        category: document.getElementById("editCategory").value || "Contextual",
+        notes: document.getElementById("editNotes").value.trim(),
+        mnemonic: document.getElementById("editMnemonic").value.trim(),
+        favorite: document.getElementById("editFavorite").value === "true",
+        aliases: []
+      };
+
+      validateShortcutForSave(next, existingId, requireUnique);
+      const index = shortcuts.findIndex(item => item.id === existingId);
+      const draftIndex = drafts.findIndex(item => item.id === existingId);
+      if (index >= 0) shortcuts[index] = next;
+      else {
+        if (draftIndex >= 0) drafts.splice(draftIndex, 1);
+        // Preserve the existing ID when promoting a draft; generate a fresh one only for brand-new shortcuts.
+        if (!next.id) next.id = makeShortcutId(next.shortcut, next.action);
+        shortcuts.push(next);
+      }
+      persistShortcuts();
+      persistDrafts();
+      return { next, index };
+    }
+
+    function validateShortcutForSave(next, existingId, requireUnique) {
+      if (!next.layer) throw new Error("Choose at least one modifier.");
+      if (!next.shortcut) throw new Error("Shortcut is required when no key is specified.");
+      if (!next.action) throw new Error("Action is required.");
+      const overlap = shortcuts.find(item => item.id !== existingId && item.active !== false && item.layer === next.layer && item.key === next.key);
+      if (requireUnique && overlap) {
+        throw new Error(`Shortcut overlaps with "${overlap.action}" (${overlap.shortcut}). Change the key before duplicating.`);
+      }
+    }
+
     function deleteCurrentShortcut() {
       const id = document.getElementById("editId").value;
       if (!id) return;
-      const item = shortcuts.find(shortcut => shortcut.id === id);
+      const item = shortcuts.find(shortcut => shortcut.id === id) || drafts.find(shortcut => shortcut.id === id);
       if (!item) return;
       if (!confirm(`Delete "${item.action}"? This cannot be undone.`)) return;
       shortcuts = shortcuts.filter(shortcut => shortcut.id !== id);
+      drafts = drafts.filter(shortcut => shortcut.id !== id);
       analytics.recent = analytics.recent.filter(recentId => recentId !== id);
       delete analytics.usage[id];
       safeSetStorage(ANALYTICS_KEY, analytics);
       persistShortcuts();
+      persistDrafts();
       closeShortcutEditor();
       selectedId = null;
       renderAll();
@@ -2820,13 +3170,14 @@
     function layerDisplayName(layerValue) {
       if (!layerValue) return "No Layer";
       if (layerValue === FAVORITES_LAYER_ID) return "Favorite";
+      if (layerValue === DRAFTS_LAYER_ID) return "Drafts";
       if (layerValue === OTHERS_LAYER_ID) return "Others";
       return layerValue.split("+").map(part => modifierLabels[part] || part).join("+");
     }
 
     function shortcutLayerName(layerValue) {
       if (!layerValue) return "";
-      if (layerValue === FAVORITES_LAYER_ID || layerValue === OTHERS_LAYER_ID) return "";
+      if (layerValue === FAVORITES_LAYER_ID || layerValue === OTHERS_LAYER_ID || layerValue === DRAFTS_LAYER_ID) return "";
       if (layerValue === "Hyper") return "Hyper";
       const labels = {
         Fn: "Fn",
@@ -2882,6 +3233,116 @@
       return "";
     }
 
+    function openSettingsModal() {
+      renderSettingsModal();
+      el.settingsOverlay.classList.add("open");
+    }
+
+    function closeSettingsModal() {
+      el.settingsOverlay.classList.remove("open");
+    }
+
+    function renderSettingsModal() {
+      document.getElementById("platformMac").classList.toggle("active", settings.platform === "mac");
+      document.getElementById("platformPc").classList.toggle("active", settings.platform === "pc");
+      renderModifierList("left");
+      renderModifierList("right");
+    }
+
+    function renderModifierList(side) {
+      const target = side === "left" ? el.leftModifierList : el.rightModifierList;
+      target.innerHTML = settings.modifierLayout[side].map((item, index) => `
+        <div class="modifier-row" draggable="true" data-side="${side}" data-index="${index}">
+          <span class="drag-handle" aria-hidden="true">=</span>
+          <input type="checkbox" ${item.enabled ? "checked" : ""} aria-label="Enable ${escapeHtml(item.label)}">
+          <input type="text" value="${escapeHtml(item.label)}" aria-label="Modifier name">
+        </div>
+      `).join("");
+      bindModifierRows(target, side);
+    }
+
+    function bindModifierRows(target, side) {
+      target.querySelectorAll(".modifier-row").forEach(row => {
+        const index = Number(row.dataset.index);
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const input = row.querySelector('input[type="text"]');
+        checkbox.addEventListener("change", () => {
+          settings.modifierLayout[side][index].enabled = checkbox.checked;
+        });
+        input.addEventListener("input", () => {
+          const id = settings.modifierLayout[side][index].id;
+          settings.modifierLayout[side][index].label = input.value;
+          syncModifierLabel(side, id, input.value);
+        });
+        row.addEventListener("dragstart", event => {
+          row.classList.add("dragging");
+          event.dataTransfer.setData("text/plain", JSON.stringify({ side, index }));
+        });
+        row.addEventListener("dragend", () => row.classList.remove("dragging"));
+        row.addEventListener("dragover", event => event.preventDefault());
+        row.addEventListener("drop", event => {
+          event.preventDefault();
+          const source = JSON.parse(event.dataTransfer.getData("text/plain") || "{}");
+          if (source.side !== side || source.index === index) return;
+          const list = settings.modifierLayout[side];
+          const [moved] = list.splice(source.index, 1);
+          list.splice(index, 0, moved);
+          renderModifierList(side);
+        });
+      });
+    }
+
+    function syncModifierLabel(side, id, label) {
+      if (side !== "left") return;
+      ["left", "right"].forEach(targetSide => {
+        settings.modifierLayout[targetSide].forEach(item => {
+          if (item.id === id) item.label = label;
+        });
+      });
+      renderModifierList("right");
+    }
+
+    function modifierSettingLabel(side, id, fallback) {
+      const match = settings.modifierLayout?.[side]?.find(item => item.id === id);
+      return match?.label || fallback;
+    }
+
+    function editorModifierLabel(modifier) {
+      const labels = {
+        Fn: modifierSettingLabel("left", "fn", "Fn"),
+        Shift: "Shift",
+        Ctrl: modifierSettingLabel("left", "control", "Control"),
+        Option: modifierSettingLabel("left", "option", "Option"),
+        Cmd: modifierSettingLabel("left", "command", "Command"),
+        RightShift: "Right Shift",
+        RightCmd: `Right ${modifierSettingLabel("right", "command", "Command")}`,
+        RightOption: `Right ${modifierSettingLabel("right", "option", "Option")}`
+      };
+      return labels[modifier] || modifier;
+    }
+
+    function renderModifierGridLabels() {
+      el.modifierGrid?.querySelectorAll(".modifier-check").forEach(label => {
+        const modifier = label.querySelector("input")?.dataset.modifier;
+        const target = label.querySelector(".modifier-label-text");
+        if (target && modifier) target.textContent = editorModifierLabel(modifier);
+      });
+    }
+
+    function setSettingsPlatform(platform) {
+      settings.platform = platform;
+      settings.modifierLayout = structuredClone(platformPresets[platform] || platformPresets.mac);
+      renderSettingsModal();
+    }
+
+    function saveSettingsFromModal() {
+      settings = normalizeSettings(settings);
+      persistSettings();
+      renderModifierGridLabels();
+      renderAll();
+      closeSettingsModal();
+      toast("Settings saved.");
+    }
     function openJsonModal() {
       el.jsonArea.value = JSON.stringify(exportData(), null, 2);
       el.jsonFileStatus.textContent = "Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.";
@@ -2948,7 +3409,9 @@
     function exportData() {
       return {
         shortcuts,
-        textTrigger: normalizeTextTrigger(textTrigger)
+        drafts,
+        textTrigger: normalizeTextTrigger(textTrigger),
+        settings: exportSettings()
       };
     }
 
@@ -2985,20 +3448,123 @@
     function applyJsonData(next, fileName) {
       const importedShortcuts = Array.isArray(next) ? next : next.shortcuts;
       if (!Array.isArray(importedShortcuts)) throw new Error("JSON must be an array or an object with a shortcuts array.");
-      shortcuts = normalizeShortcuts(importedShortcuts);
-      textTrigger = normalizeTextTrigger(!Array.isArray(next) ? (next.textTrigger || next.alfred) : null);
+      const duplicateMode = el.duplicateMode?.value || "ignore";
+      const imported = normalizeShortcuts(importedShortcuts);
+      const result = mergeImportedShortcuts(imported, duplicateMode);
+      if (!Array.isArray(next)) {
+        if (next.textTrigger || next.alfred) textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred);
+        if (next.settings) {
+          settings = normalizeSettings(next.settings);
+          prefs.theme = settings.nightmode ? "dark" : "light";
+          savePrefs();
+          applyPrefs();
+        }
+        if (Array.isArray(next.drafts)) {
+          const existingDraftIds = new Set(drafts.map(d => d.id));
+          const newDrafts = normalizeShortcuts(next.drafts).filter(d => !existingDraftIds.has(d.id));
+          drafts = newDrafts.concat(drafts);
+        }
+      }
       persistShortcuts();
+      persistDrafts();
       persistTextTrigger();
+      persistSettings();
       loadedSourceName = `browser storage (${fileName})`;
       el.jsonArea.value = JSON.stringify(exportData(), null, 2);
-      el.jsonFileStatus.textContent = `Imported ${fileName} and saved it to this browser.`;
+      el.jsonFileStatus.textContent = `Imported ${fileName}: ${result.added} added, ${result.overwritten} overwritten, ${result.ignored} ignored, ${result.drafted} drafted.`;
+    }
+
+    function mergeImportedShortcuts(imported, duplicateMode) {
+      const result = { added: 0, overwritten: 0, ignored: 0, drafted: 0 };
+      imported.forEach(item => {
+        const existingIndex = shortcuts.findIndex(shortcut => sameShortcut(slotKey(shortcut), slotKey(item)));
+        if (existingIndex === -1) {
+          shortcuts.push(withUniqueShortcutId(item));
+          result.added += 1;
+          return;
+        }
+        if (duplicateMode === "overwrite") {
+          shortcuts[existingIndex] = { ...item, id: shortcuts[existingIndex].id, favorite: shortcuts[existingIndex].favorite || item.favorite };
+          result.overwritten += 1;
+          return;
+        }
+        if (duplicateMode === "draft") {
+          if (drafts.some(draft => sameImportedRecord(draft, item))) {
+            result.ignored += 1;
+            return;
+          }
+          drafts.push(withUniqueDraftId({
+            ...item,
+            status: "draft",
+            draftReason: "duplicate-shortcut",
+            conflictsWith: shortcuts[existingIndex].id,
+            active: true
+          }));
+          result.drafted += 1;
+          return;
+        }
+        result.ignored += 1;
+      });
+      return result;
+    }
+
+    function slotKey(item) {
+      const layer = normalizeShortcut(item?.layer || inferLayer(item?.shortcut || ""));
+      const key = normalizeKeyInput(item?.key || inferKey(item?.shortcut || ""));
+      return `${layer}|${key}`;
+    }
+
+    function sameShortcut(a, b) {
+      return a === b;
+    }
+
+    function sameImportedRecord(a, b) {
+      const aImportKey = normalize(a?.importKey || "");
+      const bImportKey = normalize(b?.importKey || "");
+      if (aImportKey && bImportKey) return aImportKey === bImportKey;
+      return sameShortcut(slotKey(a), slotKey(b))
+        && normalize(a?.action || "") === normalize(b?.action || "")
+        && normalize(a?.app || "") === normalize(b?.app || "");
+    }
+
+    function withUniqueShortcutId(item) {
+      const next = { ...item };
+      next.id = next.id && !shortcuts.some(shortcut => shortcut.id === next.id) && !drafts.some(shortcut => shortcut.id === next.id) ? next.id : makeShortcutId(next.shortcut, next.action);
+      return next;
+    }
+
+    function withUniqueDraftId(item) {
+      const next = { ...item };
+      const base = `draft-${idSlug(next.shortcut)}-${idSlug(next.action)}`;
+      let id = base;
+      let suffix = 2;
+      while (drafts.some(draft => draft.id === id) || shortcuts.some(shortcut => shortcut.id === id)) {
+        id = `${base}-${suffix}`;
+        suffix += 1;
+      }
+      next.id = id;
+      return next;
+    }
+
+    function idSlug(value) {
+      return normalize(value)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 48) || "item";
     }
 
     function resetSampleData() {
       shortcuts = normalizeShortcuts(sampleShortcuts);
+      drafts = [];
       textTrigger = normalizeTextTrigger({ columns: ["", "", ""], fontSize: 16 });
+      settings = normalizeSettings(defaultSettings);
+      prefs.theme = settings.nightmode ? "dark" : "light";
+      savePrefs();
+      applyPrefs();
       persistShortcuts();
+      persistDrafts();
       persistTextTrigger();
+      persistSettings();
       selectedId = null;
       renderAll();
       showDetails(shortcuts[0] || null);
@@ -3029,24 +3595,15 @@
 
     function toggleTheme() {
       prefs.theme = prefs.theme === "dark" ? "light" : "dark";
+      settings.nightmode = prefs.theme !== "light";
       savePrefs();
-      applyPrefs();
-    }
-
-    function toggleCompact() {
-      prefs.compact = !prefs.compact;
-      savePrefs();
+      persistSettings();
       applyPrefs();
     }
 
     function applyPrefs() {
       document.documentElement.dataset.theme = prefs.theme || "dark";
-      document.querySelector(".keyboard")?.style.setProperty("transform", prefs.compact ? "scale(0.88)" : "scale(1)");
-      document.querySelector(".keyboard")?.style.setProperty("transform-origin", "top center");
-      const compactButton = document.getElementById("compactButton");
       const themeButton = document.getElementById("themeButton");
-      compactButton?.classList.toggle("active", Boolean(prefs.compact));
-      compactButton?.setAttribute("aria-pressed", String(Boolean(prefs.compact)));
       themeButton?.classList.toggle("active", prefs.theme === "light");
       themeButton?.setAttribute("aria-pressed", String(prefs.theme === "light"));
       if (themeButton) themeButton.innerHTML = iconSvg(prefs.theme === "light" ? "sun" : "moon");
@@ -3059,8 +3616,8 @@
     function filteredShortcuts(options = {}) {
       const layerId = options.layerId || activeLayer;
       const q = currentQuery();
-      return shortcuts.filter(item => {
-        if (item.active === false) return false;
+      return shortcutCollectionForLayer(layerId).filter(item => {
+        if (item.active === false && layerId !== DRAFTS_LAYER_ID) return false;
         const layerOk = options.ignoreLayer || layerMatches(item.layer, layerId, item);
         const categoryOk = activeCategory === "All" || item.category === activeCategory;
         const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
@@ -3070,15 +3627,24 @@
 
     function shortcutsForLayer(layerId) {
       const q = currentQuery();
-      return shortcuts.filter(item => {
-        if (item.active === false) return false;
+      return shortcutCollectionForLayer(layerId).filter(item => {
+        if (item.active === false && layerId !== DRAFTS_LAYER_ID) return false;
         const categoryOk = activeCategory === "All" || item.category === activeCategory;
         const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
         return layerMatches(item.layer, layerId, item) && categoryOk && searchOk;
       });
     }
 
+    function findShortcutById(id) {
+      return shortcuts.find(item => item.id === id) || drafts.find(item => item.id === id) || null;
+    }
+
+    function shortcutCollectionForLayer(layerId) {
+      return layerId === DRAFTS_LAYER_ID ? drafts : shortcuts;
+    }
+
     function layerMatches(itemLayer, tabLayer, item) {
+      if (tabLayer === DRAFTS_LAYER_ID) return item?.status === "draft";
       if (tabLayer === FAVORITES_LAYER_ID) return Boolean(item?.favorite);
       return tabLayer === OTHERS_LAYER_ID ? isOtherLayer(itemLayer) : itemLayer === tabLayer;
     }
@@ -3099,6 +3665,10 @@
         groups.set(id, [...(groups.get(id) || []), item]);
       });
       return [...groups.values()].filter(group => group.length > 1);
+    }
+
+    function conflictEntryCount(groups = conflictGroups()) {
+      return groups.reduce((total, group) => total + group.length, 0);
     }
 
     function currentQuery() {
@@ -3163,7 +3733,7 @@
       }
       return items.map((item, index) => {
         const rawLayer = item.layer || inferLayer(item.shortcut);
-        const keyValue = item.key || inferPhysicalKeyForLayer(rawLayer) || inferKey(item.shortcut);
+        const keyValue = normalizeKeyInput(item.key || inferPhysicalKeyForLayer(rawLayer) || inferKey(item.shortcut));
         const layer = normalizeLayerForKey(rawLayer, keyValue);
         const shortcut = layer !== rawLayer ? formatShortcut(layer, keyValue) : (item.shortcut || "");
         return {
@@ -3180,11 +3750,62 @@
           favorite: Boolean(item.favorite),
           aliases: Array.isArray(item.aliases) ? item.aliases : [],
           active: item.active === false ? false : true,
+          status: item.status || "active",
+          draftReason: item.draftReason || "",
+          conflictsWith: item.conflictsWith || "",
+          importSource: item.importSource || "",
+          importKey: item.importKey || "",
           sourceFolder: item.sourceFolder || ""
         };
       });
     }
 
+    function normalizeSettings(value) {
+      const source = value && typeof value === "object" ? value : defaultSettings;
+      const platform = source.platform === "pc" ? "pc" : "mac";
+      const preset = structuredClone(platformPresets[platform] || platformPresets.mac);
+      const layout = source.modifierLayout || {};
+      return {
+        platform,
+        nightmode: normalizeNightMode(source),
+        modifierLayout: {
+          left: normalizeModifierSide(layout.left, preset.left),
+          right: normalizeModifierSide(layout.right, preset.right)
+        }
+      };
+    }
+
+    function normalizeNightMode(source) {
+      if (typeof source?.nightmode === "boolean") return source.nightmode;
+      if (typeof source?.nightMode === "boolean") return source.nightMode;
+      if (typeof source?.theme === "string") return source.theme !== "light";
+      return defaultSettings.nightmode;
+    }
+
+    function exportSettings() {
+      return normalizeSettings({
+        ...settings,
+        nightmode: prefs.theme !== "light"
+      });
+    }
+
+    function normalizeModifierSide(value, fallback) {
+      const fallbackMap = new Map(fallback.map(item => [item.id, item]));
+      const rows = Array.isArray(value) ? value : fallback;
+      const normalized = rows.map(item => {
+        const base = fallbackMap.get(item.id) || item;
+        return {
+          id: item.id || base.id,
+          keyCode: item.keyCode || base.keyCode,
+          label: String(item.label || base.label || item.id || "Modifier"),
+          enabled: item.enabled !== false
+        };
+      }).filter(item => item.id && item.keyCode);
+      fallback.forEach(item => {
+        if (!normalized.some(row => row.id === item.id)) normalized.push(structuredClone(item));
+      });
+      return normalized;
+    }
     function normalizeTextTrigger(value) {
       const columns = Array.isArray(value?.columns) ? value.columns : ["", "", ""];
       return {
@@ -3262,7 +3883,7 @@
         .slice(0, 48) || "shortcut";
       let id = base;
       let suffix = 2;
-      while (shortcuts.some(item => item.id === id)) {
+      while (shortcuts.some(item => item.id === id) || drafts.some(item => item.id === id)) {
         id = `${base}-${suffix}`;
         suffix += 1;
       }
@@ -3276,6 +3897,18 @@
         el.jsonArea.value = JSON.stringify(exportData(), null, 2);
         el.jsonFileStatus.textContent = "Saved to this browser.";
       }
+    }
+
+    function persistDrafts() {
+      safeSetStorage(DRAFTS_KEY, drafts);
+    }
+
+    function persistSettings() {
+      settings = normalizeSettings({
+        ...settings,
+        nightmode: prefs.theme !== "light"
+      });
+      safeSetStorage(SETTINGS_KEY, settings);
     }
 
     function persistTextTrigger() {
