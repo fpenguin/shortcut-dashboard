@@ -663,19 +663,6 @@
       line-height: 1;
     }
 
-    .key-shortcut {
-      width: 100%;
-      color: color-mix(in srgb, var(--key-color, var(--focus)) 62%, white 30%);
-      font-family: var(--mono);
-      font-size: clamp(7px, 0.95vw, 9px);
-      font-weight: 850;
-      line-height: 1;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      opacity: 0.88;
-    }
-
     .key-action {
       width: 100%;
       color: rgba(255, 255, 255, 0.86);
@@ -686,7 +673,6 @@
       text-overflow: ellipsis;
     }
 
-    [data-theme="light"] .key-shortcut,
     [data-theme="light"] .key-action {
       color: rgba(20, 24, 33, 0.8);
     }
@@ -696,7 +682,6 @@
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.36);
     }
 
-    [data-theme="light"] .key.assigned .key-shortcut,
     [data-theme="light"] .key.assigned .key-action {
       color: rgba(248, 251, 255, 0.9);
     }
@@ -2073,20 +2058,6 @@
       ]);
     }
 
-    function shortcutTokenForKey(item) {
-      const mods = layerToModifierSet(item.layer || inferLayer(item.shortcut));
-      const symbols = [];
-      if (mods.has("Fn")) symbols.push("Fn");
-      if (mods.has("Shift")) symbols.push("⇧");
-      if (mods.has("Ctrl")) symbols.push("⌃");
-      if (mods.has("Option")) symbols.push("⌥");
-      if (mods.has("Cmd")) symbols.push("⌘");
-      if (mods.has("RightCmd")) symbols.push("⌘ʳ");
-      if (mods.has("RightOption")) symbols.push("⌥ʳ");
-      if (mods.has("RightShift")) symbols.push("⇧ʳ");
-      return `${symbols.join("")}${labelForKey(item.key || inferKey(item.shortcut))}`;
-    }
-
     function renderKeyboard() {
       const isTextTrigger = activeMode === "textTrigger";
       el.keyboard.style.display = isTextTrigger ? "none" : "flex";
@@ -2112,14 +2083,13 @@
           const conflict = mappings.length > 1 ? "conflict" : "";
           const selected = mappings.some(m => m.id === selectedId) ? "selected" : "";
           const searchHit = mappings.some(m => queryMatches.has(m.id)) ? "search-hit" : "";
-          const live = liveKeys.has(keyInfo.code) || lastLiveKey === keyInfo.code ? "live" : "";
+          const live = liveKeys.has(keyInfo.code) || layerModifierKeys().has(keyInfo.code) || lastLiveKey === keyInfo.code ? "live" : "";
           const heat = Math.min((analytics.usage[primary?.id] || 0) / 10, 0.42);
           const title = mappings.length ? mappings.map(formatMappingTitle).join(" | ") : keyInfo.label;
           return `
             <button class="key ${assigned} ${conflict} ${selected} ${searchHit} ${live}" data-key="${escapeHtml(keyInfo.code)}" style="--w:${keyInfo.w};--key-color:${color};--heat:${heat}" title="${escapeHtml(title)}">
               <span class="heat"></span>
               <span class="key-label">${escapeHtml(keyInfo.label)}</span>
-              <span class="key-shortcut">${primary ? escapeHtml(shortcutTokenForKey(primary)) : ""}</span>
               <span class="key-action">${primary ? escapeHtml(primary.action) : ""}</span>
               ${mappings.length > 1 ? `<span class="key-badge">${mappings.length}</span>` : ""}
             </button>
@@ -2354,6 +2324,7 @@
 
     function handleGlobalKeydown(event) {
       const inTextField = ["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName);
+      const writingTextTrigger = isWritingTextTrigger();
 
       if (el.paletteOverlay.classList.contains("open")) {
         if (event.key === "Escape") {
@@ -2400,7 +2371,7 @@
         return;
       }
 
-      if (inTextField || modalWasOpen) return;
+      if (inTextField || modalWasOpen || writingTextTrigger) return;
 
       refreshHeldModifiersFromEvent(event, true);
       if (isModifierKeyEvent(event)) {
@@ -2419,9 +2390,15 @@
     }
 
     function handleGlobalKeyup(event) {
+      if (isWritingTextTrigger()) return;
       if (!hasModifierState(event) && !isModifierKeyEvent(event)) return;
       refreshHeldModifiersFromEvent(event, false);
       applyModifierPreview();
+    }
+
+
+    function isWritingTextTrigger() {
+      return activeMode === "textTrigger" && el.textTriggerBoard.contains(document.activeElement);
     }
 
     function isModalOpen() {
@@ -2435,12 +2412,23 @@
     }
 
     function hasModifierState(event) {
-      return event.shiftKey || event.ctrlKey || event.altKey || event.metaKey || Boolean(modifierFromEvent(event));
+      return event.shiftKey || event.ctrlKey || event.altKey || event.metaKey || eventHasFn(event) || Boolean(modifierFromEvent(event));
+    }
+
+    function eventHasFn(event) {
+      try {
+        return event.key === "Fn"
+          || event.code === "Fn"
+          || event.getModifierState?.("Fn")
+          || event.getModifierState?.("FnLock");
+      } catch {
+        return false;
+      }
     }
 
     function modifierFromEvent(event) {
       const code = event.code || "";
-      if (event.key === "Fn" || code === "Fn") return "Fn";
+      if (eventHasFn(event)) return "Fn";
       if (event.key === "Shift") return code === "ShiftRight" ? "RightShift" : "Shift";
       if (event.key === "Control") return "Ctrl";
       if (event.key === "Alt" || event.key === "Option") return code === "AltRight" || code === "OptionRight" ? "RightOption" : "Option";
@@ -2451,11 +2439,11 @@
     function refreshHeldModifiersFromEvent(event, includeDirectKey) {
       const directModifier = includeDirectKey ? modifierFromEvent(event) : "";
       const next = new Set();
+      if (eventHasFn(event) || directModifier === "Fn") next.add("Fn");
       if (event.shiftKey || directModifier === "Shift" || directModifier === "RightShift") next.add(directModifier === "RightShift" ? "RightShift" : "Shift");
       if (event.ctrlKey || directModifier === "Ctrl") next.add("Ctrl");
       if (event.altKey || directModifier === "Option" || directModifier === "RightOption") next.add(directModifier === "RightOption" ? "RightOption" : "Option");
       if (event.metaKey || directModifier === "Cmd" || directModifier === "RightCmd") next.add(directModifier === "RightCmd" ? "RightCmd" : "Cmd");
-      if (directModifier === "Fn") next.add("Fn");
       heldModifiers = next;
       syncModifierLiveKeys();
     }
@@ -2476,6 +2464,12 @@
         RightCmd: "MetaRight"
       };
       return map[modifier] || "";
+    }
+
+    function layerModifierKeys() {
+      if (activeMode !== "keyboard") return new Set();
+      const mods = layerToModifierSet(activeLayer);
+      return new Set([...mods].map(keyCodeForModifier).filter(Boolean));
     }
 
     function applyModifierPreview() {
@@ -2546,10 +2540,13 @@
 
       if (wantsHyper) {
         // Hyper = Cmd+Ctrl+Option+Shift; all four must be held
-        return event.metaKey && event.ctrlKey && event.altKey && event.shiftKey;
+        return event.metaKey && event.ctrlKey && event.altKey && event.shiftKey && eventHasFn(event) === wantsFn;
       }
-      if (wantsFn) return false;
-      return event.metaKey === wantsCmd && event.ctrlKey === wantsCtrl && event.altKey === wantsOpt && event.shiftKey === wantsShift;
+      return event.metaKey === wantsCmd
+        && event.ctrlKey === wantsCtrl
+        && event.altKey === wantsOpt
+        && event.shiftKey === wantsShift
+        && eventHasFn(event) === wantsFn;
     }
 
     function flashShortcut(item) {
