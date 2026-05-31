@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Personal shortcut data and exports
+shortcuts.json
+*.bttpreset
+
+# Agent/session handoff notes
+handoff.md
+
+# Keep publishable examples
+!shortcuts_example.json
+!example.json

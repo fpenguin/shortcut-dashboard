@@ -1,0 +1,2956 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortcut Dashboard</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f1115;
+      --bg-2: #151922;
+      --panel: rgba(23, 28, 38, 0.78);
+      --panel-strong: rgba(29, 35, 47, 0.94);
+      --text: #f4f7fb;
+      --muted: #96a0ae;
+      --faint: #596271;
+      --line: rgba(255, 255, 255, 0.1);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+      --key-bg: linear-gradient(180deg, #222835, #171c26);
+      --key-edge: rgba(255, 255, 255, 0.12);
+      --danger: #ff5c7a;
+      --accent: #69e6c7;
+      --focus: #9cc8ff;
+      --radius: 8px;
+      --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    }
+
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --bg-2: #e9eef7;
+      --panel: rgba(255, 255, 255, 0.78);
+      --panel-strong: rgba(255, 255, 255, 0.95);
+      --text: #141821;
+      --muted: #5e6878;
+      --faint: #7b8492;
+      --line: rgba(20, 24, 33, 0.1);
+      --line-strong: rgba(20, 24, 33, 0.16);
+      --key-bg: linear-gradient(180deg, #ffffff, #dfe6f2);
+      --key-edge: rgba(20, 24, 33, 0.12);
+      --shadow: 0 20px 60px rgba(42, 56, 86, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 18% 8%, rgba(105, 230, 199, 0.13), transparent 28rem),
+        radial-gradient(circle at 82% 2%, rgba(156, 200, 255, 0.14), transparent 32rem),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      color: var(--text);
+      font-family: var(--font);
+      letter-spacing: 0;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    button {
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .app {
+      width: min(1720px, 100%);
+      margin: 0 auto;
+      padding: 22px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: minmax(330px, 1fr) minmax(300px, 520px) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0 18px;
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      gap: 12px;
+    }
+
+    .brand > div:last-child {
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(105, 230, 199, 0.9), rgba(156, 200, 255, 0.85));
+      box-shadow: 0 14px 28px rgba(105, 230, 199, 0.16);
+      color: #081117;
+      font-family: var(--mono);
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-wrap::before {
+      content: "/";
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 13px;
+      pointer-events: none;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 48px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      color: var(--text);
+      background: var(--panel);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), var(--shadow);
+      backdrop-filter: blur(20px);
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .search:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.12), var(--shadow);
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .utility-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .icon-btn, .pill-btn, .layer-btn, .chip {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      border-radius: 8px;
+      color: var(--text);
+      transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, opacity 150ms ease;
+    }
+
+    .icon-btn, .pill-btn {
+      min-height: 40px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .icon-only {
+      width: 40px;
+      padding: 0;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .icon-only svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+
+    .icon-only .filled {
+      fill: currentColor;
+    }
+
+    .icon-btn.starred {
+      color: #ffd166;
+      border-color: rgba(255, 209, 102, 0.55);
+      background: linear-gradient(180deg, rgba(255, 209, 102, 0.13), rgba(255, 209, 102, 0.04)), var(--panel);
+    }
+
+    .icon-btn:hover, .pill-btn:hover, .layer-btn:hover, .chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: var(--panel-strong);
+    }
+
+    .toggle-btn.active,
+    .toggle-btn[aria-pressed="true"] {
+      border-color: rgba(105, 230, 199, 0.55);
+      background: linear-gradient(180deg, rgba(105, 230, 199, 0.16), rgba(156, 200, 255, 0.08));
+      color: var(--text);
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .main-stage, .side-panel, .palette-card, .modal-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+    }
+
+    .main-stage {
+      padding: 18px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .layer-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      scrollbar-width: thin;
+    }
+
+    .layer-btn {
+      position: relative;
+      min-height: 38px;
+      padding: 0 13px;
+      color: var(--muted);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .layer-btn.active {
+      color: var(--text);
+      border-color: rgba(105, 230, 199, 0.55);
+      background: linear-gradient(180deg, rgba(105, 230, 199, 0.16), rgba(156, 200, 255, 0.08));
+    }
+
+    .layer-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: -4px;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--accent);
+    }
+
+    .mode-tab {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+      transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+    }
+
+    .mode-tab:hover {
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
+      background: var(--panel-strong);
+    }
+
+    .mode-tab.active {
+      color: var(--text);
+      border-color: rgba(105, 230, 199, 0.55);
+      background: linear-gradient(180deg, rgba(105, 230, 199, 0.16), rgba(156, 200, 255, 0.08));
+    }
+
+    .mod-glyph {
+      display: inline-grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(16px, auto);
+      align-items: center;
+      gap: 3px;
+      font-family: var(--mono);
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .mod-symbol {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      transition: opacity 150ms ease, filter 150ms ease, transform 150ms ease;
+    }
+
+    .mod-symbol.on {
+      opacity: 0.98;
+      color: currentColor;
+      text-shadow: 0 0 14px color-mix(in srgb, currentColor 48%, transparent);
+    }
+
+    .mod-symbol.off {
+      opacity: 0.24;
+      filter: grayscale(1);
+    }
+
+    .fn-glyph {
+      min-width: 28px;
+      font-weight: 760;
+    }
+
+    .layer-count {
+      color: var(--faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .stat {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .keyboard-shell {
+      overflow-x: auto;
+      padding: 12px 2px 20px;
+      scrollbar-width: thin;
+    }
+
+    .keyboard {
+      --unit: clamp(34px, 5.15vw, 64px);
+      width: max-content;
+      min-width: min(100%, 980px);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0 auto;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        rgba(7, 9, 13, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .text-trigger-board {
+      display: none;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        rgba(7, 9, 13, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .text-trigger-board.active {
+      display: block;
+    }
+
+    .text-trigger-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .text-trigger-title {
+      display: grid;
+      gap: 3px;
+    }
+
+    .text-trigger-title strong {
+      font-size: 16px;
+    }
+
+    .text-trigger-title span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .font-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .font-control input {
+      width: 132px;
+      accent-color: var(--accent);
+    }
+
+    .text-trigger-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .text-trigger-note {
+      min-height: 460px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      resize: vertical;
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      font: var(--alfred-font-size, 16px)/1.55 var(--font);
+    }
+
+    .text-trigger-note:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    .key-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .key {
+      position: relative;
+      width: calc(var(--unit) * var(--w, 1));
+      height: var(--unit);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 8px;
+      border: 1px solid var(--key-edge);
+      border-bottom-color: rgba(0, 0, 0, 0.44);
+      border-radius: 8px;
+      background: var(--key-bg);
+      color: var(--text);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -9px 18px rgba(0, 0, 0, 0.14),
+        0 9px 18px rgba(0, 0, 0, 0.18);
+      user-select: none;
+      transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease, filter 150ms ease;
+    }
+
+    .key:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.26);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        inset 0 -9px 18px rgba(0, 0, 0, 0.12),
+        0 14px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .key.assigned {
+      border-color: color-mix(in srgb, var(--key-color) 72%, white 12%);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--key-color) 34%, #242a36), #171b24 78%),
+        var(--key-bg);
+    }
+
+    .key.search-hit {
+      box-shadow:
+        0 0 0 3px color-mix(in srgb, var(--key-color, var(--focus)) 58%, transparent),
+        0 18px 34px rgba(0, 0, 0, 0.24);
+      animation: breathe 1.15s ease-in-out infinite;
+    }
+
+    .key.live {
+      transform: translateY(2px) scale(0.985);
+      filter: brightness(1.23);
+      box-shadow:
+        0 0 0 4px rgba(105, 230, 199, 0.24),
+        inset 0 4px 20px rgba(255, 255, 255, 0.12);
+    }
+
+    .key.conflict {
+      outline: 2px solid var(--danger);
+      outline-offset: 2px;
+    }
+
+    .key.selected {
+      border-color: var(--focus);
+      box-shadow:
+        0 0 0 4px rgba(156, 200, 255, 0.13),
+        0 18px 36px rgba(0, 0, 0, 0.28);
+    }
+
+    .key-label {
+      font-size: clamp(11px, 1.3vw, 15px);
+      font-weight: 740;
+      line-height: 1;
+    }
+
+    .key-action {
+      width: 100%;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: clamp(8px, 1.1vw, 10px);
+      line-height: 1.15;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    [data-theme="light"] .key-action {
+      color: rgba(20, 24, 33, 0.8);
+    }
+
+    [data-theme="light"] .key.assigned {
+      color: #f8fbff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.36);
+    }
+
+    [data-theme="light"] .key.assigned .key-action {
+      color: rgba(248, 251, 255, 0.9);
+    }
+
+    [data-theme="light"] .key.assigned .key-label {
+      color: #f8fbff;
+    }
+
+    .key-badge {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      min-width: 16px;
+      height: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      background: var(--danger);
+      color: white;
+      font-size: 10px;
+      font-family: var(--mono);
+      font-weight: 800;
+    }
+
+    .heat {
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      background: radial-gradient(circle at 50% 30%, rgba(255,255,255,var(--heat,0)), transparent 62%);
+      pointer-events: none;
+    }
+
+    .category-rail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .chip.active {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--chip-color) 65%, white 10%);
+      background: color-mix(in srgb, var(--chip-color) 18%, transparent);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--chip-color, var(--accent));
+      box-shadow: 0 0 18px var(--chip-color, var(--accent));
+    }
+
+    .side-panel {
+      position: sticky;
+      top: 88px;
+      padding: 16px;
+      max-height: calc(100vh - 112px);
+      overflow: auto;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-kicker {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .panel-title {
+      margin: 7px 0 0;
+      font-size: 25px;
+      line-height: 1.08;
+    }
+
+    .shortcut-token {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 8px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .section {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+    }
+
+    .section h3 {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .section p {
+      margin: 0;
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .mapping-card {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .mapping-card.conflict-card {
+      border-color: rgba(255, 92, 122, 0.58);
+      background: rgba(255, 92, 122, 0.08);
+    }
+
+    .mapping-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .mapping-action {
+      font-weight: 800;
+    }
+
+    .mapping-source {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 9px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 13px;
+    }
+
+    .mini-item button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 80;
+      transform: translate(-50%, 22px);
+      opacity: 0;
+      min-width: min(420px, calc(100vw - 28px));
+      padding: 13px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 8px;
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 9vh 16px 16px;
+      background: rgba(5, 7, 10, 0.56);
+      backdrop-filter: blur(14px);
+      overflow: auto;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .palette-card, .modal-card {
+      width: min(740px, 100%);
+      overflow: hidden;
+    }
+
+    .palette-input {
+      width: 100%;
+      height: 62px;
+      padding: 0 18px;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 19px;
+    }
+
+    .palette-results {
+      max-height: min(58vh, 520px);
+      overflow: auto;
+      padding: 8px;
+    }
+
+    .palette-item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 11px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      text-align: left;
+    }
+
+    .palette-item:hover, .palette-item.active {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .palette-meta {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .modal-card {
+      max-height: calc(100vh - 32px);
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: start;
+      padding-top: 14px;
+    }
+
+    .about-body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .qr-card {
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .qr-code {
+      width: 132px;
+      height: 132px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+      background: #fff;
+    }
+
+    .qr-code svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .qr-card a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .qr-card small {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .json-area {
+      width: 100%;
+      min-height: 340px;
+      margin-top: 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      resize: vertical;
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--text);
+    }
+
+    .field select {
+      color-scheme: dark;
+      appearance: auto;
+      background: linear-gradient(180deg, rgba(16, 22, 32, 0.96), rgba(8, 13, 20, 0.96));
+      color: var(--text);
+      font-weight: 750;
+    }
+
+    .field select option {
+      background: #111722;
+      color: #f4f7fb;
+      font-weight: 700;
+    }
+
+    .field input[readonly] {
+      cursor: default;
+      background: linear-gradient(135deg, rgba(100, 225, 202, 0.14), rgba(156, 200, 255, 0.08));
+      border-color: rgba(100, 225, 202, 0.42);
+      color: var(--text);
+      font-family: var(--mono);
+      font-weight: 800;
+    }
+
+    .field input[readonly]::placeholder {
+      color: var(--muted);
+      font-family: var(--sans);
+      font-weight: 650;
+    }
+
+    .field textarea {
+      min-height: 86px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    .modifier-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, auto));
+      gap: 8px 12px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .modifier-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 28px;
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing: 0;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .modifier-check input {
+      width: 16px;
+      min-height: 16px;
+      height: 16px;
+      padding: 0;
+      accent-color: var(--accent);
+    }
+
+    .favorite-toggle {
+      width: max-content;
+      min-width: 138px;
+      justify-content: center;
+      gap: 8px;
+      border-color: var(--line);
+    }
+
+    .favorite-toggle .star-mark {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    .favorite-toggle.active {
+      border-color: rgba(255, 209, 102, 0.7);
+      background: rgba(255, 209, 102, 0.12);
+      color: var(--text);
+    }
+
+    .favorite-toggle.active .star-mark {
+      color: #ffd166;
+      text-shadow: 0 0 14px rgba(255, 209, 102, 0.35);
+    }
+
+    .form-error {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 92, 122, 0.5);
+      border-radius: 8px;
+      background: rgba(255, 92, 122, 0.1);
+      color: #ffd9df;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    .modal-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .modal-actions.simple-actions {
+      justify-content: space-between;
+    }
+
+    .editor-actions {
+      display: grid;
+      grid-template-columns: auto auto 1fr auto;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .editor-actions button {
+      justify-self: start;
+    }
+
+    .editor-actions #saveShortcutButton {
+      justify-self: end;
+      min-width: 118px;
+    }
+
+    .empty {
+      padding: 28px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .print-sheet {
+      display: none;
+    }
+
+    .kbd-help {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    @keyframes breathe {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.17); }
+    }
+
+    @media (max-width: 1100px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .top-actions {
+        justify-content: flex-start;
+      }
+
+      .utility-group {
+        width: 100%;
+      }
+
+      .utility-group {
+        width: auto;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .side-panel {
+        position: static;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .app {
+        padding: 14px;
+      }
+
+      .main-stage {
+        padding: 12px;
+      }
+
+      .status-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        overflow-x: auto;
+      }
+
+      .keyboard {
+        --unit: 44px;
+      }
+
+      .text-trigger-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .text-trigger-note {
+        min-height: 240px;
+      }
+
+      .key {
+        padding: 6px;
+      }
+
+      .brand p {
+        white-space: normal;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: #111;
+      }
+
+      .topbar, .main-stage, .side-panel, .overlay, .toast {
+        display: none !important;
+      }
+
+      .app {
+        padding: 0;
+      }
+
+      .print-sheet {
+        display: block;
+        padding: 22px;
+      }
+
+      .print-sheet h1 {
+        color: #111;
+        margin-bottom: 12px;
+      }
+
+      .print-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .print-item {
+        break-inside: avoid;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar" aria-label="Shortcut OS controls">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">OS</div>
+        <div>
+          <h1>Shortcut Dashboard</h1>
+          <p>Keyboard geography visually mapped only with HTML+JSON</p>
+        </div>
+      </div>
+
+      <label class="search-wrap" aria-label="Search shortcuts">
+        <input id="searchInput" class="search" type="search" placeholder="Search app, action, shortcut, category, note...">
+      </label>
+
+      <div class="top-actions">
+        <button class="pill-btn" id="paletteButton" title="Open command palette">Cmd+K</button>
+        <div class="utility-group">
+          <button class="icon-btn icon-only" id="addButton" title="Add shortcut" aria-label="Add shortcut" data-icon="plus"></button>
+          <button class="icon-btn icon-only toggle-btn" id="compactButton" title="Toggle compact mode" aria-label="Toggle compact mode" aria-pressed="false" data-icon="minimize"></button>
+          <button class="icon-btn icon-only toggle-btn" id="themeButton" title="Toggle theme" aria-label="Toggle theme" aria-pressed="false" data-icon="moon"></button>
+          <button class="icon-btn icon-only" id="importExportButton" title="Save shortcuts" aria-label="Save shortcuts" data-icon="save"></button>
+          <button class="icon-btn icon-only" id="printButton" title="Print cheat sheet" aria-label="Print cheat sheet" data-icon="print"></button>
+          <button class="icon-btn icon-only" id="aboutButton" title="About this dashboard" aria-label="About this dashboard" data-icon="info"></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="main-stage" aria-label="Visual keyboard map">
+        <div class="status-row">
+          <nav class="layer-tabs" id="layerTabs" aria-label="Modifier layers"></nav>
+          <div class="stats" aria-label="Shortcut stats">
+            <div class="stat"><strong id="visibleCount">0</strong> visible</div>
+            <div class="stat"><strong id="conflictCount">0</strong> conflicts</div>
+          </div>
+        </div>
+
+        <div class="keyboard-shell" aria-label="Scrollable keyboard">
+          <div class="keyboard" id="keyboard"></div>
+          <section class="text-trigger-board" id="textTriggerBoard" aria-label="Text Trigger memory notes">
+            <div class="text-trigger-toolbar">
+              <div class="text-trigger-title">
+                <strong>Text Trigger Board</strong>
+                <span>Three freeform columns for text triggers, snippets, keywords, and launcher habits.</span>
+              </div>
+              <label class="font-control" for="textTriggerFontSize">
+                Font
+                <input id="textTriggerFontSize" type="range" min="12" max="28" step="1">
+                <span id="textTriggerFontSizeValue">16px</span>
+              </label>
+            </div>
+            <div class="text-trigger-columns">
+              <textarea class="text-trigger-note" id="textTriggerNote1" placeholder="Column 1"></textarea>
+              <textarea class="text-trigger-note" id="textTriggerNote2" placeholder="Column 2"></textarea>
+              <textarea class="text-trigger-note" id="textTriggerNote3" placeholder="Column 3"></textarea>
+            </div>
+          </section>
+        </div>
+
+        <div class="category-rail" id="categoryRail" aria-label="Category filters"></div>
+        <div class="kbd-help">Tip: press ? or Cmd+K for the command palette. Press a real shortcut to light it up.</div>
+      </section>
+
+      <aside class="side-panel" id="detailPanel" aria-label="Shortcut details"></aside>
+    </main>
+
+    <section class="print-sheet" id="printSheet" aria-label="Printable cheat sheet"></section>
+  </div>
+
+  <div class="overlay" id="paletteOverlay" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="palette-card">
+      <input id="paletteInput" class="palette-input" type="search" placeholder="Jump to shortcut or filter category...">
+      <div class="palette-results" id="paletteResults"></div>
+    </div>
+  </div>
+
+  <div class="overlay" id="jsonOverlay" role="dialog" aria-modal="true" aria-label="Import and export shortcuts">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>Shortcut Data</h2>
+      </div>
+      <textarea class="json-area" id="jsonArea" spellcheck="false" placeholder="Paste shortcuts JSON here, then choose Save to Browser."></textarea>
+      <p class="modal-note" id="jsonFileStatus">Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.</p>
+      <input id="jsonFileInput" type="file" accept="application/json,.json" hidden>
+      <div class="modal-actions simple-actions">
+        <div>
+          <button class="pill-btn" id="closeJsonButton">Close</button>
+          <button class="pill-btn" id="openJsonFileButton">Open</button>
+          <a class="pill-btn" id="bttImportButton" href="./import_shortcuts.html">Import</a>
+          <button class="pill-btn" id="exportJsonButton">Download</button>
+        </div>
+        <div>
+          <button class="pill-btn" id="saveJsonFileButton">Save to Browser</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="aboutOverlay" role="dialog" aria-modal="true" aria-label="About Shortcut Dashboard">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2>About Shortcut Dashboard</h2>
+      </div>
+      <div class="about-body">
+        <div>
+          <p>A local-first shortcut dashboard for keyboard geography, text triggers, and command memory. It runs as plain offline HTML with browser-saved JSON, no build step, no backend, and no external dependencies.</p>
+          <p>Future GitHub link:</p>
+          <a class="about-link" href="https://github.com/yourname/shortcut-dashboard" target="_blank" rel="noreferrer">github.com/yourname/shortcut-dashboard</a>
+          <p style="margin-top:18px">Support the developer - URL link:</p>
+          <a class="about-link" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">https://dhahn.gumroad.com/coffee</a>
+        </div>
+        <div class="qr-card">
+          <a class="qr-code" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer"><svg viewBox="0 0 148 148" role="img" aria-label="QR code for https://dhahn.gumroad.com/coffee" xmlns="http://www.w3.org/2000/svg"><rect width="148" height="148" fill="#fff" rx="10"/><path fill="#111827" d="M16 16h4v4h-4zM20 16h4v4h-4zM24 16h4v4h-4zM28 16h4v4h-4zM32 16h4v4h-4zM36 16h4v4h-4zM40 16h4v4h-4zM48 16h4v4h-4zM56 16h4v4h-4zM72 16h4v4h-4zM84 16h4v4h-4zM88 16h4v4h-4zM92 16h4v4h-4zM104 16h4v4h-4zM108 16h4v4h-4zM112 16h4v4h-4zM116 16h4v4h-4zM120 16h4v4h-4zM124 16h4v4h-4zM128 16h4v4h-4zM16 20h4v4h-4zM40 20h4v4h-4zM48 20h4v4h-4zM52 20h4v4h-4zM68 20h4v4h-4zM88 20h4v4h-4zM92 20h4v4h-4zM96 20h4v4h-4zM104 20h4v4h-4zM128 20h4v4h-4zM16 24h4v4h-4zM24 24h4v4h-4zM28 24h4v4h-4zM32 24h4v4h-4zM40 24h4v4h-4zM48 24h4v4h-4zM60 24h4v4h-4zM76 24h4v4h-4zM92 24h4v4h-4zM96 24h4v4h-4zM104 24h4v4h-4zM112 24h4v4h-4zM116 24h4v4h-4zM120 24h4v4h-4zM128 24h4v4h-4zM16 28h4v4h-4zM24 28h4v4h-4zM28 28h4v4h-4zM32 28h4v4h-4zM40 28h4v4h-4zM52 28h4v4h-4zM64 28h4v4h-4zM68 28h4v4h-4zM80 28h4v4h-4zM88 28h4v4h-4zM92 28h4v4h-4zM104 28h4v4h-4zM112 28h4v4h-4zM116 28h4v4h-4zM120 28h4v4h-4zM128 28h4v4h-4zM16 32h4v4h-4zM24 32h4v4h-4zM28 32h4v4h-4zM32 32h4v4h-4zM40 32h4v4h-4zM48 32h4v4h-4zM52 32h4v4h-4zM64 32h4v4h-4zM68 32h4v4h-4zM80 32h4v4h-4zM84 32h4v4h-4zM88 32h4v4h-4zM92 32h4v4h-4zM104 32h4v4h-4zM112 32h4v4h-4zM116 32h4v4h-4zM120 32h4v4h-4zM128 32h4v4h-4zM16 36h4v4h-4zM40 36h4v4h-4zM48 36h4v4h-4zM56 36h4v4h-4zM60 36h4v4h-4zM64 36h4v4h-4zM72 36h4v4h-4zM76 36h4v4h-4zM80 36h4v4h-4zM84 36h4v4h-4zM88 36h4v4h-4zM92 36h4v4h-4zM104 36h4v4h-4zM128 36h4v4h-4zM16 40h4v4h-4zM20 40h4v4h-4zM24 40h4v4h-4zM28 40h4v4h-4zM32 40h4v4h-4zM36 40h4v4h-4zM40 40h4v4h-4zM48 40h4v4h-4zM56 40h4v4h-4zM64 40h4v4h-4zM72 40h4v4h-4zM80 40h4v4h-4zM88 40h4v4h-4zM96 40h4v4h-4zM104 40h4v4h-4zM108 40h4v4h-4zM112 40h4v4h-4zM116 40h4v4h-4zM120 40h4v4h-4zM124 40h4v4h-4zM128 40h4v4h-4zM48 44h4v4h-4zM60 44h4v4h-4zM76 44h4v4h-4zM84 44h4v4h-4zM88 44h4v4h-4zM96 44h4v4h-4zM24 48h4v4h-4zM40 48h4v4h-4zM44 48h4v4h-4zM48 48h4v4h-4zM64 48h4v4h-4zM80 48h4v4h-4zM84 48h4v4h-4zM88 48h4v4h-4zM92 48h4v4h-4zM96 48h4v4h-4zM100 48h4v4h-4zM104 48h4v4h-4zM108 48h4v4h-4zM112 48h4v4h-4zM120 48h4v4h-4zM124 48h4v4h-4zM128 48h4v4h-4zM20 52h4v4h-4zM28 52h4v4h-4zM36 52h4v4h-4zM48 52h4v4h-4zM60 52h4v4h-4zM64 52h4v4h-4zM68 52h4v4h-4zM76 52h4v4h-4zM80 52h4v4h-4zM100 52h4v4h-4zM104 52h4v4h-4zM112 52h4v4h-4zM128 52h4v4h-4zM16 56h4v4h-4zM24 56h4v4h-4zM32 56h4v4h-4zM40 56h4v4h-4zM48 56h4v4h-4zM56 56h4v4h-4zM60 56h4v4h-4zM64 56h4v4h-4zM72 56h4v4h-4zM76 56h4v4h-4zM80 56h4v4h-4zM84 56h4v4h-4zM96 56h4v4h-4zM100 56h4v4h-4zM116 56h4v4h-4zM124 56h4v4h-4zM128 56h4v4h-4zM20 60h4v4h-4zM28 60h4v4h-4zM44 60h4v4h-4zM48 60h4v4h-4zM52 60h4v4h-4zM56 60h4v4h-4zM64 60h4v4h-4zM68 60h4v4h-4zM72 60h4v4h-4zM80 60h4v4h-4zM84 60h4v4h-4zM88 60h4v4h-4zM92 60h4v4h-4zM96 60h4v4h-4zM100 60h4v4h-4zM104 60h4v4h-4zM116 60h4v4h-4zM124 60h4v4h-4zM16 64h4v4h-4zM24 64h4v4h-4zM32 64h4v4h-4zM36 64h4v4h-4zM40 64h4v4h-4zM44 64h4v4h-4zM52 64h4v4h-4zM60 64h4v4h-4zM72 64h4v4h-4zM76 64h4v4h-4zM84 64h4v4h-4zM96 64h4v4h-4zM100 64h4v4h-4zM104 64h4v4h-4zM112 64h4v4h-4zM116 64h4v4h-4zM124 64h4v4h-4zM128 64h4v4h-4zM20 68h4v4h-4zM28 68h4v4h-4zM32 68h4v4h-4zM36 68h4v4h-4zM44 68h4v4h-4zM48 68h4v4h-4zM60 68h4v4h-4zM72 68h4v4h-4zM76 68h4v4h-4zM84 68h4v4h-4zM96 68h4v4h-4zM100 68h4v4h-4zM104 68h4v4h-4zM108 68h4v4h-4zM112 68h4v4h-4zM116 68h4v4h-4zM128 68h4v4h-4zM16 72h4v4h-4zM36 72h4v4h-4zM40 72h4v4h-4zM68 72h4v4h-4zM84 72h4v4h-4zM88 72h4v4h-4zM100 72h4v4h-4zM104 72h4v4h-4zM116 72h4v4h-4zM124 72h4v4h-4zM128 72h4v4h-4zM20 76h4v4h-4zM24 76h4v4h-4zM44 76h4v4h-4zM48 76h4v4h-4zM60 76h4v4h-4zM76 76h4v4h-4zM84 76h4v4h-4zM88 76h4v4h-4zM92 76h4v4h-4zM104 76h4v4h-4zM116 76h4v4h-4zM120 76h4v4h-4zM124 76h4v4h-4zM16 80h4v4h-4zM24 80h4v4h-4zM28 80h4v4h-4zM32 80h4v4h-4zM36 80h4v4h-4zM40 80h4v4h-4zM44 80h4v4h-4zM48 80h4v4h-4zM64 80h4v4h-4zM80 80h4v4h-4zM84 80h4v4h-4zM96 80h4v4h-4zM100 80h4v4h-4zM104 80h4v4h-4zM108 80h4v4h-4zM112 80h4v4h-4zM124 80h4v4h-4zM128 80h4v4h-4zM20 84h4v4h-4zM24 84h4v4h-4zM32 84h4v4h-4zM36 84h4v4h-4zM60 84h4v4h-4zM64 84h4v4h-4zM68 84h4v4h-4zM76 84h4v4h-4zM80 84h4v4h-4zM96 84h4v4h-4zM104 84h4v4h-4zM108 84h4v4h-4zM116 84h4v4h-4zM128 84h4v4h-4zM16 88h4v4h-4zM24 88h4v4h-4zM40 88h4v4h-4zM52 88h4v4h-4zM60 88h4v4h-4zM64 88h4v4h-4zM72 88h4v4h-4zM76 88h4v4h-4zM80 88h4v4h-4zM84 88h4v4h-4zM100 88h4v4h-4zM104 88h4v4h-4zM124 88h4v4h-4zM128 88h4v4h-4zM20 92h4v4h-4zM28 92h4v4h-4zM32 92h4v4h-4zM36 92h4v4h-4zM56 92h4v4h-4zM64 92h4v4h-4zM68 92h4v4h-4zM72 92h4v4h-4zM80 92h4v4h-4zM84 92h4v4h-4zM88 92h4v4h-4zM96 92h4v4h-4zM120 92h4v4h-4zM124 92h4v4h-4zM16 96h4v4h-4zM28 96h4v4h-4zM32 96h4v4h-4zM40 96h4v4h-4zM44 96h4v4h-4zM56 96h4v4h-4zM60 96h4v4h-4zM72 96h4v4h-4zM76 96h4v4h-4zM80 96h4v4h-4zM84 96h4v4h-4zM92 96h4v4h-4zM96 96h4v4h-4zM100 96h4v4h-4zM104 96h4v4h-4zM108 96h4v4h-4zM112 96h4v4h-4zM116 96h4v4h-4zM48 100h4v4h-4zM52 100h4v4h-4zM56 100h4v4h-4zM60 100h4v4h-4zM72 100h4v4h-4zM76 100h4v4h-4zM84 100h4v4h-4zM92 100h4v4h-4zM96 100h4v4h-4zM112 100h4v4h-4zM116 100h4v4h-4zM124 100h4v4h-4zM128 100h4v4h-4zM16 104h4v4h-4zM20 104h4v4h-4zM24 104h4v4h-4zM28 104h4v4h-4zM32 104h4v4h-4zM36 104h4v4h-4zM40 104h4v4h-4zM48 104h4v4h-4zM52 104h4v4h-4zM68 104h4v4h-4zM84 104h4v4h-4zM92 104h4v4h-4zM96 104h4v4h-4zM104 104h4v4h-4zM112 104h4v4h-4zM124 104h4v4h-4zM128 104h4v4h-4zM16 108h4v4h-4zM40 108h4v4h-4zM56 108h4v4h-4zM60 108h4v4h-4zM76 108h4v4h-4zM80 108h4v4h-4zM84 108h4v4h-4zM96 108h4v4h-4zM112 108h4v4h-4zM120 108h4v4h-4zM124 108h4v4h-4zM16 112h4v4h-4zM24 112h4v4h-4zM28 112h4v4h-4zM32 112h4v4h-4zM40 112h4v4h-4zM56 112h4v4h-4zM64 112h4v4h-4zM80 112h4v4h-4zM84 112h4v4h-4zM96 112h4v4h-4zM100 112h4v4h-4zM104 112h4v4h-4zM108 112h4v4h-4zM112 112h4v4h-4zM116 112h4v4h-4zM128 112h4v4h-4zM16 116h4v4h-4zM24 116h4v4h-4zM28 116h4v4h-4zM32 116h4v4h-4zM40 116h4v4h-4zM60 116h4v4h-4zM64 116h4v4h-4zM68 116h4v4h-4zM80 116h4v4h-4zM84 116h4v4h-4zM92 116h4v4h-4zM96 116h4v4h-4zM108 116h4v4h-4zM124 116h4v4h-4zM128 116h4v4h-4zM16 120h4v4h-4zM24 120h4v4h-4zM28 120h4v4h-4zM32 120h4v4h-4zM40 120h4v4h-4zM48 120h4v4h-4zM52 120h4v4h-4zM60 120h4v4h-4zM64 120h4v4h-4zM72 120h4v4h-4zM84 120h4v4h-4zM96 120h4v4h-4zM128 120h4v4h-4zM16 124h4v4h-4zM40 124h4v4h-4zM64 124h4v4h-4zM68 124h4v4h-4zM72 124h4v4h-4zM76 124h4v4h-4zM80 124h4v4h-4zM84 124h4v4h-4zM96 124h4v4h-4zM104 124h4v4h-4zM108 124h4v4h-4zM112 124h4v4h-4zM124 124h4v4h-4zM16 128h4v4h-4zM20 128h4v4h-4zM24 128h4v4h-4zM28 128h4v4h-4zM32 128h4v4h-4zM36 128h4v4h-4zM40 128h4v4h-4zM52 128h4v4h-4zM56 128h4v4h-4zM60 128h4v4h-4zM72 128h4v4h-4zM80 128h4v4h-4zM84 128h4v4h-4zM92 128h4v4h-4zM96 128h4v4h-4zM100 128h4v4h-4zM104 128h4v4h-4zM108 128h4v4h-4zM112 128h4v4h-4zM120 128h4v4h-4zM124 128h4v4h-4zM128 128h4v4h-4z"/></svg></a>
+          <a href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">Support the developer</a>
+          <small>dhahn.gumroad.com/coffee</small>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="pill-btn" id="closeAboutButton">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" id="editOverlay" role="dialog" aria-modal="true" aria-label="Edit shortcut">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="editTitle">Add Shortcut</h2>
+      </div>
+      <form id="shortcutForm" class="form-grid">
+        <input type="hidden" id="editId">
+        <div class="field full">
+          <label for="editAction">Shortcut Name</label>
+          <input id="editAction" placeholder="Display Name" required>
+        </div>
+        <div class="field full">
+          <label>Modifier</label>
+          <div class="modifier-grid" id="modifierGrid">
+            <label class="modifier-check"><input type="checkbox" data-modifier="Fn">Fn</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Shift">Shift</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Ctrl">Control</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Option">Option</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="Cmd">Command</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightShift">Right Shift</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightCmd">Right Command</label>
+            <label class="modifier-check"><input type="checkbox" data-modifier="RightOption">Right Option</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="editKey">Shortcut Key</label>
+          <input id="editKey" placeholder="L, Backspace, ArrowLeft">
+        </div>
+        <div class="field">
+          <label for="editShortcut">Parsed Shortcut</label>
+          <input id="editShortcut" placeholder="Choose modifier and key" readonly>
+        </div>
+        <div class="field">
+          <label for="editApp">App / Source</label>
+          <input id="editApp" placeholder="BetterTouchTool">
+        </div>
+        <div class="field">
+          <label for="editCategory">Category</label>
+          <select id="editCategory"></select>
+        </div>
+        <div class="field full">
+          <label for="editNotes">Notes</label>
+          <textarea id="editNotes" placeholder="What this does, where it comes from, setup detail..."></textarea>
+        </div>
+        <input type="hidden" id="editMnemonic">
+        <input type="hidden" id="editFavorite" value="false">
+        <div class="field">
+          <label for="editFavoriteToggle">Favorite</label>
+          <button class="pill-btn favorite-toggle" type="button" id="editFavoriteToggle" aria-pressed="false"><span class="star-mark">☆</span><span class="favorite-text">Not Favorite</span></button>
+        </div>
+        <div class="form-error" id="shortcutFormError"></div>
+        <div class="modal-actions editor-actions field full">
+          <button class="pill-btn" type="button" id="closeEditButton">Close</button>
+          <button class="pill-btn" type="button" id="deleteShortcutButton">Delete</button>
+          <span></span>
+          <button class="pill-btn" type="submit" id="saveShortcutButton">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "shortcut-os-dashboard-data-v1";
+    const TEXT_TRIGGER_KEY = "shortcut-dashboard-text-trigger-v1";
+    const PREFS_KEY = "shortcut-os-dashboard-prefs-v1";
+    const ANALYTICS_KEY = "shortcut-os-dashboard-analytics-v1";
+    const OTHERS_LAYER_ID = "__others__";
+    const FAVORITES_LAYER_ID = "__favorites__";
+
+    const layers = [
+      { id: "Fn", label: "Fn" },
+      { id: "Hyper", label: "Hyper" },
+      { id: "Cmd+Ctrl+Option", label: "Cmd+Ctrl+Option" },
+      { id: "Cmd", label: "Cmd" },
+      { id: "Ctrl", label: "Ctrl" },
+      { id: "Option", label: "Option" }
+    ];
+
+    const layerOrder = ["Fn", "Hyper", "Cmd+Ctrl+Option", "Cmd", "Ctrl", "Option"];
+    const modifierOrder = ["Fn", "Cmd", "Ctrl", "Option", "Shift", "RightShift", "RightCmd", "RightOption"];
+    const modifierLabels = {
+      Fn: "Fn",
+      Shift: "Shift",
+      Ctrl: "Control",
+      Option: "Option",
+      Cmd: "Command",
+      RightShift: "Right Shift",
+      RightCmd: "Right Command",
+      RightOption: "Right Option"
+    };
+
+    const categoryColors = {
+      "Window Management": "#69e6c7",
+      "App Launchers": "#9cc8ff",
+      "Media": "#ffd166",
+      "Screenshots": "#ff8fb3",
+      "AI Tools": "#c8a6ff",
+      "Browser": "#7ee787",
+      "System": "#f4a261",
+      "Hardware": "#73d2de",
+      "Contextual": "#b8c0cc"
+    };
+
+    const categoryEmoji = {
+      "Window Management": "🟢",
+      "App Launchers": "🔵",
+      "Media": "🟡",
+      "Screenshots": "🩷",
+      "AI Tools": "🟣",
+      "Browser": "🟩",
+      "System": "🟠",
+      "Hardware": "🟦",
+      "Contextual": "⚪"
+    };
+
+    const shortcutCategoryNames = Object.keys(categoryColors);
+
+    let shortcuts = [
+      { id: "win-left", layer: "Hyper", key: "ArrowLeft", keyLabel: "Left", shortcut: "Hyper+Left", action: "Left Half", app: "BetterTouchTool", category: "Window Management", notes: "Snap the active window to the left half of the current display.", mnemonic: "Arrow points where the window lands.", favorite: true },
+      { id: "win-right", layer: "Hyper", key: "ArrowRight", keyLabel: "Right", shortcut: "Hyper+Right", action: "Right Half", app: "BetterTouchTool", category: "Window Management", notes: "Snap the active window to the right half of the current display.", mnemonic: "Arrow points where the window lands.", favorite: true },
+      { id: "win-up", layer: "Hyper", key: "ArrowUp", keyLabel: "Up", shortcut: "Hyper+Up", action: "Maximize", app: "BetterTouchTool", category: "Window Management", notes: "Make the active window fill the available screen area.", mnemonic: "Up means expand upward and outward.", favorite: true },
+      { id: "win-down", layer: "Hyper", key: "ArrowDown", keyLabel: "Down", shortcut: "Hyper+Down", action: "Restore", app: "BetterTouchTool", category: "Window Management", notes: "Restore the window from a maximized or snapped state.", mnemonic: "Down brings the window back to earth.", favorite: false },
+      { id: "win-h", layer: "Hyper", key: "H", keyLabel: "H", shortcut: "Hyper+H", action: "Left 1/6", app: "BetterTouchTool", category: "Window Management", notes: "Place the active window into a narrow left column.", mnemonic: "HJKL mirrors Vim movement: H is left.", favorite: true },
+      { id: "win-j", layer: "Hyper", key: "J", keyLabel: "J", shortcut: "Hyper+J", action: "Bottom Left 1/6", app: "BetterTouchTool", category: "Window Management", notes: "Place the active window into the bottom-left sixth.", mnemonic: "J moves down in Vim geography.", favorite: true },
+      { id: "win-k", layer: "Hyper", key: "K", keyLabel: "K", shortcut: "Hyper+K", action: "Top Left 1/6", app: "BetterTouchTool", category: "Window Management", notes: "Place the active window into the top-left sixth.", mnemonic: "K moves up in Vim geography.", favorite: true },
+      { id: "win-l", layer: "Hyper", key: "L", keyLabel: "L", shortcut: "Hyper+L", action: "Right 1/6", app: "BetterTouchTool", category: "Window Management", notes: "Place the active window into a narrow right column.", mnemonic: "L is right in Vim movement.", favorite: true },
+
+      { id: "fn-a", layer: "Fn", key: "A", keyLabel: "A", shortcut: "Fn+A", action: "Arc", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Arc.", mnemonic: "A for Arc; left hand browser launch.", favorite: true },
+      { id: "fn-b", layer: "Fn", key: "B", keyLabel: "B", shortcut: "Fn+B", action: "Bitwarden", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Bitwarden.", mnemonic: "B for Bitwarden.", favorite: false },
+      { id: "fn-f", layer: "Fn", key: "F", keyLabel: "F", shortcut: "Fn+F", action: "Figma", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Figma.", mnemonic: "F for Figma.", favorite: false },
+      { id: "fn-g", layer: "Fn", key: "G", keyLabel: "G", shortcut: "Fn+G", action: "KakaoTalk", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus KakaoTalk.", mnemonic: "G sits near the communication cluster.", favorite: false },
+      { id: "fn-h", layer: "Fn", key: "H", keyLabel: "H", shortcut: "Fn+H", action: "Heynote", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Heynote.", mnemonic: "H for Heynote.", favorite: false },
+      { id: "fn-m", layer: "Fn", key: "M", keyLabel: "M", shortcut: "Fn+M", action: "Spark", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Spark mail.", mnemonic: "M for mail.", favorite: false },
+      { id: "fn-n", layer: "Fn", key: "N", keyLabel: "N", shortcut: "Fn+N", action: "Notion", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Notion.", mnemonic: "N for Notion.", favorite: false },
+      { id: "fn-r", layer: "Fn", key: "R", keyLabel: "R", shortcut: "Fn+R", action: "Brave", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Brave.", mnemonic: "R for alternate browser route.", favorite: false },
+      { id: "fn-s", layer: "Fn", key: "S", keyLabel: "S", shortcut: "Fn+S", action: "Slack", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Slack.", mnemonic: "S for Slack.", favorite: true },
+      { id: "fn-z", layer: "Fn", key: "Z", keyLabel: "Z", shortcut: "Fn+Z", action: "Claude", app: "BetterTouchTool", category: "AI Tools", notes: "Open or focus Claude.", mnemonic: "Z marks the AI tool parked in the lower-left corner.", favorite: true },
+      { id: "hyper-a", layer: "Hyper", key: "A", keyLabel: "A", shortcut: "Hyper+A", action: "Arc", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Arc with Hyper.", mnemonic: "A for Arc; duplicated for muscle-memory compatibility.", favorite: false },
+      { id: "hyper-b", layer: "Hyper", key: "B", keyLabel: "B", shortcut: "Hyper+B", action: "Bitwarden", app: "BetterTouchTool", category: "App Launchers", notes: "Open or focus Bitwarden with Hyper.", mnemonic: "B for Bitwarden.", favorite: false },
+
+      { id: "media-1", layer: "Hyper", key: "1", keyLabel: "1", shortcut: "Hyper+1", action: "HDMI1", app: "Keyboard Maestro", category: "Hardware", notes: "Switch external display input to HDMI 1.", mnemonic: "Number row maps directly to display inputs.", favorite: false },
+      { id: "media-2", layer: "Hyper", key: "2", keyLabel: "2", shortcut: "Hyper+2", action: "HDMI2", app: "Keyboard Maestro", category: "Hardware", notes: "Switch external display input to HDMI 2.", mnemonic: "Number row maps directly to display inputs.", favorite: false },
+      { id: "media-3", layer: "Hyper", key: "3", keyLabel: "3", shortcut: "Hyper+3", action: "HDMI3", app: "Keyboard Maestro", category: "Hardware", notes: "Switch external display input to HDMI 3.", mnemonic: "Number row maps directly to display inputs.", favorite: false },
+      { id: "media-4", layer: "Hyper", key: "4", keyLabel: "4", shortcut: "Hyper+4", action: "HDMI4", app: "Keyboard Maestro", category: "Hardware", notes: "Switch external display input to HDMI 4.", mnemonic: "Number row maps directly to display inputs.", favorite: false },
+      { id: "media-p", layer: "Hyper", key: "P", keyLabel: "P", shortcut: "Hyper+P", action: "Play/Pause", app: "macOS", category: "Media", notes: "Toggle media playback.", mnemonic: "P for play and pause.", favorite: false },
+      { id: "media-m", layer: "Hyper", key: "M", keyLabel: "M", shortcut: "Hyper+M", action: "Mute", app: "macOS", category: "Media", notes: "Toggle audio mute.", mnemonic: "M for mute.", favorite: false },
+
+      { id: "shot-3", layer: "Cmd+Shift", key: "3", keyLabel: "3", shortcut: "Shift+Cmd+3", action: "Full Screenshot", app: "macOS", category: "Screenshots", notes: "Capture the full screen.", mnemonic: "Classic macOS screenshot muscle memory.", favorite: false, aliases: ["Cmd+Shift+3"] },
+      { id: "shot-4", layer: "Cmd+Shift", key: "4", keyLabel: "4", shortcut: "Shift+Cmd+4", action: "Area Screenshot", app: "macOS", category: "Screenshots", notes: "Capture a selected area.", mnemonic: "4 corners define a region.", favorite: true, aliases: ["Cmd+Shift+4"] },
+      { id: "shot-5", layer: "Cmd+Shift", key: "5", keyLabel: "5", shortcut: "Shift+Cmd+5", action: "Scrolling Screenshot", app: "CleanShot X", category: "Screenshots", notes: "Open the extended capture interface.", mnemonic: "5 opens the larger screenshot control panel.", favorite: false, aliases: ["Cmd+Shift+5"] },
+
+      { id: "sys-comma", layer: "Hyper", key: ",", keyLabel: ",", shortcut: "Hyper+,", action: "Settings", app: "macOS", category: "System", notes: "Open system or app settings.", mnemonic: "Comma is the classic preferences key.", favorite: false },
+      { id: "sys-period", layer: "Hyper", key: ".", keyLabel: ".", shortcut: "Hyper+.", action: "BetterTouchTool", app: "BetterTouchTool", category: "System", notes: "Open BetterTouchTool configuration.", mnemonic: "Period means stop and tune the machine.", favorite: false },
+      { id: "sys-trash", layer: "Hyper", key: "Backspace", keyLabel: "Delete", shortcut: "Hyper+Backspace", action: "Empty Trash", app: "Keyboard Maestro", category: "System", notes: "Empty the macOS Trash.", mnemonic: "Backspace deletes the deleted.", favorite: false },
+
+      { id: "cmd-k", layer: "Cmd", key: "K", keyLabel: "K", shortcut: "Cmd+K", action: "Open Command Palette", app: "Raycast / apps", category: "Contextual", notes: "Common command palette chord across modern apps.", mnemonic: "K for command center.", favorite: true },
+      { id: "cmd-l", layer: "Cmd", key: "L", keyLabel: "L", shortcut: "Cmd+L", action: "Focus Address Bar", app: "Browser", category: "Browser", notes: "Jump to the URL or search field.", mnemonic: "L for location.", favorite: false },
+      { id: "ctrl-a", layer: "Ctrl", key: "A", keyLabel: "A", shortcut: "Ctrl+A", action: "Line Start", app: "macOS text fields", category: "System", notes: "Move cursor to start of line in Cocoa text fields.", mnemonic: "A as the first letter.", favorite: false },
+      { id: "opt-left", layer: "Option", key: "ArrowLeft", keyLabel: "Left", shortcut: "Option+Left", action: "Previous Word", app: "macOS text fields", category: "System", notes: "Move cursor one word left.", mnemonic: "Option makes arrows semantic.", favorite: false }
+    ];
+
+    const sampleShortcuts = structuredClone(shortcuts);
+
+    const keyboardRows = [
+      [
+        key("Escape", "Esc"), key("F1"), key("F2"), key("F3"), key("F4"), key("F5"), key("F6"),
+        key("F7"), key("F8"), key("F9"), key("F10"), key("F11"), key("F12"), key("Backspace", "Delete", 1.6)
+      ],
+      [
+        key("`", "`"), key("1"), key("2"), key("3"), key("4"), key("5"), key("6"), key("7"), key("8"), key("9"), key("0"), key("-", "-"), key("=", "=")
+      ],
+      [
+        key("Tab", "Tab", 1.45), key("Q"), key("W"), key("E"), key("R"), key("T"), key("Y"), key("U"), key("I"), key("O"), key("P"), key("[", "["), key("]", "]"), key("\\", "\\", 1.2)
+      ],
+      [
+        key("CapsLock", "Caps", 1.75), key("A"), key("S"), key("D"), key("F"), key("G"), key("H"), key("J"), key("K"), key("L"), key(";", ";"), key("'", "'"), key("Enter", "Return", 1.8)
+      ],
+      [
+        key("ShiftLeft", "Shift", 2.15), key("Z"), key("X"), key("C"), key("V"), key("B"), key("N"), key("M"), key(",", ","), key(".", "."), key("/", "/"), key("ShiftRight", "Shift", 2.15)
+      ],
+      [
+        key("Fn", "fn", 1), key("Control", "ctrl", 1.1), key("Option", "opt", 1.1), key("Meta", "cmd", 1.15), key("Space", "Space", 5.6), key("MetaRight", "cmd", 1.15), key("OptionRight", "opt", 1.1),
+        key("ArrowLeft", "Left"), key("ArrowUp", "Up"), key("ArrowDown", "Down"), key("ArrowRight", "Right")
+      ]
+    ];
+
+    let activeLayer = "Hyper";
+    let activeCategory = "All";
+    let activeMode = "keyboard";
+    let selectedId = null;
+    let paletteIndex = 0;
+    let lastLiveKey = null;
+    let loadedSourceName = "sample data";
+    let editorInitialSnapshot = "";
+    let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
+    let prefs = readJson(PREFS_KEY, { theme: "dark", compact: false });
+    let analytics = readJson(ANALYTICS_KEY, { usage: {}, recent: [] });
+
+    const el = {
+      app: document.getElementById("app"),
+      keyboard: document.getElementById("keyboard"),
+      textTriggerBoard: document.getElementById("textTriggerBoard"),
+      textTriggerFontSize: document.getElementById("textTriggerFontSize"),
+      textTriggerFontSizeValue: document.getElementById("textTriggerFontSizeValue"),
+      textTriggerNotes: [
+        document.getElementById("textTriggerNote1"),
+        document.getElementById("textTriggerNote2"),
+        document.getElementById("textTriggerNote3")
+      ],
+      layerTabs: document.getElementById("layerTabs"),
+      categoryRail: document.getElementById("categoryRail"),
+      searchInput: document.getElementById("searchInput"),
+      detailPanel: document.getElementById("detailPanel"),
+      visibleCount: document.getElementById("visibleCount"),
+      conflictCount: document.getElementById("conflictCount"),
+      paletteOverlay: document.getElementById("paletteOverlay"),
+      paletteInput: document.getElementById("paletteInput"),
+      paletteResults: document.getElementById("paletteResults"),
+      jsonOverlay: document.getElementById("jsonOverlay"),
+      aboutOverlay: document.getElementById("aboutOverlay"),
+      jsonArea: document.getElementById("jsonArea"),
+      jsonFileInput: document.getElementById("jsonFileInput"),
+      jsonFileStatus: document.getElementById("jsonFileStatus"),
+      editOverlay: document.getElementById("editOverlay"),
+      shortcutForm: document.getElementById("shortcutForm"),
+      shortcutFormError: document.getElementById("shortcutFormError"),
+      modifierGrid: document.getElementById("modifierGrid"),
+      toast: document.getElementById("toast"),
+      printSheet: document.getElementById("printSheet")
+    };
+
+    init();
+
+    function init() {
+      const storedData = readJson(STORAGE_KEY, sampleShortcuts);
+      if (storedData && !Array.isArray(storedData) && Array.isArray(storedData.shortcuts)) {
+        shortcuts = normalizeShortcuts(storedData.shortcuts);
+        textTrigger = normalizeTextTrigger(storedData.textTrigger || storedData.alfred || textTrigger);
+        persistShortcuts();
+        persistTextTrigger();
+      } else {
+        shortcuts = normalizeShortcuts(storedData);
+        textTrigger = normalizeTextTrigger(textTrigger);
+      }
+      loadedSourceName = hasStoredData() ? "browser storage" : "sample data";
+      renderStaticIcons();
+      applyPrefs();
+      bindEvents();
+      renderAll();
+      showDetails(shortcuts.find(s => s.favorite) || shortcuts[0]);
+    }
+
+    function key(code, label = code, w = 1) {
+      return { code, label, w };
+    }
+
+    function renderStaticIcons() {
+      document.querySelectorAll("[data-icon]").forEach(button => {
+        button.innerHTML = iconSvg(button.dataset.icon);
+      });
+    }
+
+    function iconSvg(name) {
+      const icons = {
+        plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+        minimize: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>',
+        moon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3a7 7 0 1 0 11.5 11.5Z"/></svg>',
+        sun: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>',
+        save: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>',
+        print: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v7H6z"/></svg>',
+        info: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>',
+        star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>',
+        "star-filled": '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="filled" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>'
+      };
+      return icons[name] || "";
+    }
+
+    function bindEvents() {
+      el.searchInput.addEventListener("input", renderAll);
+      document.getElementById("paletteButton").addEventListener("click", openPalette);
+      document.getElementById("addButton").addEventListener("click", () => openShortcutEditor());
+      document.getElementById("themeButton").addEventListener("click", toggleTheme);
+      document.getElementById("compactButton").addEventListener("click", toggleCompact);
+      document.getElementById("importExportButton").addEventListener("click", openJsonModal);
+      document.getElementById("printButton").addEventListener("click", () => { renderPrintSheet(); window.print(); });
+      document.getElementById("aboutButton").addEventListener("click", openAboutModal);
+      document.getElementById("closeJsonButton").addEventListener("click", closeJsonModal);
+      document.getElementById("closeAboutButton").addEventListener("click", closeAboutModal);
+      document.getElementById("openJsonFileButton").addEventListener("click", openJsonFile);
+      document.getElementById("exportJsonButton").addEventListener("click", downloadJson);
+      document.getElementById("saveJsonFileButton").addEventListener("click", saveJsonFile);
+      document.getElementById("closeEditButton").addEventListener("click", requestCloseShortcutEditor);
+      document.getElementById("deleteShortcutButton").addEventListener("click", deleteCurrentShortcut);
+      document.getElementById("editFavoriteToggle").addEventListener("click", () => {
+        setFavoriteValue(document.getElementById("editFavorite").value !== "true");
+      });
+      el.shortcutForm.addEventListener("submit", saveShortcutFromForm);
+      el.modifierGrid.querySelectorAll("input[type=checkbox]").forEach(input => {
+        input.addEventListener("change", updateShortcutPreviewFromParts);
+      });
+      document.getElementById("editKey").addEventListener("input", () => {
+        document.getElementById("editKey").dataset.autofilled = "false";
+        updateShortcutPreviewFromParts();
+      });
+      el.jsonFileInput.addEventListener("change", readJsonFileInput);
+      el.textTriggerFontSize.addEventListener("input", () => {
+        textTrigger.fontSize = Number(el.textTriggerFontSize.value);
+        persistTextTrigger();
+        renderTextTrigger();
+      });
+      el.textTriggerNotes.forEach((note, index) => {
+        note.addEventListener("input", () => {
+          textTrigger.columns[index] = note.value;
+          persistTextTrigger();
+        });
+      });
+      el.paletteInput.addEventListener("input", () => { paletteIndex = 0; renderPalette(); });
+      el.paletteOverlay.addEventListener("click", event => {
+        if (event.target === el.paletteOverlay) closePalette();
+      });
+      el.jsonOverlay.addEventListener("click", event => {
+        if (event.target === el.jsonOverlay) event.stopPropagation();
+      });
+      el.aboutOverlay.addEventListener("click", event => {
+        if (event.target === el.aboutOverlay) event.stopPropagation();
+      });
+      el.editOverlay.addEventListener("click", event => {
+        if (event.target === el.editOverlay) event.stopPropagation();
+      });
+
+      document.addEventListener("keydown", handleGlobalKeydown, true);
+    }
+
+    function renderAll() {
+      renderLayers();
+      renderKeyboard();
+      renderTextTrigger();
+      renderCategories();
+      renderStats();
+      renderPrintSheet();
+      if (selectedId) showDetails(shortcuts.find(item => item.id === selectedId));
+    }
+
+    function renderLayers() {
+      const tabs = getLayerTabs();
+      if (activeMode === "keyboard" && tabs.length && !tabs.some(layer => layer.id === activeLayer)) {
+        activeLayer = tabs[0].id;
+      }
+      const layerButtons = tabs.map(layer => {
+        const count = filteredShortcuts({ ignoreLayer: false, layerId: layer.id }).length;
+        return `<button class="layer-btn ${activeMode === "keyboard" && activeLayer === layer.id ? "active" : ""}" data-layer="${escapeHtml(layer.id)}" title="${escapeHtml(layer.label)}" aria-label="${escapeHtml(layer.label)} layer, ${count} shortcuts">${layerGlyph(layer.id)} <span class="layer-count">${count}</span></button>`;
+      }).join("");
+      el.layerTabs.innerHTML = `${layerButtons}<button class="mode-tab ${activeMode === "textTrigger" ? "active" : ""}" id="textTriggerTab" type="button">Text Trigger</button>`;
+      el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          activeMode = "keyboard";
+          activeLayer = button.dataset.layer;
+          selectedId = null;
+          renderAll();
+          showDetails(filteredShortcuts()[0] || null);
+        });
+      });
+      document.getElementById("textTriggerTab").addEventListener("click", () => {
+        activeMode = "textTrigger";
+        selectedId = null;
+        renderAll();
+        showTextTriggerDetails();
+      });
+    }
+
+    function getLayerTabs() {
+      const activeLayers = Array.from(new Set(shortcuts
+        .filter(item => item.active !== false && item.layer)
+        .map(item => item.layer)));
+      const visibleLayers = activeLayers
+        .map(id => ({ id, count: filteredShortcuts({ ignoreLayer: false, layerId: id }).length }))
+        .filter(layer => layer.count > 0)
+        .sort(compareLayerTabs)
+        .map(layer => layer.id);
+      const favoriteCount = filteredShortcuts({ ignoreLayer: false, layerId: FAVORITES_LAYER_ID }).length;
+      const ids = visibleLayers.length ? visibleLayers : [activeLayer || "Fn"];
+      const withFavorites = favoriteCount > 0 ? [FAVORITES_LAYER_ID, ...ids] : ids;
+      return withFavorites.map(id => ({ id, label: layerDisplayName(id) }));
+    }
+
+    function compareLayerTabs(a, b) {
+      if (a.count !== b.count) return b.count - a.count;
+      const aIndex = layerSortIndex(a.id);
+      const bIndex = layerSortIndex(b.id);
+      if (aIndex !== bIndex) return aIndex - bIndex;
+      return layerWeight(a.id) - layerWeight(b.id) || layerDisplayName(a.id).localeCompare(layerDisplayName(b.id));
+    }
+
+    function layerSortIndex(id) {
+      const index = layerOrder.indexOf(id);
+      return index === -1 ? 100 : index;
+    }
+
+    function layerWeight(id) {
+      const mods = layerToModifierSet(id);
+      const weightOrder = ["Fn", "Shift", "Ctrl", "Option", "Cmd", "RightShift", "RightOption", "RightCmd"];
+      return weightOrder.reduce((total, mod, index) => total + (mods.has(mod) ? Math.pow(2, index) : 0), 0);
+    }
+
+    function layerGlyph(layerId) {
+      if (layerId === FAVORITES_LAYER_ID) return `<span class="fn-glyph">★ Favorite</span>`;
+      if (layerId === OTHERS_LAYER_ID) return `<span class="fn-glyph">Others</span>`;
+      if (layerId === "Fn") return `<span class="fn-glyph">Fn</span>`;
+      const mods = layerToModifierSet(layerId);
+      const symbols = modifierGlyphSymbols(mods);
+
+      return `
+        <span class="mod-glyph" aria-hidden="true">
+          ${symbols.map(item => `<span class="mod-symbol ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}
+        </span>
+        <span class="sr-only">${escapeHtml(layerId)}</span>
+      `;
+    }
+
+    function modifierGlyphSymbols(mods) {
+      const hasRightSide = mods.has("RightCmd") || mods.has("RightOption") || mods.has("RightShift");
+      if (hasRightSide) {
+        return [
+          { symbol: "⌘ʳ", on: mods.has("RightCmd") },
+          { symbol: "⌥ʳ", on: mods.has("RightOption") },
+          { symbol: "⇧ʳ", on: mods.has("RightShift") }
+        ];
+      }
+      return [
+        { symbol: "⇧", on: mods.has("Shift") },
+        { symbol: "⌃", on: mods.has("Ctrl") },
+        { symbol: "⌥", on: mods.has("Option") },
+        { symbol: "⌘", on: mods.has("Cmd") }
+      ];
+    }
+
+    function renderKeyboard() {
+      const isTextTrigger = activeMode === "textTrigger";
+      el.keyboard.style.display = isTextTrigger ? "none" : "flex";
+      el.textTriggerBoard.classList.toggle("active", isTextTrigger);
+      if (isTextTrigger) return;
+
+      const layerShortcuts = shortcutsForLayer(activeLayer);
+      const query = currentQuery();
+      const queryMatches = query ? new Set(filteredShortcuts({ ignoreLayer: true }).map(s => s.id)) : new Set();
+      const shortcutMap = new Map();
+      layerShortcuts.forEach(item => {
+        const list = shortcutMap.get(item.key) || [];
+        list.push(item);
+        shortcutMap.set(item.key, list);
+      });
+
+      el.keyboard.innerHTML = keyboardRows.map(row => {
+        const keysHtml = row.map(keyInfo => {
+          const mappings = shortcutMap.get(keyInfo.code) || [];
+          const primary = choosePrimaryMapping(mappings);
+          const color = primary ? categoryColors[primary.category] || categoryColors.Contextual : "var(--focus)";
+          const assigned = mappings.length ? "assigned" : "";
+          const conflict = mappings.length > 1 ? "conflict" : "";
+          const selected = mappings.some(m => m.id === selectedId) ? "selected" : "";
+          const searchHit = mappings.some(m => queryMatches.has(m.id)) ? "search-hit" : "";
+          const live = lastLiveKey === keyInfo.code ? "live" : "";
+          const heat = Math.min((analytics.usage[primary?.id] || 0) / 10, 0.42);
+          const title = mappings.length ? mappings.map(formatMappingTitle).join(" | ") : keyInfo.label;
+          return `
+            <button class="key ${assigned} ${conflict} ${selected} ${searchHit} ${live}" data-key="${escapeHtml(keyInfo.code)}" style="--w:${keyInfo.w};--key-color:${color};--heat:${heat}" title="${escapeHtml(title)}">
+              <span class="heat"></span>
+              <span class="key-label">${escapeHtml(keyInfo.label)}</span>
+              <span class="key-action">${primary ? escapeHtml(primary.action) : ""}</span>
+              ${mappings.length > 1 ? `<span class="key-badge">${mappings.length}</span>` : ""}
+            </button>
+          `;
+        }).join("");
+        return `<div class="key-row">${keysHtml}</div>`;
+      }).join("");
+
+      el.keyboard.querySelectorAll(".key").forEach(button => {
+        button.addEventListener("click", () => {
+          const keyCode = button.dataset.key;
+          const mappings = shortcutMap.get(keyCode) || [];
+          showDetails(choosePrimaryMapping(mappings), mappings, keyCode);
+        });
+      });
+    }
+
+    function renderTextTrigger() {
+      const fontSize = Number(textTrigger.fontSize) || 16;
+      el.textTriggerBoard.style.setProperty("--alfred-font-size", `${fontSize}px`);
+      el.textTriggerFontSize.value = fontSize;
+      el.textTriggerFontSizeValue.textContent = `${fontSize}px`;
+      el.textTriggerNotes.forEach((note, index) => {
+        if (note.value !== (textTrigger.columns[index] || "")) {
+          note.value = textTrigger.columns[index] || "";
+        }
+      });
+    }
+
+    function renderCategories() {
+      const categories = ["All", ...shortcutCategoryNames];
+      el.categoryRail.innerHTML = categories.map(category => {
+        const color = category === "All" ? "var(--accent)" : categoryColors[category];
+        const active = activeCategory === category ? "active" : "";
+        const label = category === "All" ? "All Categories" : category;
+        return `<button class="chip ${active}" data-category="${escapeHtml(category)}" style="--chip-color:${color}"><span class="dot"></span>${escapeHtml(label)}</button>`;
+      }).join("");
+      el.categoryRail.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          activeMode = "keyboard";
+          activeCategory = button.dataset.category;
+          renderAll();
+        });
+      });
+    }
+
+    function renderStats() {
+      const conflicts = conflictGroups();
+      el.visibleCount.textContent = activeMode === "textTrigger" ? 3 : filteredShortcuts().length;
+      el.conflictCount.textContent = conflicts.length;
+    }
+
+    function showTextTriggerDetails() {
+      el.detailPanel.innerHTML = `
+        <div class="panel-header">
+          <div>
+            <div class="panel-kicker">Freeform Memory</div>
+            <h2 class="panel-title">Text Trigger</h2>
+          </div>
+        </div>
+        <div class="section">
+          <h3>Mode</h3>
+          <p>This top tab replaces the keyboard with three editable text columns for text triggers, snippets, keywords, and launcher mnemonics.</p>
+        </div>
+        <div class="section">
+          <h3>Saved Data</h3>
+          <p>The three columns and font size autosave locally and are included in JSON export/import under <span class="shortcut-token">textTrigger</span>.</p>
+        </div>
+      `;
+    }
+
+    function showDetails(shortcut, mappingsOverride, pickedKey = "") {
+      if (activeMode === "textTrigger") {
+        showTextTriggerDetails();
+        return;
+      }
+      const mappings = mappingsOverride || (shortcut ? shortcutsForLayer(activeLayer).filter(s => s.key === shortcut.key) : []);
+      selectedId = shortcut ? shortcut.id : null;
+
+      if (!shortcut) {
+        el.detailPanel.innerHTML = `
+          <div class="panel-header">
+          <div>
+            <div class="panel-kicker">No shortcut</div>
+            <h2 class="panel-title">Pick a lit key</h2>
+          </div>
+          <button class="icon-btn" id="emptyAddButton">Add</button>
+        </div>
+          <div class="section"><p>This layer has no mapping for that key yet. Add one with the editor, or import a JSON file from the JSON panel.</p></div>
+        `;
+        document.getElementById("emptyAddButton").addEventListener("click", () => {
+          const presetLayer = activeLayer === FAVORITES_LAYER_ID || activeLayer === OTHERS_LAYER_ID ? "Hyper" : activeLayer;
+          openShortcutEditor(null, { layer: presetLayer, key: pickedKey });
+        });
+        renderKeyboard();
+        return;
+      }
+
+      const conflict = mappings.length > 1;
+      const categoryColor = categoryColors[shortcut.category] || categoryColors.Contextual;
+      el.detailPanel.innerHTML = `
+        <div class="panel-header">
+          <div>
+            <div class="panel-kicker">${escapeHtml(shortcut.app || "Shortcut")}</div>
+            <h2 class="panel-title">${escapeHtml(shortcut.action)}</h2>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+            <button class="icon-btn" id="editShortcutButton" title="Edit shortcut">Edit</button>
+            <button class="icon-btn icon-only ${shortcut.favorite ? "starred" : ""}" id="favoriteButton" title="${shortcut.favorite ? "Starred" : "Star"}" aria-label="${shortcut.favorite ? "Starred" : "Star"}" data-icon="star">${shortcut.favorite ? iconSvg("star-filled") : iconSvg("star")}</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <h3>Shortcut</h3>
+          <span class="shortcut-token">${escapeHtml(shortcut.shortcut)}</span>
+        </div>
+
+        <div class="section">
+          <h3>Category</h3>
+          <p><span class="dot" style="--chip-color:${categoryColor};display:inline-block;margin-right:8px"></span>${escapeHtml(shortcut.category)}</p>
+        </div>
+
+        <div class="section">
+          <h3>Notes</h3>
+          <p>${escapeHtml(shortcut.notes || "No notes yet.")}</p>
+        </div>
+
+        <div class="section">
+          <h3>${conflict ? "Conflict Warning" : "Conflict Check"}</h3>
+          <p>${conflict ? "Multiple actions are assigned to this exact layer and key. Choose one source of truth or keep both intentionally." : "No same-layer conflict detected for this key."}</p>
+          ${mappings.map(item => mappingCard(item, conflict)).join("")}
+        </div>
+
+      `;
+
+      document.getElementById("favoriteButton").addEventListener("click", () => {
+        shortcut.favorite = !shortcut.favorite;
+        persistShortcuts();
+        if (activeLayer === FAVORITES_LAYER_ID && !shortcut.favorite) {
+          const next = filteredShortcuts({ layerId: FAVORITES_LAYER_ID })[0] || null;
+          selectedId = next?.id || null;
+          renderAll();
+          showDetails(next);
+          return;
+        }
+        showDetails(shortcut, mappings);
+        renderAll();
+      });
+      document.getElementById("editShortcutButton").addEventListener("click", () => openShortcutEditor(shortcut));
+      renderKeyboard();
+    }
+
+    function mappingCard(item, isConflict) {
+      return `
+        <div class="mapping-card ${isConflict ? "conflict-card" : ""}">
+          <div class="mapping-top">
+            <div>
+              <div class="mapping-action">${escapeHtml(item.action)}</div>
+              <div class="mapping-source">${escapeHtml(item.app)} - ${escapeHtml(item.category)}</div>
+            </div>
+            <span class="shortcut-token">${escapeHtml(item.shortcut)}</span>
+          </div>
+          <div class="mapping-source">${escapeHtml(item.mnemonic || "")}</div>
+        </div>
+      `;
+    }
+
+    function openPalette() {
+      paletteIndex = 0;
+      el.paletteInput.value = "";
+      renderPalette();
+      el.paletteOverlay.classList.add("open");
+      requestAnimationFrame(() => el.paletteInput.focus());
+    }
+
+    function closePalette() {
+      el.paletteOverlay.classList.remove("open");
+    }
+
+    function renderPalette() {
+      const q = normalize(el.paletteInput.value);
+      const items = shortcuts
+        .map(item => ({ item, score: fuzzyScore(item, q) }))
+        .filter(row => !q || row.score > 0)
+        .sort((a, b) => b.score - a.score || a.item.action.localeCompare(b.item.action))
+        .slice(0, 50);
+
+      if (!items.length) {
+        el.paletteResults.innerHTML = `<div class="empty">No matching command.</div>`;
+        return;
+      }
+
+      el.paletteResults.innerHTML = items.map((row, index) => `
+        <button class="palette-item ${index === paletteIndex ? "active" : ""}" data-id="${escapeHtml(row.item.id)}">
+          <span>
+            <strong>${escapeHtml(row.item.action)}</strong>
+            <div class="palette-meta">${escapeHtml(row.item.app)} - ${escapeHtml(row.item.category)}</div>
+          </span>
+          <span class="shortcut-token">${escapeHtml(row.item.shortcut)}</span>
+        </button>
+      `).join("");
+
+      el.paletteResults.querySelectorAll(".palette-item").forEach(button => {
+        button.addEventListener("click", () => selectShortcutById(button.dataset.id, true));
+      });
+    }
+
+    function handleGlobalKeydown(event) {
+      const inTextField = ["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName);
+
+      if (el.paletteOverlay.classList.contains("open")) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closePalette();
+          return;
+        }
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+          event.preventDefault();
+          const items = el.paletteResults.querySelectorAll(".palette-item");
+          if (!items.length) return;
+          paletteIndex = event.key === "ArrowDown"
+            ? Math.min(paletteIndex + 1, items.length - 1)
+            : Math.max(paletteIndex - 1, 0);
+          renderPalette();
+          return;
+        }
+        if (event.key === "Enter") {
+          event.preventDefault();
+          const active = el.paletteResults.querySelector(".palette-item.active");
+          if (active) selectShortcutById(active.dataset.id, true);
+          return;
+        }
+      }
+
+      if (event.key === "Escape") {
+        closePalette();
+        closeJsonModal();
+        closeAboutModal();
+        requestCloseShortcutEditor();
+      }
+
+      if ((event.metaKey && event.key.toLowerCase() === "k") || (!inTextField && event.key === "?")) {
+        event.preventDefault();
+        openPalette();
+        return;
+      }
+
+      if (!inTextField && event.key === "/") {
+        event.preventDefault();
+        el.searchInput.focus();
+        return;
+      }
+
+      const matched = findShortcutFromEvent(event);
+      if (matched) {
+        flashShortcut(matched);
+      }
+    }
+
+    function findShortcutFromEvent(event) {
+      const pressed = eventKey(event);
+      return shortcuts.find(item => shortcutMatchesEvent(item, event, pressed));
+    }
+
+    function shortcutMatchesEvent(item, event, pressed) {
+      if (item.key !== pressed && item.keyLabel !== pressed) return false;
+      const shortcut = normalizeShortcut(item.shortcut);
+      const wantsCmd = shortcut.includes("Cmd");
+      const wantsCtrl = shortcut.includes("Ctrl") || shortcut.includes("Control");
+      const wantsOpt = shortcut.includes("Option") || shortcut.includes("Opt");
+      const wantsShift = shortcut.includes("Shift");
+      const wantsHyper = shortcut.includes("Hyper");
+      const wantsFn = shortcut.includes("Fn");
+
+      if (wantsHyper) {
+        // Hyper = Cmd+Ctrl+Option+Shift; all four must be held
+        return event.metaKey && event.ctrlKey && event.altKey && event.shiftKey;
+      }
+      if (wantsFn) return false;
+      return event.metaKey === wantsCmd && event.ctrlKey === wantsCtrl && event.altKey === wantsOpt && event.shiftKey === wantsShift;
+    }
+
+    function flashShortcut(item) {
+      activeLayer = item.layer;
+      selectedId = item.id;
+      lastLiveKey = item.key;
+      analytics.usage[item.id] = (analytics.usage[item.id] || 0) + 1;
+      analytics.recent = [item.id, ...analytics.recent.filter(id => id !== item.id)].slice(0, 10);
+      safeSetStorage(ANALYTICS_KEY, analytics);
+      renderAll();
+      showDetails(item);
+      toast(`${item.shortcut}: ${item.action}`);
+      window.setTimeout(() => {
+        lastLiveKey = null;
+        renderKeyboard();
+      }, 900);
+    }
+
+    function selectShortcutById(id, close) {
+      const item = shortcuts.find(s => s.id === id);
+      if (!item) return;
+      activeLayer = item.layer;
+      selectedId = item.id;
+      if (close) closePalette();
+      renderAll();
+      showDetails(item);
+    }
+
+    function openShortcutEditor(shortcut = null, preset = {}) {
+      const item = shortcut || {
+        id: "",
+        layer: preset.layer || activeLayer,
+        key: preset.key || "",
+        keyLabel: "",
+        shortcut: "",
+        action: "",
+        app: "",
+        category: activeCategory === "All" ? "Contextual" : activeCategory,
+        notes: "",
+        mnemonic: "",
+        favorite: false
+      };
+
+      document.getElementById("editTitle").textContent = shortcut ? "Edit Shortcut" : "Add Shortcut";
+      document.getElementById("editCategory").innerHTML = shortcutCategoryNames.map(category => `<option value="${escapeHtml(category)}">${escapeHtml(categoryLabel(category))}</option>`).join("");
+      clearFormError();
+      setFormValue("editId", item.id);
+      setFormValue("editAction", item.action);
+      setModifierCheckboxes(item.layer || inferLayer(item.shortcut));
+      const parsedShortcut = parseShortcutText(item.shortcut);
+      const editorKey = item.key || parsedShortcut.key || "";
+      setFormValue("editKey", editorKey);
+      document.getElementById("editKey").dataset.autofilled = editorKey ? "false" : "true";
+      updateShortcutPreviewFromParts(item.shortcut);
+      setFormValue("editApp", item.app);
+      setFormValue("editCategory", item.category);
+      setFormValue("editNotes", item.notes);
+      setFormValue("editMnemonic", item.mnemonic);
+      setFavoriteValue(Boolean(item.favorite));
+      document.getElementById("deleteShortcutButton").style.display = shortcut ? "inline-flex" : "none";
+      el.editOverlay.classList.add("open");
+      editorInitialSnapshot = getEditorSnapshot();
+      requestAnimationFrame(() => document.getElementById("editAction").focus());
+    }
+
+    function requestCloseShortcutEditor() {
+      if (!el.editOverlay.classList.contains("open")) return;
+      if (isEditorDirty() && !confirm("Close without saving changes?")) return;
+      closeShortcutEditor();
+    }
+
+    function closeShortcutEditor() {
+      el.editOverlay.classList.remove("open");
+      editorInitialSnapshot = "";
+    }
+
+    function saveShortcutFromForm(event) {
+      event.preventDefault();
+      try {
+        clearFormError();
+        const existingId = document.getElementById("editId").value;
+        const actionValue = document.getElementById("editAction").value.trim();
+        const parsedEditorShortcut = derivedShortcutFromForm();
+        const layerValue = parsedEditorShortcut.layerValue;
+        const keyValue = parsedEditorShortcut.keyValue;
+        const normalizedShortcut = parsedEditorShortcut.shortcutValue;
+        const next = {
+          id: existingId || makeShortcutId(normalizedShortcut, actionValue),
+          layer: layerValue,
+          key: keyValue,
+          keyLabel: labelForKey(keyValue),
+          shortcut: normalizedShortcut,
+          action: actionValue,
+          app: document.getElementById("editApp").value.trim() || "Custom",
+          category: document.getElementById("editCategory").value || "Contextual",
+          notes: document.getElementById("editNotes").value.trim(),
+          mnemonic: document.getElementById("editMnemonic").value.trim(),
+          favorite: document.getElementById("editFavorite").value === "true",
+          aliases: []
+        };
+
+        if (!next.layer) throw new Error("Choose at least one modifier.");
+        if (!next.shortcut) throw new Error("Shortcut is required when no key is specified.");
+        if (!next.action) throw new Error("Action is required.");
+
+        const index = shortcuts.findIndex(item => item.id === existingId);
+        if (index >= 0) shortcuts[index] = next;
+        else shortcuts.push(next);
+        activeMode = "keyboard";
+        activeLayer = isOtherLayer(next.layer) ? OTHERS_LAYER_ID : next.layer;
+        selectedId = next.id;
+        persistShortcuts();
+        closeShortcutEditor();
+        renderAll();
+        showDetails(next);
+        toast(index >= 0 ? "Shortcut updated." : "Shortcut added.");
+      } catch (error) {
+        showFormError(error.message || "Could not save this shortcut.");
+      }
+    }
+
+    function deleteCurrentShortcut() {
+      const id = document.getElementById("editId").value;
+      if (!id) return;
+      const item = shortcuts.find(shortcut => shortcut.id === id);
+      if (!item) return;
+      if (!confirm(`Delete "${item.action}"? This cannot be undone.`)) return;
+      shortcuts = shortcuts.filter(shortcut => shortcut.id !== id);
+      analytics.recent = analytics.recent.filter(recentId => recentId !== id);
+      delete analytics.usage[id];
+      safeSetStorage(ANALYTICS_KEY, analytics);
+      persistShortcuts();
+      closeShortcutEditor();
+      selectedId = null;
+      renderAll();
+      showDetails(filteredShortcuts()[0] || shortcuts[0] || null);
+      toast("Shortcut deleted.");
+    }
+
+    function setFormValue(id, value) {
+      document.getElementById(id).value = value ?? "";
+    }
+
+    function setFavoriteValue(value) {
+      const isFavorite = Boolean(value);
+      const input = document.getElementById("editFavorite");
+      const button = document.getElementById("editFavoriteToggle");
+      input.value = String(isFavorite);
+      button.classList.toggle("active", isFavorite);
+      button.setAttribute("aria-pressed", String(isFavorite));
+      button.querySelector(".star-mark").textContent = isFavorite ? "★" : "☆";
+      button.querySelector(".favorite-text").textContent = isFavorite ? "Favorite" : "Not Favorite";
+    }
+
+    function categoryLabel(category) {
+      return `${categoryEmoji[category] || "⚪"} ${category}`;
+    }
+
+    function getEditorSnapshot() {
+      return JSON.stringify({
+        id: document.getElementById("editId").value,
+        shortcut: document.getElementById("editShortcut").value,
+        action: document.getElementById("editAction").value,
+        layer: selectedLayerFromCheckboxes(),
+        key: document.getElementById("editKey").value,
+        app: document.getElementById("editApp").value,
+        category: document.getElementById("editCategory").value,
+        notes: document.getElementById("editNotes").value,
+        mnemonic: document.getElementById("editMnemonic").value,
+        favorite: document.getElementById("editFavorite").value
+      });
+    }
+
+    function isEditorDirty() {
+      return el.editOverlay.classList.contains("open") && editorInitialSnapshot && getEditorSnapshot() !== editorInitialSnapshot;
+    }
+
+    function showFormError(message) {
+      el.shortcutFormError.textContent = message;
+      el.shortcutFormError.classList.add("show");
+    }
+
+    function clearFormError() {
+      el.shortcutFormError.textContent = "";
+      el.shortcutFormError.classList.remove("show");
+    }
+
+    function derivedShortcutFromForm(fallbackShortcut = "") {
+      const layerValue = selectedLayerFromCheckboxes();
+      const typedKey = normalizeKeyInput(document.getElementById("editKey").value);
+      const inferredKey = inferPhysicalKeyForLayer(layerValue);
+      const keyValue = typedKey || inferredKey;
+      const shortcutValue = typedKey
+        ? formatShortcut(layerValue, typedKey)
+        : (inferredKey ? shortcutLayerName(layerValue) : String(fallbackShortcut || "").trim());
+      return { layerValue, keyValue, shortcutValue };
+    }
+
+    function updateShortcutPreviewFromParts(fallbackShortcut = "") {
+      const { shortcutValue } = derivedShortcutFromForm(fallbackShortcut);
+      setFormValue("editShortcut", shortcutValue);
+      clearFormError();
+      return shortcutValue;
+    }
+
+    function syncEditorFromShortcutText() {
+      const parsed = parseShortcutText(document.getElementById("editShortcut").value);
+      if (!parsed.layer && !parsed.key) return;
+      if (parsed.layer) setModifierCheckboxes(parsed.layer);
+      const keyInput = document.getElementById("editKey");
+      if (parsed.key && (!keyInput.value.trim() || keyInput.dataset.autofilled === "true")) {
+        keyInput.value = parsed.key;
+        keyInput.dataset.autofilled = "true";
+      }
+      updateShortcutPreviewFromParts();
+      clearFormError();
+    }
+
+    function setModifierCheckboxes(layerValue) {
+      const mods = layerToModifierSet(layerValue);
+      el.modifierGrid.querySelectorAll("input[type='checkbox']").forEach(input => {
+        input.checked = mods.has(input.dataset.modifier);
+      });
+    }
+
+    function selectedLayerFromCheckboxes() {
+      const selected = [...el.modifierGrid.querySelectorAll("input[type='checkbox']:checked")]
+        .map(input => input.dataset.modifier);
+      return modifiersToLayer(selected);
+    }
+
+    function layerToModifierSet(layerValue) {
+      const layer = normalizeShortcut(layerValue || "");
+      const mods = new Set();
+      if (layer.includes("Hyper")) {
+        mods.add("Shift");
+        mods.add("Ctrl");
+        mods.add("Option");
+        mods.add("Cmd");
+      }
+      if (layer.includes("Fn")) mods.add("Fn");
+      if (/\bShift\b/.test(layer)) mods.add("Shift");
+      if (/\bCtrl\b/.test(layer)) mods.add("Ctrl");
+      if (/\bOption\b/.test(layer)) mods.add("Option");
+      if (/\bCmd\b/.test(layer)) mods.add("Cmd");
+      if (layer.includes("RightShift")) mods.add("RightShift");
+      if (layer.includes("RightCmd")) mods.add("RightCmd");
+      if (layer.includes("RightOption")) mods.add("RightOption");
+      return mods;
+    }
+
+    function normalizeLayerForKey(layerValue, keyValue) {
+      if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(keyValue)) return layerValue;
+      const mods = layerToModifierSet(layerValue);
+      if (!mods.has("Fn") || mods.size <= 1) return layerValue;
+      mods.delete("Fn");
+      return modifiersToLayer([...mods]);
+    }
+
+    function modifiersToLayer(modifiers) {
+      const selected = new Set(modifiers);
+      const hasHyperMods = selected.has("Ctrl") && selected.has("Option") && selected.has("Cmd") && selected.has("Shift")
+        && !selected.has("Fn") && !selected.has("RightShift") && !selected.has("RightCmd") && !selected.has("RightOption");
+      if (hasHyperMods && selected.size === 4) return "Hyper";
+      const ordered = modifierOrder.filter(modifier => selected.has(modifier));
+      if (selected.has("Cmd") && selected.has("Ctrl") && selected.has("Option") && selected.size === 3) return "Cmd+Ctrl+Option";
+      if (selected.has("Cmd") && selected.has("Shift") && selected.size === 2) return "Cmd+Shift";
+      return ordered.join("+");
+    }
+
+    function layerDisplayName(layerValue) {
+      if (!layerValue) return "No Layer";
+      if (layerValue === FAVORITES_LAYER_ID) return "Favorite";
+      if (layerValue === OTHERS_LAYER_ID) return "Others";
+      return layerValue.split("+").map(part => modifierLabels[part] || part).join("+");
+    }
+
+    function shortcutLayerName(layerValue) {
+      if (!layerValue) return "";
+      if (layerValue === FAVORITES_LAYER_ID || layerValue === OTHERS_LAYER_ID) return "";
+      if (layerValue === "Hyper") return "Hyper";
+      const labels = {
+        Fn: "Fn",
+        Cmd: "Cmd",
+        Ctrl: "Ctrl",
+        Option: "Option",
+        Shift: "Shift",
+        RightCmd: "Right Cmd",
+        RightOption: "Right Option",
+        RightShift: "Right Shift"
+      };
+      return layerValue.split("+").map(part => labels[part] || part).filter(Boolean).join("+");
+    }
+
+    function formatShortcut(layerValue, keyValue) {
+      return [shortcutLayerName(layerValue), labelForKey(keyValue)].filter(Boolean).join("+");
+    }
+
+    function parseShortcutText(value) {
+      const parts = String(value || "").split("+").map(part => part.trim()).filter(Boolean);
+      if (!parts.length) return { layer: "", key: "" };
+      const keyPart = parts[parts.length - 1];
+      const modifiers = [];
+      parts.slice(0, -1).forEach(part => {
+        const normalized = normalizeShortcut(part).replace(/\s+/g, "");
+        if (normalized === "Hyper") modifiers.push("Shift", "Ctrl", "Option", "Cmd");
+        else if (normalized === "Command" || normalized === "Cmd") modifiers.push("Cmd");
+        else if (normalized === "Control" || normalized === "Ctrl") modifiers.push("Ctrl");
+        else if (normalized === "Opt" || normalized === "Option") modifiers.push("Option");
+        else if (normalized === "Shift") modifiers.push("Shift");
+        else if (normalized === "Fn") modifiers.push("Fn");
+        else if (normalized === "RightShift") modifiers.push("RightShift");
+        else if (normalized === "RightCommand" || normalized === "RightCmd") modifiers.push("RightCmd");
+        else if (normalized === "RightOption") modifiers.push("RightOption");
+      });
+      return {
+        layer: modifiersToLayer(modifiers),
+        key: normalizeKeyInput(keyPart)
+      };
+    }
+
+    function inferPhysicalKeyForLayer(layerValue) {
+      const mods = layerToModifierSet(layerValue);
+      if (mods.size !== 1) return "";
+      if (mods.has("Fn")) return "Fn";
+      if (mods.has("Shift")) return "ShiftLeft";
+      if (mods.has("RightShift")) return "ShiftRight";
+      if (mods.has("Ctrl")) return "Control";
+      if (mods.has("Option")) return "Option";
+      if (mods.has("RightOption")) return "OptionRight";
+      if (mods.has("Cmd")) return "Meta";
+      if (mods.has("RightCmd")) return "MetaRight";
+      return "";
+    }
+
+    function openJsonModal() {
+      el.jsonArea.value = JSON.stringify(exportData(), null, 2);
+      el.jsonFileStatus.textContent = "Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.";
+      el.jsonOverlay.classList.add("open");
+      requestAnimationFrame(() => el.jsonArea.focus());
+    }
+
+    function closeJsonModal() {
+      el.jsonOverlay.classList.remove("open");
+    }
+
+    function openAboutModal() {
+      el.aboutOverlay.classList.add("open");
+    }
+
+    function closeAboutModal() {
+      el.aboutOverlay.classList.remove("open");
+    }
+
+    async function openJsonFile() {
+      if ("showOpenFilePicker" in window) {
+        try {
+          const handles = await window.showOpenFilePicker({
+            multiple: false,
+            types: [{ description: "Shortcut JSON", accept: { "application/json": [".json"] } }]
+          });
+          const handle = handles[0];
+          const file = await handle.getFile();
+          loadJsonText(await file.text(), file.name);
+          return;
+        } catch (error) {
+          if (error.name !== "AbortError") toast(`Open failed: ${error.message}`);
+          return;
+        }
+      }
+      el.jsonFileInput.click();
+    }
+
+    async function readJsonFileInput() {
+      const file = el.jsonFileInput.files[0];
+      if (!file) return;
+      loadJsonText(await file.text(), file.name);
+      el.jsonFileInput.value = "";
+    }
+
+    function loadJsonText(text, fileName) {
+      el.jsonArea.value = text;
+      importJson(fileName);
+    }
+
+    function downloadJson() {
+      const blob = new Blob([el.jsonArea.value], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "shortcuts.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 3000);
+      toast("JSON export downloaded.");
+    }
+
+    function exportData() {
+      return {
+        shortcuts,
+        textTrigger: normalizeTextTrigger(textTrigger)
+      };
+    }
+
+    async function saveJsonFile() {
+      try {
+        const next = JSON.parse(el.jsonArea.value);
+        applyJsonData(next, "edited JSON");
+        selectedId = shortcuts[0]?.id || null;
+        renderAll();
+        showDetails(shortcuts[0] || null);
+        el.jsonFileStatus.textContent = "Saved to this browser/profile. Refreshing now.";
+        toast("Saved to this browser.");
+        setTimeout(() => location.reload(), 250);
+      } catch (error) {
+        el.jsonFileStatus.textContent = `Save failed: ${error.message}`;
+        toast(`Save failed: ${error.message}`);
+      }
+    }
+
+    function importJson(fileName = "JSON file") {
+      try {
+        const next = JSON.parse(el.jsonArea.value);
+        applyJsonData(next, fileName);
+        closeJsonModal();
+        selectedId = null;
+        renderAll();
+        showDetails(shortcuts[0] || null);
+        toast(`Opened ${fileName}.`);
+      } catch (error) {
+        toast(`Import failed: ${error.message}`);
+      }
+    }
+
+    function applyJsonData(next, fileName) {
+      const importedShortcuts = Array.isArray(next) ? next : next.shortcuts;
+      if (!Array.isArray(importedShortcuts)) throw new Error("JSON must be an array or an object with a shortcuts array.");
+      shortcuts = normalizeShortcuts(importedShortcuts);
+      textTrigger = normalizeTextTrigger(!Array.isArray(next) ? (next.textTrigger || next.alfred) : null);
+      persistShortcuts();
+      persistTextTrigger();
+      loadedSourceName = `browser storage (${fileName})`;
+      el.jsonArea.value = JSON.stringify(exportData(), null, 2);
+      el.jsonFileStatus.textContent = `Imported ${fileName} and saved it to this browser.`;
+    }
+
+    function resetSampleData() {
+      shortcuts = normalizeShortcuts(sampleShortcuts);
+      textTrigger = normalizeTextTrigger({ columns: ["", "", ""], fontSize: 16 });
+      persistShortcuts();
+      persistTextTrigger();
+      selectedId = null;
+      renderAll();
+      showDetails(shortcuts[0] || null);
+    }
+
+    function renderPrintSheet() {
+      const grouped = shortcuts.reduce((acc, item) => {
+        acc[item.category] = acc[item.category] || [];
+        acc[item.category].push(item);
+        return acc;
+      }, {});
+
+      el.printSheet.innerHTML = `
+        <h1>Shortcut Dashboard</h1>
+        ${Object.entries(grouped).map(([category, items]) => `
+          <h2>${escapeHtml(category)}</h2>
+          <div class="print-grid">
+            ${items.map(item => `
+              <div class="print-item">
+                <strong>${escapeHtml(item.shortcut)}</strong> - ${escapeHtml(item.action)}<br>
+                <small>${escapeHtml(item.app)}. ${escapeHtml(item.mnemonic || "")}</small>
+              </div>
+            `).join("")}
+          </div>
+        `).join("")}
+      `;
+    }
+
+    function toggleTheme() {
+      prefs.theme = prefs.theme === "dark" ? "light" : "dark";
+      savePrefs();
+      applyPrefs();
+    }
+
+    function toggleCompact() {
+      prefs.compact = !prefs.compact;
+      savePrefs();
+      applyPrefs();
+    }
+
+    function applyPrefs() {
+      document.documentElement.dataset.theme = prefs.theme || "dark";
+      document.querySelector(".keyboard")?.style.setProperty("transform", prefs.compact ? "scale(0.88)" : "scale(1)");
+      document.querySelector(".keyboard")?.style.setProperty("transform-origin", "top center");
+      const compactButton = document.getElementById("compactButton");
+      const themeButton = document.getElementById("themeButton");
+      compactButton?.classList.toggle("active", Boolean(prefs.compact));
+      compactButton?.setAttribute("aria-pressed", String(Boolean(prefs.compact)));
+      themeButton?.classList.toggle("active", prefs.theme === "light");
+      themeButton?.setAttribute("aria-pressed", String(prefs.theme === "light"));
+      if (themeButton) themeButton.innerHTML = iconSvg(prefs.theme === "light" ? "sun" : "moon");
+    }
+
+    function savePrefs() {
+      safeSetStorage(PREFS_KEY, prefs);
+    }
+
+    function filteredShortcuts(options = {}) {
+      const layerId = options.layerId || activeLayer;
+      const q = currentQuery();
+      return shortcuts.filter(item => {
+        if (item.active === false) return false;
+        const layerOk = options.ignoreLayer || layerMatches(item.layer, layerId, item);
+        const categoryOk = activeCategory === "All" || item.category === activeCategory;
+        const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
+        return layerOk && categoryOk && searchOk;
+      });
+    }
+
+    function shortcutsForLayer(layerId) {
+      const q = currentQuery();
+      return shortcuts.filter(item => {
+        if (item.active === false) return false;
+        const categoryOk = activeCategory === "All" || item.category === activeCategory;
+        const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
+        return layerMatches(item.layer, layerId, item) && categoryOk && searchOk;
+      });
+    }
+
+    function layerMatches(itemLayer, tabLayer, item) {
+      if (tabLayer === FAVORITES_LAYER_ID) return Boolean(item?.favorite);
+      return tabLayer === OTHERS_LAYER_ID ? isOtherLayer(itemLayer) : itemLayer === tabLayer;
+    }
+
+    function isOtherLayer(layerValue) {
+      return Boolean(layerValue) && layerValue !== FAVORITES_LAYER_ID && !layerOrder.includes(layerValue);
+    }
+
+    function choosePrimaryMapping(mappings) {
+      if (!mappings.length) return null;
+      return mappings.find(item => item.favorite) || mappings[0];
+    }
+
+    function conflictGroups() {
+      const groups = new Map();
+      shortcuts.filter(item => item.active !== false).forEach(item => {
+        const id = `${item.layer}|${item.key}`;
+        groups.set(id, [...(groups.get(id) || []), item]);
+      });
+      return [...groups.values()].filter(group => group.length > 1);
+    }
+
+    function currentQuery() {
+      return normalize(el.searchInput.value);
+    }
+
+    function searchableText(item) {
+      return normalize([
+        item.shortcut,
+        item.action,
+        item.app,
+        item.category,
+        item.notes,
+        item.mnemonic,
+        item.layer,
+        item.key,
+        item.sourceFolder,
+        ...(item.aliases || [])
+      ].join(" "));
+    }
+
+    function fuzzyScore(item, query) {
+      if (!query) return item.favorite ? 2 : 1;
+      const text = searchableText(item);
+      if (text.includes(query)) return 100 + query.length;
+      let score = 0;
+      let lastIndex = -1;
+      for (const char of query) {
+        const index = text.indexOf(char, lastIndex + 1);
+        if (index === -1) return 0;
+        score += index === lastIndex + 1 ? 8 : 2;
+        lastIndex = index;
+      }
+      return score;
+    }
+
+    function normalize(value) {
+      return String(value || "").toLowerCase().trim().replace(/\s+/g, " ");
+    }
+
+    function normalizeShortcut(value) {
+      return String(value || "")
+        .replace(/Command/gi, "Cmd")
+        .replace(/Control/gi, "Ctrl")
+        .replace(/Alt/gi, "Option");
+    }
+
+    function eventKey(event) {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowDown") return event.key;
+      if (event.key === "Backspace" || event.key === "Delete") return "Backspace";
+      if (event.key === " ") return "Space";
+      return event.key.length === 1 ? event.key.toUpperCase() : event.key;
+    }
+
+    function formatMappingTitle(item) {
+      return `${item.shortcut}: ${item.action} (${item.app})`;
+    }
+
+    function normalizeShortcuts(items) {
+      if (!Array.isArray(items)) {
+        items = items && Array.isArray(items.shortcuts) ? items.shortcuts : sampleShortcuts;
+      }
+      return items.map((item, index) => {
+        const rawLayer = item.layer || inferLayer(item.shortcut);
+        const keyValue = item.key || inferPhysicalKeyForLayer(rawLayer) || inferKey(item.shortcut);
+        const layer = normalizeLayerForKey(rawLayer, keyValue);
+        const shortcut = layer !== rawLayer ? formatShortcut(layer, keyValue) : (item.shortcut || "");
+        return {
+          id: item.id || `shortcut-${index}-${Date.now()}`,
+          layer,
+          key: keyValue,
+          keyLabel: item.keyLabel || labelForKey(keyValue),
+          shortcut,
+          action: item.action || "Untitled Action",
+          app: item.app || item.source || "Unknown",
+          category: item.category || "Contextual",
+          notes: item.notes || "",
+          mnemonic: item.mnemonic || item.reasoning || "",
+          favorite: Boolean(item.favorite),
+          aliases: Array.isArray(item.aliases) ? item.aliases : [],
+          active: item.active === false ? false : true,
+          sourceFolder: item.sourceFolder || ""
+        };
+      });
+    }
+
+    function normalizeTextTrigger(value) {
+      const columns = Array.isArray(value?.columns) ? value.columns : ["", "", ""];
+      return {
+        columns: [0, 1, 2].map(index => String(columns[index] || "")),
+        fontSize: Math.min(28, Math.max(12, Number(value?.fontSize) || 16))
+      };
+    }
+
+    function inferLayer(shortcut) {
+      const s = normalizeShortcut(shortcut);
+      if (s.includes("Hyper")) return "Hyper";
+      if (s.includes("Cmd") && s.includes("Ctrl") && s.includes("Option")) return s.includes("Shift") ? "Hyper" : "Cmd+Ctrl+Option";
+      if (s.includes("Cmd") && s.includes("Shift")) return "Cmd+Shift";
+      if (s.includes("Fn")) return "Fn";
+      if (s.includes("Cmd")) return "Cmd";
+      if (s.includes("Ctrl")) return "Ctrl";
+      if (s.includes("Option")) return "Option";
+      return "Hyper";
+    }
+
+    function inferKey(shortcut) {
+      const last = String(shortcut || "").split("+").pop().trim();
+      const map = { Left: "ArrowLeft", Right: "ArrowRight", Up: "ArrowUp", Down: "ArrowDown", Delete: "Backspace" };
+      return map[last] || last.toUpperCase();
+    }
+
+    function normalizeKeyInput(value) {
+      const raw = String(value || "").trim();
+      const aliases = {
+        left: "ArrowLeft",
+        right: "ArrowRight",
+        up: "ArrowUp",
+        down: "ArrowDown",
+        delete: "Backspace",
+        del: "Backspace",
+        esc: "Escape",
+        return: "Enter",
+        cmd: "Meta",
+        command: "Meta",
+        opt: "Option",
+        control: "Control",
+        ctrl: "Control",
+        spacebar: "Space",
+        space: "Space"
+      };
+      return aliases[raw.toLowerCase()] || (raw.length === 1 ? raw.toUpperCase() : raw);
+    }
+
+    function labelForKey(keyName) {
+      const labels = {
+        ArrowLeft: "Left",
+        ArrowRight: "Right",
+        ArrowUp: "Up",
+        ArrowDown: "Down",
+        Backspace: "Backspace",
+        Escape: "Esc",
+        Enter: "Return",
+        Meta: "cmd",
+        MetaRight: "cmd",
+        Control: "ctrl",
+        Option: "opt",
+        OptionRight: "opt",
+        ShiftLeft: "Shift",
+        ShiftRight: "Shift",
+        Fn: "fn",
+        Space: "Space"
+      };
+      return labels[keyName] || keyName;
+    }
+
+    function makeShortcutId(shortcut, action) {
+      const base = normalize(`${shortcut}-${action}`)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 48) || "shortcut";
+      let id = base;
+      let suffix = 2;
+      while (shortcuts.some(item => item.id === id)) {
+        id = `${base}-${suffix}`;
+        suffix += 1;
+      }
+      return id;
+    }
+
+    function persistShortcuts() {
+      safeSetStorage(STORAGE_KEY, shortcuts);
+      loadedSourceName = "browser storage";
+      if (el.jsonOverlay.classList.contains("open")) {
+        el.jsonArea.value = JSON.stringify(exportData(), null, 2);
+        el.jsonFileStatus.textContent = "Saved to this browser.";
+      }
+    }
+
+    function persistTextTrigger() {
+      textTrigger = normalizeTextTrigger(textTrigger);
+      safeSetStorage(TEXT_TRIGGER_KEY, textTrigger);
+    }
+
+    function hasStoredData() {
+      try {
+        return Boolean(localStorage.getItem(STORAGE_KEY));
+      } catch {
+        return false;
+      }
+    }
+
+    function safeSetStorage(keyName, value) {
+      try {
+        localStorage.setItem(keyName, JSON.stringify(value));
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function safeRemoveStorage(keyName) {
+      try {
+        localStorage.removeItem(keyName);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function readJson(keyName, fallback) {
+      try {
+        const raw = localStorage.getItem(keyName);
+        return raw ? JSON.parse(raw) : structuredClone(fallback);
+      } catch {
+        return structuredClone(fallback);
+      }
+    }
+
+    function toast(message) {
+      el.toast.textContent = message;
+      el.toast.classList.add("show");
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => el.toast.classList.remove("show"), 2200);
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>

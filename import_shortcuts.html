@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortcut Importer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f1115;
+      --panel: rgba(22, 27, 36, .86);
+      --panel2: rgba(18, 23, 31, .94);
+      --line: rgba(160, 178, 205, .18);
+      --text: #f2f6ff;
+      --muted: #9aa7ba;
+      --accent: #64e0cf;
+      --accent2: #8fb7ff;
+      --warn: #ffd166;
+      --bad: #ff6b7a;
+      --shadow: 0 24px 80px rgba(0, 0, 0, .38);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 16% 12%, rgba(100, 224, 207, .15), transparent 28rem),
+        radial-gradient(circle at 82% 18%, rgba(143, 183, 255, .12), transparent 24rem),
+        var(--bg);
+      color: var(--text);
+    }
+    main {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 34px 0 46px;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #78e4dd, #9bb7ff);
+      color: #071014;
+      font-weight: 900;
+      letter-spacing: .02em;
+      box-shadow: 0 18px 54px rgba(100, 224, 207, .18);
+    }
+    h1 { margin: 0; font-size: clamp(28px, 4vw, 44px); letter-spacing: -.02em; }
+    .sub { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 18px;
+      align-items: start;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), var(--panel2));
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .drop {
+      padding: 26px;
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-style: dashed;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .drop.drag {
+      border-color: rgba(100, 224, 207, .72);
+      background: rgba(100, 224, 207, .07);
+      transform: translateY(-1px);
+    }
+    .drop strong { display: block; font-size: 24px; margin-bottom: 8px; }
+    .drop p { margin: 0 auto 18px; max-width: 590px; color: var(--muted); line-height: 1.55; }
+    input[type="file"] { display: none; }
+    button, .file-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      border-radius: 10px;
+      min-height: 42px;
+      padding: 0 15px;
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+    button:hover, .file-btn:hover {
+      border-color: rgba(100, 224, 207, .55);
+      background: rgba(100, 224, 207, .09);
+      transform: translateY(-1px);
+    }
+    button.primary {
+      background: linear-gradient(145deg, rgba(100,224,207,.95), rgba(143,183,255,.9));
+      color: #071014;
+      border: 0;
+    }
+    button:disabled {
+      opacity: .46;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .side { padding: 18px; position: sticky; top: 18px; }
+    .side h2, .preview h2 { margin: 0 0 12px; font-size: 17px; }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,.035);
+      text-align: left;
+      color: inherit;
+      min-height: 70px;
+    }
+    button.stat {
+      cursor: pointer;
+      justify-content: flex-start;
+      display: block;
+      font-weight: 400;
+    }
+    button.stat:hover {
+      border-color: rgba(100, 224, 207, .55);
+      background: rgba(100,224,207,.08);
+    }
+    .stat b { display: block; font-size: 22px; }
+    .stat span { color: var(--muted); font-size: 12px; }
+    .actions { display: grid; gap: 10px; margin-top: 14px; }
+    .hint {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+      padding-top: 14px;
+    }
+    .preview { margin-top: 18px; padding: 18px; overflow: hidden; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .search {
+      width: min(390px, 100%);
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(5, 9, 14, .55);
+      color: var(--text);
+      padding: 0 13px;
+      font: inherit;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+      font-size: 13px;
+    }
+    th, td {
+      border-bottom: 1px solid rgba(160, 178, 205, .12);
+      padding: 10px 9px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .table-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 12px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(100,224,207,.35);
+      background: rgba(100,224,207,.08);
+      color: #bff7ef;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+    .tag.issue { border-color: rgba(255, 209, 102, .48); background: rgba(255, 209, 102, .12); color: #ffe6a3; }
+    .tag.conflict { border-color: rgba(255, 107, 122, .55); background: rgba(255, 107, 122, .13); color: #ffd0d6; }
+    .tag.inactive { border-color: rgba(154, 167, 186, .35); background: rgba(154, 167, 186, .08); color: #c2cad8; }
+    .tag.deduped { border-color: rgba(143, 183, 255, .55); background: rgba(143, 183, 255, .13); color: #d8e5ff; }
+    .issue-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: -2px 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .legend-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: rgba(255,255,255,.035);
+    }
+    .legend-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--dot); box-shadow: 0 0 14px var(--dot); }
+    tr.row-conflict { background: rgba(255, 107, 122, .09); box-shadow: inset 4px 0 0 rgba(255, 107, 122, .9); }
+    tr.row-skipped { background: rgba(255, 209, 102, .09); box-shadow: inset 4px 0 0 rgba(255, 209, 102, .95); }
+    tr.row-deduped { background: rgba(143, 183, 255, .09); box-shadow: inset 4px 0 0 rgba(143, 183, 255, .9); }
+    tr.row-inactive { opacity: .64; background: rgba(154, 167, 186, .045); }
+    .issue-note { color: var(--muted); font-size: 12px; line-height: 1.45; }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    textarea {
+      width: 100%;
+      min-height: 210px;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(5, 9, 14, .72);
+      color: var(--text);
+      padding: 12px;
+      font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      resize: vertical;
+    }
+    .log-card {
+      margin-top: 18px;
+      padding: 18px;
+    }
+    .log-card h2 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+    .log-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    #logOut {
+      min-height: 260px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    @media (max-width: 860px) {
+      header { grid-template-columns: 44px 1fr; }
+      .header-actions { grid-column: 1 / -1; justify-content: flex-start; }
+      .logo { width: 44px; height: 44px; }
+      .grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+      main { width: min(100vw - 20px, 1180px); padding-top: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="logo">IMP</div>
+      <div>
+        <h1>Shortcut Importer</h1>
+        <p class="sub">Offline parser for preset exports from popular keyboard automation tools. Outputs JSON file.</p>
+      </div>
+      <div class="header-actions">
+        <a class="file-btn" id="dashboardLink" href="./shortcuts.html?from=shortcut-import">Back to Dashboard</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div>
+        <label id="dropZone" class="card drop" for="fileInput">
+          <div>
+            <strong>Drop a preset file here</strong>
+            <p>Currently supports BetterTouchTool (.bttpreset). The parser runs only in this browser window and does not upload anything.</p>
+            <span class="file-btn">Choose Preset</span>
+            <input id="fileInput" type="file" accept=".bttpreset,.json,application/json">
+          </div>
+        </label>
+
+        <section class="card preview" aria-label="Shortcut preview">
+          <div class="toolbar">
+            <h2>Preview</h2>
+            <input id="filter" class="search" type="search" placeholder="Filter imported shortcuts..." autocomplete="off">
+          </div>
+          <div class="issue-legend" aria-label="Preview issue color legend">
+            <span class="legend-chip"><span class="legend-dot" style="--dot: var(--bad)"></span>Conflict</span>
+            <span class="legend-chip"><span class="legend-dot" style="--dot: var(--warn)"></span>Skipped</span>
+            <span class="legend-chip"><span class="legend-dot" style="--dot: var(--accent2)"></span>Deduplicated</span>
+            <span class="legend-chip"><span class="legend-dot" style="--dot: var(--muted)"></span>Inactive</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Shortcut</th>
+                  <th>Action</th>
+                  <th>Source</th>
+                  <th>Category</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="rows">
+                <tr><td colspan="5" class="warn">No preset loaded yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <textarea id="jsonOut" spellcheck="false" placeholder="Dashboard JSON output appears here after import."></textarea>
+        </section>
+      </div>
+
+      <aside class="card side">
+        <h2>Import Summary</h2>
+        <div class="stat-grid">
+          <button class="stat" type="button" data-log-jump="Imported shortcuts"><b id="countShortcuts">0</b><span>shortcuts</span></button>
+          <button class="stat" type="button" data-log-jump="Conflicts"><b id="countConflicts">0</b><span>conflicts</span></button>
+          <button class="stat" type="button" data-log-jump="Skipped Records"><b id="countSkipped">0</b><span>skipped</span></button>
+          <button class="stat" type="button" data-log-jump="Layers"><b id="countLayers">0</b><span>layers</span></button>
+        </div>
+        <div class="actions">
+          <button id="copyBtn" class="primary" disabled>Copy JSON</button>
+          <button id="downloadBtn" disabled>Download shortcuts.json</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+        <p class="hint">
+          After downloading, place the JSON next to <strong>shortcuts.html</strong>, or open the dashboard Save window and import the JSON.
+        </p>
+        <p id="status" class="hint">Waiting for a BTT native export file.</p>
+      </aside>
+    </section>
+
+    <section class="card log-card" aria-label="Import log">
+      <h2>Import Log</h2>
+      <p>Detailed conflicts, skipped BTT records, detected layers, and download diagnostics.</p>
+      <textarea id="logOut" readonly spellcheck="false" placeholder="Load a BTT preset to see the import log."></textarea>
+    </section>
+  </main>
+
+  <script>
+    const keyCodeMap = {
+      0:"A",1:"S",2:"D",3:"F",4:"H",5:"G",6:"Z",7:"X",8:"C",9:"V",11:"B",12:"Q",13:"W",14:"E",15:"R",16:"Y",17:"T",
+      18:"1",19:"2",20:"3",21:"4",22:"6",23:"5",24:"=",25:"9",26:"7",27:"-",28:"8",29:"0",30:"]",31:"O",32:"U",
+      33:"[",34:"I",35:"P",36:"Enter",37:"L",38:"J",39:"'",40:"K",41:";",42:"\\\\",43:",",44:"/",45:"N",46:"M",47:".",
+      49:"Space",50:"`",51:"Backspace",53:"Esc",54:"MetaRight",55:"Meta",56:"ShiftLeft",57:"CapsLock",58:"Option",
+      59:"Control",60:"ShiftRight",61:"OptionRight",62:"Control",63:"Fn",64:"F17",65:"NumDecimal",67:"NumMultiply",
+      69:"NumPlus",71:"Clear",72:"VolumeUp",73:"VolumeDown",74:"Mute",75:"NumDivide",76:"NumEnter",78:"NumMinus",
+      79:"F18",80:"F19",81:"NumEquals",82:"Num0",83:"Num1",84:"Num2",85:"Num3",86:"Num4",87:"Num5",88:"Num6",
+      89:"Num7",91:"Num8",92:"Num9",96:"F5",97:"F6",98:"F7",99:"F3",100:"F8",101:"F9",103:"F11",105:"F13",
+      106:"F16",107:"F14",109:"F10",111:"F12",113:"F15",114:"Help",115:"Home",116:"PageUp",117:"Delete",
+      118:"F4",119:"End",120:"F2",121:"PageDown",122:"F1",123:"ArrowLeft",124:"ArrowRight",125:"ArrowDown",126:"ArrowUp",
+      1000:"VolumeUp",1001:"VolumeDown",1007:"Mute",1016:"AudioSource"
+    };
+
+    const modifierBits = [
+      ["Shift", 131072],
+      ["Ctrl", 262144],
+      ["Option", 524288],
+      ["Cmd", 1048576],
+      ["Fn", 8388608]
+    ];
+
+    const modifierCodeMap = {
+      54: "Right Cmd",
+      55: "Cmd",
+      56: "Shift",
+      58: "Option",
+      59: "Ctrl",
+      60: "Right Shift",
+      61: "Right Option",
+      62: "Ctrl",
+      63: "Fn"
+    };
+
+    let imported = [];
+    let lastPayload = null;
+    let logSectionOffsets = {};
+    let previewIssues = [];
+    let previewConflictKeys = new Set();
+
+    const els = {
+      drop: document.getElementById("dropZone"),
+      file: document.getElementById("fileInput"),
+      rows: document.getElementById("rows"),
+      filter: document.getElementById("filter"),
+      json: document.getElementById("jsonOut"),
+      status: document.getElementById("status"),
+      log: document.getElementById("logOut"),
+      copy: document.getElementById("copyBtn"),
+      download: document.getElementById("downloadBtn"),
+      clear: document.getElementById("clearBtn"),
+      countShortcuts: document.getElementById("countShortcuts"),
+      countConflicts: document.getElementById("countConflicts"),
+      countSkipped: document.getElementById("countSkipped"),
+      countLayers: document.getElementById("countLayers")
+    };
+
+    els.file.addEventListener("change", event => {
+      const file = event.target.files && event.target.files[0];
+      if (file) readPresetFile(file);
+    });
+
+    ["dragenter", "dragover"].forEach(name => {
+      els.drop.addEventListener(name, event => {
+        event.preventDefault();
+        els.drop.classList.add("drag");
+      });
+    });
+    ["dragleave", "drop"].forEach(name => {
+      els.drop.addEventListener(name, event => {
+        event.preventDefault();
+        els.drop.classList.remove("drag");
+      });
+    });
+    els.drop.addEventListener("drop", event => {
+      const file = event.dataTransfer.files && event.dataTransfer.files[0];
+      if (file) readPresetFile(file);
+    });
+    els.filter.addEventListener("input", renderRows);
+    els.clear.addEventListener("click", reset);
+    els.copy.addEventListener("click", copyJson);
+    els.download.addEventListener("click", downloadJson);
+    document.querySelectorAll("[data-log-jump]").forEach(button => {
+      button.addEventListener("click", () => jumpToLogSection(button.dataset.logJump));
+    });
+    const dashboardLink = document.getElementById("dashboardLink");
+    if (dashboardLink) {
+      dashboardLink.href = `./shortcuts.html?from=shortcut-import&v=${Date.now()}`;
+    }
+
+    function readPresetFile(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const preset = JSON.parse(reader.result);
+          const result = parsePreset(preset);
+          imported = result.shortcuts;
+          lastPayload = {
+            shortcuts: imported,
+            textTrigger: { columns: ["", "", ""], fontSize: 16 }
+          };
+          els.json.value = JSON.stringify(lastPayload, null, 2);
+          renderSummary(result, file.name);
+          renderRows();
+          els.copy.disabled = imported.length === 0;
+          els.download.disabled = imported.length === 0;
+        } catch (error) {
+          reset();
+          els.status.innerHTML = `<span class="bad">Could not parse file:</span> ${escapeHtml(error.message)}`;
+        }
+      };
+      reader.readAsText(file, "utf-8");
+    }
+
+    function parsePreset(preset) {
+      const scopes = Array.isArray(preset.BTTPresetContent) ? preset.BTTPresetContent : [];
+      const found = [];
+      const stats = { skipped: 0, unknownKeys: 0, skippedDetails: [], duplicates: [] };
+
+      scopes.forEach(scope => {
+        const scopeName = scope.BTTAppName || scope.BTTAppBundleIdentifier || "Global";
+        const triggers = Array.isArray(scope.BTTTriggers) ? scope.BTTTriggers : [];
+        triggers.forEach(trigger => walkTrigger(trigger, scopeName, [], true, found, stats));
+      });
+
+      const deduped = [];
+      const seen = new Set();
+      found.forEach((item, index) => {
+        const key = [item.layer, item.key, item.action, item.app].join("::").toLowerCase();
+        if (seen.has(key)) {
+          const kept = deduped.find(existing => [existing.layer, existing.key, existing.action, existing.app].join("::").toLowerCase() === key);
+          if (item.active !== false || kept?.active !== false) {
+            stats.duplicates.push({
+              shortcut: item.shortcut,
+              action: item.action,
+              app: item.app,
+              category: item.category,
+              notes: item.notes,
+              sourceFolder: item.sourceFolder,
+              active: item.active,
+              summary: `${item.shortcut} - ${item.action} (${item.app})`
+            });
+          }
+          return;
+        }
+        seen.add(key);
+        item.id = item.id || `btt-${index + 1}`;
+        deduped.push(item);
+      });
+
+      return { shortcuts: deduped, skipped: stats.skipped, unknownKeys: stats.unknownKeys, skippedDetails: stats.skippedDetails, duplicates: stats.duplicates };
+    }
+
+    function walkTrigger(node, scopeName, parents, parentActive, found, stats) {
+      if (!node || typeof node !== "object") return;
+      const nextParents = node.BTTGroupName ? parents.concat(node.BTTGroupName) : parents;
+      const active = parentActive && isActiveNode(node);
+      const parsed = parseShortcut(node);
+      if (parsed) {
+        const action = getActionName(node) || nextParents[nextParents.length - 1] || "BTT Action";
+        found.push({
+          id: node.BTTUUID ? `btt-${node.BTTUUID}` : "",
+          shortcut: parsed.shortcut,
+          layer: parsed.layer,
+          key: parsed.key,
+          action,
+          app: `BetterTouchTool / ${scopeName}`,
+          sourceFolder: nextParents.length ? nextParents.join(" / ") : scopeName,
+          active,
+          category: categorize(action, node),
+          notes: buildNotes(node, parsed, nextParents),
+          mnemonic: "",
+          favorite: false
+        });
+        return;
+      }
+      if (looksLikeShortcutNode(node)) {
+        stats.skipped += 1;
+        stats.skippedDetails.push(describeSkippedNode(node, scopeName, nextParents));
+      }
+      const actions = Array.isArray(node.BTTActionsToExecute) ? node.BTTActionsToExecute : [];
+      actions.forEach(child => walkTrigger(child, scopeName, nextParents, active, found, stats));
+    }
+
+    function isActiveNode(node) {
+      return !(node.BTTEnabled === 0 || node.BTTEnabled === false);
+    }
+
+    function looksLikeShortcutNode(node) {
+      if (isBttFolderContainer(node) || isBttKeySequenceTrigger(node)) return false;
+      return String(node.BTTTriggerClass || "").includes("Keyboard") ||
+        node.BTTShortcutKeyCode !== undefined;
+    }
+
+    function isBttKeySequenceTrigger(node) {
+      return String(node.BTTTriggerClass || "") === "BTTTriggerTypeKeySequence" ||
+        node.BTTKeySequence !== undefined ||
+        node.BTTShortcutKeySequence !== undefined ||
+        node.BTTKeySequenceToRecord !== undefined;
+    }
+
+    function isBttFolderContainer(node) {
+      const description = String(node.BTTTriggerTypeDescriptionReadOnly || "").trim().toLowerCase();
+      return description === "group" &&
+        node.BTTGroupName &&
+        Number(node.BTTShortcutKeyCode) === -1 &&
+        Array.isArray(node.BTTActionsToExecute);
+    }
+
+    function parseShortcut(node) {
+      const sequence = parseKeySequence(node.BTTKeySequence || node.BTTShortcutKeySequence || node.BTTKeySequenceToRecord);
+      if (sequence) return sequence;
+
+      const rawCode = Number(node.BTTShortcutKeyCode);
+      if (!Number.isFinite(rawCode) || rawCode < 0) return null;
+
+      const key = keyFromBttShortcut(node, rawCode);
+      if (!key) return null;
+      const parts = decodeModifierParts(Number(node.BTTShortcutModifierKeys || 0), rawCode);
+      const layer = partsToLayer(parts);
+      return makeShortcut(layer, key);
+    }
+
+    function parseKeySequence(raw) {
+      if (!raw) return null;
+      let seq = raw;
+      if (typeof raw === "string") {
+        try { seq = JSON.parse(raw); } catch { return null; }
+      }
+      const keys = []
+        .concat(Array.isArray(seq.BTTKeySequenceDownKeys) ? seq.BTTKeySequenceDownKeys : [])
+        .concat(Array.isArray(seq.DownKeys) ? seq.DownKeys : []);
+      if (!keys.length) return null;
+
+      const mods = [];
+      const main = [];
+      keys.forEach(item => {
+        const code = Number(item.BTTKEYCode ?? item.keyCode ?? item.code);
+        const char = normalizeKey(item.BTTKEYCharacter || item.character || item.key);
+        const modifier = modifierCodeMap[code];
+        if (modifier) {
+          mods.push(modifier);
+        } else {
+          main.push(char || keyCodeMap[code]);
+        }
+      });
+
+      const mainKey = main.filter(Boolean).pop();
+      if (mainKey) return makeShortcut(partsToLayer(mods), mainKey);
+      if (mods.length === 1) {
+        const modifierKey = modifierPhysicalKey(mods[0]);
+        return {
+          layer: partsToLayer(mods),
+          key: modifierKey,
+          shortcut: displayModifier(mods[0])
+        };
+      }
+      return null;
+    }
+
+    function decodeModifierParts(raw, keyCode) {
+      if (!raw) return [];
+      let parts = modifierBits.filter(([, bit]) => (raw & bit) === bit).map(([name]) => name);
+      // BTT exports normal arrow-key shortcuts with the Fn bit set in some presets.
+      // The visible shortcut in BTT is still Ctrl/Option/Cmd + Arrow, so keep Fn only for real Fn layers.
+      if ([123, 124, 125, 126].includes(Number(keyCode))) {
+        parts = parts.filter(name => name !== "Fn");
+      }
+      return parts;
+    }
+
+    function partsToLayer(parts) {
+      const unique = Array.from(new Set((parts || []).filter(Boolean)));
+      const has = name => unique.includes(name) || unique.includes(`Right ${name}`);
+      const shift = has("Shift");
+      const cmd = has("Cmd");
+      const ctrl = has("Ctrl");
+      const option = has("Option");
+      const fn = has("Fn");
+      if (unique.length === 0) return "Base";
+      if (fn && unique.length === 1) return "Fn";
+      if (cmd && ctrl && option && shift && !fn && unique.length === 4) return "Hyper";
+      if (cmd && ctrl && option && !shift && !fn && unique.length === 3) return "Cmd+Ctrl+Option";
+      if (cmd && ctrl && option && shift && fn && unique.length === 5) return "Hyper+Fn";
+      if (unique.length === 1) return displayModifier(unique[0]);
+      return unique.map(displayModifier).join("+");
+    }
+
+    function keyFromBttShortcut(node, rawCode) {
+      if (keyCodeMap[rawCode]) return keyCodeMap[rawCode];
+      const char = normalizeKey(node.BTTLayoutIndependentChar);
+      if (isReadableShortcutChar(char)) return char;
+      return rawCode >= 1000 ? `BTTKey${rawCode}` : "";
+    }
+
+    function isReadableShortcutChar(char) {
+      if (!char) return false;
+      if (char.length === 1) return /^[ -~]$/.test(char);
+      return /^[\x20-\x7E]+$/.test(char) || /^F\d{1,2}$/.test(char) || /^Arrow/.test(char);
+    }
+
+    function makeShortcut(layer, key) {
+      const cleanKey = normalizeKey(key);
+      const shortcut = layer && layer !== "Base" ? `${layer}+${displayKey(cleanKey)}` : displayKey(cleanKey);
+      return { layer: layer || "Base", key: cleanKey, shortcut };
+    }
+
+    function normalizeKey(value) {
+      if (value === undefined || value === null) return "";
+      const text = String(value).trim();
+      if (!text) return "";
+      const aliases = {
+        "return": "Enter",
+        "delete": "Backspace",
+        "del": "Backspace",
+        "left": "ArrowLeft",
+        "right": "ArrowRight",
+        "up": "ArrowUp",
+        "down": "ArrowDown",
+        "cmd": "Meta",
+        "command": "Meta",
+        "rightcmd": "MetaRight",
+        "right command": "MetaRight"
+      };
+      const lower = text.toLowerCase();
+      if (aliases[lower]) return aliases[lower];
+      if (text.length === 1 && /[a-z]/i.test(text)) return text.toUpperCase();
+      return text;
+    }
+
+    function displayKey(key) {
+      const names = {
+        Meta: "Cmd",
+        MetaRight: "[R] Cmd",
+        OptionRight: "[R] Option",
+        ShiftLeft: "Shift",
+        ShiftRight: "[R] Shift",
+        VolumeUp: "Volume Up",
+        VolumeDown: "Volume Down",
+        AudioSource: "Audio Source",
+        ArrowLeft: "Left",
+        ArrowRight: "Right",
+        ArrowUp: "Up",
+        ArrowDown: "Down",
+        Backspace: "Backspace"
+      };
+      return names[key] || key;
+    }
+
+    function displayModifier(mod) {
+      const map = {
+        "Ctrl": "Ctrl",
+        "Cmd": "Cmd",
+        "Option": "Option",
+        "Shift": "Shift",
+        "Fn": "Fn",
+        "Right Cmd": "Right Cmd",
+        "Right Option": "Right Option",
+        "Right Shift": "Right Shift"
+      };
+      return map[mod] || mod;
+    }
+
+    function modifierPhysicalKey(mod) {
+      return {
+        "Cmd": "Meta",
+        "Right Cmd": "MetaRight",
+        "Option": "Option",
+        "Right Option": "OptionRight",
+        "Shift": "ShiftLeft",
+        "Right Shift": "ShiftRight",
+        "Ctrl": "Control",
+        "Fn": "Fn"
+      }[mod] || mod;
+    }
+
+    function getActionName(node) {
+      const noteTitle = notesTitle(node);
+      if (noteTitle) return noteTitle;
+      const configuredTitle = configuredActionTitle(node);
+      if (configuredTitle) return configuredTitle;
+      const path = findPath(node);
+      if (path) return titleFromPath(path);
+      const direct = [
+        node.BTTTouchBarButtonName,
+        node.BTTGroupName,
+        node.BTTPredefinedActionName,
+        node.BTTTriggerTypeDescriptionReadOnly,
+        node.BTTGestureNotes,
+        node.BTTNotes
+      ].find(value => typeof value === "string" && value.trim());
+      if (direct) return cleanActionName(direct);
+      const actions = Array.isArray(node.BTTActionsToExecute) ? node.BTTActionsToExecute : [];
+      for (const action of actions) {
+        const name = getActionName(action);
+        if (name) return name;
+      }
+      return "";
+    }
+
+    function configuredActionTitle(node) {
+      const moveResizeName = typeof node.BTTActionMoveResizeName === "string" ? node.BTTActionMoveResizeName.trim() : "";
+      if (moveResizeName) return cleanActionName(moveResizeName);
+      return "";
+    }
+
+    function notesTitle(node) {
+      if (!(node.BTTNotesInsteadOfDescription === 1 || node.BTTNotesInsteadOfDescription === true)) return "";
+      const note = [node.BTTGestureNotes, node.BTTNotes]
+        .find(value => typeof value === "string" && value.trim());
+      return note ? cleanActionName(note) : "";
+    }
+
+    function findPath(node) {
+      if (!node || typeof node !== "object") return "";
+      const candidates = [node.BTTLaunchPath, node.BTTAppToShowOrHide, node.BTTFilePath, node.BTTScriptPath];
+      const direct = candidates.find(value => typeof value === "string" && value.trim());
+      if (direct) return direct;
+      const actions = Array.isArray(node.BTTActionsToExecute) ? node.BTTActionsToExecute : [];
+      for (const action of actions) {
+        const path = findPath(action);
+        if (path) return path;
+      }
+      return "";
+    }
+
+    function titleFromPath(path) {
+      const decoded = decodeURIComponent(String(path).replace(/^file:\/\//, ""));
+      const file = decoded.split("/").filter(Boolean).pop() || decoded;
+      return file.replace(/\.(app|scpt|workflow|sh|js|py)$/i, "").replace(/[-_]+/g, " ");
+    }
+
+    function cleanActionName(name) {
+      return String(name)
+        .replace(/^BTT:\s*/i, "")
+        .replace(/\s+/g, " ")
+        .replace(/Launch Application \/ Open File \/ Start Apple Script \.\.\./i, "Open App or File")
+        .trim();
+    }
+
+    function categorize(action, node) {
+      const text = `${action} ${node.BTTPredefinedActionName || ""} ${node.BTTGroupName || ""}`.toLowerCase();
+      if (/window|resize|maximize|left half|right half|move/.test(text)) return "Window Management";
+      if (/claude|codex|openai|chatgpt|gemini|perplexity|copilot|anthropic|cursor|ai /.test(text)) return "AI Tools";
+      if (/hdmi|audio source|audio output|audio device|output device|sound output|source switch|display input|monitor input|smartthings|tv on|power on\/off|hardware/.test(text)) return "Hardware";
+      if (/play|pause|mute|volume|media|music|spotify|plex/.test(text)) return "Media";
+      if (/screenshot|screen shot|capture|recording/.test(text)) return "Screenshots";
+      if (/browser|url|arc|brave|chrome|safari|firefox/.test(text)) return "Browser";
+      if (/settings|trash|system|sleep|lock|btt|bettertouchtool/.test(text)) return "System";
+      if (/keyboard|mouse|trackpad|display|monitor|obs/.test(text)) return "Hardware";
+      if (/launch|open app|show\/hide|application|\.app/.test(text)) return "App Launchers";
+      return "Contextual";
+    }
+
+    function actionChainNames(node) {
+      const actions = Array.isArray(node.BTTActionsToExecute) ? node.BTTActionsToExecute : [];
+      return actions
+        .map(action => cleanActionName(configuredActionTitle(action) || action.BTTPredefinedActionName || titleFromPath(findPath(action)) || action.BTTTriggerTypeDescriptionReadOnly || ""))
+        .filter(Boolean);
+    }
+
+    function buildNotes(node, parsed, parents) {
+      const parts = [];
+      if (parents.length) parts.push(`BTT group: ${parents.join(" / ")}`);
+      if (node.BTTNotes) parts.push(String(node.BTTNotes));
+      if (node.BTTGestureNotes) parts.push(String(node.BTTGestureNotes));
+      const childActions = actionChainNames(node);
+      if (childActions.length) parts.push(`BTT actions: ${childActions.join(" -> ")}`);
+      if (node.BTTShortcutModifierKeys !== undefined) parts.push(`BTT modifier mask: ${node.BTTShortcutModifierKeys}`);
+      if (!isActiveNode(node)) parts.push("BTT status: inactive");
+      if (node.BTTUUID) parts.push(`BTT UUID: ${node.BTTUUID}`);
+      return parts.join("\n");
+    }
+
+    function describeSkippedNode(node, scopeName, parents) {
+      const bits = [];
+      const name = getActionName(node) || node.BTTGroupName || node.BTTPredefinedActionName || node.BTTTriggerTypeDescriptionReadOnly || "Unnamed BTT record";
+      bits.push(cleanActionName(name));
+      bits.push(`scope: ${scopeName}`);
+      if (parents.length) bits.push(`group: ${parents.join(" / ")}`);
+      if (node.BTTTriggerClass) bits.push(`class: ${node.BTTTriggerClass}`);
+      if (node.BTTShortcutKeyCode !== undefined) bits.push(`keyCode: ${node.BTTShortcutKeyCode}`);
+      if (node.BTTShortcutModifierKeys !== undefined) bits.push(`modifierMask: ${node.BTTShortcutModifierKeys}`);
+      if (node.BTTUUID) bits.push(`uuid: ${node.BTTUUID}`);
+      if (node.BTTShortcutKeyCode === -1 && !node.BTTKeySequence) bits.push("reason: no usable key or key sequence");
+      else if (node.BTTKeySequence) bits.push("reason: key sequence has no non-modifier key to place on the dashboard");
+      else bits.push("reason: shortcut shape was not recognized by this importer");
+      return bits.join("\n   ");
+    }
+
+    function renderSummary(result, fileName) {
+      const conflictMap = new Map();
+      const activeShortcuts = imported.filter(item => item.active !== false);
+      activeShortcuts.forEach(item => {
+        const key = `${item.layer}+${item.key}`.toLowerCase();
+        if (!conflictMap.has(key)) conflictMap.set(key, []);
+        conflictMap.get(key).push(item);
+      });
+      const conflictGroups = Array.from(conflictMap.values()).filter(group => group.length > 1);
+      previewConflictKeys = new Set(conflictGroups.flatMap(group => group.map(item => previewRowKey(item))));
+      previewIssues = buildPreviewIssues(result);
+      const conflicts = conflictGroups.reduce((sum, group) => sum + group.length, 0);
+      const layers = new Set(imported.map(item => item.layer)).size;
+      els.countShortcuts.textContent = imported.length;
+      els.countConflicts.textContent = conflicts;
+      els.countSkipped.textContent = result.skipped;
+      els.countLayers.textContent = layers;
+      els.status.textContent = `Loaded ${fileName}. Review the preview, then copy or download the dashboard JSON.`;
+      els.log.value = buildImportLog(result, fileName, conflictGroups);
+    }
+
+    function buildImportLog(result, fileName, conflictGroups) {
+      const lines = [];
+      logSectionOffsets = {};
+      const layerCounts = new Map();
+      const categoryCounts = new Map();
+      const inactiveCount = imported.filter(item => item.active === false).length;
+      imported.forEach(item => {
+        layerCounts.set(item.layer, (layerCounts.get(item.layer) || 0) + 1);
+        categoryCounts.set(item.category, (categoryCounts.get(item.category) || 0) + 1);
+      });
+
+      pushSection(lines, "Summary");
+      lines.push(`File: ${fileName}`);
+      pushSection(lines, "Imported shortcuts", `Imported shortcuts: ${imported.length}`);
+      lines.push(`Inactive imported shortcuts: ${inactiveCount}`);
+      lines.push(`Conflict groups: ${conflictGroups.length}`);
+      lines.push(`Active conflict entries: ${conflictGroups.reduce((sum, group) => sum + group.length, 0)}`);
+      lines.push(`Skipped BTT records: ${result.skipped}`);
+      lines.push(`Deduplicated records: ${result.duplicates.length}`);
+      lines.push("");
+
+      pushSection(lines, "Layers");
+      if (layerCounts.size) {
+        [...layerCounts.entries()].sort((a, b) => b[1] - a[1]).forEach(([layer, count]) => lines.push(`- ${layer}: ${count}`));
+      } else {
+        lines.push("- none");
+      }
+      lines.push("");
+
+      pushSection(lines, "Categories");
+      if (categoryCounts.size) {
+        [...categoryCounts.entries()].sort((a, b) => b[1] - a[1]).forEach(([category, count]) => lines.push(`- ${category}: ${count}`));
+      } else {
+        lines.push("- none");
+      }
+      lines.push("");
+
+      pushSection(lines, "Conflicts");
+      if (conflictGroups.length) {
+        conflictGroups.forEach(group => {
+          lines.push(`- ${group[0].shortcut}`);
+          group.forEach(item => lines.push(`  * ${item.action} [${item.category}] (${conflictSourceLabel(item)})`));
+        });
+      } else {
+        lines.push("- none");
+      }
+      lines.push("");
+
+      pushSection(lines, "Skipped Records");
+      if (result.skippedDetails.length) {
+        result.skippedDetails.forEach((detail, index) => {
+          lines.push(`${index + 1}. ${detail}`);
+          lines.push("");
+        });
+      } else {
+        lines.push("- none");
+      }
+      lines.push("");
+
+      pushSection(lines, "Deduplicated Records");
+      if (result.duplicates.length) {
+        result.duplicates.forEach((detail, index) => lines.push(`${index + 1}. ${duplicateSummary(detail)}`));
+      } else {
+        lines.push("- none");
+      }
+      return lines.join("\n");
+    }
+
+    function conflictSourceLabel(item) {
+      const folder = item.sourceFolder || item.app || "Global";
+      return folder.startsWith("BetterTouchTool") ? folder : `BetterTouchTool / ${folder}`;
+    }
+
+    function pushSection(lines, name, firstLine) {
+      logSectionOffsets[name] = lines.join("\n").length + (lines.length ? 1 : 0);
+      lines.push(name);
+      lines.push("=".repeat(name.length));
+      if (firstLine) lines.push(firstLine);
+    }
+
+    function jumpToLogSection(name) {
+      if (!els.log.value.trim()) return;
+      const target = logSectionOffsets[name] ?? els.log.value.indexOf(name);
+      if (target < 0) return;
+      els.log.scrollIntoView({ behavior: "smooth", block: "center" });
+      setTimeout(() => {
+        els.log.focus();
+        els.log.setSelectionRange(target, target + name.length);
+        const lineHeight = 17;
+        const before = els.log.value.slice(0, target).split("\n").length - 1;
+        els.log.scrollTop = Math.max(0, before * lineHeight - 18);
+      }, 180);
+    }
+
+    function previewRowKey(item) {
+      return [item.layer, item.key, item.action, item.app].join("::").toLowerCase();
+    }
+
+    function buildPreviewIssues(result) {
+      return [
+        ...result.skippedDetails.map((detail, index) => skippedDetailToIssue(detail, index)),
+        ...result.duplicates.map((detail, index) => duplicateDetailToIssue(detail, index))
+      ];
+    }
+
+    function skippedDetailToIssue(detail, index) {
+      const lines = String(detail).split("\n").map(line => line.trim()).filter(Boolean);
+      const action = lines[0] || `Skipped record ${index + 1}`;
+      const get = label => {
+        const line = lines.find(value => value.toLowerCase().startsWith(`${label}:`));
+        return line ? line.slice(label.length + 1).trim() : "";
+      };
+      const reason = get("reason");
+      const uuid = get("uuid");
+      const sourceFolder = get("group");
+      const scope = get("scope") || "Global";
+      return {
+        issue: "Skipped",
+        shortcut: "Skipped",
+        action,
+        app: `BetterTouchTool / ${scope}`,
+        sourceFolder,
+        category: "Skipped",
+        uuid,
+        notes: [reason, uuid ? `UUID: ${uuid}` : "", detail].filter(Boolean).join("\n")
+      };
+    }
+
+    function duplicateDetailToIssue(detail, index) {
+      if (detail && typeof detail === "object") {
+        return {
+          issue: "Deduplicated",
+          shortcut: detail.shortcut || "Deduplicated",
+          action: detail.action || `Deduplicated record ${index + 1}`,
+          app: detail.app || "BetterTouchTool",
+          sourceFolder: detail.sourceFolder || "",
+          category: detail.category || "Deduplicated",
+          notes: `Duplicate removed from JSON output. Kept matching row: ${duplicateSummary(detail)}${detail.notes ? `\n${detail.notes}` : ""}`
+        };
+      }
+      return {
+        issue: "Deduplicated",
+        shortcut: "Deduplicated",
+        action: duplicateSummary(detail),
+        app: "BetterTouchTool",
+        sourceFolder: "",
+        category: "Deduplicated",
+        notes: "Duplicate removed from JSON output."
+      };
+    }
+
+    function duplicateSummary(detail) {
+      return typeof detail === "string" ? detail : detail.summary || `${detail.shortcut || "Shortcut"} - ${detail.action || "Duplicate"} (${detail.app || "BetterTouchTool"})`;
+    }
+
+    function renderRows() {
+      const term = els.filter.value.trim().toLowerCase();
+      const issueRows = previewIssues.filter(item => matchesPreviewTerm(item, term));
+      const rows = imported.filter(item => matchesPreviewTerm(item, term));
+      if (!issueRows.length && !rows.length) {
+        els.rows.innerHTML = `<tr><td colspan="5" class="warn">No matching shortcuts.</td></tr>`;
+        return;
+      }
+      els.rows.innerHTML = [
+        ...issueRows.map(renderIssueRow),
+        ...rows.map(renderImportedRow)
+      ].join("");
+    }
+
+    function matchesPreviewTerm(item, term) {
+      if (!term) return true;
+      return [item.shortcut, item.action, item.app, item.category, item.notes, item.issue, item.uuid, item.sourceFolder]
+        .join(" ")
+        .toLowerCase()
+        .includes(term);
+    }
+
+    function renderImportedRow(item) {
+      const isConflict = item.active !== false && previewConflictKeys.has(previewRowKey(item));
+      const isInactive = item.active === false;
+      const rowClass = isConflict ? "row-conflict" : isInactive ? "row-inactive" : "";
+      const tagClass = isConflict ? "conflict" : isInactive ? "inactive" : "";
+      const status = isConflict ? `<div class="issue-note">Active conflict: same shortcut as another active row.</div>` :
+        isInactive ? `<div class="issue-note">Inactive in source preset.</div>` : "";
+      return `
+        <tr class="${rowClass}">
+          <td><span class="tag ${tagClass}">${escapeHtml(item.shortcut)}</span></td>
+          <td>${escapeHtml(item.action)}${status}</td>
+          <td>${escapeHtml(item.app)}${item.sourceFolder ? `<div class="issue-note">${escapeHtml(item.sourceFolder)}</div>` : ""}</td>
+          <td>${escapeHtml(item.category)}</td>
+          <td>${escapeHtml(item.notes || "")}</td>
+        </tr>
+      `;
+    }
+
+    function renderIssueRow(item) {
+      const rowClass = item.issue === "Skipped" ? "row-skipped" : "row-deduped";
+      const tagClass = item.issue === "Skipped" ? "issue" : "deduped";
+      return `
+        <tr class="${rowClass}">
+          <td><span class="tag ${tagClass}">${escapeHtml(item.issue)}</span></td>
+          <td>${escapeHtml(item.action)}</td>
+          <td>${escapeHtml(item.app)}${item.sourceFolder ? `<div class="issue-note">${escapeHtml(item.sourceFolder)}</div>` : ""}</td>
+          <td>${escapeHtml(item.category)}</td>
+          <td>${escapeHtml(item.notes || "")}</td>
+        </tr>
+      `;
+    }
+
+    async function copyJson() {
+      const text = els.json.value;
+      try {
+        await navigator.clipboard.writeText(text);
+        els.status.textContent = "Copied JSON to clipboard.";
+      } catch {
+        els.json.focus();
+        els.json.select();
+        document.execCommand("copy");
+        els.status.textContent = "Selected and copied JSON using browser fallback.";
+      }
+    }
+
+    async function downloadJson() {
+      const text = els.json.value;
+      if (!text.trim()) {
+        els.status.textContent = "Nothing to download yet. Load a preset first.";
+        return;
+      }
+
+      if ("showSaveFilePicker" in window) {
+        try {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: "shortcuts.json",
+            types: [{ description: "JSON", accept: { "application/json": [".json"] } }]
+          });
+          const writable = await handle.createWritable();
+          await writable.write(text);
+          await writable.close();
+          els.status.textContent = "Saved shortcuts.json with the browser file picker.";
+          appendLog("Download: saved with showSaveFilePicker.");
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") {
+            els.status.textContent = "Save canceled.";
+            appendLog("Download: save picker was canceled.");
+            return;
+          }
+          appendLog(`Download: file picker failed, trying fallback. ${error.message || error}`);
+        }
+      }
+
+      try {
+        const blob = new Blob([text], { type: "application/json;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "shortcuts.json";
+        link.rel = "noopener";
+        document.body.appendChild(link);
+        link.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 3000);
+        els.status.textContent = "Download requested. If no file appears, use Copy JSON.";
+        appendLog("Download: browser blob download was requested. Some simulators or embedded browsers may ignore it.");
+      } catch (error) {
+        els.status.textContent = "Download failed. Use Copy JSON instead.";
+        appendLog(`Download: failed. ${error.message || error}`);
+        els.json.focus();
+        els.json.select();
+      }
+    }
+
+    function appendLog(message) {
+      const stamp = new Date().toLocaleTimeString();
+      els.log.value = `${els.log.value}${els.log.value ? "\n" : ""}[${stamp}] ${message}`;
+    }
+
+    function reset() {
+      imported = [];
+      lastPayload = null;
+      previewIssues = [];
+      previewConflictKeys = new Set();
+      els.file.value = "";
+      els.filter.value = "";
+      els.json.value = "";
+      els.log.value = "";
+      logSectionOffsets = {};
+      els.rows.innerHTML = `<tr><td colspan="5" class="warn">No preset loaded yet.</td></tr>`;
+      els.countShortcuts.textContent = "0";
+      els.countConflicts.textContent = "0";
+      els.countSkipped.textContent = "0";
+      els.countLayers.textContent = "0";
+      els.copy.disabled = true;
+      els.download.disabled = true;
+      els.status.textContent = "Waiting for a BTT native export file.";
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+  </script>
+</body>
+</html>
