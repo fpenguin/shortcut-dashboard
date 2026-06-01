@@ -368,9 +368,9 @@
     .mod-glyph {
       display: inline-grid;
       grid-auto-flow: column;
-      grid-auto-columns: minmax(16px, auto);
+      grid-auto-columns: minmax(15px, auto);
       align-items: center;
-      gap: 3px;
+      gap: 2px;
       font-family: var(--mono);
       font-size: 19px;
       font-weight: 900;
@@ -411,6 +411,7 @@
 
     .layer-count {
       color: var(--faint);
+      font-size: 12px;
       font-variant-numeric: tabular-nums;
     }
 
@@ -451,7 +452,7 @@
       top: calc(100% + 8px);
       right: 0;
       z-index: 30;
-      width: min(310px, calc(100vw - 44px));
+      width: min(344px, calc(100vw - 44px));
       display: none;
       padding: 10px;
       border: 1px solid var(--line-strong);
@@ -475,10 +476,11 @@
       font-weight: 850;
     }
 
+    /* Four aligned columns: checkbox | modifier combo | modifier name | counter. */
     .layer-menu-item {
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-      gap: 9px;
+      grid-template-columns: auto 76px minmax(0, 1fr) auto;
+      gap: 10px;
       align-items: center;
       padding: 8px 7px;
       border-radius: 8px;
@@ -497,6 +499,32 @@
       accent-color: var(--accent);
     }
 
+    .layer-menu-glyph {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    /* Menu glyphs are more compact than the keyboard tabs. */
+    .layer-menu-glyph .mod-glyph {
+      font-size: 14px;
+      gap: 2px;
+    }
+
+    .layer-menu-glyph .mod-symbol {
+      min-width: 12px;
+    }
+
+    .layer-menu-glyph .mod-symbol.fn {
+      min-width: 16px;
+      font-size: 11px;
+    }
+
+    .layer-menu-glyph .fn-glyph {
+      min-width: 0;
+      font-size: 13px;
+    }
+
     .layer-menu-name {
       min-width: 0;
       overflow: hidden;
@@ -508,6 +536,42 @@
       color: var(--faint);
       font-family: var(--mono);
       font-size: 12px;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    /* Grouping counters dim when zero, brighten when non-zero (reacts to category/source). */
+    .layer-count.count-zero,
+    .layer-menu-count.count-zero {
+      opacity: 0.32;
+    }
+
+    .layer-menu-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .layer-menu-action {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 7px 6px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease;
+    }
+
+    .layer-menu-action:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text);
     }
 
     .keyboard-shell {
@@ -747,6 +811,7 @@
       flex-wrap: wrap;
       gap: 8px;
       min-width: 0;
+      width: 100%;
     }
 
     .chip {
@@ -785,6 +850,62 @@
       background: rgba(255, 92, 122, 0.11);
     }
 
+    .app-source-row {
+      margin-top: 8px;
+    }
+
+    .app-source-rail {
+      width: 100%;
+    }
+
+    .source-chip {
+      --chip-color: var(--faint);
+    }
+
+    .source-chip.active {
+      --chip-color: var(--accent);
+    }
+
+    .chip-count {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    /* Zero-count chips: 50% less dominant. Active overrides back to full so a
+       selected (but currently empty) filter stays readable. */
+    .chip.zero-count {
+      opacity: 0.5;
+    }
+
+    .chip.zero-count.active {
+      opacity: 1;
+    }
+
+    /* Bottom hint row: conflict counter (only when conflicts exist) sits left of the Tip text. */
+    .hint-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .hint-row .kbd-help {
+      margin: 0;
+    }
+
+    .hint-row .conflict-chip {
+      flex: 0 0 auto;
+    }
+
+    /* [hidden] must win over .filter-row/.category-rail/.chip display rules. */
+    .filter-row[hidden],
+    .category-rail[hidden],
+    .chip[hidden] {
+      display: none !important;
+    }
+
 
     .import-options {
       display: grid;
@@ -818,7 +939,7 @@
     }
 
     .settings-card {
-      max-width: 780px;
+      max-width: 880px;
       max-height: calc(100vh - 48px);
       padding: 0;
       overflow: hidden;
@@ -831,11 +952,68 @@
       padding: 16px 16px 12px;
     }
 
+    /* Sidebar + scrollable body share the middle of the settings card. */
+    .settings-layout {
+      display: flex;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .settings-nav {
+      flex: 0 0 172px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 12px 10px;
+      border-right: 1px solid var(--line);
+      overflow: auto;
+    }
+
+    .settings-nav-item {
+      text-align: left;
+      padding: 9px 11px;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-weight: 750;
+      font-size: 13px;
+      white-space: nowrap;
+      transition: background 120ms ease, color 120ms ease;
+    }
+
+    .settings-nav-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+    }
+
+    .settings-nav-item.active {
+      background: color-mix(in srgb, var(--accent) 16%, transparent);
+      color: var(--text);
+    }
+
     .settings-body {
       flex: 1 1 auto;
       min-height: 0;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding: 0 16px;
+    }
+
+    @media (max-width: 680px) {
+      .settings-layout {
+        flex-direction: column;
+      }
+
+      .settings-nav {
+        flex: 0 0 auto;
+        flex-direction: row;
+        overflow-x: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
     }
 
     .settings-card .modal-actions {
@@ -895,38 +1073,39 @@
       text-transform: uppercase;
     }
 
-    .settings-inline-select select {
+    /* One source of truth for every <select> in the Settings modal. */
+    .settings-select {
       width: 100%;
-      min-height: 46px;
-      padding: 0 12px;
+      min-height: 42px;
+      padding: 0 11px;
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: 8px;
       outline: none;
       background: linear-gradient(180deg, rgba(16, 22, 32, 0.96), rgba(8, 13, 20, 0.96));
       color: var(--text);
       font: inherit;
-      font-weight: 800;
+      font-weight: 750;
       color-scheme: dark;
     }
 
-    .settings-inline-select select:focus {
+    .settings-select:focus {
       border-color: rgba(156, 200, 255, 0.62);
       box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
     }
 
-    .settings-inline-select select option {
+    .settings-select option {
       background: #111722;
       color: #f4f7fb;
       font-weight: 700;
     }
 
-    [data-theme="light"] .settings-inline-select select {
+    [data-theme="light"] .settings-select {
       background: #ffffff;
       color: #141922;
       color-scheme: light;
     }
 
-    [data-theme="light"] .settings-inline-select select option {
+    [data-theme="light"] .settings-select option {
       background: #ffffff;
       color: #141922;
     }
@@ -941,8 +1120,10 @@
     }
 
     .segmented {
-      display: inline-grid;
-      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      display: grid;
+      width: 100%;
+      max-width: 320px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       padding: 4px;
       border: 1px solid var(--line);
       border-radius: 10px;
@@ -1016,6 +1197,37 @@
       font-size: 14px;
     }
 
+    .filter-settings-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .filter-setting-row {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr) 130px;
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .filter-setting-row.dragging {
+      opacity: 0.55;
+    }
+
+    .filter-setting-label {
+      min-width: 0;
+      font-weight: 750;
+    }
+
+    /* .filter-mode-select keeps only its grid sizing; visuals come from .settings-select. */
+    .filter-mode-select {
+      min-width: 0;
+    }
+
     .category-settings-head {
       display: block;
     }
@@ -1065,6 +1277,7 @@
       font-size: 12px;
       font-weight: 800;
       white-space: nowrap;
+      text-align: right;
     }
 
     .category-delete {
@@ -1103,11 +1316,11 @@
       text-transform: uppercase;
     }
 
-    .hyper-key-settings select,
+    /* Hyper-key text input mirrors .settings-select; the adjacent <select> uses .settings-select directly. */
     .hyper-key-settings input[type="text"] {
       width: 100%;
       min-height: 42px;
-      padding: 10px;
+      padding: 0 11px;
       border: 1px solid var(--line);
       border-radius: 8px;
       outline: none;
@@ -1118,23 +1331,17 @@
       color-scheme: dark;
     }
 
-    .hyper-key-settings select:focus,
     .hyper-key-settings input[type="text"]:focus {
       border-color: rgba(156, 200, 255, 0.62);
       box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
     }
 
-    .hyper-key-settings select option {
-      background: #111722;
-      color: #f4f7fb;
-      font-weight: 700;
-    }
-
     .hyper-option-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 12px;
+      margin-top: 12px;
       padding: 10px 12px;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -1142,6 +1349,10 @@
       color: var(--muted);
       font-size: 13px;
       font-weight: 800;
+    }
+
+    .hyper-option-row input[type="checkbox"] {
+      flex: 0 0 auto;
     }
 
     .hyper-option-row strong {
@@ -1690,11 +1901,17 @@
       flex: 0 0 auto;
     }
 
+    @keyframes nudge-pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(103, 232, 203, 0.08), 0 8px 20px rgba(103, 232, 203, 0.08); }
+      50%       { box-shadow: 0 0 0 6px rgba(103, 232, 203, 0.22), 0 12px 28px rgba(103, 232, 203, 0.18); }
+    }
+
     .backup-nudge {
       border-color: rgba(103, 232, 203, 0.68) !important;
       background: rgba(103, 232, 203, 0.16) !important;
       color: var(--text) !important;
-      box-shadow: 0 0 0 4px rgba(103, 232, 203, 0.09), 0 10px 24px rgba(103, 232, 203, 0.1);
+      box-shadow: 0 0 0 3px rgba(103, 232, 203, 0.08), 0 8px 20px rgba(103, 232, 203, 0.08);
+      animation: nudge-pulse 2s ease-in-out infinite;
     }
 
     .pill-btn:disabled {
@@ -2224,11 +2441,16 @@
 
         <aside class="detail-popover" id="detailPopover" aria-label="Shortcut details popover"></aside>
 
-        <div class="filter-row">
+        <div class="filter-row" id="categoryFilterRow">
           <div class="category-rail" id="categoryRail" aria-label="Category filters"></div>
-          <button class="chip conflict-chip" id="conflictButton" type="button" aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
         </div>
-        <div class="kbd-help">Tip: press ? or <span id="commandHelpShortcut">Cmd+K</span> for the command palette. Press a real shortcut to light it up.</div>
+        <div class="filter-row app-source-row" id="appSourceRow">
+          <div class="category-rail app-source-rail" id="appSourceRail" aria-label="App and source filters"></div>
+        </div>
+        <div class="hint-row" id="hintRow">
+          <button class="chip conflict-chip" id="conflictButton" type="button" hidden aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
+          <div class="kbd-help">Tip: press ? or <span id="commandHelpShortcut">Cmd+K</span> for the command palette. Press a real shortcut to light it up.</div>
+        </div>
         <div class="layer-note" id="fnLayerNote"><strong>Fn note:</strong> browsers usually cannot detect real-time Fn holds. Use the Fn tab manually or remap Fn to F18/F19. <a href="https://github.com/fpenguin/shortcut-dashboard#fn-key-detection" target="_blank" rel="noopener noreferrer">Full workaround guide</a>.</div>
       </section>
 
@@ -2323,13 +2545,22 @@
       <div class="modal-head">
         <h2>Settings</h2>
       </div>
-      <div class="settings-body">
-      <div class="settings-split-row">
+      <div class="settings-layout">
+        <nav class="settings-nav" id="settingsNav" aria-label="Settings sections">
+          <button type="button" class="settings-nav-item" data-target="set-general">Platform &amp; Theme</button>
+          <button type="button" class="settings-nav-item" data-target="set-modifiers">Modifier Layout</button>
+          <button type="button" class="settings-nav-item" data-target="set-detail">Detail Panel</button>
+          <button type="button" class="settings-nav-item" data-target="set-filters">Filters</button>
+          <button type="button" class="settings-nav-item" data-target="set-categories">Categories</button>
+          <button type="button" class="settings-nav-item" data-target="set-hyper">Hyper Key</button>
+        </nav>
+        <div class="settings-body" id="settingsBody">
+      <div class="settings-split-row" id="set-general">
         <div class="settings-section">
           <h3>Keyboard Platform</h3>
           <div class="segmented" role="group" aria-label="Keyboard platform">
-            <button class="segment-btn" id="platformMac" type="button" data-platform="mac">macOS</button>
-            <button class="segment-btn" id="platformPc" type="button" data-platform="pc">Windows PC</button>
+            <button class="segment-btn" id="platformMac" type="button" data-platform="mac">Mac</button>
+            <button class="segment-btn" id="platformPc" type="button" data-platform="pc">Win</button>
           </div>
         </div>
         <div class="settings-section">
@@ -2340,7 +2571,7 @@
           </div>
         </div>
       </div>
-      <div class="settings-section">
+      <div class="settings-section" id="set-modifiers">
         <h3>Modifier Layout</h3>
         <p class="modal-note">Drag rows to reorder. Checkbox controls whether a modifier key appears on the keyboard. Renaming a left modifier updates the matching right-side label.</p>
         <div class="modifier-layout-editor">
@@ -2354,7 +2585,7 @@
           </div>
         </div>
       </div>
-      <div class="settings-section">
+      <div class="settings-section" id="set-detail">
         <h3>Detail Panel</h3>
         <p class="modal-note">Auto keeps the sidebar on wide windows and switches to a key-anchored popover on tighter screens.</p>
         <div class="detail-panel-control-row">
@@ -2365,7 +2596,7 @@
           </div>
           <label class="settings-inline-select" for="detailPopoverAutoClose">
             <span>Popup Auto-close</span>
-            <select id="detailPopoverAutoClose">
+            <select id="detailPopoverAutoClose" class="settings-select">
               <option value="3">3 sec</option>
               <option value="5">5 sec</option>
               <option value="10">10 sec</option>
@@ -2375,7 +2606,12 @@
           </label>
         </div>
       </div>
-      <div class="settings-section">
+      <div class="settings-section" id="set-filters">
+        <h3>Filters</h3>
+        <p class="modal-note">Drag to reorder the filter rows under the keyboard. <strong>Always</strong> shows every chip including zero counts, <strong>Hide 0</strong> hides empty chips, <strong>Never</strong> hides the whole row.</p>
+        <div class="filter-settings-list" id="filterSettingsList"></div>
+      </div>
+      <div class="settings-section" id="set-categories">
         <div class="category-settings-head">
           <h3>Categories</h3>
           <p class="modal-note">Rename, recolor, reorder, add, or remove the category chips used across the dashboard.</p>
@@ -2386,18 +2622,18 @@
           <button class="pill-btn" id="resetCategoriesButton" type="button">Reset Defaults</button>
         </div>
       </div>
-      <div class="settings-section">
+      <div class="settings-section" id="set-hyper">
         <h3>Hyper Key</h3>
         <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Fn aliases work best when Fn is remapped to a detectable key such as F18 because browsers usually cannot detect raw Fn holds.</p>
         <label class="hyper-option-row">
-          <span><strong>Enable Hyper Key Alias</strong><br>Show and preview a physical key for Hyper.</span>
           <input type="checkbox" id="hyperKeyEnabled">
+          <span><strong>Enable Hyper Key Alias</strong><br>Show and preview a physical key for Hyper.</span>
         </label>
         <div class="hyper-key-advanced" id="hyperKeyAdvanced">
           <div class="hyper-key-settings">
             <label>
               <span class="field-label">Physical Key</span>
-              <select id="hyperKeyPhysical"></select>
+              <select id="hyperKeyPhysical" class="settings-select"></select>
             </label>
             <label>
               <span class="field-label">Display Label</span>
@@ -2405,12 +2641,12 @@
             </label>
           </div>
           <label class="hyper-option-row">
-            <span><strong>Show Modifier Glyphs</strong><br>Display the alias next to ⇧⌃⌥⌘ in the Hyper group.</span>
             <input type="checkbox" id="hyperKeyGlyphs">
+            <span><strong>Show Modifier Glyphs</strong><br>Display the alias next to ⇧⌃⌥⌘ in the Hyper group.</span>
           </label>
           <label class="hyper-option-row">
-            <span><strong>Preview While Held</strong><br>Switch to Hyper while the physical key is held down.</span>
             <input type="checkbox" id="hyperKeyPreview">
+            <span><strong>Preview While Held</strong><br>Switch to Hyper while the physical key is held down.</span>
           </label>
           <div class="hyper-key-preview">
             <span>Preview</span>
@@ -2418,6 +2654,7 @@
           </div>
         </div>
       </div>
+        </div>
       </div>
       <div class="modal-actions simple-actions">
         <div><button class="pill-btn" id="closeSettingsButton">Close</button></div>
@@ -2451,7 +2688,7 @@
         </div>
         <div class="about-action-group">
           <a class="pill-btn" href="https://github.com/fpenguin/shortcut-dashboard" target="_blank" rel="noreferrer">Give a Star at GitHub</a>
-          <a class="pill-btn" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">Tip Developer</a>
+          <a class="pill-btn" id="tipDeveloperButton" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">Tip Developer</a>
         </div>
       </div>
     </div>
@@ -2577,6 +2814,11 @@
       nightmode: true,
       detailLayout: "auto",
       detailPopoverAutoClose: 5,
+      // Filter rails under the keyboard. Order = on-page order; mode = always | hide0 | never.
+      filters: [
+        { id: "category", mode: "always" },
+        { id: "source", mode: "always" }
+      ],
       categories: structuredClone(defaultCategoryDefinitions),
       hyperKey: {
         enabled: false,
@@ -2705,6 +2947,7 @@
 
     let activeLayer = "Hyper";
     let activeCategory = "All";
+    let activeAppSource = "All";
     let activeMode = "keyboard";
     let selectedId = null;
     let paletteIndex = 0;
@@ -2717,7 +2960,10 @@
     let loadedSourceName = "sample data";
     let editorInitialSnapshot = "";
     let jsonEditUnlocked = false;
-    let backupNudgeTimer = null;
+    let backupNudgeTimer = null; // kept for legacy reference; actual timers live in nudgeTimers map
+    let tipNudgeTimer = null;    // same
+    let modifierRenderHandle = 0;
+    const renderSignatures = { layers: "", layerMenu: "", categories: "", appSources: "", filterLayout: "" };
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
     let settings = normalizeSettings(readJson(SETTINGS_KEY, defaultSettings));
     let drafts = normalizeShortcuts(readJson(DRAFTS_KEY, []));
@@ -2738,6 +2984,8 @@
       ],
       layerTabs: document.getElementById("layerTabs"),
       categoryRail: document.getElementById("categoryRail"),
+      appSourceRow: document.getElementById("appSourceRow"),
+      appSourceRail: document.getElementById("appSourceRail"),
       layerMenuButton: document.getElementById("layerMenuButton"),
       layerMenuPanel: document.getElementById("layerMenuPanel"),
       conflictButton: document.getElementById("conflictButton"),
@@ -2755,6 +3003,7 @@
       leftModifierList: document.getElementById("leftModifierList"),
       rightModifierList: document.getElementById("rightModifierList"),
       categorySettingsList: document.getElementById("categorySettingsList"),
+      filterSettingsList: document.getElementById("filterSettingsList"),
       hyperKeyEnabled: document.getElementById("hyperKeyEnabled"),
       hyperKeyPhysical: document.getElementById("hyperKeyPhysical"),
       hyperKeyLabel: document.getElementById("hyperKeyLabel"),
@@ -2800,6 +3049,7 @@
         textTrigger = normalizeTextTrigger(textTrigger);
       }
       loadedSourceName = hasStoredData() ? "browser storage" : "sample data";
+      restoreFilterState();
       renderStaticIcons();
       applyPrefs();
       applyDetailLayout();
@@ -2907,6 +3157,7 @@
       document.getElementById("closeAboutButton").addEventListener("click", closeAboutModal);
       document.getElementById("closeSettingsButton").addEventListener("click", closeSettingsModal);
       document.getElementById("saveSettingsButton").addEventListener("click", saveSettingsFromModal);
+      setupSettingsNav();
       document.getElementById("platformMac").addEventListener("click", () => setSettingsPlatform("mac"));
       document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
       document.getElementById("addCategoryButton").addEventListener("click", addCategorySetting);
@@ -2947,6 +3198,7 @@
         document.getElementById("editKey").dataset.autofilled = "false";
         updateShortcutPreviewFromParts();
       });
+      document.getElementById("editAction").addEventListener("input", syncEditorSaveNudge);
       el.jsonFileInput.addEventListener("change", readJsonFileInput);
       el.textTriggerFontSize.addEventListener("input", () => {
         textTrigger.fontSize = Number(el.textTriggerFontSize.value);
@@ -2983,16 +3235,86 @@
       window.addEventListener("blur", clearModifierPreview);
     }
 
+    // Coalesce bursts of modifier-key renders into one paint per frame.
+    // (modifierRenderHandle is declared in the top-level state block so it exists before init() runs.)
+    function scheduleModifierRender() {
+      if (modifierRenderHandle) return;
+      modifierRenderHandle = requestAnimationFrame(() => {
+        modifierRenderHandle = 0;
+        renderAll({ showSelectedDetails: false });
+      });
+    }
+    function cancelModifierRender() {
+      if (!modifierRenderHandle) return;
+      cancelAnimationFrame(modifierRenderHandle);
+      modifierRenderHandle = 0;
+    }
+
+    // Filter-rail rebuild guards use renderSignatures (declared in the top-level state block).
     function renderAll(options = {}) {
       const showSelectedDetails = options.showSelectedDetails !== false;
       applyDetailLayout();
+      ensureActiveAppSourceValid();
       renderLayers();
       renderKeyboard();
       renderTextTrigger();
       renderCategories();
+      renderAppSources();
+      applyFilterOrder();
       renderStats();
-      renderPrintSheet();
-      if (selectedId && showSelectedDetails) showDetails(findShortcutById(selectedId));
+      // renderPrintSheet() intentionally NOT called here — it rebuilds hidden DOM on
+      // every render. It now runs only just before window.print().
+      if (selectedId && showSelectedDetails) showDetails(findShortcutById(selectedId), undefined, "", { skipKeyboard: true });
+    }
+
+    // ── Filter helpers ───────────────────────────────────────────────────────
+    function filterSetting(id) {
+      return (settings.filters || defaultSettings.filters).find(item => item.id === id);
+    }
+
+    function filterMode(id) {
+      const found = filterSetting(id);
+      return found ? found.mode : "always";
+    }
+
+    function filterOrder() {
+      return (settings.filters || defaultSettings.filters).map(item => item.id);
+    }
+
+    // Reorder the category and source filter rows on the page to match settings.
+    function applyFilterOrder() {
+      const sig = filterOrder().join(",");
+      if (sig === renderSignatures.filterLayout) return;
+      renderSignatures.filterLayout = sig;
+      const catRow = document.getElementById("categoryFilterRow");
+      const srcRow = el.appSourceRow;
+      if (!catRow || !srcRow) return;
+      const parent = catRow.parentNode;
+      const anchor = document.getElementById("hintRow");
+      if (!anchor || anchor.parentNode !== parent) return;
+      filterOrder().forEach(id => {
+        const node = id === "category" ? catRow : id === "source" ? srcRow : null;
+        if (node) parent.insertBefore(node, anchor);
+      });
+    }
+
+    // Remember the last-clicked Grouping/Category/Source in browser storage only (not JSON/export).
+    function persistFilterState() {
+      prefs.filterState = { layer: activeLayer, category: activeCategory, source: activeAppSource };
+      savePrefs();
+    }
+
+    function restoreFilterState() {
+      const stored = (prefs.filterState && typeof prefs.filterState === "object") ? prefs.filterState : {};
+      if (typeof stored.layer === "string" && stored.layer) {
+        activeLayer = stored.layer; // renderLayers falls back to the first available tab if invalid
+      }
+      if (typeof stored.category === "string") {
+        activeCategory = (stored.category === "All" || categoryDefinitions().some(category => category.name === stored.category)) ? stored.category : "All";
+      }
+      if (typeof stored.source === "string") {
+        activeAppSource = stored.source; // validated against the live source universe during render
+      }
     }
 
     function renderLayers() {
@@ -3000,30 +3322,55 @@
       if (activeMode === "keyboard" && tabs.length && !modifierPreviewState && !tabs.some(layer => layer.id === activeLayer)) {
         activeLayer = tabs[0].id;
       }
-      const layerButtons = tabs.map(layer => {
-        const count = filteredShortcuts({ ignoreLayer: false, layerId: layer.id }).length;
-        return `<button class="layer-btn ${activeMode === "keyboard" && activeLayer === layer.id ? "active" : ""}" data-layer="${escapeHtml(layer.id)}" title="${escapeHtml(layer.label)}" aria-label="${escapeHtml(layer.label)} layer, ${count} shortcuts">${layerGlyph(layer.id)} <span class="layer-count">${count}</span></button>`;
-      }).join("");
-      const textTriggerButton = isTextTriggerVisible() ? `<button class="mode-tab ${activeMode === "textTrigger" ? "active" : ""}" id="textTriggerTab" type="button">Text Trigger</button>` : "";
-      el.layerTabs.innerHTML = `${layerButtons}${textTriggerButton}`;
-      el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
-        button.addEventListener("click", () => {
-          activeMode = "keyboard";
-          activeLayer = button.dataset.layer;
-          selectedId = null;
-          renderAll();
-          showDetails(filteredShortcuts()[0] || null);
-        });
+      const counts = tabs.map(layer => filteredShortcuts({ ignoreLayer: false, layerId: layer.id }).length);
+      const textTriggerVisible = isTextTriggerVisible();
+      // Structure signature deliberately excludes activeLayer/activeMode so that a layer
+      // change (frequent during modifier preview) updates highlights without a full rebuild.
+      const structureSig = JSON.stringify({
+        ids: tabs.map(layer => layer.id),
+        labels: tabs.map(layer => layer.label),
+        counts,
+        tt: textTriggerVisible,
+        hyper: settings.hyperKey?.enabled ? hyperKeyDisplayLabel() : ""
       });
-      const textTriggerTab = document.getElementById("textTriggerTab");
-      if (textTriggerTab) {
-        textTriggerTab.addEventListener("click", () => {
-          activeMode = "textTrigger";
-          selectedId = null;
-          renderAll();
-          showTextTriggerDetails();
+
+      if (structureSig !== renderSignatures.layers) {
+        renderSignatures.layers = structureSig;
+        const layerButtons = tabs.map((layer, index) =>
+          `<button class="layer-btn" data-layer="${escapeHtml(layer.id)}" title="${escapeHtml(layer.label)}" aria-label="${escapeHtml(layer.label)} layer, ${counts[index]} shortcuts">${layerGlyph(layer.id)} <span class="layer-count ${counts[index] === 0 ? "count-zero" : ""}">${counts[index]}</span></button>`
+        ).join("");
+        const textTriggerButton = textTriggerVisible ? `<button class="mode-tab" id="textTriggerTab" type="button">Text Trigger</button>` : "";
+        el.layerTabs.innerHTML = `${layerButtons}${textTriggerButton}`;
+        el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
+          button.addEventListener("click", () => {
+            activeMode = "keyboard";
+            activeLayer = button.dataset.layer;
+            selectedId = null;
+            persistFilterState();
+            closeDetailPopover();
+            renderAll({ showSelectedDetails: false });
+            // In popover (collapsed) mode, don't auto-open a detail popover for the first
+            // shortcut — match the category/source chip behavior.
+            if (!isDetailCollapsed()) showDetails(filteredShortcuts()[0] || null, undefined, "", { openPopover: false });
+          });
         });
+        const textTriggerTab = document.getElementById("textTriggerTab");
+        if (textTriggerTab) {
+          textTriggerTab.addEventListener("click", () => {
+            activeMode = "textTrigger";
+            selectedId = null;
+            renderAll();
+            showTextTriggerDetails();
+          });
+        }
       }
+
+      // Cheap highlight update — runs every render, no innerHTML churn.
+      el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
+        button.classList.toggle("active", activeMode === "keyboard" && activeLayer === button.dataset.layer);
+      });
+      const ttTab = document.getElementById("textTriggerTab");
+      if (ttTab) ttTab.classList.toggle("active", activeMode === "textTrigger");
       renderLayerNote();
       renderLayerMenu();
     }
@@ -3081,36 +3428,88 @@
       const hiddenLayers = hiddenLayerSet();
       if (hidden) hiddenLayers.add(layerId);
       else hiddenLayers.delete(layerId);
+      commitLayerVisibility(hiddenLayers);
+    }
+
+    // Select All / Clear All / Reverse for the Visible Groups menu.
+    function bulkSetLayerVisibility(mode) {
+      const ids = getLayerMenuOptions().map(option => option.id);
+      const hidden = hiddenLayerSet();
+      let next;
+      if (mode === "all") next = new Set();
+      else if (mode === "none") next = new Set(ids);
+      else next = new Set(ids.filter(id => !hidden.has(id))); // reverse
+      commitLayerVisibility(next);
+    }
+
+    // Persist a new hidden-set, keep the active group valid, and re-render without
+    // re-opening the detail popover (which would otherwise cover the open menu).
+    function commitLayerVisibility(hiddenLayers) {
       prefs.hiddenLayers = Array.from(hiddenLayers);
-      safeSetStorage(PREFS_KEY, prefs);
-      if (layerId === TEXT_TRIGGER_LAYER_ID && hidden && activeMode === "textTrigger") {
+      savePrefs();
+      if (activeMode === "textTrigger" && hiddenLayers.has(TEXT_TRIGGER_LAYER_ID)) {
         activeMode = "keyboard";
+        selectedId = null;
+      }
+      if (activeMode === "keyboard" && hiddenLayers.has(activeLayer)) {
         const next = getLayerTabs()[0];
         activeLayer = next ? next.id : activeLayer;
         selectedId = null;
       }
-      if (activeMode === "keyboard" && hidden && activeLayer === layerId) {
-        const next = getLayerTabs()[0];
-        activeLayer = next ? next.id : activeLayer;
-      }
-      renderAll();
+      closeDetailPopover();
+      renderAll({ showSelectedDetails: false });
+    }
+
+    // Count of shortcuts in a group under the active category + source filter (faceted).
+    function facetedLayerCount(layerId) {
+      if (layerId === TEXT_TRIGGER_LAYER_ID) return 3;
+      return filteredShortcuts({ ignoreLayer: false, layerId }).length;
+    }
+
+    // Glyph cell for the Visible Groups menu — symbols for modifier groups, a marker for
+    // named groups. Kept separate from the name so it never duplicates it (no "Fn Fn").
+    function layerMenuGlyphHtml(layerId, isMode) {
+      if (isMode) return "";
+      if (layerId === FAVORITES_LAYER_ID) return `<span class="fn-glyph">★</span>`;
+      if (layerId === DRAFTS_LAYER_ID) return `<span class="fn-glyph">✎</span>`;
+      if (layerId === OTHERS_LAYER_ID) return `<span class="fn-glyph">⋯</span>`;
+      const symbols = modifierGlyphSymbols(layerToModifierSet(layerId));
+      return `<span class="mod-glyph" aria-hidden="true">${symbols.map(item => `<span class="mod-symbol ${item.kind === "fn" ? "fn" : ""} ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}</span>`;
     }
 
     function renderLayerMenu() {
-      const options = getLayerMenuOptions();
       const hidden = hiddenLayerSet();
+      const rows = getLayerMenuOptions().map(layer => ({
+        id: layer.id,
+        isMode: Boolean(layer.isMode),
+        name: layer.label || layerDisplayName(layer.id),
+        count: facetedLayerCount(layer.id),
+        hidden: hidden.has(layer.id)
+      }));
+      const menuSig = JSON.stringify(rows.map(row => [row.id, row.name, row.count, row.hidden]));
+      if (menuSig === renderSignatures.layerMenu) return;
+      renderSignatures.layerMenu = menuSig;
       el.layerMenuPanel.innerHTML = `
         <div class="layer-menu-title">Visible Groups</div>
-        ${options.map(layer => `
-          <label class="layer-menu-item" role="menuitemcheckbox" aria-checked="${!hidden.has(layer.id)}">
-            <input type="checkbox" data-layer-toggle="${escapeHtml(layer.id)}" ${hidden.has(layer.id) ? "" : "checked"}>
-            <span class="layer-menu-name">${layer.isMode ? "" : layerGlyph(layer.id)} ${escapeHtml(layer.label || layerDisplayName(layer.id))}</span>
-            <span class="layer-menu-count">${layer.count}</span>
+        ${rows.map(row => `
+          <label class="layer-menu-item" role="menuitemcheckbox" aria-checked="${!row.hidden}">
+            <input type="checkbox" data-layer-toggle="${escapeHtml(row.id)}" ${row.hidden ? "" : "checked"}>
+            <span class="layer-menu-glyph">${layerMenuGlyphHtml(row.id, row.isMode)}</span>
+            <span class="layer-menu-name">${escapeHtml(row.name)}</span>
+            <span class="layer-menu-count ${row.count === 0 ? "count-zero" : ""}">${row.count}</span>
           </label>
         `).join("")}
+        <div class="layer-menu-actions">
+          <button type="button" class="layer-menu-action" data-bulk="all">Select All</button>
+          <button type="button" class="layer-menu-action" data-bulk="none">Clear All</button>
+          <button type="button" class="layer-menu-action" data-bulk="reverse">Reverse</button>
+        </div>
       `;
       el.layerMenuPanel.querySelectorAll("input[data-layer-toggle]").forEach(input => {
         input.addEventListener("change", () => setLayerHidden(input.dataset.layerToggle, !input.checked));
+      });
+      el.layerMenuPanel.querySelectorAll("[data-bulk]").forEach(button => {
+        button.addEventListener("click", () => bulkSetLayerVisibility(button.dataset.bulk));
       });
     }
 
@@ -3266,15 +3665,40 @@
     }
 
     function renderCategories() {
-      const categories = [{ name: "All", color: "var(--accent)", label: "All Categories" }, ...categoryDefinitions().map(category => ({ ...category, label: category.name }))];
-      el.categoryRail.innerHTML = categories.map(category => {
-        const active = activeCategory === category.name ? "active" : "";
-        return `<button class="chip ${active}" data-category="${escapeHtml(category.name)}" style="--chip-color:${escapeHtml(category.color)}"><span class="dot"></span>${escapeHtml(category.label)}</button>`;
+      const mode = filterMode("category");
+      if (mode === "never" || activeMode === "textTrigger") {
+        const hideSig = "hidden:" + (activeMode === "textTrigger" ? "tt" : "never");
+        if (renderSignatures.categories !== hideSig) {
+          renderSignatures.categories = hideSig;
+          el.categoryRail.hidden = true;
+          el.categoryRail.innerHTML = "";
+        }
+        return;
+      }
+      el.categoryRail.hidden = false;
+      // Faceted counts: a category's count reflects the active layer AND the active source filter.
+      const { counts, total } = categoryFacetCounts();
+      const defs = categoryDefinitions().map(category => ({
+        name: category.name, color: category.color, label: category.name, count: counts.get(category.name) || 0
+      }));
+      let list = [{ name: "All", color: "var(--accent)", label: "All Categories", count: total, isAll: true }, ...defs];
+      if (mode === "hide0") list = list.filter(item => item.isAll || item.count > 0 || item.name === activeCategory);
+      // Counts are in the signature so the rail rebuilds when they change, but a modifier-preview
+      // render (which touches neither activeCategory nor counts) is still skipped.
+      const sig = JSON.stringify({ mode, active: activeCategory, items: list.map(item => [item.name, item.color, item.label, item.count]) });
+      if (sig === renderSignatures.categories && el.categoryRail.childElementCount) return;
+      renderSignatures.categories = sig;
+      el.categoryRail.innerHTML = list.map(item => {
+        const active = activeCategory === item.name ? "active" : "";
+        const zero = item.count === 0 ? "zero-count" : "";
+        return `<button class="chip ${active} ${zero}" data-category="${escapeHtml(item.name)}" style="--chip-color:${escapeHtml(item.color)}"><span class="dot"></span>${escapeHtml(item.label)} <span class="chip-count">${item.count}</span></button>`;
       }).join("");
       el.categoryRail.querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           activeMode = "keyboard";
           activeCategory = button.dataset.category;
+          ensureActiveAppSourceValid();
+          persistFilterState();
           selectedId = null;
           closeDetailPopover();
           renderAll({ showSelectedDetails: false });
@@ -3283,11 +3707,111 @@
       });
     }
 
+    function renderAppSources() {
+      if (!el.appSourceRow || !el.appSourceRail) return;
+      const mode = filterMode("source");
+      if (mode === "never" || activeMode === "textTrigger") {
+        const hideSig = "hidden:" + (activeMode === "textTrigger" ? "tt" : "never");
+        if (renderSignatures.appSources !== hideSig) {
+          renderSignatures.appSources = hideSig;
+          el.appSourceRow.hidden = true;
+          el.appSourceRail.innerHTML = "";
+        }
+        return;
+      }
+      // Universe = every source in the current layer (always shown, even at 0). Counts are
+      // faceted by the active category, mirroring how category counts are faceted by source.
+      const { universe, total } = sourceFacetCounts();
+      ensureActiveAppSourceValid(universe);
+      let list = [...universe.entries()].map(([name, count]) => ({ name, label: name, count }))
+        .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+      if (mode === "hide0") list = list.filter(source => source.count > 0 || source.name === activeAppSource);
+      const chips = [{ name: "All", label: "All Sources", count: total, isAll: true }, ...list];
+      const sig = JSON.stringify({ mode, active: activeAppSource, items: chips.map(source => [source.name, source.count]) });
+      if (sig === renderSignatures.appSources) return;
+      renderSignatures.appSources = sig;
+      el.appSourceRow.hidden = false;
+      el.appSourceRail.innerHTML = chips.map(source => {
+        const active = activeAppSource === source.name ? "active" : "";
+        const zero = source.count === 0 ? "zero-count" : "";
+        return `<button class="chip source-chip ${active} ${zero}" data-app-source="${escapeHtml(source.name)}"><span class="dot"></span>${escapeHtml(source.label || source.name)} <span class="chip-count">${source.count}</span></button>`;
+      }).join("");
+      el.appSourceRail.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          activeMode = "keyboard";
+          activeAppSource = button.dataset.appSource || "All";
+          persistFilterState();
+          selectedId = null;
+          closeDetailPopover();
+          renderAll({ showSelectedDetails: false });
+          if (!isDetailCollapsed()) showDetails(filteredShortcuts()[0] || null, undefined, "", { openPopover: false });
+        });
+      });
+    }
+
+    // Shortcuts in the active layer (ignoring category/source filters) — the basis for facet counts.
+    function layerScopedItems() {
+      const layerId = activeLayer;
+      return shortcutCollectionForLayer(layerId).filter(item => {
+        if (item.active === false && layerId !== DRAFTS_LAYER_ID) return false;
+        return layerMatches(item.layer, layerId, item);
+      });
+    }
+
+    // Per-category counts within the active layer + active source filter.
+    function categoryFacetCounts() {
+      const counts = new Map();
+      let total = 0;
+      layerScopedItems().forEach(item => {
+        if (!appSourceMatches(item)) return;
+        total += 1;
+        const name = String(item.category || "Contextual").trim() || "Contextual";
+        counts.set(name, (counts.get(name) || 0) + 1);
+      });
+      return { counts, total };
+    }
+
+    // Universe of sources in the active layer, with counts faceted by the active category.
+    function sourceFacetCounts() {
+      // Universe = every source across the collection (all layers), so a source that lives only
+      // on other layers still appears here (at 0). Counts stay faceted by the active layer + category.
+      const layerId = activeLayer;
+      const universe = new Map();
+      let total = 0;
+      shortcutCollectionForLayer(layerId).forEach(item => {
+        if (item.active === false && layerId !== DRAFTS_LAYER_ID) return;
+        const name = appSourceName(item);
+        if (!universe.has(name)) universe.set(name, 0);
+        if (layerMatches(item.layer, layerId, item) && (activeCategory === "All" || item.category === activeCategory)) {
+          universe.set(name, universe.get(name) + 1);
+          total += 1;
+        }
+      });
+      return { universe, total };
+    }
+
+    // Active source stays valid as long as it still exists in the layer's universe (even at 0 count).
+    function ensureActiveAppSourceValid(universe) {
+      if (activeAppSource === "All") return;
+      const names = universe instanceof Map ? universe : sourceFacetCounts().universe;
+      if (!names.has(activeAppSource)) activeAppSource = "All";
+    }
+
+    function appSourceName(item) {
+      return String(item.app || "Unassigned").trim() || "Unassigned";
+    }
+
+    function appSourceMatches(item) {
+      return activeAppSource === "All" || appSourceName(item) === activeAppSource;
+    }
+
     function renderStats() {
       const conflicts = conflictGroups();
       const count = conflictEntryCount(conflicts);
       el.conflictButtonText.textContent = count === 1 ? "1 conflict" : `${count} conflicts`;
       el.conflictButton.classList.toggle("has-conflicts", count > 0);
+      // Only show the conflict counter when there is at least one conflict.
+      el.conflictButton.hidden = count === 0;
     }
 
     function isDetailCollapsed() {
@@ -3473,7 +3997,7 @@
           const presetLayer = activeLayer === FAVORITES_LAYER_ID || activeLayer === OTHERS_LAYER_ID ? "Hyper" : activeLayer;
           openShortcutEditor(null, { layer: presetLayer, key: pickedKey });
         });
-        renderKeyboard();
+        if (!options.skipKeyboard) renderKeyboard();
         return;
       }
 
@@ -3499,6 +4023,11 @@
         <div class="section">
           <h3>Category</h3>
           <p><span class="dot" style="--chip-color:${shortcutCategoryColor};display:inline-block;margin-right:8px"></span>${escapeHtml(shortcut.category)}</p>
+        </div>
+
+        <div class="section">
+          <h3>App / Source</h3>
+          <p>${escapeHtml(appSourceName(shortcut))}</p>
         </div>
 
         <div class="section">
@@ -3529,7 +4058,7 @@
       });
       detailTarget.querySelector("#editShortcutButton")?.addEventListener("click", () => openShortcutEditor(shortcut));
       bindMappingCardActions({ view: "details", root: detailTarget });
-      renderKeyboard();
+      if (!options.skipKeyboard) renderKeyboard();
     }
 
     function mappingCard(item, isConflict) {
@@ -3588,6 +4117,7 @@
     }
 
     function openPalette() {
+      silentClearModifiers();
       paletteIndex = 0;
       el.paletteInput.value = "";
       renderPalette();
@@ -3714,6 +4244,7 @@
 
     function handleGlobalKeyup(event) {
       if (isWritingTextTrigger()) return;
+      if (isModalOpen() || el.paletteOverlay.classList.contains("open")) return;
       if (isHyperPhysicalKeyEvent(event)) {
         clearModifierPreview();
         return;
@@ -3721,6 +4252,13 @@
       if (!hasModifierState(event) && !isModifierKeyEvent(event)) return;
       refreshHeldModifiersFromEvent(event, false);
       applyModifierPreview();
+    }
+
+    function silentClearModifiers() {
+      cancelModifierRender();
+      heldModifiers.clear();
+      liveKeys = new Set();
+      modifierPreviewState = null;
     }
 
 
@@ -3845,7 +4383,7 @@
       activeLayer = "Hyper";
       selectedId = null;
       liveKeys = hyperAliasLiveKeys();
-      renderAll({ showSelectedDetails: false });
+      scheduleModifierRender();
     }
 
     function applyModifierPreview() {
@@ -3861,10 +4399,11 @@
       activeLayer = nextLayer;
       selectedId = null;
       if (shouldUseHyperAliasForLayer(nextLayer)) liveKeys = hyperAliasLiveKeys();
-      renderAll({ showSelectedDetails: false });
+      scheduleModifierRender();
     }
 
     function clearModifierPreview() {
+      cancelModifierRender();
       heldModifiers.clear();
       liveKeys = new Set();
       if (modifierPreviewState) {
@@ -3954,6 +4493,7 @@
     }
 
     function openShortcutEditor(shortcut = null, preset = {}) {
+      silentClearModifiers();
       renderModifierGridLabels();
       const item = shortcut || {
         id: "",
@@ -3962,7 +4502,7 @@
         keyLabel: "",
         shortcut: "",
         action: "",
-        app: "",
+        app: activeAppSource === "All" ? "" : activeAppSource,
         category: activeCategory === "All" ? "Contextual" : activeCategory,
         notes: "",
         mnemonic: "",
@@ -3989,6 +4529,7 @@
       el.editOverlay.dataset.duplicateDraft = "false";
       el.editOverlay.classList.add("open");
       editorInitialSnapshot = getEditorSnapshot();
+      syncEditorSaveNudge();
       requestAnimationFrame(() => document.getElementById("editAction").focus());
     }
 
@@ -4000,6 +4541,7 @@
     }
 
     function closeShortcutEditor() {
+      clearNudgeEl("saveShortcutButton");
       el.editOverlay.classList.remove("open");
       editorInitialSnapshot = "";
       el.editOverlay.dataset.duplicateDraft = "false";
@@ -4008,6 +4550,7 @@
 
     function saveShortcutFromForm(event) {
       event.preventDefault();
+      clearNudgeEl("saveShortcutButton");
       try {
         const previousLayer = activeLayer;
         const previousMode = activeMode;
@@ -4213,7 +4756,15 @@
       const { shortcutValue } = derivedShortcutFromForm(fallbackShortcut);
       setFormValue("editShortcut", shortcutValue);
       clearFormError();
+      syncEditorSaveNudge();
       return shortcutValue;
+    }
+
+    function syncEditorSaveNudge() {
+      const action = document.getElementById("editAction")?.value.trim();
+      const key    = document.getElementById("editKey")?.value.trim();
+      if (action && key) nudgeEl("saveShortcutButton");
+      else clearNudgeEl("saveShortcutButton");
     }
 
     function syncEditorFromShortcutText() {
@@ -4348,11 +4899,52 @@
     }
 
     function openSettingsModal() {
+      silentClearModifiers();
       renderSettingsModal();
       el.settingsOverlay.classList.add("open");
+      nudgeEl("saveSettingsButton");
+      const body = document.getElementById("settingsBody");
+      if (body) body.scrollTop = 0;
+      requestAnimationFrame(updateSettingsNavActive);
+    }
+
+    // Settings sidebar: click a section to scroll to it; highlight the section nearest the top.
+    function setupSettingsNav() {
+      const nav = document.getElementById("settingsNav");
+      const body = document.getElementById("settingsBody");
+      if (!nav || !body) return;
+      nav.querySelectorAll(".settings-nav-item").forEach(item => {
+        item.addEventListener("click", () => {
+          const target = document.getElementById(item.dataset.target);
+          if (!target) return;
+          const top = target.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop;
+          body.scrollTo({ top: Math.max(0, top - 8), behavior: "smooth" });
+        });
+      });
+      body.addEventListener("scroll", updateSettingsNavActive);
+    }
+
+    function updateSettingsNavActive() {
+      const nav = document.getElementById("settingsNav");
+      const body = document.getElementById("settingsBody");
+      if (!nav || !body) return;
+      const items = [...nav.querySelectorAll(".settings-nav-item")];
+      let activeId = items[0]?.dataset.target;
+      // When scrolled to the bottom, the last section can't reach the top — mark it active.
+      if (body.scrollTop + body.clientHeight >= body.scrollHeight - 4) {
+        activeId = items[items.length - 1]?.dataset.target;
+      } else {
+        const bodyTop = body.getBoundingClientRect().top;
+        items.forEach(item => {
+          const section = document.getElementById(item.dataset.target);
+          if (section && section.getBoundingClientRect().top - bodyTop <= 24) activeId = item.dataset.target;
+        });
+      }
+      items.forEach(item => item.classList.toggle("active", item.dataset.target === activeId));
     }
 
     function closeSettingsModal() {
+      clearNudgeEl("saveSettingsButton");
       el.settingsOverlay.classList.remove("open");
       clearActiveFocus();
     }
@@ -4364,8 +4956,65 @@
       renderModifierList("left");
       renderModifierList("right");
       renderCategorySettings();
+      renderFilterSettings();
       renderDetailLayoutSettings();
       renderHyperKeySettings();
+    }
+
+    function renderFilterSettings() {
+      if (!el.filterSettingsList) return;
+      const labels = { category: "Category Filter", source: "Source Filter" };
+      el.filterSettingsList.innerHTML = (settings.filters || []).map((filter, index) => `
+        <div class="filter-setting-row" draggable="true" data-index="${index}">
+          <span class="drag-handle" aria-hidden="true">=</span>
+          <span class="filter-setting-label">${escapeHtml(labels[filter.id] || filter.id)}</span>
+          <select class="filter-mode-select settings-select" data-index="${index}" aria-label="${escapeHtml(labels[filter.id] || filter.id)} display">
+            <option value="always" ${filter.mode === "always" ? "selected" : ""}>Always</option>
+            <option value="hide0" ${filter.mode === "hide0" ? "selected" : ""}>Hide 0</option>
+            <option value="never" ${filter.mode === "never" ? "selected" : ""}>Never</option>
+          </select>
+        </div>
+      `).join("");
+      bindFilterRows();
+    }
+
+    // Shared HTML5 drag-to-reorder for settings rows that carry data-index.
+    // `scope` keeps drops within their own list (e.g. left vs right modifiers) and stops
+    // cross-list drags between unrelated reorderable lists in the same modal.
+    function makeRowsReorderable(rows, onReorder, options = {}) {
+      const scope = options.scope || "rows";
+      rows.forEach(row => {
+        row.addEventListener("dragstart", event => {
+          if (options.onDragStart) options.onDragStart();
+          row.classList.add("dragging");
+          event.dataTransfer.setData("text/plain", JSON.stringify({ scope, index: Number(row.dataset.index) }));
+        });
+        row.addEventListener("dragend", () => row.classList.remove("dragging"));
+        row.addEventListener("dragover", event => event.preventDefault());
+        row.addEventListener("drop", event => {
+          event.preventDefault();
+          let payload;
+          try { payload = JSON.parse(event.dataTransfer.getData("text/plain") || "{}"); } catch { return; }
+          const from = Number(payload.index);
+          const to = Number(row.dataset.index);
+          if (payload.scope !== scope || !Number.isInteger(from) || from === to) return;
+          onReorder(from, to);
+        });
+      });
+    }
+
+    function bindFilterRows() {
+      const rows = el.filterSettingsList.querySelectorAll(".filter-setting-row");
+      rows.forEach(row => {
+        const index = Number(row.dataset.index);
+        const select = row.querySelector(".filter-mode-select");
+        select.addEventListener("change", () => { settings.filters[index].mode = select.value; });
+      });
+      makeRowsReorderable(rows, (from, to) => {
+        const [moved] = settings.filters.splice(from, 1);
+        settings.filters.splice(to, 0, moved);
+        renderFilterSettings();
+      }, { scope: "filter" });
     }
 
     function renderThemeSettings() {
@@ -4437,33 +5086,23 @@
     }
 
     function bindCategoryRows() {
-      el.categorySettingsList.querySelectorAll(".category-row").forEach(row => {
+      const rows = el.categorySettingsList.querySelectorAll(".category-row");
+      rows.forEach(row => {
         const colorInput = row.querySelector('input[type="color"]');
         const deleteButton = row.querySelector(".category-delete");
         colorInput.addEventListener("input", () => {
           row.style.setProperty("--chip-color", colorInput.value);
         });
         deleteButton.addEventListener("click", () => deleteCategorySetting(Number(row.dataset.index)));
-        row.addEventListener("dragstart", event => {
-          applyCategorySettingsFromRows();
-          row.classList.add("dragging");
-          event.dataTransfer.setData("text/plain", row.dataset.index);
-        });
-        row.addEventListener("dragend", () => row.classList.remove("dragging"));
-        row.addEventListener("dragover", event => event.preventDefault());
-        row.addEventListener("drop", event => {
-          event.preventDefault();
-          const sourceIndex = Number(event.dataTransfer.getData("text/plain"));
-          const targetIndex = Number(row.dataset.index);
-          if (!Number.isInteger(sourceIndex) || sourceIndex === targetIndex) return;
-          const categories = normalizeCategories(settings.categories);
-          const [moved] = categories.splice(sourceIndex, 1);
-          categories.splice(targetIndex, 0, moved);
-          settings.categories = categories;
-          renderCategorySettings();
-          renderAll({ showSelectedDetails: false });
-        });
       });
+      makeRowsReorderable(rows, (from, to) => {
+        const categories = normalizeCategories(settings.categories);
+        const [moved] = categories.splice(from, 1);
+        categories.splice(to, 0, moved);
+        settings.categories = categories;
+        renderCategorySettings();
+        renderAll({ showSelectedDetails: false });
+      }, { scope: "category", onDragStart: applyCategorySettingsFromRows });
     }
 
     function categoryUsageCounts() {
@@ -4576,7 +5215,8 @@
     }
 
     function bindModifierRows(target, side) {
-      target.querySelectorAll(".modifier-row").forEach(row => {
+      const rows = target.querySelectorAll(".modifier-row");
+      rows.forEach(row => {
         const index = Number(row.dataset.index);
         const checkbox = row.querySelector('input[type="checkbox"]');
         const input = row.querySelector('input[type="text"]');
@@ -4588,22 +5228,14 @@
           settings.modifierLayout[side][index].label = input.value;
           syncModifierLabel(side, id, input.value);
         });
-        row.addEventListener("dragstart", event => {
-          row.classList.add("dragging");
-          event.dataTransfer.setData("text/plain", JSON.stringify({ side, index }));
-        });
-        row.addEventListener("dragend", () => row.classList.remove("dragging"));
-        row.addEventListener("dragover", event => event.preventDefault());
-        row.addEventListener("drop", event => {
-          event.preventDefault();
-          const source = JSON.parse(event.dataTransfer.getData("text/plain") || "{}");
-          if (source.side !== side || source.index === index) return;
-          const list = settings.modifierLayout[side];
-          const [moved] = list.splice(source.index, 1);
-          list.splice(index, 0, moved);
-          renderModifierList(side);
-        });
       });
+      // scope = side so a left-list row can't be dropped into the right list and vice-versa.
+      makeRowsReorderable(rows, (from, to) => {
+        const list = settings.modifierLayout[side];
+        const [moved] = list.splice(from, 1);
+        list.splice(to, 0, moved);
+        renderModifierList(side);
+      }, { scope: "modifier-" + side });
     }
 
     function syncModifierLabel(side, id, label) {
@@ -4675,6 +5307,7 @@
     }
 
     function saveSettingsFromModal() {
+      clearNudgeEl("saveSettingsButton");
       applyCategorySettingsFromRows();
       settings.hyperKey = hyperKeyFromSettingsForm();
       settings.nightmode = prefs.theme !== "light";
@@ -4689,7 +5322,8 @@
       toast("Settings saved.");
     }
     function openJsonModal() {
-      clearBackupNudge();
+      silentClearModifiers();
+      clearNudgeGroup("exportJsonButton", "mergeJsonButton");
       lockCurrentJsonEditor();
       refreshCurrentJsonArea(true);
       el.importJsonArea.value = "";
@@ -4698,10 +5332,15 @@
       renderImportPlan();
       document.body.classList.add("modal-open");
       el.jsonOverlay.classList.add("open");
+      // Guide the user: pulse the three entry-point buttons.
+      nudgeEl("editCurrentJsonButton");
+      nudgeEl("bttImportButton");
+      nudgeEl("importJsonButton");
       requestAnimationFrame(() => el.importJsonArea.focus());
     }
 
     function closeJsonModal() {
+      clearNudgeGroup("editCurrentJsonButton", "bttImportButton", "importJsonButton", "mergeJsonButton");
       lockCurrentJsonEditor();
       el.jsonOverlay.classList.remove("open");
       document.body.classList.remove("modal-open");
@@ -4730,6 +5369,7 @@
     }
 
     function handleCurrentJsonToggle() {
+      clearNudgeGroup("editCurrentJsonButton", "bttImportButton", "importJsonButton");
       if (jsonEditUnlocked) {
         applyCurrentJsonEdits();
       } else {
@@ -4764,16 +5404,22 @@
     }
 
     function openAboutModal() {
+      silentClearModifiers();
       el.aboutOverlay.classList.add("open");
+      nudgeTipButton();
     }
 
     function closeAboutModal() {
+      clearTipNudge();
       el.aboutOverlay.classList.remove("open");
       clearActiveFocus();
     }
 
     function handleMergeJsonButton() {
-      if (!el.mergeJsonButton.disabled) saveJsonFile();
+      if (!el.mergeJsonButton.disabled) {
+        clearNudgeEl("mergeJsonButton");
+        saveJsonFile();
+      }
     }
 
     function setMergeJsonButtonState(plan = { ready: false }, hasError = false) {
@@ -4781,9 +5427,12 @@
       el.mergeJsonButton.textContent = "Confirm Merge";
       el.mergeJsonButton.disabled = !ready;
       el.mergeJsonButton.classList.toggle("ready", ready);
+      if (ready) nudgeEl("mergeJsonButton");
+      else clearNudgeEl("mergeJsonButton");
     }
 
     async function openJsonFile() {
+      clearNudgeGroup("editCurrentJsonButton", "bttImportButton", "importJsonButton");
       if ("showOpenFilePicker" in window) {
         try {
           const handles = await window.showOpenFilePicker({
@@ -4873,19 +5522,36 @@
       toast("Backup JSON downloaded.");
     }
 
-    function nudgeBackupButton() {
-      const button = document.getElementById("exportJsonButton");
-      button.classList.add("backup-nudge");
-      clearTimeout(backupNudgeTimer);
-      backupNudgeTimer = setTimeout(clearBackupNudge, 10000);
+    // ── Generic nudge engine ──────────────────────────────────────────────────
+    // nudgeEl(id, timeoutMs?) — adds pulsing highlight to any element by id.
+    // clearNudgeEl(id)        — removes it immediately and cancels the auto-timer.
+    // clearAllNudges()        — clears every active nudge (used on modal open/close).
+    const nudgeTimers = {};
+
+    function nudgeEl(id, timeoutMs = 0) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.add("backup-nudge");
+      clearTimeout(nudgeTimers[id]);
+      if (timeoutMs > 0) nudgeTimers[id] = setTimeout(() => clearNudgeEl(id), timeoutMs);
     }
 
-    function clearBackupNudge() {
-      const button = document.getElementById("exportJsonButton");
-      if (button) button.classList.remove("backup-nudge");
-      clearTimeout(backupNudgeTimer);
-      backupNudgeTimer = null;
+    function clearNudgeEl(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove("backup-nudge");
+      clearTimeout(nudgeTimers[id]);
+      delete nudgeTimers[id];
     }
+
+    function clearNudgeGroup(...ids) {
+      ids.forEach(id => clearNudgeEl(id));
+    }
+
+    // Legacy thin wrappers kept so existing call-sites don't break.
+    function nudgeBackupButton() { nudgeEl("exportJsonButton"); }
+    function clearBackupNudge()  { clearNudgeEl("exportJsonButton"); }
+    function nudgeTipButton()    { nudgeEl("tipDeveloperButton"); }
+    function clearTipNudge()     { clearNudgeEl("tipDeveloperButton"); }
 
     function exportData() {
       return {
@@ -5178,8 +5844,9 @@
         if (item.active === false && layerId !== DRAFTS_LAYER_ID) return false;
         const layerOk = options.ignoreLayer || layerMatches(item.layer, layerId, item);
         const categoryOk = activeCategory === "All" || item.category === activeCategory;
+        const sourceOk = appSourceMatches(item);
         const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
-        return layerOk && categoryOk && searchOk;
+        return layerOk && categoryOk && sourceOk && searchOk;
       });
     }
 
@@ -5188,8 +5855,9 @@
       return shortcutCollectionForLayer(layerId).filter(item => {
         if (item.active === false && layerId !== DRAFTS_LAYER_ID) return false;
         const categoryOk = activeCategory === "All" || item.category === activeCategory;
+        const sourceOk = appSourceMatches(item);
         const searchOk = !q || searchableText(item).includes(q) || fuzzyScore(item, q) > 0;
-        return layerMatches(item.layer, layerId, item) && categoryOk && searchOk;
+        return layerMatches(item.layer, layerId, item) && categoryOk && sourceOk && searchOk;
       });
     }
 
@@ -5367,6 +6035,7 @@
         nightmode: normalizeNightMode(source),
         detailLayout: normalizeDetailLayout(source.detailLayout),
         detailPopoverAutoClose: normalizeDetailPopoverAutoClose(source.detailPopoverAutoClose ?? source.popoverAutoClose),
+        filters: normalizeFilters(source.filters),
         categories: normalizeCategories(source.categories),
         hyperKey: normalizeHyperKey(source.hyperKey),
         modifierLayout: {
@@ -5378,6 +6047,23 @@
 
     function normalizeDetailLayout(value) {
       return ["auto", "sidebar", "collapsed"].includes(value) ? value : defaultSettings.detailLayout;
+    }
+
+    function normalizeFilters(value) {
+      const validIds = defaultSettings.filters.map(filter => filter.id);
+      const validModes = ["always", "hide0", "never"];
+      const seen = new Set();
+      const result = [];
+      (Array.isArray(value) ? value : []).forEach(item => {
+        if (!item || !validIds.includes(item.id) || seen.has(item.id)) return;
+        seen.add(item.id);
+        result.push({ id: item.id, mode: validModes.includes(item.mode) ? item.mode : "always" });
+      });
+      // Append any filters missing from the stored value, in default order.
+      defaultSettings.filters.forEach(filter => {
+        if (!seen.has(filter.id)) result.push({ ...filter });
+      });
+      return result;
     }
 
     function normalizeDetailPopoverAutoClose(value) {

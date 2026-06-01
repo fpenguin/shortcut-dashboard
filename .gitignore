@@ -5,8 +5,10 @@
 shortcuts.json
 *.bttpreset
 
-# Agent/session handoff notes
+# Agent/session handoff notes (private; never commit)
+# Both cases listed so it stays ignored on case-sensitive filesystems (Linux) too.
 handoff.md
+HANDOFF.md
 
 # Keep publishable examples
 !shortcuts_example.json
