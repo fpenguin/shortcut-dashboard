@@ -84,14 +84,44 @@
       border-radius: 16px;
       box-shadow: var(--shadow);
     }
+    .import-start-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr);
+      gap: 18px;
+      align-items: stretch;
+    }
     .drop {
       padding: 26px;
-      min-height: 250px;
+      min-height: 230px;
       display: grid;
       place-items: center;
       text-align: center;
       border-style: dashed;
       transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .agent-card {
+      padding: 22px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .agent-card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .agent-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 13px;
+    }
+    .agent-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: auto;
     }
     .drop.drag {
       border-color: rgba(100, 224, 207, .72);
@@ -281,6 +311,9 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
+    @media (max-width: 980px) {
+      .import-start-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 860px) {
       header { grid-template-columns: 44px 1fr; }
       .header-actions { grid-column: 1 / -1; justify-content: flex-start; }
@@ -306,14 +339,26 @@
 
     <section class="grid">
       <div>
-        <label id="dropZone" class="card drop" for="fileInput">
-          <div>
-            <strong>Drop a preset file here</strong>
-            <p>Currently supports BetterTouchTool (.bttpreset). The parser runs only in this browser window and does not upload anything.</p>
-            <span class="file-btn">Choose Preset</span>
-            <input id="fileInput" type="file" accept=".bttpreset,.json,application/json">
-          </div>
-        </label>
+        <div class="import-start-grid">
+          <label id="dropZone" class="card drop" for="fileInput">
+            <div>
+              <strong>Drop a preset file here</strong>
+              <p>Currently supports BetterTouchTool (.bttpreset). The parser runs only in this browser window and does not upload anything.</p>
+              <span class="file-btn">Choose Preset</span>
+              <input id="fileInput" type="file" accept=".bttpreset,.json,application/json">
+            </div>
+          </label>
+
+          <section class="card agent-card" aria-label="Build another importer">
+            <h2>Build an Importer for Another Tool</h2>
+            <p>Shortcut Importer starts with BetterTouchTool, but the dashboard JSON format is open. Download the agent handoff, give it to Claude, Codex, or another coding agent, and ask it to build a parser for your favorite automation tool.</p>
+            <p>Verified importers can be contributed back through GitHub as pull requests with a short test summary and sanitized sample output.</p>
+            <div class="agent-actions">
+              <a class="file-btn" href="https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/Agent_Handoff.md" target="_blank" rel="noopener" download>Download Agent_Handoff.md</a>
+              <a class="file-btn" href="https://github.com/fpenguin/shortcut-dashboard" target="_blank" rel="noopener">Contribute on GitHub</a>
+            </div>
+          </section>
+        </div>
 
         <section class="card preview" aria-label="Shortcut preview">
           <div class="toolbar">
@@ -360,16 +405,16 @@
           <button id="clearBtn">Clear</button>
         </div>
         <p class="hint">
-          After downloading, place the JSON next to <strong>shortcuts.html</strong>, or open the dashboard Save window and import the JSON.
+          After downloading, open <strong>shortcuts.html</strong>, use <strong>Backup &amp; Import</strong> -> <strong>Merge with Other Data</strong>, then paste or Import JSON and choose Confirm Merge. Keep a Download Backup copy somewhere safe.
         </p>
-        <p id="status" class="hint">Waiting for a BTT native export file.</p>
+        <p id="status" class="hint">Waiting for a supported preset file.</p>
       </aside>
     </section>
 
     <section class="card log-card" aria-label="Import log">
       <h2>Import Log</h2>
-      <p>Detailed conflicts, skipped BTT records, detected layers, and download diagnostics.</p>
-      <textarea id="logOut" readonly spellcheck="false" placeholder="Load a BTT preset to see the import log."></textarea>
+      <p>Detailed conflicts, skipped records, detected layers, and download diagnostics.</p>
+      <textarea id="logOut" readonly spellcheck="false" placeholder="Load a supported preset to see the import log."></textarea>
     </section>
   </main>
 
@@ -1179,7 +1224,7 @@
       els.countLayers.textContent = "0";
       els.copy.disabled = true;
       els.download.disabled = true;
-      els.status.textContent = "Waiting for a BTT native export file.";
+      els.status.textContent = "Waiting for a supported preset file.";
     }
 
     function escapeHtml(value) {

@@ -1348,6 +1348,7 @@
   "settings": {
     "platform": "mac",
     "nightmode": true,
+    "detailLayout": "auto",
     "modifierLayout": {
       "left": [
         {

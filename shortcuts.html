@@ -211,11 +211,12 @@
     .icon-only {
       width: 40px;
       padding: 0;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1;
     }
 
-    .icon-only svg {
+    .icon-only svg,
+    .icon-text-btn svg {
       width: 18px;
       height: 18px;
       stroke: currentColor;
@@ -224,6 +225,16 @@
       stroke-linecap: round;
       stroke-linejoin: round;
       pointer-events: none;
+    }
+
+    .icon-text-btn {
+      min-width: 84px;
+      padding: 0 13px;
+      font-weight: 800;
+    }
+
+    .icon-text-btn .btn-label {
+      line-height: 1;
     }
 
     .icon-only .filled {
@@ -251,12 +262,20 @@
 
     .dashboard {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
+      grid-template-columns: minmax(0, 1fr) clamp(280px, 26vw, 360px);
       gap: 18px;
       align-items: start;
     }
 
-    .main-stage, .side-panel, .palette-card, .modal-card {
+    body[data-effective-detail-layout="collapsed"] .dashboard {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    body[data-effective-detail-layout="collapsed"] .side-panel {
+      display: none;
+    }
+
+    .main-stage, .side-panel, .detail-popover, .palette-card, .modal-card {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--panel);
@@ -265,9 +284,10 @@
     }
 
     .main-stage {
+      position: relative;
       padding: 18px;
       min-width: 0;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .status-row {
@@ -771,18 +791,144 @@
       grid-template-columns: auto minmax(220px, 1fr);
       gap: 10px;
       align-items: center;
-      margin-top: 12px;
       color: var(--muted);
       font-size: 13px;
     }
 
+    .import-option-check {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .import-option-check:has(input:disabled) {
+      opacity: 0.48;
+    }
+
+    #settingsOverlay {
+      align-items: center;
+      padding: 24px 16px;
+    }
+
     .settings-card {
       max-width: 780px;
+      max-height: calc(100vh - 48px);
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .settings-card .modal-head {
+      flex: 0 0 auto;
+      padding: 16px 16px 12px;
+    }
+
+    .settings-body {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: auto;
+      padding: 0 16px;
+    }
+
+    .settings-card .modal-actions {
+      flex: 0 0 auto;
+      margin-top: 0;
+      padding: 12px 16px 16px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(22, 26, 34, 0.92), rgba(22, 26, 34, 0.98)), var(--panel);
+      box-shadow: 0 -18px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    [data-theme="light"] .settings-card .modal-actions {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.98)), var(--panel);
     }
 
     .settings-section {
       padding: 16px 0;
       border-bottom: 1px solid var(--line);
+    }
+
+    .settings-split-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .settings-split-row .settings-section {
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    .detail-panel-control-row {
+      display: flex;
+      align-items: end;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .detail-panel-control-row .detail-layout-segments {
+      flex: 1 1 330px;
+    }
+
+    .settings-inline-select {
+      display: grid;
+      gap: 7px;
+      min-width: 190px;
+    }
+
+    .settings-inline-select span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .settings-inline-select select {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      outline: none;
+      background: linear-gradient(180deg, rgba(16, 22, 32, 0.96), rgba(8, 13, 20, 0.96));
+      color: var(--text);
+      font: inherit;
+      font-weight: 800;
+      color-scheme: dark;
+    }
+
+    .settings-inline-select select:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    .settings-inline-select select option {
+      background: #111722;
+      color: #f4f7fb;
+      font-weight: 700;
+    }
+
+    [data-theme="light"] .settings-inline-select select {
+      background: #ffffff;
+      color: #141922;
+      color-scheme: light;
+    }
+
+    [data-theme="light"] .settings-inline-select select option {
+      background: #ffffff;
+      color: #141922;
     }
 
     .settings-section h3,
@@ -801,6 +947,15 @@
       border: 1px solid var(--line);
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.035);
+    }
+
+    .detail-layout-segments {
+      grid-template-columns: repeat(3, minmax(108px, 1fr));
+      max-width: min(100%, 460px);
+    }
+
+    .theme-segments {
+      max-width: min(100%, 300px);
     }
 
     .segment-btn {
@@ -861,11 +1016,55 @@
       font-size: 14px;
     }
 
+    .hyper-key-advanced[hidden] {
+      display: none !important;
+    }
+
     .hyper-key-settings {
       display: grid;
       grid-template-columns: minmax(180px, 1fr) minmax(130px, 0.7fr);
       gap: 12px;
       margin-top: 14px;
+    }
+
+    .hyper-key-settings label {
+      display: grid;
+      gap: 7px;
+    }
+
+    .hyper-key-settings .field-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hyper-key-settings select,
+    .hyper-key-settings input[type="text"] {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      background: linear-gradient(180deg, rgba(16, 22, 32, 0.96), rgba(8, 13, 20, 0.96));
+      color: var(--text);
+      font: inherit;
+      font-weight: 750;
+      color-scheme: dark;
+    }
+
+    .hyper-key-settings select:focus,
+    .hyper-key-settings input[type="text"]:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    .hyper-key-settings select option {
+      background: #111722;
+      color: #f4f7fb;
+      font-weight: 700;
     }
 
     .hyper-option-row {
@@ -910,11 +1109,47 @@
       font-weight: 900;
     }
 
+    @media (max-width: 900px) {
+      .json-card {
+        height: auto;
+        max-height: calc(100dvh - 32px);
+        overflow: auto;
+      }
+
+      .json-layout {
+        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .json-pane {
+        overflow: visible;
+      }
+
+      .current-data .json-area {
+        min-height: 300px;
+      }
+
+      .import-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-width: 0;
+      }
+    }
+
     @media (max-width: 760px) {
+      .settings-split-row,
       .modifier-layout-editor,
       .hyper-key-settings,
       .import-options {
         grid-template-columns: 1fr;
+      }
+
+      .detail-panel-control-row {
+        align-items: stretch;
+      }
+
+      .settings-inline-select {
+        min-width: 0;
+        width: 100%;
       }
     }
 
@@ -924,6 +1159,45 @@
       padding: 16px;
       max-height: calc(100vh - 112px);
       overflow: auto;
+    }
+
+    .detail-popover {
+      position: absolute;
+      z-index: 45;
+      display: none;
+      width: min(340px, calc(100% - 24px));
+      max-height: min(560px, calc(100vh - 110px));
+      overflow: auto;
+      padding: 16px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .popover-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+    }
+
+    .popover-close svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .detail-popover .panel-header {
+      padding-right: 38px;
+    }
+
+    .detail-popover.open {
+      display: block;
+      animation: popIn 120ms ease-out;
+    }
+
+    body[data-effective-detail-layout="sidebar"] .detail-popover {
+      display: none !important;
     }
 
     .panel-header {
@@ -1147,10 +1421,223 @@
       margin-top: 3px;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     .modal-card {
       max-height: calc(100vh - 32px);
       padding: 16px;
       overflow: auto;
+    }
+
+    .json-card {
+      width: min(1220px, calc(100vw - 48px));
+      height: min(860px, calc(100dvh - 40px));
+      max-height: calc(100dvh - 40px);
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      overflow: hidden;
+    }
+
+    .json-layout {
+      display: grid;
+      grid-template-columns: minmax(500px, 1.2fr) minmax(360px, 0.8fr);
+      gap: 12px;
+      min-height: 0;
+      flex: 1 1 auto;
+      align-items: stretch;
+    }
+
+    .json-pane {
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+    }
+
+    .json-pane-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 46px;
+    }
+
+    .json-pane-heading {
+      min-width: 0;
+    }
+
+    .json-pane-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .json-pane-actions .icon-only {
+      width: 38px;
+      min-height: 38px;
+    }
+
+    .json-edit-toggle.save-mode {
+      border-color: rgba(103, 232, 203, 0.58);
+      background: rgba(103, 232, 203, 0.12);
+      color: var(--accent);
+    }
+
+    .json-pane-title {
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .json-pane-note {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .json-card .json-area {
+      flex: 1 1 auto;
+      min-height: 0;
+      margin-top: 0;
+      resize: none;
+      display: block;
+      line-height: 1.55;
+    }
+
+    .current-data .json-area {
+      min-height: 0;
+    }
+
+    .import-data .json-area {
+      flex: 0 0 250px;
+      height: 250px;
+      min-height: 250px;
+      max-height: 250px;
+    }
+
+    .readonly-json {
+      opacity: 0.82;
+    }
+
+    .readonly-json:focus {
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .import-plan {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-top: 0;
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .import-plan h3 {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .import-summary {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .import-stat {
+      padding: 8px 7px;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .import-stat strong {
+      display: block;
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .import-stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .import-json-action-row, .merge-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .import-json-action-row {
+      margin-top: -2px;
+    }
+
+    .import-json-action-row #mergeJsonButton,
+    .merge-action-row #mergeJsonButton {
+      min-width: 150px;
+    }
+
+    .import-json-action-row #mergeJsonButton.ready,
+    .merge-action-row #mergeJsonButton.ready {
+      border-color: rgba(103, 232, 203, 0.58);
+      background: rgba(103, 232, 203, 0.12);
+      color: var(--text);
+    }
+
+    .icon-text-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .icon-text-btn svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+    }
+
+    .backup-nudge {
+      border-color: rgba(103, 232, 203, 0.68) !important;
+      background: rgba(103, 232, 203, 0.16) !important;
+      color: var(--text) !important;
+      box-shadow: 0 0 0 4px rgba(103, 232, 203, 0.09), 0 10px 24px rgba(103, 232, 203, 0.1);
+    }
+
+    .pill-btn:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      transform: none;
     }
 
     .about-body {
@@ -1213,6 +1700,14 @@
       font-size: 11px;
     }
 
+    .about-action-group {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     .modal-head {
       display: flex;
       justify-content: space-between;
@@ -1242,6 +1737,7 @@
       font-size: 12px;
       line-height: 1.5;
     }
+
 
     .form-grid {
       display: grid;
@@ -1482,6 +1978,10 @@
         position: static;
         max-height: none;
       }
+
+      .detail-popover {
+        width: min(360px, calc(100% - 18px));
+      }
     }
 
     @media (max-width: 720px) {
@@ -1590,11 +2090,9 @@
       </label>
 
       <div class="top-actions">
-        <button class="pill-btn" id="paletteButton" title="Open command palette">Cmd+K</button>
         <div class="utility-group">
-          <button class="icon-btn icon-only" id="addButton" title="Add shortcut" aria-label="Add shortcut" data-icon="plus"></button>
+          <button class="pill-btn icon-text-btn" id="addButton" title="Add shortcut" aria-label="Add shortcut" data-icon="plus"></button>
           <button class="icon-btn icon-only" id="settingsButton" title="Settings" aria-label="Settings" data-icon="settings"></button>
-          <button class="icon-btn icon-only toggle-btn" id="themeButton" title="Toggle theme" aria-label="Toggle theme" aria-pressed="false" data-icon="moon"></button>
           <button class="icon-btn icon-only" id="importExportButton" title="Save shortcuts" aria-label="Save shortcuts" data-icon="save"></button>
           <button class="icon-btn icon-only" id="printButton" title="Print cheat sheet" aria-label="Print cheat sheet" data-icon="print"></button>
           <button class="icon-btn icon-only" id="aboutButton" title="About this dashboard" aria-label="About this dashboard" data-icon="info"></button>
@@ -1634,11 +2132,13 @@
           </section>
         </div>
 
+        <aside class="detail-popover" id="detailPopover" aria-label="Shortcut details popover"></aside>
+
         <div class="filter-row">
           <div class="category-rail" id="categoryRail" aria-label="Category filters"></div>
           <button class="chip conflict-chip" id="conflictButton" type="button" aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
         </div>
-        <div class="kbd-help">Tip: press ? or Cmd+K for the command palette. Press a real shortcut to light it up.</div>
+        <div class="kbd-help">Tip: press ? or <span id="commandHelpShortcut">Cmd+K</span> for the command palette. Press a real shortcut to light it up.</div>
       </section>
 
       <aside class="side-panel" id="detailPanel" aria-label="Shortcut details"></aside>
@@ -1654,31 +2154,74 @@
     </div>
   </div>
 
-  <div class="overlay" id="jsonOverlay" role="dialog" aria-modal="true" aria-label="Import and export shortcuts">
-    <div class="modal-card">
+  <div class="overlay" id="jsonOverlay" role="dialog" aria-modal="true" aria-label="Backup and import shortcuts">
+    <div class="modal-card json-card">
       <div class="modal-head">
-        <h2>Shortcut Data</h2>
+        <h2>Backup &amp; Import</h2>
       </div>
-      <textarea class="json-area" id="jsonArea" spellcheck="false" placeholder="Paste shortcuts JSON here, then choose Save to Browser."></textarea>
-      <div class="import-options" aria-label="Import behavior">
-        <label for="duplicateMode">Duplicate shortcuts</label>
-        <select id="duplicateMode">
-          <option value="ignore">Ignore imported duplicate</option>
-          <option value="overwrite">Overwrite existing shortcut</option>
-          <option value="draft">Save imported duplicate as draft</option>
-        </select>
+      <div class="json-layout">
+        <section class="json-pane current-data" aria-label="Current browser data">
+          <div class="json-pane-header">
+            <div class="json-pane-heading">
+              <span class="json-pane-title">Current Browser Data</span>
+              <span class="json-pane-note">This is what the dashboard is using now. Unlock it only when you want to edit the live JSON directly.</span>
+            </div>
+            <div class="json-pane-actions">
+              <button class="icon-btn icon-only json-edit-toggle" id="editCurrentJsonButton" type="button" data-icon="edit" aria-label="Edit current browser data" title="Edit current browser data"></button>
+            </div>
+          </div>
+          <textarea class="json-area readonly-json" id="jsonArea" spellcheck="false" readonly></textarea>
+        </section>
+        <section class="json-pane import-data" aria-label="Merge with other data">
+          <div class="json-pane-header">
+            <div class="json-pane-heading">
+              <span class="json-pane-title">Merge with Other Data</span>
+              <span class="json-pane-note">Import JSON or paste text from backup or importer here.</span>
+            </div>
+            <div class="json-pane-actions">
+              <a class="pill-btn icon-text-btn" id="bttImportButton" href="./import_shortcuts.html" target="_blank" rel="noopener" data-icon="external">Shortcut Importer</a>
+            </div>
+          </div>
+          <textarea class="json-area" id="importJsonArea" spellcheck="false" placeholder="Paste imported shortcuts JSON here..."></textarea>
+          <div class="import-json-action-row">
+            <button class="pill-btn" id="importJsonButton" type="button">Import JSON</button>
+          </div>
+          <section class="import-plan" aria-label="Import plan">
+            <div>
+              <h3>Merge Preview</h3>
+              <p class="modal-note" id="jsonFileStatus">Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Confirm merges carefully, then use Download Backup to keep a portable copy.</p>
+            </div>
+            <div class="import-summary" id="importPlanSummary" aria-live="polite"></div>
+            <div class="import-options" aria-label="Import behavior">
+              <label for="duplicateMode">Duplicate shortcuts</label>
+              <select id="duplicateMode">
+                <option value="ignore">Ignore imported duplicate</option>
+                <option value="overwrite">Overwrite existing shortcut</option>
+                <option value="draft">Save imported duplicate as draft</option>
+              </select>
+              <label class="import-option-check">
+                <input type="checkbox" id="importSettings">
+                <span>Import settings if present</span>
+              </label>
+              <label class="import-option-check">
+                <input type="checkbox" id="importTextTrigger">
+                <span>Import text trigger board if present</span>
+              </label>
+            </div>
+            <div class="merge-action-row">
+              <button class="pill-btn" id="mergeJsonButton" type="button" disabled>Confirm Merge</button>
+            </div>
+          </section>
+        </section>
       </div>
-      <p class="modal-note" id="jsonFileStatus">Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.</p>
       <input id="jsonFileInput" type="file" accept="application/json,.json" hidden>
       <div class="modal-actions simple-actions">
         <div>
           <button class="pill-btn" id="closeJsonButton">Close</button>
-          <button class="pill-btn" id="openJsonFileButton">Open</button>
-          <a class="pill-btn" id="bttImportButton" href="./import_shortcuts.html">Import</a>
-          <button class="pill-btn" id="exportJsonButton">Download</button>
+          <button class="pill-btn" id="restoreBackupButton">Restore Backup</button>
         </div>
         <div>
-          <button class="pill-btn" id="saveJsonFileButton">Save to Browser</button>
+          <button class="pill-btn" id="exportJsonButton">Download Backup</button>
         </div>
       </div>
     </div>
@@ -1689,11 +2232,21 @@
       <div class="modal-head">
         <h2>Settings</h2>
       </div>
-      <div class="settings-section">
-        <h3>Keyboard Platform</h3>
-        <div class="segmented" role="group" aria-label="Keyboard platform">
-          <button class="segment-btn" id="platformMac" type="button" data-platform="mac">macOS</button>
-          <button class="segment-btn" id="platformPc" type="button" data-platform="pc">Windows PC</button>
+      <div class="settings-body">
+      <div class="settings-split-row">
+        <div class="settings-section">
+          <h3>Keyboard Platform</h3>
+          <div class="segmented" role="group" aria-label="Keyboard platform">
+            <button class="segment-btn" id="platformMac" type="button" data-platform="mac">macOS</button>
+            <button class="segment-btn" id="platformPc" type="button" data-platform="pc">Windows PC</button>
+          </div>
+        </div>
+        <div class="settings-section">
+          <h3>Theme</h3>
+          <div class="segmented theme-segments" role="group" aria-label="Theme">
+            <button class="segment-btn" id="themeLight" type="button" data-theme-option="light">Light</button>
+            <button class="segment-btn" id="themeDark" type="button" data-theme-option="dark">Dark</button>
+          </div>
         </div>
       </div>
       <div class="settings-section">
@@ -1711,34 +2264,58 @@
         </div>
       </div>
       <div class="settings-section">
+        <h3>Detail Panel</h3>
+        <p class="modal-note">Auto keeps the sidebar on wide windows and switches to a key-anchored popover on tighter screens.</p>
+        <div class="detail-panel-control-row">
+          <div class="segmented detail-layout-segments" role="group" aria-label="Detail panel behavior">
+            <button class="segment-btn" id="detailLayoutAuto" type="button" data-detail-layout-option="auto">Auto</button>
+            <button class="segment-btn" id="detailLayoutSidebar" type="button" data-detail-layout-option="sidebar">Sidebar</button>
+            <button class="segment-btn" id="detailLayoutCollapsed" type="button" data-detail-layout-option="collapsed">Popover</button>
+          </div>
+          <label class="settings-inline-select" for="detailPopoverAutoClose">
+            <span>Popup Auto-close</span>
+            <select id="detailPopoverAutoClose">
+              <option value="3">3 sec</option>
+              <option value="5">5 sec</option>
+              <option value="10">10 sec</option>
+              <option value="15">15 sec</option>
+              <option value="never">Never</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="settings-section">
         <h3>Hyper Key</h3>
         <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Useful when Caps Lock, Fn, or an F-key is remapped to Command+Control+Option+Shift by another tool.</p>
         <label class="hyper-option-row">
           <span><strong>Enable Hyper Key Alias</strong><br>Show and preview a physical key for Hyper.</span>
           <input type="checkbox" id="hyperKeyEnabled">
         </label>
-        <div class="hyper-key-settings">
-          <label>
-            <span class="field-label">Physical Key</span>
-            <select id="hyperKeyPhysical"></select>
+        <div class="hyper-key-advanced" id="hyperKeyAdvanced">
+          <div class="hyper-key-settings">
+            <label>
+              <span class="field-label">Physical Key</span>
+              <select id="hyperKeyPhysical"></select>
+            </label>
+            <label>
+              <span class="field-label">Display Label</span>
+              <input type="text" id="hyperKeyLabel" placeholder="Caps">
+            </label>
+          </div>
+          <label class="hyper-option-row">
+            <span><strong>Show Modifier Glyphs</strong><br>Display the alias next to ⇧⌃⌥⌘ in the Hyper group.</span>
+            <input type="checkbox" id="hyperKeyGlyphs">
           </label>
-          <label>
-            <span class="field-label">Display Label</span>
-            <input type="text" id="hyperKeyLabel" placeholder="Caps">
+          <label class="hyper-option-row">
+            <span><strong>Preview While Held</strong><br>Switch to Hyper while the physical key is held down.</span>
+            <input type="checkbox" id="hyperKeyPreview">
           </label>
+          <div class="hyper-key-preview">
+            <span>Preview</span>
+            <span class="hyper-preview-pill" id="hyperKeyPreviewPill"></span>
+          </div>
         </div>
-        <label class="hyper-option-row">
-          <span><strong>Show Modifier Glyphs</strong><br>Display the alias next to ⇧⌃⌥⌘ in the Hyper group.</span>
-          <input type="checkbox" id="hyperKeyGlyphs">
-        </label>
-        <label class="hyper-option-row">
-          <span><strong>Preview While Held</strong><br>Switch to Hyper while the physical key is held down.</span>
-          <input type="checkbox" id="hyperKeyPreview">
-        </label>
-        <div class="hyper-key-preview">
-          <span>Preview</span>
-          <span class="hyper-preview-pill" id="hyperKeyPreviewPill"></span>
-        </div>
+      </div>
       </div>
       <div class="modal-actions simple-actions">
         <div><button class="pill-btn" id="closeSettingsButton">Close</button></div>
@@ -1766,8 +2343,14 @@
           <small>dhahn.gumroad.com/coffee</small>
         </div>
       </div>
-      <div class="modal-actions">
-        <button class="pill-btn" id="closeAboutButton">Close</button>
+      <div class="modal-actions simple-actions">
+        <div>
+          <button class="pill-btn" id="closeAboutButton">Close</button>
+        </div>
+        <div class="about-action-group">
+          <a class="pill-btn" href="https://github.com/fpenguin/shortcut-dashboard" target="_blank" rel="noreferrer">Give a Star at GitHub</a>
+          <a class="pill-btn" href="https://dhahn.gumroad.com/coffee" target="_blank" rel="noreferrer">Tip Developer</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1904,6 +2487,8 @@
     const defaultSettings = {
       platform: "mac",
       nightmode: true,
+      detailLayout: "auto",
+      detailPopoverAutoClose: 5,
       hyperKey: {
         enabled: false,
         physicalKey: "CapsLock",
@@ -2038,8 +2623,12 @@
     let liveKeys = new Set();
     let heldModifiers = new Set();
     let modifierPreviewState = null;
+    let lastDetailAnchorKey = "";
+    let detailPopoverTimer = null;
     let loadedSourceName = "sample data";
     let editorInitialSnapshot = "";
+    let jsonEditUnlocked = false;
+    let backupNudgeTimer = null;
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
     let settings = normalizeSettings(readJson(SETTINGS_KEY, defaultSettings));
     let drafts = normalizeShortcuts(readJson(DRAFTS_KEY, []));
@@ -2048,6 +2637,7 @@
 
     const el = {
       app: document.getElementById("app"),
+      mainStage: document.querySelector(".main-stage"),
       keyboard: document.getElementById("keyboard"),
       textTriggerBoard: document.getElementById("textTriggerBoard"),
       textTriggerFontSize: document.getElementById("textTriggerFontSize"),
@@ -2065,6 +2655,7 @@
       conflictButtonText: document.getElementById("conflictButtonText"),
       searchInput: document.getElementById("searchInput"),
       detailPanel: document.getElementById("detailPanel"),
+      detailPopover: document.getElementById("detailPopover"),
       paletteOverlay: document.getElementById("paletteOverlay"),
       paletteInput: document.getElementById("paletteInput"),
       paletteResults: document.getElementById("paletteResults"),
@@ -2076,11 +2667,18 @@
       hyperKeyEnabled: document.getElementById("hyperKeyEnabled"),
       hyperKeyPhysical: document.getElementById("hyperKeyPhysical"),
       hyperKeyLabel: document.getElementById("hyperKeyLabel"),
+      hyperKeyAdvanced: document.getElementById("hyperKeyAdvanced"),
       hyperKeyGlyphs: document.getElementById("hyperKeyGlyphs"),
       hyperKeyPreview: document.getElementById("hyperKeyPreview"),
       hyperKeyPreviewPill: document.getElementById("hyperKeyPreviewPill"),
+      detailPopoverAutoClose: document.getElementById("detailPopoverAutoClose"),
       duplicateMode: document.getElementById("duplicateMode"),
+      importSettings: document.getElementById("importSettings"),
+      importTextTrigger: document.getElementById("importTextTrigger"),
+      importPlanSummary: document.getElementById("importPlanSummary"),
+      editCurrentJsonButton: document.getElementById("editCurrentJsonButton"),
       jsonArea: document.getElementById("jsonArea"),
+      importJsonArea: document.getElementById("importJsonArea"),
       jsonFileInput: document.getElementById("jsonFileInput"),
       jsonFileStatus: document.getElementById("jsonFileStatus"),
       editOverlay: document.getElementById("editOverlay"),
@@ -2088,7 +2686,8 @@
       shortcutFormError: document.getElementById("shortcutFormError"),
       modifierGrid: document.getElementById("modifierGrid"),
       toast: document.getElementById("toast"),
-      printSheet: document.getElementById("printSheet")
+      printSheet: document.getElementById("printSheet"),
+      mergeJsonButton: document.getElementById("mergeJsonButton")
     };
 
     init();
@@ -2112,9 +2711,16 @@
       loadedSourceName = hasStoredData() ? "browser storage" : "sample data";
       renderStaticIcons();
       applyPrefs();
+      applyDetailLayout();
       bindEvents();
       renderAll();
-      showDetails(shortcuts.find(s => s.favorite) || shortcuts[0]);
+      const initialShortcut = shortcuts.find(s => s.favorite) || shortcuts[0] || null;
+      if (isDetailCollapsed()) {
+        selectedId = initialShortcut?.id || null;
+        renderKeyboard();
+      } else {
+        showDetails(initialShortcut);
+      }
     }
 
     function key(code, label = code, w = 1) {
@@ -2142,8 +2748,30 @@
 
     function renderStaticIcons() {
       document.querySelectorAll("[data-icon]").forEach(button => {
+        if (button.id === "addButton") {
+          button.innerHTML = iconSvg("plus") + '<span class="btn-label">Add</span>';
+          return;
+        }
+        if (button.id === "bttImportButton") {
+          button.innerHTML = '<span class="btn-label">Shortcut Importer</span>' + iconSvg("external");
+          return;
+        }
         button.innerHTML = iconSvg(button.dataset.icon);
       });
+      renderCommandShortcutLabels();
+    }
+
+    function commandPaletteShortcutLabel() {
+      return settings.platform === "pc" ? "CTRL+K" : "CMD+K";
+    }
+
+    function renderCommandShortcutLabels() {
+      const label = commandPaletteShortcutLabel();
+      if (el.searchInput) {
+        el.searchInput.placeholder = "Search app name, shortcut, or other details with " + label;
+      }
+      const helpLabel = document.getElementById("commandHelpShortcut");
+      if (helpLabel) helpLabel.textContent = label;
     }
 
     function iconSvg(name) {
@@ -2161,16 +2789,17 @@
         star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>',
         "star-filled": '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="filled" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg>',
         edit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
-        trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>'
+        trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>',
+        close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+        search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+        external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7"/><path d="m10 14 11-11"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>'
       };
       return icons[name] || "";
     }
 
     function bindEvents() {
       el.searchInput.addEventListener("input", renderAll);
-      document.getElementById("paletteButton").addEventListener("click", openPalette);
       document.getElementById("addButton").addEventListener("click", () => openShortcutEditor());
-      document.getElementById("themeButton").addEventListener("click", toggleTheme);
       document.getElementById("settingsButton").addEventListener("click", openSettingsModal);
       document.getElementById("importExportButton").addEventListener("click", openJsonModal);
       document.getElementById("printButton").addEventListener("click", () => { renderPrintSheet(); window.print(); });
@@ -2182,11 +2811,20 @@
       el.layerMenuPanel.addEventListener("click", event => event.stopPropagation());
       el.conflictButton.addEventListener("click", showConflictDetails);
       document.getElementById("closeJsonButton").addEventListener("click", closeJsonModal);
+      document.getElementById("restoreBackupButton").addEventListener("click", openRestoreBackupFile);
+      document.getElementById("importJsonButton").addEventListener("click", openJsonFile);
       document.getElementById("closeAboutButton").addEventListener("click", closeAboutModal);
       document.getElementById("closeSettingsButton").addEventListener("click", closeSettingsModal);
       document.getElementById("saveSettingsButton").addEventListener("click", saveSettingsFromModal);
       document.getElementById("platformMac").addEventListener("click", () => setSettingsPlatform("mac"));
       document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
+      document.querySelectorAll("[data-theme-option]").forEach(button => {
+        button.addEventListener("click", () => setSettingsTheme(button.dataset.themeOption));
+      });
+      document.querySelectorAll("[data-detail-layout-option]").forEach(button => {
+        button.addEventListener("click", () => setSettingsDetailLayout(button.dataset.detailLayoutOption));
+      });
+      el.detailPopoverAutoClose.addEventListener("change", () => setSettingsDetailPopoverAutoClose(el.detailPopoverAutoClose.value));
       el.hyperKeyEnabled.addEventListener("change", updateHyperKeyPreviewFromForm);
       el.hyperKeyPhysical.addEventListener("change", () => {
         if (!el.hyperKeyLabel.value.trim()) el.hyperKeyLabel.value = hyperKeyDefaultLabel(el.hyperKeyPhysical.value);
@@ -2195,9 +2833,13 @@
       el.hyperKeyLabel.addEventListener("input", updateHyperKeyPreviewFromForm);
       el.hyperKeyGlyphs.addEventListener("change", updateHyperKeyPreviewFromForm);
       el.hyperKeyPreview.addEventListener("change", updateHyperKeyPreviewFromForm);
-      document.getElementById("openJsonFileButton").addEventListener("click", openJsonFile);
+      el.mergeJsonButton.addEventListener("click", handleMergeJsonButton);
       document.getElementById("exportJsonButton").addEventListener("click", downloadJson);
-      document.getElementById("saveJsonFileButton").addEventListener("click", saveJsonFile);
+      el.editCurrentJsonButton.addEventListener("click", handleCurrentJsonToggle);
+      el.importJsonArea.addEventListener("input", () => renderImportPlan());
+      el.duplicateMode.addEventListener("change", () => renderImportPlan());
+      el.importSettings.addEventListener("change", () => renderImportPlan());
+      el.importTextTrigger.addEventListener("change", () => renderImportPlan());
       document.getElementById("closeEditButton").addEventListener("click", requestCloseShortcutEditor);
       document.getElementById("deleteShortcutButton").addEventListener("click", deleteCurrentShortcut);
       document.getElementById("saveDuplicateButton").addEventListener("click", saveAndDuplicateShortcut);
@@ -2244,17 +2886,20 @@
       document.addEventListener("click", closeLayerMenu);
       document.addEventListener("keydown", handleGlobalKeydown, true);
       document.addEventListener("keyup", handleGlobalKeyup, true);
+      window.addEventListener("resize", handleDetailLayoutResize);
       window.addEventListener("blur", clearModifierPreview);
     }
 
-    function renderAll() {
+    function renderAll(options = {}) {
+      const showSelectedDetails = options.showSelectedDetails !== false;
+      applyDetailLayout();
       renderLayers();
       renderKeyboard();
       renderTextTrigger();
       renderCategories();
       renderStats();
       renderPrintSheet();
-      if (selectedId) showDetails(findShortcutById(selectedId));
+      if (selectedId && showSelectedDetails) showDetails(findShortcutById(selectedId));
     }
 
     function renderLayers() {
@@ -2545,12 +3190,127 @@
       el.conflictButton.classList.toggle("has-conflicts", count > 0);
     }
 
+    function isDetailCollapsed() {
+      return effectiveDetailLayout() === "collapsed";
+    }
+
+    function effectiveDetailLayout() {
+      if (settings.detailLayout === "sidebar") return "sidebar";
+      if (settings.detailLayout === "collapsed") return "collapsed";
+      return shouldCollapseDetailForKeyboard() ? "collapsed" : "sidebar";
+    }
+
+    function shouldCollapseDetailForKeyboard() {
+      const dashboardWidth = document.querySelector(".dashboard")?.clientWidth || Math.max(0, window.innerWidth - 44);
+      const sidePanelWidth = Math.min(360, Math.max(280, window.innerWidth * 0.26));
+      const gridGap = 18;
+      const mainStagePadding = 36;
+      const availableKeyboardStage = dashboardWidth - sidePanelWidth - gridGap - mainStagePadding;
+      return availableKeyboardStage < comfortableKeyboardWidth();
+    }
+
+    function comfortableKeyboardWidth() {
+      const fullKeyUnit = 64;
+      const keyGap = 8;
+      const keyboardPadding = 28;
+      const keyboardShellPadding = 4;
+      const comfortBuffer = 16;
+      return Math.max(...keyboardRows().map(row => {
+        const keyUnits = row.reduce((sum, item) => sum + (Number(item.w) || 1), 0);
+        const gaps = Math.max(0, row.length - 1) * keyGap;
+        return keyUnits * fullKeyUnit + gaps + keyboardPadding + keyboardShellPadding + comfortBuffer;
+      }));
+    }
+
+    function applyDetailLayout() {
+      document.body.dataset.effectiveDetailLayout = effectiveDetailLayout();
+      document.body.dataset.detailPreference = settings.detailLayout || "auto";
+      if (!isDetailCollapsed()) closeDetailPopover();
+    }
+
+    function handleDetailLayoutResize() {
+      const before = document.body.dataset.effectiveDetailLayout;
+      applyDetailLayout();
+      if (before !== document.body.dataset.effectiveDetailLayout) {
+        if (!isDetailCollapsed() && selectedId) showDetails(findShortcutById(selectedId));
+        if (isDetailCollapsed()) el.detailPanel.innerHTML = "";
+      }
+      if (el.detailPopover.classList.contains("open")) positionDetailPopover(lastDetailAnchorKey);
+    }
+
+    function setDetailHtml(html, options = {}) {
+      if (isDetailCollapsed()) {
+        el.detailPanel.innerHTML = "";
+        el.detailPopover.innerHTML = `<button class="icon-btn icon-only popover-close" type="button" aria-label="Close details" title="Close details">${iconSvg("close")}</button>${html}`;
+        el.detailPopover.querySelector(".popover-close")?.addEventListener("click", closeDetailPopover);
+        if (options.openPopover === false) {
+          closeDetailPopover();
+        } else {
+          lastDetailAnchorKey = options.anchorKey || "";
+          el.detailPopover.classList.add("open");
+          positionDetailPopover(lastDetailAnchorKey);
+          scheduleDetailPopoverAutoClose();
+        }
+        return el.detailPopover;
+      }
+      closeDetailPopover();
+      el.detailPopover.innerHTML = "";
+      el.detailPanel.innerHTML = html;
+      return el.detailPanel;
+    }
+
+    function currentDetailRoot() {
+      return el.detailPopover.classList.contains("open") ? el.detailPopover : el.detailPanel;
+    }
+
+    function scheduleDetailPopoverAutoClose() {
+      window.clearTimeout(detailPopoverTimer);
+      detailPopoverTimer = null;
+      const timeout = normalizeDetailPopoverAutoClose(settings.detailPopoverAutoClose);
+      if (timeout === "never") return;
+      detailPopoverTimer = window.setTimeout(closeDetailPopover, timeout * 1000);
+    }
+
+    function closeDetailPopover() {
+      if (!el.detailPopover) return;
+      window.clearTimeout(detailPopoverTimer);
+      detailPopoverTimer = null;
+      el.detailPopover.classList.remove("open");
+      el.detailPopover.style.left = "";
+      el.detailPopover.style.top = "";
+      if (!isDetailCollapsed()) el.detailPopover.innerHTML = "";
+    }
+
+    function positionDetailPopover(keyCode = "") {
+      if (!el.detailPopover?.classList.contains("open") || !el.mainStage) return;
+      const stageRect = el.mainStage.getBoundingClientRect();
+      const keyButton = Array.from(el.keyboard.querySelectorAll(".key")).find(button => button.dataset.key === keyCode);
+      const popoverWidth = el.detailPopover.offsetWidth || 340;
+      const popoverHeight = el.detailPopover.offsetHeight || 280;
+      let left = stageRect.width - popoverWidth - 14;
+      let top = 58;
+
+      if (keyButton) {
+        const keyRect = keyButton.getBoundingClientRect();
+        left = keyRect.left - stageRect.left + keyRect.width / 2 - popoverWidth / 2;
+        top = keyRect.bottom - stageRect.top + 10;
+        if (top + popoverHeight > stageRect.height - 12) {
+          top = keyRect.top - stageRect.top - popoverHeight - 10;
+        }
+      }
+
+      const maxLeft = Math.max(12, stageRect.width - popoverWidth - 12);
+      const maxTop = Math.max(12, stageRect.height - popoverHeight - 12);
+      el.detailPopover.style.left = `${Math.min(Math.max(left, 12), maxLeft)}px`;
+      el.detailPopover.style.top = `${Math.min(Math.max(top, 12), maxTop)}px`;
+    }
+
     function showConflictDetails() {
       activeMode = "keyboard";
       selectedId = null;
       const groups = conflictGroups();
       const conflictCount = conflictEntryCount(groups);
-      el.detailPanel.innerHTML = `
+      const detailTarget = setDetailHtml(`
         <div class="panel-header">
           <div>
             <div class="panel-kicker">Conflict Check</div>
@@ -2566,13 +3326,13 @@
             ${group.map(item => mappingCard(item, true)).join("")}
           </div>
         `).join("")}
-      `;
-      bindMappingCardActions({ view: "conflicts" });
+      `);
+      bindMappingCardActions({ view: "conflicts", root: detailTarget });
       renderKeyboard();
     }
 
     function showTextTriggerDetails() {
-      el.detailPanel.innerHTML = `
+      setDetailHtml(`
         <div class="panel-header">
           <div>
             <div class="panel-kicker">Freeform Memory</div>
@@ -2587,10 +3347,10 @@
           <h3>Saved Data</h3>
           <p>The three columns and font size autosave locally and are included in JSON export/import under <span class="shortcut-token">textTrigger</span>.</p>
         </div>
-      `;
+      `, { openPopover: false });
     }
 
-    function showDetails(shortcut, mappingsOverride, pickedKey = "") {
+    function showDetails(shortcut, mappingsOverride, pickedKey = "", options = {}) {
       if (activeMode === "textTrigger") {
         showTextTriggerDetails();
         return;
@@ -2599,7 +3359,7 @@
       selectedId = shortcut ? shortcut.id : null;
 
       if (!shortcut) {
-        el.detailPanel.innerHTML = `
+        const detailTarget = setDetailHtml(`
           <div class="panel-header">
           <div>
             <div class="panel-kicker">No shortcut</div>
@@ -2608,8 +3368,8 @@
           <button class="icon-btn" id="emptyAddButton">Add</button>
         </div>
           <div class="section"><p>This layer has no mapping for that key yet. Add one with the editor, or import a JSON file from the JSON panel.</p></div>
-        `;
-        document.getElementById("emptyAddButton").addEventListener("click", () => {
+        `, { anchorKey: pickedKey, openPopover: Boolean(pickedKey) });
+        detailTarget.querySelector("#emptyAddButton")?.addEventListener("click", () => {
           const presetLayer = activeLayer === FAVORITES_LAYER_ID || activeLayer === OTHERS_LAYER_ID ? "Hyper" : activeLayer;
           openShortcutEditor(null, { layer: presetLayer, key: pickedKey });
         });
@@ -2619,14 +3379,14 @@
 
       const conflict = mappings.length > 1;
       const categoryColor = categoryColors[shortcut.category] || categoryColors.Contextual;
-      el.detailPanel.innerHTML = `
+      const detailTarget = setDetailHtml(`
         <div class="panel-header">
           <div>
             <div class="panel-kicker">${escapeHtml(shortcut.app || "Shortcut")}</div>
             <h2 class="panel-title">${escapeHtml(shortcut.action)}</h2>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
-            <button class="icon-btn" id="editShortcutButton" title="Edit shortcut">Edit</button>
+            <button class="icon-btn icon-only" id="editShortcutButton" title="Edit shortcut" aria-label="Edit shortcut">${iconSvg("edit")}</button>
             <button class="icon-btn icon-only ${shortcut.favorite ? "starred" : ""}" id="favoriteButton" title="${shortcut.favorite ? "Starred" : "Star"}" aria-label="${shortcut.favorite ? "Starred" : "Star"}" data-icon="star">${shortcut.favorite ? iconSvg("star-filled") : iconSvg("star")}</button>
           </div>
         </div>
@@ -2652,23 +3412,23 @@
           ${mappings.map(item => mappingCard(item, conflict)).join("")}
         </div>
 
-      `;
+      `, { anchorKey: pickedKey || shortcut.key, openPopover: options.openPopover });
 
-      document.getElementById("favoriteButton").addEventListener("click", () => {
+      detailTarget.querySelector("#favoriteButton")?.addEventListener("click", () => {
         shortcut.favorite = !shortcut.favorite;
         persistShortcuts();
         if (activeLayer === FAVORITES_LAYER_ID && !shortcut.favorite) {
           const next = filteredShortcuts({ layerId: FAVORITES_LAYER_ID })[0] || null;
           selectedId = next?.id || null;
           renderAll();
-          showDetails(next);
+          showDetails(next, undefined, next?.key || "");
           return;
         }
-        showDetails(shortcut, mappings);
+        showDetails(shortcut, mappings, pickedKey || shortcut.key);
         renderAll();
       });
-      document.getElementById("editShortcutButton").addEventListener("click", () => openShortcutEditor(shortcut));
-      bindMappingCardActions({ view: "details" });
+      detailTarget.querySelector("#editShortcutButton")?.addEventListener("click", () => openShortcutEditor(shortcut));
+      bindMappingCardActions({ view: "details", root: detailTarget });
       renderKeyboard();
     }
 
@@ -2693,14 +3453,15 @@
       `;
     }
     function bindMappingCardActions(context = {}) {
-      el.detailPanel.querySelectorAll("[data-conflict-edit]").forEach(button => {
+      const root = context.root || currentDetailRoot();
+      root.querySelectorAll("[data-conflict-edit]").forEach(button => {
         button.addEventListener("click", () => {
           const item = findShortcutById(button.dataset.conflictEdit);
           if (item) openShortcutEditor(item);
         });
       });
 
-      el.detailPanel.querySelectorAll("[data-conflict-delete]").forEach(button => {
+      root.querySelectorAll("[data-conflict-delete]").forEach(button => {
         button.addEventListener("click", () => {
           const item = shortcuts.find(shortcut => shortcut.id === button.dataset.conflictDelete);
           if (!item) return;
@@ -2804,7 +3565,8 @@
         return;
       }
 
-      if ((event.metaKey && event.key.toLowerCase() === "k") || (!inTextField && event.key === "?")) {
+      const commandPaletteChord = event.metaKey || (settings.platform === "pc" && event.ctrlKey);
+      if ((commandPaletteChord && event.key.toLowerCase() === "k") || (!inTextField && event.key === "?")) {
         event.preventDefault();
         openPalette();
         return;
@@ -2930,7 +3692,10 @@
     }
 
     function syncModifierLiveKeys() {
-      liveKeys = new Set([...heldModifiers].map(keyCodeForModifier).filter(Boolean));
+      const previewLayer = modifiersToLayer([...heldModifiers]);
+      liveKeys = shouldUseHyperAliasForLayer(previewLayer)
+        ? hyperAliasLiveKeys()
+        : new Set([...heldModifiers].map(keyCodeForModifier).filter(Boolean));
     }
 
     function keyCodeForModifier(modifier) {
@@ -2949,11 +3714,17 @@
 
     function layerModifierKeys() {
       if (activeMode !== "keyboard") return new Set();
-      if (activeLayer === "Hyper" && settings.hyperKey?.enabled && settings.hyperKey?.physicalKey) {
-        return new Set([settings.hyperKey.physicalKey]);
-      }
+      if (shouldUseHyperAliasForLayer(activeLayer)) return hyperAliasLiveKeys();
       const mods = layerToModifierSet(activeLayer);
       return new Set([...mods].map(keyCodeForModifier).filter(Boolean));
+    }
+
+    function shouldUseHyperAliasForLayer(layerValue) {
+      return layerValue === "Hyper" && Boolean(settings.hyperKey?.enabled && settings.hyperKey?.physicalKey);
+    }
+
+    function hyperAliasLiveKeys() {
+      return new Set([settings.hyperKey?.physicalKey].filter(Boolean));
     }
 
     function applyHyperKeyPreview() {
@@ -2963,8 +3734,8 @@
       activeMode = "keyboard";
       activeLayer = "Hyper";
       selectedId = null;
-      liveKeys = new Set([settings.hyperKey?.physicalKey].filter(Boolean));
-      renderAll();
+      liveKeys = hyperAliasLiveKeys();
+      renderAll({ showSelectedDetails: false });
     }
 
     function applyModifierPreview() {
@@ -2979,7 +3750,8 @@
       activeMode = "keyboard";
       activeLayer = nextLayer;
       selectedId = null;
-      renderAll();
+      if (shouldUseHyperAliasForLayer(nextLayer)) liveKeys = hyperAliasLiveKeys();
+      renderAll({ showSelectedDetails: false });
     }
 
     function clearModifierPreview() {
@@ -2990,9 +3762,10 @@
         activeMode = modifierPreviewState.mode;
         selectedId = modifierPreviewState.selectedId;
         modifierPreviewState = null;
-        renderAll();
-        if (selectedId) showDetails(findShortcutById(selectedId));
-        else if (activeMode === "textTrigger") showTextTriggerDetails();
+        renderAll({ showSelectedDetails: false });
+        closeDetailPopover();
+        if (activeMode === "textTrigger") showTextTriggerDetails();
+        else if (selectedId && !isDetailCollapsed()) showDetails(findShortcutById(selectedId), undefined, "", { openPopover: false });
       } else {
         renderKeyboard();
       }
@@ -3052,7 +3825,7 @@
       analytics.recent = [item.id, ...analytics.recent.filter(id => id !== item.id)].slice(0, 10);
       safeSetStorage(ANALYTICS_KEY, analytics);
       renderAll();
-      showDetails(item);
+      showDetails(item, undefined, item.key);
       toast(`${item.shortcut}: ${item.action}`);
       window.setTimeout(() => {
         lastLiveKey = null;
@@ -3067,7 +3840,7 @@
       selectedId = item.id;
       if (close) closePalette();
       renderAll();
-      showDetails(item);
+      showDetails(item, undefined, item.key);
     }
 
     function openShortcutEditor(shortcut = null, preset = {}) {
@@ -3438,9 +4211,26 @@
     function renderSettingsModal() {
       document.getElementById("platformMac").classList.toggle("active", settings.platform === "mac");
       document.getElementById("platformPc").classList.toggle("active", settings.platform === "pc");
+      renderThemeSettings();
       renderModifierList("left");
       renderModifierList("right");
+      renderDetailLayoutSettings();
       renderHyperKeySettings();
+    }
+
+    function renderThemeSettings() {
+      document.querySelectorAll("[data-theme-option]").forEach(button => {
+        button.classList.toggle("active", button.dataset.themeOption === (prefs.theme || "dark"));
+      });
+    }
+
+    function renderDetailLayoutSettings() {
+      document.querySelectorAll("[data-detail-layout-option]").forEach(button => {
+        button.classList.toggle("active", button.dataset.detailLayoutOption === settings.detailLayout);
+      });
+      if (el.detailPopoverAutoClose) {
+        el.detailPopoverAutoClose.value = String(normalizeDetailPopoverAutoClose(settings.detailPopoverAutoClose));
+      }
     }
 
     function renderHyperKeySettings() {
@@ -3450,10 +4240,16 @@
       el.hyperKeyLabel.value = hyper.displayLabel;
       el.hyperKeyGlyphs.checked = hyper.showModifierGlyphs;
       el.hyperKeyPreview.checked = hyper.previewWhileHeld;
+      syncHyperKeyAdvancedVisibility(hyper.enabled);
       updateHyperKeyPreviewPill(hyper);
     }
 
+    function syncHyperKeyAdvancedVisibility(enabled = el.hyperKeyEnabled.checked) {
+      el.hyperKeyAdvanced.hidden = !enabled;
+    }
+
     function updateHyperKeyPreviewFromForm() {
+      syncHyperKeyAdvancedVisibility();
       updateHyperKeyPreviewPill(hyperKeyFromSettingsForm());
     }
 
@@ -3559,11 +4355,38 @@
       settings.platform = platform;
       settings.modifierLayout = structuredClone(platformPresets[platform] || platformPresets.mac);
       renderSettingsModal();
+      renderCommandShortcutLabels();
+    }
+
+    function setSettingsTheme(theme) {
+      prefs.theme = theme === "light" ? "light" : "dark";
+      settings.nightmode = prefs.theme !== "light";
+      applyPrefs();
+      renderThemeSettings();
+    }
+
+    function setSettingsDetailLayout(layout) {
+      settings.detailLayout = normalizeDetailLayout(layout);
+      renderDetailLayoutSettings();
+      applyDetailLayout();
+      if (isDetailCollapsed()) {
+        if (selectedId) showDetails(findShortcutById(selectedId), undefined, findShortcutById(selectedId)?.key || "");
+      } else if (selectedId) {
+        showDetails(findShortcutById(selectedId));
+      }
+    }
+
+    function setSettingsDetailPopoverAutoClose(value) {
+      settings.detailPopoverAutoClose = normalizeDetailPopoverAutoClose(value);
+      renderDetailLayoutSettings();
+      if (el.detailPopover?.classList.contains("open")) scheduleDetailPopoverAutoClose();
     }
 
     function saveSettingsFromModal() {
       settings.hyperKey = hyperKeyFromSettingsForm();
+      settings.nightmode = prefs.theme !== "light";
       settings = normalizeSettings(settings);
+      savePrefs();
       persistSettings();
       renderModifierGridLabels();
       renderAll();
@@ -3571,14 +4394,77 @@
       toast("Settings saved.");
     }
     function openJsonModal() {
-      el.jsonArea.value = JSON.stringify(exportData(), null, 2);
-      el.jsonFileStatus.textContent = "Imported or edited shortcuts are saved only in this browser/profile. Browser changes, cache resets, or profile cleanup can erase them. Always use Download to export a JSON backup and store it somewhere safe.";
+      clearBackupNudge();
+      lockCurrentJsonEditor();
+      refreshCurrentJsonArea(true);
+      el.importJsonArea.value = "";
+      el.importSettings.checked = false;
+      el.importTextTrigger.checked = false;
+      renderImportPlan();
+      document.body.classList.add("modal-open");
       el.jsonOverlay.classList.add("open");
-      requestAnimationFrame(() => el.jsonArea.focus());
+      requestAnimationFrame(() => el.importJsonArea.focus());
     }
 
     function closeJsonModal() {
+      lockCurrentJsonEditor();
       el.jsonOverlay.classList.remove("open");
+      document.body.classList.remove("modal-open");
+    }
+
+    function refreshCurrentJsonArea(force = false) {
+      if (force || !jsonEditUnlocked) {
+        el.jsonArea.value = JSON.stringify(exportData(), null, 2);
+      }
+    }
+
+    function lockCurrentJsonEditor() {
+      jsonEditUnlocked = false;
+      el.jsonArea.readOnly = true;
+      el.jsonArea.classList.add("readonly-json");
+      setCurrentJsonButtonMode("edit");
+    }
+
+    function unlockCurrentJsonEditor() {
+      jsonEditUnlocked = true;
+      el.jsonArea.readOnly = false;
+      el.jsonArea.classList.remove("readonly-json");
+      setCurrentJsonButtonMode("save");
+      requestAnimationFrame(() => el.jsonArea.focus());
+    }
+
+    function handleCurrentJsonToggle() {
+      if (jsonEditUnlocked) {
+        applyCurrentJsonEdits();
+      } else {
+        unlockCurrentJsonEditor();
+      }
+    }
+
+    function setCurrentJsonButtonMode(mode) {
+      const isSave = mode === "save";
+      el.editCurrentJsonButton.innerHTML = iconSvg(isSave ? "save" : "edit");
+      el.editCurrentJsonButton.classList.toggle("save-mode", isSave);
+      el.editCurrentJsonButton.title = isSave ? "Save edited browser data" : "Edit current browser data";
+      el.editCurrentJsonButton.setAttribute("aria-label", el.editCurrentJsonButton.title);
+    }
+
+    function applyCurrentJsonEdits() {
+      try {
+        const next = JSON.parse(el.jsonArea.value);
+        replaceBrowserData(next, "edited browser data");
+        lockCurrentJsonEditor();
+        refreshCurrentJsonArea(true);
+        renderImportPlan();
+        renderAll();
+        selectedId = shortcuts.find(item => item.id === selectedId)?.id || shortcuts[0]?.id || null;
+        showDetails(findShortcutById(selectedId) || shortcuts[0] || null);
+        nudgeBackupButton();
+        toast("Current browser data saved. Download a backup when ready.");
+      } catch (error) {
+        el.jsonFileStatus.textContent = "Edited data failed: " + error.message;
+        toast("Edited data failed: " + error.message);
+      }
     }
 
     function openAboutModal() {
@@ -3587,6 +4473,17 @@
 
     function closeAboutModal() {
       el.aboutOverlay.classList.remove("open");
+    }
+
+    function handleMergeJsonButton() {
+      if (!el.mergeJsonButton.disabled) saveJsonFile();
+    }
+
+    function setMergeJsonButtonState(plan = { ready: false }, hasError = false) {
+      const ready = Boolean(plan.ready && !hasError);
+      el.mergeJsonButton.textContent = "Confirm Merge";
+      el.mergeJsonButton.disabled = !ready;
+      el.mergeJsonButton.classList.toggle("ready", ready);
     }
 
     async function openJsonFile() {
@@ -3601,26 +4498,72 @@
           loadJsonText(await file.text(), file.name);
           return;
         } catch (error) {
-          if (error.name !== "AbortError") toast(`Open failed: ${error.message}`);
+          if (error.name !== "AbortError") toast("Open failed: " + error.message);
           return;
         }
       }
+      el.jsonFileInput.dataset.mode = "merge";
+      el.jsonFileInput.click();
+    }
+
+    async function openRestoreBackupFile() {
+      if ("showOpenFilePicker" in window) {
+        try {
+          const handles = await window.showOpenFilePicker({
+            multiple: false,
+            types: [{ description: "Shortcut JSON backup", accept: { "application/json": [".json"] } }]
+          });
+          const handle = handles[0];
+          const file = await handle.getFile();
+          restoreJsonText(await file.text(), file.name);
+          return;
+        } catch (error) {
+          if (error.name !== "AbortError") toast("Restore failed: " + error.message);
+          return;
+        }
+      }
+      el.jsonFileInput.dataset.mode = "restore";
       el.jsonFileInput.click();
     }
 
     async function readJsonFileInput() {
       const file = el.jsonFileInput.files[0];
       if (!file) return;
-      loadJsonText(await file.text(), file.name);
+      const text = await file.text();
+      if (el.jsonFileInput.dataset.mode === "restore") restoreJsonText(text, file.name);
+      else loadJsonText(text, file.name);
+      el.jsonFileInput.dataset.mode = "";
       el.jsonFileInput.value = "";
     }
 
     function loadJsonText(text, fileName) {
-      el.jsonArea.value = text;
-      importJson(fileName);
+      el.importJsonArea.value = text;
+      renderImportPlan(fileName);
+      toast("Loaded " + fileName + " for preview.");
+    }
+
+    function restoreJsonText(text, fileName = "backup JSON") {
+      try {
+        const next = JSON.parse(text);
+        if (!confirm("Restore " + fileName + " and replace current browser data?")) return;
+        replaceBrowserData(next, fileName);
+        selectedId = shortcuts[0]?.id || null;
+        refreshCurrentJsonArea(true);
+        el.importJsonArea.value = "";
+        renderImportPlan();
+        renderAll();
+        showDetails(shortcuts[0] || null);
+        el.jsonFileStatus.textContent = fileName + " restored into this browser/profile.";
+        toast("Restored " + fileName + ".");
+      } catch (error) {
+        el.jsonFileStatus.textContent = "Restore failed: " + error.message;
+        toast("Restore failed: " + error.message);
+      }
     }
 
     function downloadJson() {
+      clearBackupNudge();
+      refreshCurrentJsonArea(true);
       const blob = new Blob([el.jsonArea.value], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -3630,7 +4573,21 @@
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 3000);
-      toast("JSON export downloaded.");
+      toast("Backup JSON downloaded.");
+    }
+
+    function nudgeBackupButton() {
+      const button = document.getElementById("exportJsonButton");
+      button.classList.add("backup-nudge");
+      clearTimeout(backupNudgeTimer);
+      backupNudgeTimer = setTimeout(clearBackupNudge, 10000);
+    }
+
+    function clearBackupNudge() {
+      const button = document.getElementById("exportJsonButton");
+      if (button) button.classList.remove("backup-nudge");
+      clearTimeout(backupNudgeTimer);
+      backupNudgeTimer = null;
     }
 
     function exportData() {
@@ -3644,43 +4601,109 @@
 
     async function saveJsonFile() {
       try {
-        const next = JSON.parse(el.jsonArea.value);
-        applyJsonData(next, "edited JSON");
-        selectedId = shortcuts[0]?.id || null;
+        const next = JSON.parse(el.importJsonArea.value);
+        const result = applyJsonData(next, "imported JSON", {
+          includeSettings: el.importSettings.checked,
+          includeTextTrigger: el.importTextTrigger.checked
+        });
+        selectedId = shortcuts.find(item => item.id === selectedId)?.id || shortcuts[0]?.id || null;
         renderAll();
-        showDetails(shortcuts[0] || null);
-        el.jsonFileStatus.textContent = "Saved to this browser/profile. Refreshing now.";
-        toast("Saved to this browser.");
-        setTimeout(() => location.reload(), 250);
+        showDetails(findShortcutById(selectedId) || shortcuts[0] || null);
+        refreshCurrentJsonArea(true);
+        el.importJsonArea.value = "";
+        renderImportPlan();
+        el.jsonFileStatus.textContent = "Merged into this browser/profile: " + result.added + " added, " + result.overwritten + " overwritten, " + result.ignored + " ignored, " + result.drafted + " drafted. Download Backup is highlighted so you can save a portable copy.";
+        nudgeBackupButton();
+        toast("Merged import into browser storage. Download a backup when ready.");
       } catch (error) {
-        el.jsonFileStatus.textContent = `Save failed: ${error.message}`;
-        toast(`Save failed: ${error.message}`);
+        el.jsonFileStatus.textContent = "Merge failed: " + error.message;
+        toast("Merge failed: " + error.message);
       }
     }
 
-    function importJson(fileName = "JSON file") {
+    function analyzeImportJson() {
+      const raw = el.importJsonArea.value.trim();
+      if (!raw) {
+        return { ready: false, message: "Import JSON or paste text from backup or importer here. Restore Backup replaces everything; Confirm Merge only merges the right-side JSON.", stats: { incoming: 0, added: 0, overwritten: 0, ignored: 0, drafted: 0 }, hasSettings: false, hasTextTrigger: false };
+      }
+      const next = JSON.parse(raw);
+      const importedShortcuts = Array.isArray(next) ? next : next.shortcuts;
+      if (!Array.isArray(importedShortcuts)) throw new Error("JSON must be an array or an object with a shortcuts array.");
+      const imported = normalizeShortcuts(importedShortcuts);
+      const duplicateMode = el.duplicateMode?.value || "ignore";
+      const stats = previewMergeResult(imported, duplicateMode);
+      return {
+        ready: true,
+        message: "Preview only. Existing settings and text trigger columns are preserved unless you opt in below.",
+        stats,
+        hasSettings: !Array.isArray(next) && Boolean(next.settings),
+        hasTextTrigger: !Array.isArray(next) && Boolean(next.textTrigger || next.alfred)
+      };
+    }
+
+    function previewMergeResult(imported, duplicateMode) {
+      const stats = { incoming: imported.length, added: 0, overwritten: 0, ignored: 0, drafted: 0 };
+      imported.forEach(item => {
+        const existingIndex = shortcuts.findIndex(shortcut => sameShortcut(slotKey(shortcut), slotKey(item)));
+        if (existingIndex === -1) {
+          stats.added += 1;
+          return;
+        }
+        if (duplicateMode === "overwrite") {
+          stats.overwritten += 1;
+          return;
+        }
+        if (duplicateMode === "draft") {
+          stats.drafted += 1;
+          return;
+        }
+        stats.ignored += 1;
+      });
+      return stats;
+    }
+
+    function renderImportPlan(fileName = "") {
+      refreshCurrentJsonArea();
       try {
-        const next = JSON.parse(el.jsonArea.value);
-        applyJsonData(next, fileName);
-        closeJsonModal();
-        selectedId = null;
-        renderAll();
-        showDetails(shortcuts[0] || null);
-        toast(`Opened ${fileName}.`);
+        const plan = analyzeImportJson();
+        el.importSettings.disabled = !plan.hasSettings;
+        el.importTextTrigger.disabled = !plan.hasTextTrigger;
+        if (!plan.hasSettings) el.importSettings.checked = false;
+        if (!plan.hasTextTrigger) el.importTextTrigger.checked = false;
+        el.importPlanSummary.innerHTML = importStatsMarkup(plan.stats);
+        el.jsonFileStatus.textContent = fileName ? fileName + " is loaded for preview. " + plan.message : plan.message;
+        setMergeJsonButtonState(plan);
       } catch (error) {
-        toast(`Import failed: ${error.message}`);
+        el.importPlanSummary.innerHTML = importStatsMarkup({ incoming: 0, added: 0, overwritten: 0, ignored: 0, drafted: 0 });
+        el.importSettings.disabled = true;
+        el.importTextTrigger.disabled = true;
+        el.importSettings.checked = false;
+        el.importTextTrigger.checked = false;
+        el.jsonFileStatus.textContent = "Import preview failed: " + error.message;
+        setMergeJsonButtonState({ ready: false }, true);
       }
     }
 
-    function applyJsonData(next, fileName) {
+    function importStatsMarkup(stats) {
+      const items = [
+        ["Incoming", stats.incoming || 0],
+        ["Added", stats.added || 0],
+        ["Overwrite", stats.overwritten || 0],
+        ["Drafts", stats.drafted || 0],
+        ["Ignored", stats.ignored || 0]
+      ];
+      return items.map(([label, value]) => '<div class="import-stat"><strong>' + value + '</strong><span>' + escapeHtml(label) + '</span></div>').join("");
+    }
+
+    function applyJsonData(next, fileName, options = {}) {
       const importedShortcuts = Array.isArray(next) ? next : next.shortcuts;
       if (!Array.isArray(importedShortcuts)) throw new Error("JSON must be an array or an object with a shortcuts array.");
       const duplicateMode = el.duplicateMode?.value || "ignore";
       const imported = normalizeShortcuts(importedShortcuts);
       const result = mergeImportedShortcuts(imported, duplicateMode);
       if (!Array.isArray(next)) {
-        if (next.textTrigger || next.alfred) textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred);
-        if (next.settings) {
+        if (options.includeTextTrigger && (next.textTrigger || next.alfred)) textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred);
+        if (options.includeSettings && next.settings) {
           settings = normalizeSettings(next.settings);
           prefs.theme = settings.nightmode ? "dark" : "light";
           savePrefs();
@@ -3696,9 +4719,31 @@
       persistDrafts();
       persistTextTrigger();
       persistSettings();
-      loadedSourceName = `browser storage (${fileName})`;
-      el.jsonArea.value = JSON.stringify(exportData(), null, 2);
-      el.jsonFileStatus.textContent = `Imported ${fileName}: ${result.added} added, ${result.overwritten} overwritten, ${result.ignored} ignored, ${result.drafted} drafted.`;
+      loadedSourceName = "browser storage (" + fileName + ")";
+      return result;
+    }
+
+    function replaceBrowserData(next, fileName) {
+      const incomingShortcuts = Array.isArray(next) ? next : next.shortcuts;
+      if (!Array.isArray(incomingShortcuts)) throw new Error("JSON must be an array or an object with a shortcuts array.");
+      shortcuts = normalizeShortcuts(incomingShortcuts);
+      if (Array.isArray(next)) {
+        drafts = [];
+      } else {
+        drafts = normalizeShortcuts(next.drafts || []);
+        textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred || textTrigger);
+        if (next.settings) {
+          settings = normalizeSettings(next.settings);
+          prefs.theme = settings.nightmode ? "dark" : "light";
+          savePrefs();
+          applyPrefs();
+        }
+      }
+      persistShortcuts();
+      persistDrafts();
+      persistTextTrigger();
+      persistSettings();
+      loadedSourceName = "browser storage (" + fileName + ")";
     }
 
     function mergeImportedShortcuts(imported, duplicateMode) {
@@ -3820,20 +4865,9 @@
       `;
     }
 
-    function toggleTheme() {
-      prefs.theme = prefs.theme === "dark" ? "light" : "dark";
-      settings.nightmode = prefs.theme !== "light";
-      savePrefs();
-      persistSettings();
-      applyPrefs();
-    }
-
     function applyPrefs() {
       document.documentElement.dataset.theme = prefs.theme || "dark";
-      const themeButton = document.getElementById("themeButton");
-      themeButton?.classList.toggle("active", prefs.theme === "light");
-      themeButton?.setAttribute("aria-pressed", String(prefs.theme === "light"));
-      if (themeButton) themeButton.innerHTML = iconSvg(prefs.theme === "light" ? "sun" : "moon");
+      renderThemeSettings();
     }
 
     function savePrefs() {
@@ -3995,12 +5029,24 @@
       return {
         platform,
         nightmode: normalizeNightMode(source),
+        detailLayout: normalizeDetailLayout(source.detailLayout),
+        detailPopoverAutoClose: normalizeDetailPopoverAutoClose(source.detailPopoverAutoClose ?? source.popoverAutoClose),
         hyperKey: normalizeHyperKey(source.hyperKey),
         modifierLayout: {
           left: normalizeModifierSide(layout.left, preset.left),
           right: normalizeModifierSide(layout.right, preset.right)
         }
       };
+    }
+
+    function normalizeDetailLayout(value) {
+      return ["auto", "sidebar", "collapsed"].includes(value) ? value : defaultSettings.detailLayout;
+    }
+
+    function normalizeDetailPopoverAutoClose(value) {
+      if (value === "never") return "never";
+      const seconds = Number(value);
+      return [3, 5, 10, 15].includes(seconds) ? seconds : defaultSettings.detailPopoverAutoClose;
     }
 
     function normalizeHyperKey(value) {
@@ -4138,8 +5184,8 @@
       safeSetStorage(STORAGE_KEY, shortcuts);
       loadedSourceName = "browser storage";
       if (el.jsonOverlay.classList.contains("open")) {
-        el.jsonArea.value = JSON.stringify(exportData(), null, 2);
-        el.jsonFileStatus.textContent = "Saved to this browser.";
+        refreshCurrentJsonArea();
+        renderImportPlan();
       }
     }
 
