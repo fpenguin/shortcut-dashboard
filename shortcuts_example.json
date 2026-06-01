@@ -1403,6 +1403,62 @@
       "displayLabel": "Caps",
       "showModifierGlyphs": true,
       "previewWhileHeld": true
-    }
+    },
+    "categories": [
+      {
+        "id": "window-management",
+        "name": "Window Management",
+        "color": "#69e6c7",
+        "emoji": "🟢"
+      },
+      {
+        "id": "app-launchers",
+        "name": "App Launchers",
+        "color": "#9cc8ff",
+        "emoji": "🔵"
+      },
+      {
+        "id": "media",
+        "name": "Media",
+        "color": "#ffd166",
+        "emoji": "🟡"
+      },
+      {
+        "id": "screenshots",
+        "name": "Screenshots",
+        "color": "#ff8fb3",
+        "emoji": "🩷"
+      },
+      {
+        "id": "ai-tools",
+        "name": "AI Tools",
+        "color": "#c8a6ff",
+        "emoji": "🟣"
+      },
+      {
+        "id": "browser",
+        "name": "Browser",
+        "color": "#7ee787",
+        "emoji": "🟩"
+      },
+      {
+        "id": "system",
+        "name": "System",
+        "color": "#f4a261",
+        "emoji": "🟠"
+      },
+      {
+        "id": "hardware",
+        "name": "Hardware",
+        "color": "#73d2de",
+        "emoji": "🟦"
+      },
+      {
+        "id": "contextual",
+        "name": "Contextual",
+        "color": "#b8c0cc",
+        "emoji": "⚪"
+      }
+    ]
   }
 }

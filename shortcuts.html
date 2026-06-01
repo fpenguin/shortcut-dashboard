@@ -1016,6 +1016,69 @@
       font-size: 14px;
     }
 
+    .category-settings-head {
+      display: block;
+    }
+
+    .category-settings-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .category-row {
+      display: grid;
+      grid-template-columns: 24px 36px minmax(0, 1fr) 96px 34px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .category-row.dragging {
+      opacity: 0.55;
+    }
+
+    .category-row input[type="text"] {
+      width: 100%;
+      min-width: 0;
+      height: 34px;
+      box-sizing: border-box;
+      padding: 0 9px;
+      font-size: 14px;
+    }
+
+    .category-row input[type="color"] {
+      width: 34px;
+      height: 34px;
+      padding: 2px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+    }
+
+    .category-count {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .category-delete {
+      width: 34px;
+      height: 34px;
+    }
+
+    .category-settings-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
     .hyper-key-advanced[hidden] {
       display: none !important;
     }
@@ -2313,6 +2376,17 @@
         </div>
       </div>
       <div class="settings-section">
+        <div class="category-settings-head">
+          <h3>Categories</h3>
+          <p class="modal-note">Rename, recolor, reorder, add, or remove the category chips used across the dashboard.</p>
+        </div>
+        <div class="category-settings-list" id="categorySettingsList"></div>
+        <div class="category-settings-actions">
+          <button class="pill-btn" id="addCategoryButton" type="button">Add Category</button>
+          <button class="pill-btn" id="resetCategoriesButton" type="button">Reset Defaults</button>
+        </div>
+      </div>
+      <div class="settings-section">
         <h3>Hyper Key</h3>
         <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Fn aliases work best when Fn is remapped to a detectable key such as F18 because browsers usually cannot detect raw Fn holds.</p>
         <label class="hyper-option-row">
@@ -2486,37 +2560,24 @@
       RightOption: "Right Option"
     };
 
-    const categoryColors = {
-      "Window Management": "#69e6c7",
-      "App Launchers": "#9cc8ff",
-      "Media": "#ffd166",
-      "Screenshots": "#ff8fb3",
-      "AI Tools": "#c8a6ff",
-      "Browser": "#7ee787",
-      "System": "#f4a261",
-      "Hardware": "#73d2de",
-      "Contextual": "#b8c0cc"
-    };
-
-    const categoryEmoji = {
-      "Window Management": "🟢",
-      "App Launchers": "🔵",
-      "Media": "🟡",
-      "Screenshots": "🩷",
-      "AI Tools": "🟣",
-      "Browser": "🟩",
-      "System": "🟠",
-      "Hardware": "🟦",
-      "Contextual": "⚪"
-    };
-
-    const shortcutCategoryNames = Object.keys(categoryColors);
+    const defaultCategoryDefinitions = [
+      { id: "window-management", name: "Window Management", color: "#69e6c7", emoji: "🟢" },
+      { id: "app-launchers", name: "App Launchers", color: "#9cc8ff", emoji: "🔵" },
+      { id: "media", name: "Media", color: "#ffd166", emoji: "🟡" },
+      { id: "screenshots", name: "Screenshots", color: "#ff8fb3", emoji: "🩷" },
+      { id: "ai-tools", name: "AI Tools", color: "#c8a6ff", emoji: "🟣" },
+      { id: "browser", name: "Browser", color: "#7ee787", emoji: "🟩" },
+      { id: "system", name: "System", color: "#f4a261", emoji: "🟠" },
+      { id: "hardware", name: "Hardware", color: "#73d2de", emoji: "🟦" },
+      { id: "contextual", name: "Contextual", color: "#b8c0cc", emoji: "⚪" }
+    ];
 
     const defaultSettings = {
       platform: "mac",
       nightmode: true,
       detailLayout: "auto",
       detailPopoverAutoClose: 5,
+      categories: structuredClone(defaultCategoryDefinitions),
       hyperKey: {
         enabled: false,
         physicalKey: "CapsLock",
@@ -2693,6 +2754,7 @@
       settingsOverlay: document.getElementById("settingsOverlay"),
       leftModifierList: document.getElementById("leftModifierList"),
       rightModifierList: document.getElementById("rightModifierList"),
+      categorySettingsList: document.getElementById("categorySettingsList"),
       hyperKeyEnabled: document.getElementById("hyperKeyEnabled"),
       hyperKeyPhysical: document.getElementById("hyperKeyPhysical"),
       hyperKeyLabel: document.getElementById("hyperKeyLabel"),
@@ -2847,6 +2909,8 @@
       document.getElementById("saveSettingsButton").addEventListener("click", saveSettingsFromModal);
       document.getElementById("platformMac").addEventListener("click", () => setSettingsPlatform("mac"));
       document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
+      document.getElementById("addCategoryButton").addEventListener("click", addCategorySetting);
+      document.getElementById("resetCategoriesButton").addEventListener("click", resetCategorySettings);
       document.querySelectorAll("[data-theme-option]").forEach(button => {
         button.addEventListener("click", () => setSettingsTheme(button.dataset.themeOption));
       });
@@ -3160,7 +3224,7 @@
         const keysHtml = row.map(keyInfo => {
           const mappings = shortcutMap.get(keyInfo.code) || [];
           const primary = choosePrimaryMapping(mappings);
-          const color = primary ? categoryColors[primary.category] || categoryColors.Contextual : "var(--focus)";
+          const color = primary ? categoryColor(primary.category) : "var(--focus)";
           const assigned = mappings.length ? "assigned" : "";
           const conflict = mappings.length > 1 ? "conflict" : "";
           const selected = mappings.some(m => m.id === selectedId) ? "selected" : "";
@@ -3202,18 +3266,19 @@
     }
 
     function renderCategories() {
-      const categories = ["All", ...shortcutCategoryNames];
+      const categories = [{ name: "All", color: "var(--accent)", label: "All Categories" }, ...categoryDefinitions().map(category => ({ ...category, label: category.name }))];
       el.categoryRail.innerHTML = categories.map(category => {
-        const color = category === "All" ? "var(--accent)" : categoryColors[category];
-        const active = activeCategory === category ? "active" : "";
-        const label = category === "All" ? "All Categories" : category;
-        return `<button class="chip ${active}" data-category="${escapeHtml(category)}" style="--chip-color:${color}"><span class="dot"></span>${escapeHtml(label)}</button>`;
+        const active = activeCategory === category.name ? "active" : "";
+        return `<button class="chip ${active}" data-category="${escapeHtml(category.name)}" style="--chip-color:${escapeHtml(category.color)}"><span class="dot"></span>${escapeHtml(category.label)}</button>`;
       }).join("");
       el.categoryRail.querySelectorAll("button").forEach(button => {
         button.addEventListener("click", () => {
           activeMode = "keyboard";
           activeCategory = button.dataset.category;
-          renderAll();
+          selectedId = null;
+          closeDetailPopover();
+          renderAll({ showSelectedDetails: false });
+          if (!isDetailCollapsed()) showDetails(filteredShortcuts()[0] || null, undefined, "", { openPopover: false });
         });
       });
     }
@@ -3413,7 +3478,7 @@
       }
 
       const conflict = mappings.length > 1;
-      const categoryColor = categoryColors[shortcut.category] || categoryColors.Contextual;
+      const shortcutCategoryColor = categoryColor(shortcut.category);
       const detailTarget = setDetailHtml(`
         <div class="panel-header">
           <div>
@@ -3433,7 +3498,7 @@
 
         <div class="section">
           <h3>Category</h3>
-          <p><span class="dot" style="--chip-color:${categoryColor};display:inline-block;margin-right:8px"></span>${escapeHtml(shortcut.category)}</p>
+          <p><span class="dot" style="--chip-color:${shortcutCategoryColor};display:inline-block;margin-right:8px"></span>${escapeHtml(shortcut.category)}</p>
         </div>
 
         <div class="section">
@@ -3905,7 +3970,7 @@
       };
 
       document.getElementById("editTitle").textContent = shortcut ? "Edit Shortcut" : "Add Shortcut";
-      document.getElementById("editCategory").innerHTML = shortcutCategoryNames.map(category => `<option value="${escapeHtml(category)}">${escapeHtml(categoryLabel(category))}</option>`).join("");
+      document.getElementById("editCategory").innerHTML = categoryOptionsForSelect(item.category).map(category => `<option value="${escapeHtml(category.name)}">${escapeHtml(categoryLabel(category.name))}</option>`).join("");
       clearFormError();
       setFormValue("editId", item.id);
       setFormValue("editAction", item.action);
@@ -4064,9 +4129,45 @@
       button.querySelector(".favorite-text").textContent = isFavorite ? "Favorite" : "Not Favorite";
     }
 
-    function categoryLabel(category) {
-      return `${categoryEmoji[category] || "⚪"} ${category}`;
+    function categoryDefinitions(includeUnknown = true) {
+      const normalized = normalizeCategories(settings.categories);
+      if (!includeUnknown) return normalized;
+      const known = new Set(normalized.map(category => normalize(category.name)));
+      [...shortcuts, ...drafts].forEach(item => {
+        const name = String(item.category || "Contextual").trim() || "Contextual";
+        if (!known.has(normalize(name))) {
+          known.add(normalize(name));
+          normalized.push({ id: slugifyCategory(name), name, color: defaultCategoryColor(name), emoji: "●" });
+        }
+      });
+      return normalized;
     }
+
+    function categoryOptionsForSelect(currentCategory = "") {
+      const categories = categoryDefinitions();
+      const current = String(currentCategory || "").trim();
+      if (current && !categories.some(category => category.name === current)) {
+        categories.push({ id: slugifyCategory(current), name: current, color: defaultCategoryColor(current), emoji: "●" });
+      }
+      return categories;
+    }
+
+    function categoryByName(name) {
+      const target = normalize(name || "Contextual");
+      return categoryDefinitions().find(category => normalize(category.name) === target)
+        || categoryDefinitions(false).find(category => category.name === "Contextual")
+        || defaultCategoryDefinitions.at(-1);
+    }
+
+    function categoryColor(category) {
+      return categoryByName(category).color || defaultCategoryColor(category);
+    }
+
+    function categoryLabel(category) {
+      const definition = categoryByName(category);
+      return `${definition.emoji || "●"} ${definition.name}`;
+    }
+
 
     function getEditorSnapshot() {
       return JSON.stringify({
@@ -4262,6 +4363,7 @@
       renderThemeSettings();
       renderModifierList("left");
       renderModifierList("right");
+      renderCategorySettings();
       renderDetailLayoutSettings();
       renderHyperKeySettings();
     }
@@ -4317,6 +4419,148 @@
         showModifierGlyphs: el.hyperKeyGlyphs.checked,
         previewWhileHeld: el.hyperKeyPreview.checked
       });
+    }
+
+    function renderCategorySettings() {
+      if (!el.categorySettingsList) return;
+      const counts = categoryUsageCounts();
+      el.categorySettingsList.innerHTML = categoryDefinitions().map((category, index) => `
+        <div class="category-row" draggable="true" data-index="${index}" data-original-name="${escapeHtml(category.name)}">
+          <span class="drag-handle" aria-hidden="true">=</span>
+          <input type="color" value="${escapeHtml(category.color)}" aria-label="Color for ${escapeHtml(category.name)}">
+          <input type="text" value="${escapeHtml(category.name)}" aria-label="Category name">
+          <span class="category-count">${counts.get(category.name) || 0} shortcuts</span>
+          <button class="icon-btn icon-only category-delete" type="button" title="Delete category" aria-label="Delete ${escapeHtml(category.name)}">${iconSvg("trash")}</button>
+        </div>
+      `).join("");
+      bindCategoryRows();
+    }
+
+    function bindCategoryRows() {
+      el.categorySettingsList.querySelectorAll(".category-row").forEach(row => {
+        const colorInput = row.querySelector('input[type="color"]');
+        const deleteButton = row.querySelector(".category-delete");
+        colorInput.addEventListener("input", () => {
+          row.style.setProperty("--chip-color", colorInput.value);
+        });
+        deleteButton.addEventListener("click", () => deleteCategorySetting(Number(row.dataset.index)));
+        row.addEventListener("dragstart", event => {
+          applyCategorySettingsFromRows();
+          row.classList.add("dragging");
+          event.dataTransfer.setData("text/plain", row.dataset.index);
+        });
+        row.addEventListener("dragend", () => row.classList.remove("dragging"));
+        row.addEventListener("dragover", event => event.preventDefault());
+        row.addEventListener("drop", event => {
+          event.preventDefault();
+          const sourceIndex = Number(event.dataTransfer.getData("text/plain"));
+          const targetIndex = Number(row.dataset.index);
+          if (!Number.isInteger(sourceIndex) || sourceIndex === targetIndex) return;
+          const categories = normalizeCategories(settings.categories);
+          const [moved] = categories.splice(sourceIndex, 1);
+          categories.splice(targetIndex, 0, moved);
+          settings.categories = categories;
+          renderCategorySettings();
+          renderAll({ showSelectedDetails: false });
+        });
+      });
+    }
+
+    function categoryUsageCounts() {
+      const counts = new Map();
+      [...shortcuts, ...drafts].forEach(item => {
+        const category = item.category || "Contextual";
+        counts.set(category, (counts.get(category) || 0) + 1);
+      });
+      return counts;
+    }
+
+    function addCategorySetting() {
+      applyCategorySettingsFromRows();
+      const names = new Set(settings.categories.map(category => normalize(category.name)));
+      let name = "New Category";
+      let suffix = 2;
+      while (names.has(normalize(name))) {
+        name = `New Category ${suffix}`;
+        suffix += 1;
+      }
+      settings.categories.push({ id: slugifyCategory(name), name, color: defaultCategoryColor(name), emoji: "●" });
+      renderCategorySettings();
+      requestAnimationFrame(() => {
+        const rows = el.categorySettingsList.querySelectorAll(".category-row");
+        rows[rows.length - 1]?.querySelector('input[type="text"]')?.focus();
+      });
+    }
+
+    function resetCategorySettings() {
+      if (!confirm("Reset category names, colors, and order to defaults? Shortcuts keep their assigned category names.")) return;
+      settings.categories = structuredClone(defaultCategoryDefinitions);
+      if (activeCategory !== "All" && !categoryDefinitions().some(category => category.name === activeCategory)) activeCategory = "All";
+      renderCategorySettings();
+      renderAll({ showSelectedDetails: false });
+    }
+
+    function deleteCategorySetting(index) {
+      applyCategorySettingsFromRows();
+      const categories = normalizeCategories(settings.categories);
+      const target = categories[index];
+      if (!target) return;
+      const used = [...shortcuts, ...drafts].filter(item => item.category === target.name).length;
+      let replacement = "Contextual";
+      if (used) {
+        const choices = categories.filter(category => category.name !== target.name).map(category => category.name);
+        const answer = prompt(`"${target.name}" is used by ${used} shortcut${used === 1 ? "" : "s"}. Move them to which category?\n\n${choices.join(", ")}`, choices.includes("Contextual") ? "Contextual" : choices[0] || "Contextual");
+        if (answer === null) return;
+        replacement = choices.find(choice => normalize(choice) === normalize(answer)) || "Contextual";
+      }
+      settings.categories = categories.filter((_, rowIndex) => rowIndex !== index);
+      if (used) reassignCategory(target.name, replacement);
+      if (activeCategory === target.name) activeCategory = used ? replacement : "All";
+      renderCategorySettings();
+      renderAll({ showSelectedDetails: false });
+    }
+
+    function applyCategorySettingsFromRows() {
+      if (!el.categorySettingsList) return;
+      const rows = [...el.categorySettingsList.querySelectorAll(".category-row")];
+      if (!rows.length) return;
+      const seen = new Set();
+      const renames = new Map();
+      const nextCategories = rows.map(row => {
+        const originalName = row.dataset.originalName || "";
+        const input = row.querySelector('input[type="text"]');
+        const colorInput = row.querySelector('input[type="color"]');
+        const previous = categoryByName(originalName);
+        const rawName = input.value.trim() || originalName || "Untitled Category";
+        const name = uniqueCategoryName(rawName, seen);
+        if (name !== rawName) input.value = name;
+        if (originalName && originalName !== name) renames.set(originalName, name);
+        return {
+          id: previous.id || slugifyCategory(name),
+          name,
+          color: sanitizeColor(colorInput.value, previous.color),
+          emoji: previous.emoji || "●"
+        };
+      });
+      settings.categories = normalizeCategories(nextCategories);
+      renames.forEach((to, from) => reassignCategory(from, to));
+    }
+
+    function uniqueCategoryName(name, seen) {
+      let result = name;
+      let suffix = 2;
+      while (seen.has(normalize(result))) {
+        result = `${name} ${suffix}`;
+        suffix += 1;
+      }
+      seen.add(normalize(result));
+      return result;
+    }
+
+    function reassignCategory(from, to) {
+      shortcuts.forEach(item => { if (item.category === from) item.category = to; });
+      drafts.forEach(item => { if (item.category === from) item.category = to; });
+      if (activeCategory === from) activeCategory = to;
     }
 
     function renderModifierList(side) {
@@ -4431,10 +4675,13 @@
     }
 
     function saveSettingsFromModal() {
+      applyCategorySettingsFromRows();
       settings.hyperKey = hyperKeyFromSettingsForm();
       settings.nightmode = prefs.theme !== "light";
       settings = normalizeSettings(settings);
       savePrefs();
+      persistShortcuts();
+      persistDrafts();
       persistSettings();
       renderModifierGridLabels();
       renderAll();
@@ -5071,6 +5318,45 @@
       });
     }
 
+    function normalizeCategories(value) {
+      const source = Array.isArray(value) && value.length ? value : defaultCategoryDefinitions;
+      const seen = new Set();
+      const categories = source.map((item, index) => {
+        const fallback = defaultCategoryDefinitions[index] || defaultCategoryDefinitions.at(-1);
+        const name = String(item?.name || item || fallback.name || "Contextual").trim() || fallback.name;
+        const uniqueName = uniqueCategoryName(name, seen);
+        return {
+          id: String(item?.id || slugifyCategory(uniqueName)).trim() || slugifyCategory(uniqueName),
+          name: uniqueName,
+          color: sanitizeColor(item?.color, fallback.color || defaultCategoryColor(uniqueName)),
+          emoji: String(item?.emoji || fallback.emoji || "●").slice(0, 4)
+        };
+      }).filter(category => category.name);
+      if (!categories.some(category => normalize(category.name) === "contextual")) {
+        categories.push(structuredClone(defaultCategoryDefinitions.at(-1)));
+      }
+      return categories;
+    }
+
+    function slugifyCategory(name) {
+      return normalize(name)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 48) || "category";
+    }
+
+    function sanitizeColor(value, fallback = "#b8c0cc") {
+      const color = String(value || "").trim();
+      return /^#[0-9a-f]{6}$/i.test(color) ? color : fallback;
+    }
+
+    function defaultCategoryColor(name) {
+      const palette = ["#69e6c7", "#9cc8ff", "#ffd166", "#ff8fb3", "#c8a6ff", "#7ee787", "#f4a261", "#73d2de", "#b8c0cc"];
+      let hash = 0;
+      for (const char of String(name || "")) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+      return palette[hash % palette.length];
+    }
+
     function normalizeSettings(value) {
       const source = value && typeof value === "object" ? value : defaultSettings;
       const platform = source.platform === "pc" ? "pc" : "mac";
@@ -5081,6 +5367,7 @@
         nightmode: normalizeNightMode(source),
         detailLayout: normalizeDetailLayout(source.detailLayout),
         detailPopoverAutoClose: normalizeDetailPopoverAutoClose(source.detailPopoverAutoClose ?? source.popoverAutoClose),
+        categories: normalizeCategories(source.categories),
         hyperKey: normalizeHyperKey(source.hyperKey),
         modifierLayout: {
           left: normalizeModifierSide(layout.left, preset.left),

@@ -51,7 +51,8 @@ Shortcut Dashboard does not automatically scan your whole computer or magically 
 - Show the configured physical key in the Hyper group label, such as `Caps ⇧⌃⌥⌘`.
 - Preview the Hyper layer while the chosen physical key is held down.
 - Use the safer import engine to ignore, overwrite, or save duplicate imported shortcuts as drafts.
-- Store shortcuts, drafts, text triggers, keyboard configuration, Hyper Key settings, detail panel preference, and theme preference in the exported JSON config.
+- Customize category names, colors, and order from Settings.
+- Store shortcuts, drafts, text triggers, custom categories, keyboard configuration, Hyper Key settings, detail panel preference, and theme preference in the exported JSON config.
 
 ## Quick Start
 
@@ -86,7 +87,7 @@ This is a browser limitation, not a Shortcut Dashboard bug.
 5. Open `shortcuts.html`, click the save icon, then use `Backup & Import` -> `Merge with Other Data`.
 6. Paste the JSON or choose `Import JSON`, review `Merge Preview`, click `Confirm Merge`, then click `Download Backup`.
 
-Everything runs locally. Your preset is not uploaded anywhere. If an imported shortcut already exists, choose whether to ignore it, overwrite the existing entry, or save it as a draft for review. Existing text trigger notes, keyboard settings, Hyper alias settings, detail panel preference, and theme preference are preserved unless you explicitly opt into importing those sections from the JSON.
+Everything runs locally. Your preset is not uploaded anywhere. If an imported shortcut already exists, choose whether to ignore it, overwrite the existing entry, or save it as a draft for review. Existing text trigger notes, category settings, keyboard settings, Hyper alias settings, detail panel preference, and theme preference are preserved unless you explicitly opt into importing those sections from the JSON.
 
 Want support for another automation tool? Open `import_shortcuts.html` and download `Agent_Handoff.md`. Give it to Claude, Codex, or another coding agent so it can build a parser that outputs Shortcut Dashboard JSON, then contribute the verified importer back on GitHub.
 
@@ -96,6 +97,7 @@ Want support for another automation tool? Open `import_shortcuts.html` and downl
 - `import_shortcuts.html` - offline preset importer, currently focused on BetterTouchTool
 - `Agent_Handoff.md` - guide for AI agents and contributors building importers for other tools
 - `shortcuts_example.json` - safe sample data you can try or publish
+- `ROADMAP.md` - future ideas, including AI-assisted category cleanup
 - `screenshots/` - images used in this README
 - `LICENSE` - MIT license
 
@@ -124,7 +126,7 @@ Shortcut Dashboard is local-first:
 - No CDN or external assets
 - Browser storage stays inside that browser/profile
 
-Important: use `Download Backup` in `Backup & Import` to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, modifier layout settings, Hyper Key settings, detail panel preference, and theme preference.
+Important: use `Download Backup` in `Backup & Import` to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, category settings, modifier layout settings, Hyper Key settings, detail panel preference, and theme preference.
 
 ## Support
 
