@@ -64,6 +64,19 @@ Shortcut Dashboard does not automatically scan your whole computer or magically 
 
 No install step is required. No server, account, or build tool. The app is just HTML plus browser-saved JSON backups.
 
+## Fn Key Detection
+
+Most browsers do not expose real-time `Fn` keydown/keyup events. Shortcut Dashboard can store, display, search, and print `Fn` shortcuts, but holding the physical Fn key may not switch layers live the way Command, Control, Option, or Shift can.
+
+Practical workarounds:
+
+- **Best option:** use Karabiner-Elements or a similar tool to remap Fn to a detectable key such as `F18`, `F19`, or `F20`, then use that remapped key as an alias.
+- **Alias pattern:** if your system maps Fn to another key, configure the dashboard to listen for that detectable replacement key instead of expecting raw Fn events.
+- **Manual browsing:** click the `Fn` layer chip in the dashboard. The layer switcher always works, even when the browser cannot detect Fn being held.
+- **In-app reminder:** when you select the Fn layer, the dashboard shows a short note so this browser limitation is visible at the moment it matters.
+
+This is a browser limitation, not a Shortcut Dashboard bug.
+
 ## Import BetterTouchTool
 
 1. In BetterTouchTool, export your preset as `.bttpreset`.

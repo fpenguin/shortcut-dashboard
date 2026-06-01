@@ -8,6 +8,15 @@ Shortcut Dashboard is local-first: `shortcuts.html` stores dashboard data in bro
 
 Build an importer that takes one exported preset/config file from a shortcut tool and produces dashboard-ready JSON.
 
+## Where To Integrate
+
+Use `import_shortcuts.html` as the reference implementation and preferred integration point. A future importer should:
+
+- Add a clear option in `import_shortcuts.html` for the new source tool, or create a separate offline HTML importer only when the source format is large enough to justify it.
+- Produce JSON that can be pasted into `shortcuts.html` -> `Backup & Import` -> `Merge with Other Data`.
+- Preserve the existing `shortcuts.html` settings, text trigger board, theme, Hyper key alias, and modifier layout unless the user explicitly opts into importing those fields.
+- Keep all parsing local in the browser with a user-selected export file.
+
 Good importer examples:
 
 - Raycast shortcut export -> Shortcut Dashboard JSON

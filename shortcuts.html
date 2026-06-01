@@ -1948,6 +1948,33 @@
       margin-top: 10px;
     }
 
+    .layer-note {
+      display: none;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 207, 87, 0.28);
+      border-radius: 8px;
+      background: rgba(255, 207, 87, 0.07);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .layer-note.active {
+      display: block;
+    }
+
+    .layer-note strong {
+      color: var(--text);
+    }
+
+    .layer-note a {
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     @keyframes breathe {
       0%, 100% { filter: brightness(1); }
       50% { filter: brightness(1.17); }
@@ -2139,6 +2166,7 @@
           <button class="chip conflict-chip" id="conflictButton" type="button" aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
         </div>
         <div class="kbd-help">Tip: press ? or <span id="commandHelpShortcut">Cmd+K</span> for the command palette. Press a real shortcut to light it up.</div>
+        <div class="layer-note" id="fnLayerNote"><strong>Fn note:</strong> browsers usually cannot detect real-time Fn holds. Use the Fn tab manually or remap Fn to F18/F19. <a href="https://github.com/fpenguin/shortcut-dashboard#fn-key-detection" target="_blank" rel="noopener noreferrer">Full workaround guide</a>.</div>
       </section>
 
       <aside class="side-panel" id="detailPanel" aria-label="Shortcut details"></aside>
@@ -2286,7 +2314,7 @@
       </div>
       <div class="settings-section">
         <h3>Hyper Key</h3>
-        <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Useful when Caps Lock, Fn, or an F-key is remapped to Command+Control+Option+Shift by another tool.</p>
+        <p class="modal-note">Optional physical-key alias for the logical Hyper layer. Fn aliases work best when Fn is remapped to a detectable key such as F18 because browsers usually cannot detect raw Fn holds.</p>
         <label class="hyper-option-row">
           <span><strong>Enable Hyper Key Alias</strong><br>Show and preview a physical key for Hyper.</span>
           <input type="checkbox" id="hyperKeyEnabled">
@@ -2653,6 +2681,7 @@
       layerMenuPanel: document.getElementById("layerMenuPanel"),
       conflictButton: document.getElementById("conflictButton"),
       conflictButtonText: document.getElementById("conflictButtonText"),
+      fnLayerNote: document.getElementById("fnLayerNote"),
       searchInput: document.getElementById("searchInput"),
       detailPanel: document.getElementById("detailPanel"),
       detailPopover: document.getElementById("detailPopover"),
@@ -2931,7 +2960,13 @@
           showTextTriggerDetails();
         });
       }
+      renderLayerNote();
       renderLayerMenu();
+    }
+
+    function renderLayerNote() {
+      if (!el.fnLayerNote) return;
+      el.fnLayerNote.classList.toggle("active", activeMode === "keyboard" && activeLayer === "Fn");
     }
 
     function getLayerTabs() {
@@ -3495,8 +3530,14 @@
       requestAnimationFrame(() => el.paletteInput.focus());
     }
 
+    function clearActiveFocus() {
+      const active = document.activeElement;
+      if (active && typeof active.blur === "function") active.blur();
+    }
+
     function closePalette() {
       el.paletteOverlay.classList.remove("open");
+      clearActiveFocus();
     }
 
     function renderPalette() {
@@ -3557,11 +3598,15 @@
 
       const modalWasOpen = isModalOpen();
       if (event.key === "Escape" && modalWasOpen) {
+        event.preventDefault();
+        if (el.editOverlay.classList.contains("open")) {
+          requestCloseShortcutEditor();
+          return;
+        }
         closePalette();
         closeJsonModal();
         closeAboutModal();
         closeSettingsModal();
-        requestCloseShortcutEditor();
         return;
       }
 
@@ -3883,15 +3928,17 @@
     }
 
     function requestCloseShortcutEditor() {
-      if (!el.editOverlay.classList.contains("open")) return;
-      if (isEditorDirty() && !confirm("Close without saving changes?")) return;
+      if (!el.editOverlay.classList.contains("open")) return true;
+      if (isEditorDirty() && !confirm("Close without saving changes?")) return false;
       closeShortcutEditor();
+      return true;
     }
 
     function closeShortcutEditor() {
       el.editOverlay.classList.remove("open");
       editorInitialSnapshot = "";
       el.editOverlay.dataset.duplicateDraft = "false";
+      clearActiveFocus();
     }
 
     function saveShortcutFromForm(event) {
@@ -4206,6 +4253,7 @@
 
     function closeSettingsModal() {
       el.settingsOverlay.classList.remove("open");
+      clearActiveFocus();
     }
 
     function renderSettingsModal() {
@@ -4410,6 +4458,7 @@
       lockCurrentJsonEditor();
       el.jsonOverlay.classList.remove("open");
       document.body.classList.remove("modal-open");
+      clearActiveFocus();
     }
 
     function refreshCurrentJsonArea(force = false) {
@@ -4473,6 +4522,7 @@
 
     function closeAboutModal() {
       el.aboutOverlay.classList.remove("open");
+      clearActiveFocus();
     }
 
     function handleMergeJsonButton() {
