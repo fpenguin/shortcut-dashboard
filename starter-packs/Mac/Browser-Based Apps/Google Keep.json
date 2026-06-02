@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "Google Keep",
+    "platform": "Mac",
+    "category": "Browser-Based Apps",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Google Keep keyboard shortcuts",
+    "source": "https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Google Keep",
+    "path": "starter-packs/Mac/Browser-Based Apps/Google Keep.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-j-go-to-next-note",
+      "layer": "Base",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "J",
+      "action": "Go to Next Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: J\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|navigation|j|go-to-next-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-k-go-to-previous-note",
+      "layer": "Base",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "K",
+      "action": "Go to Previous Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: K\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|navigation|k|go-to-previous-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-n-next-list-item",
+      "layer": "Base",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "N",
+      "action": "Next List Item",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: N\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|navigation|n|next-list-item"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-p-previous-list-item",
+      "layer": "Base",
+      "key": "P",
+      "keyLabel": "P",
+      "shortcut": "P",
+      "action": "Previous List Item",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: P\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|navigation|p|previous-list-item"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-c-compose-new-note",
+      "layer": "Base",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "C",
+      "action": "Compose New Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: C\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|c|compose-new-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-l-compose-new-list",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "Compose New List",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: L\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|l|compose-new-list"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-e-archive-note",
+      "layer": "Base",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "E",
+      "action": "Archive Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: E\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|e|archive-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-shortcut-trash-note",
+      "layer": "Shift",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "#",
+      "action": "Trash Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: #\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|shortcut|trash-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-f-pin-or-unpin-note",
+      "layer": "Base",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "F",
+      "action": "Pin or Unpin Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: F\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|f|pin-or-unpin-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-x-select-note",
+      "layer": "Base",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "X",
+      "action": "Select Note",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notes\nOriginal key: X\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Notes"
+      ],
+      "active": true,
+      "sourceFolder": "Notes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|notes|x|select-note"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-shortcut-search",
+      "layer": "Base",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "/",
+      "action": "Search",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Search\nOriginal key: /\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Search"
+      ],
+      "active": true,
+      "sourceFolder": "Search",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|search|shortcut|search"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-keep-shortcut-open-keyboard-shortcuts",
+      "layer": "Shift",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "?",
+      "action": "Open Keyboard Shortcuts",
+      "app": "Google Keep",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Help\nOriginal key: ?\nSource: https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Keep",
+        "Browser-Based Apps",
+        "Help"
+      ],
+      "active": true,
+      "sourceFolder": "Help",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-keep|help|shortcut|open-keyboard-shortcuts"
+    }
+  ]
+}

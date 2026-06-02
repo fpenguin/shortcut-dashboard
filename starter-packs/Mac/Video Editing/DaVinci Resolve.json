@@ -1,0 +1,354 @@
+{
+  "starterPack": {
+    "name": "DaVinci Resolve",
+    "platform": "Mac",
+    "category": "Video Editing",
+    "sourceType": "Curated public documentation",
+    "sourceName": "DaVinci Resolve Keyboard Shortcuts public reference",
+    "source": "https://www.davincishortcuts.com/",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "DaVinci Resolve",
+    "path": "starter-packs/Mac/Video Editing/DaVinci Resolve.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-a-selection-mode",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Selection Mode",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Edit\nOriginal key: A\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Edit"
+      ],
+      "active": true,
+      "sourceFolder": "Edit",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|edit|a|selection-mode|0"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-t-trim-edit-mode",
+      "layer": "Base",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "T",
+      "action": "Trim Edit Mode",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Edit\nOriginal key: T\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Edit"
+      ],
+      "active": true,
+      "sourceFolder": "Edit",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|edit|t|trim-edit-mode|1"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-b-blade-edit-mode",
+      "layer": "Base",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "B",
+      "action": "Blade Edit Mode",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Edit\nOriginal key: B\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Edit"
+      ],
+      "active": true,
+      "sourceFolder": "Edit",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|edit|b|blade-edit-mode|2"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-n-toggle-snapping",
+      "layer": "Base",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "N",
+      "action": "Toggle snapping",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Timeline\nOriginal key: N\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Timeline"
+      ],
+      "active": true,
+      "sourceFolder": "Timeline",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|timeline|n|toggle-snapping|3"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-shift-z-zoom-to-fit-timeline",
+      "layer": "Shift",
+      "key": "Z",
+      "keyLabel": "Z",
+      "shortcut": "Shift+Z",
+      "action": "Zoom to fit timeline",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Timeline\nOriginal key: Shift+Z\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Timeline"
+      ],
+      "active": true,
+      "sourceFolder": "Timeline",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|timeline|shift-z|zoom-to-fit-timeline|4"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-i-mark-in",
+      "layer": "Base",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "I",
+      "action": "Mark In",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Marks\nOriginal key: I\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Marks"
+      ],
+      "active": true,
+      "sourceFolder": "Marks",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|marks|i|mark-in|5"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-o-mark-out",
+      "layer": "Base",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "O",
+      "action": "Mark Out",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Marks\nOriginal key: O\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Marks"
+      ],
+      "active": true,
+      "sourceFolder": "Marks",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|marks|o|mark-out|6"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-option-x-clear-in-and-out",
+      "layer": "Option",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "Option+X",
+      "action": "Clear In and Out",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Marks\nOriginal key: Option+X\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Marks"
+      ],
+      "active": true,
+      "sourceFolder": "Marks",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|marks|option-x|clear-in-and-out|7"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-m-add-marker",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Add marker",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Markers\nOriginal key: M\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Markers"
+      ],
+      "active": true,
+      "sourceFolder": "Markers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|markers|m|add-marker|8"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-cmd-b-add-edit",
+      "layer": "Cmd",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Cmd+B",
+      "action": "Add edit",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Timeline\nOriginal key: Cmd+B\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Timeline"
+      ],
+      "active": true,
+      "sourceFolder": "Timeline",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|timeline|cmd-b|add-edit|9"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-option-play-around-current-frame",
+      "layer": "Option",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "Option+/",
+      "action": "Play around current frame",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Playback\nOriginal key: Option+/\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Playback"
+      ],
+      "active": true,
+      "sourceFolder": "Playback",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|playback|option|play-around-current-frame|11"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-j-play-reverse",
+      "layer": "Base",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "J",
+      "action": "Play reverse",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Playback\nOriginal key: J\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Playback"
+      ],
+      "active": true,
+      "sourceFolder": "Playback",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|playback|j|play-reverse|12"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-k-stop-playback",
+      "layer": "Base",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "K",
+      "action": "Stop playback",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Playback\nOriginal key: K\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Playback"
+      ],
+      "active": true,
+      "sourceFolder": "Playback",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|playback|k|stop-playback|13"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-l-play-forward",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "Play forward",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Playback\nOriginal key: L\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Playback"
+      ],
+      "active": true,
+      "sourceFolder": "Playback",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|playback|l|play-forward|14"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-davinci-resolve-shift-s-toggle-linked-selection",
+      "layer": "Shift",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Shift+S",
+      "action": "Toggle linked selection",
+      "app": "DaVinci Resolve",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Timeline\nOriginal key: Shift+S\nSource: https://www.davincishortcuts.com/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DaVinci Resolve",
+        "Video Editing",
+        "Timeline"
+      ],
+      "active": true,
+      "sourceFolder": "Timeline",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|davinci-resolve|timeline|shift-s|toggle-linked-selection|15"
+    }
+  ],
+  "textTrigger": {
+    "columns": [
+      "",
+      "",
+      ""
+    ],
+    "fontSize": 16
+  }
+}

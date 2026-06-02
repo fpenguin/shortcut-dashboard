@@ -1,0 +1,170 @@
+{
+  "starterPack": {
+    "name": "OpenCode",
+    "platform": "Mac",
+    "category": "AI Tools",
+    "sourceType": "Curated public documentation",
+    "sourceName": "OpenCode keybinds",
+    "source": "https://opencode.ai/docs/keybinds/",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "OpenCode",
+    "path": "starter-packs/Mac/AI Tools/OpenCode.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-esc-interrupt-session",
+      "layer": "Base",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Esc",
+      "action": "Interrupt Session",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Run Control\nOriginal key: Esc\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Run Control"
+      ],
+      "active": true,
+      "sourceFolder": "Run Control",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|run-control|esc|interrupt-session"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-ctrl-t-cycle-model-variant",
+      "layer": "Ctrl",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Ctrl+T",
+      "action": "Cycle Model Variant",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Models\nOriginal key: Ctrl+T\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Models"
+      ],
+      "active": true,
+      "sourceFolder": "Models",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|models|ctrl-t|cycle-model-variant"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-f2-cycle-recent-model",
+      "layer": "Base",
+      "key": "F2",
+      "keyLabel": "F2",
+      "shortcut": "F2",
+      "action": "Cycle Recent Model",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Models\nOriginal key: F2\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Models"
+      ],
+      "active": true,
+      "sourceFolder": "Models",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|models|f2|cycle-recent-model"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-shift-f2-cycle-recent-model-reverse",
+      "layer": "Shift",
+      "key": "F2",
+      "keyLabel": "F2",
+      "shortcut": "Shift+F2",
+      "action": "Cycle Recent Model Reverse",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Models\nOriginal key: Shift+F2\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Models"
+      ],
+      "active": true,
+      "sourceFolder": "Models",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|models|shift-f2|cycle-recent-model-reverse"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-tab-cycle-agent",
+      "layer": "Base",
+      "key": "Tab",
+      "keyLabel": "Tab",
+      "shortcut": "Tab",
+      "action": "Cycle Agent",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Agents\nOriginal key: Tab\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Agents"
+      ],
+      "active": true,
+      "sourceFolder": "Agents",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|agents|tab|cycle-agent"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-shift-tab-cycle-agent-reverse",
+      "layer": "Shift",
+      "key": "Tab",
+      "keyLabel": "Tab",
+      "shortcut": "Shift+Tab",
+      "action": "Cycle Agent Reverse",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Agents\nOriginal key: Shift+Tab\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Agents"
+      ],
+      "active": true,
+      "sourceFolder": "Agents",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|agents|shift-tab|cycle-agent-reverse"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-opencode-ctrl-g-cancel-popovers-abort-running-response",
+      "layer": "Ctrl",
+      "key": "G",
+      "keyLabel": "G",
+      "shortcut": "Ctrl+G",
+      "action": "Cancel Popovers / Abort Running Response",
+      "app": "OpenCode",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Prompt\nOriginal key: Ctrl+G\nSource: https://opencode.ai/docs/keybinds/\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenCode",
+        "AI Tools",
+        "Prompt"
+      ],
+      "active": true,
+      "sourceFolder": "Prompt",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|opencode|prompt|ctrl-g|cancel-popovers-abort-running-response"
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "MATLAB",
+    "platform": "Mac",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "MATLAB keyboard shortcuts",
+    "source": "https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "MATLAB",
+    "path": "starter-packs/Mac/Data Analytics/MATLAB.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-ctrl-r-comment-selected-lines",
+      "layer": "Ctrl",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Ctrl+R",
+      "action": "Comment Selected Lines",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Window\nOriginal key: Ctrl+R\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Command Window"
+      ],
+      "active": true,
+      "sourceFolder": "Command Window",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|command-window|ctrl-r|comment-selected-lines"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-ctrl-t-uncomment-selected-lines",
+      "layer": "Ctrl",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Ctrl+T",
+      "action": "Uncomment Selected Lines",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Window\nOriginal key: Ctrl+T\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Command Window"
+      ],
+      "active": true,
+      "sourceFolder": "Command Window",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|command-window|ctrl-t|uncomment-selected-lines"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-cmd-r-run",
+      "layer": "Cmd",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+R",
+      "action": "Run",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editor\nOriginal key: Cmd+R\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|editor|cmd-r|run"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-f5-run-file",
+      "layer": "Base",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "F5",
+      "action": "Run File",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editor\nOriginal key: F5\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|editor|f5|run-file"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-f9-run-selection",
+      "layer": "Base",
+      "key": "F9",
+      "keyLabel": "F9",
+      "shortcut": "F9",
+      "action": "Run Selection",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editor\nOriginal key: F9\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|editor|f9|run-selection"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-cmd-i-smart-indent",
+      "layer": "Cmd",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Cmd+I",
+      "action": "Smart Indent",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editor\nOriginal key: Cmd+I\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|editor|cmd-i|smart-indent"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-cmd-shift-r-run-and-advance",
+      "layer": "Cmd+Shift",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+Shift+R",
+      "action": "Run and Advance",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editor\nOriginal key: Cmd+Shift+R\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|editor|cmd-shift-r|run-and-advance"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-f10-step",
+      "layer": "Base",
+      "key": "F10",
+      "keyLabel": "F10",
+      "shortcut": "F10",
+      "action": "Step",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Debug\nOriginal key: F10\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Debug"
+      ],
+      "active": true,
+      "sourceFolder": "Debug",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|debug|f10|step"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-f11-step-in",
+      "layer": "Base",
+      "key": "F11",
+      "keyLabel": "F11",
+      "shortcut": "F11",
+      "action": "Step In",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Debug\nOriginal key: F11\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Debug"
+      ],
+      "active": true,
+      "sourceFolder": "Debug",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|debug|f11|step-in"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-shift-f11-step-out",
+      "layer": "Shift",
+      "key": "F11",
+      "keyLabel": "F11",
+      "shortcut": "Shift+F11",
+      "action": "Step Out",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Debug\nOriginal key: Shift+F11\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Debug"
+      ],
+      "active": true,
+      "sourceFolder": "Debug",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|debug|shift-f11|step-out"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-matlab-f1-help-for-selection",
+      "layer": "Base",
+      "key": "F1",
+      "keyLabel": "F1",
+      "shortcut": "F1",
+      "action": "Help for Selection",
+      "app": "MATLAB",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Help\nOriginal key: F1\nSource: https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "MATLAB",
+        "Data Analytics",
+        "Help"
+      ],
+      "active": true,
+      "sourceFolder": "Help",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|matlab|help|f1|help-for-selection"
+    }
+  ]
+}

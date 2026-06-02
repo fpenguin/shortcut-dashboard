@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "Mimestream",
+    "platform": "Mac",
+    "category": "Communication",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Mimestream keyboard shortcuts",
+    "source": "https://mimestream.com/help/user-guide/keyboard-shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Mimestream",
+    "path": "starter-packs/Mac/Communication/Mimestream.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-communication-mimestream-c-compose",
+      "layer": "Base",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "C",
+      "action": "Compose",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: C\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|c|compose"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-r-reply",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Reply",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: R\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|r|reply"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-a-reply-all",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Reply All",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: A\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|a|reply-all"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-f-forward",
+      "layer": "Base",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "F",
+      "action": "Forward",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: F\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|f|forward"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-e-archive",
+      "layer": "Base",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "E",
+      "action": "Archive",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: E\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|e|archive"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-delete-trash",
+      "layer": "Base",
+      "key": "Delete",
+      "keyLabel": "Delete",
+      "shortcut": "Delete",
+      "action": "Trash",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: Delete\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|delete|trash"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-shift-u-mark-as-unread",
+      "layer": "Cmd+Shift",
+      "key": "U",
+      "keyLabel": "U",
+      "shortcut": "Cmd+Shift+U",
+      "action": "Mark as Unread",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: Cmd+Shift+U\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|cmd-shift-u|mark-as-unread"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-shift-j-mark-as-spam",
+      "layer": "Cmd+Shift",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "Cmd+Shift+J",
+      "action": "Mark as Spam",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Mail\nOriginal key: Cmd+Shift+J\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Mail"
+      ],
+      "active": true,
+      "sourceFolder": "Mail",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|mail|cmd-shift-j|mark-as-spam"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-1-inbox",
+      "layer": "Cmd",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+1",
+      "action": "Inbox",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Navigation\nOriginal key: Cmd+1\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|navigation|cmd-1|inbox"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-2-starred",
+      "layer": "Cmd",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+2",
+      "action": "Starred",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Navigation\nOriginal key: Cmd+2\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|navigation|cmd-2|starred"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-3-sent",
+      "layer": "Cmd",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Cmd+3",
+      "action": "Sent",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Navigation\nOriginal key: Cmd+3\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|navigation|cmd-3|sent"
+    },
+    {
+      "id": "starter-pack-mac-communication-mimestream-cmd-option-f-search-mail",
+      "layer": "Cmd+Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Option+F",
+      "action": "Search Mail",
+      "app": "Mimestream",
+      "category": "Communication",
+      "notes": "Starter pack category: Communication\nSection: Search\nOriginal key: Cmd+Option+F\nSource: https://mimestream.com/help/user-guide/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Mimestream",
+        "Communication",
+        "Search"
+      ],
+      "active": true,
+      "sourceFolder": "Search",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|mimestream|search|cmd-option-f|search-mail"
+    }
+  ]
+}

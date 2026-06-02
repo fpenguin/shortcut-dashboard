@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "SolidWorks",
+    "platform": "Windows",
+    "category": "CAD & Engineering",
+    "sourceType": "Curated public documentation",
+    "sourceName": "SOLIDWORKS keyboard shortcuts",
+    "source": "https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "SolidWorks",
+    "path": "starter-packs/Windows/CAD & Engineering/SolidWorks.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-space-view-orientation",
+      "layer": "Base",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Space",
+      "action": "View Orientation",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: Space\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|space|view-orientation"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-f-zoom-to-fit",
+      "layer": "Base",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "F",
+      "action": "Zoom to Fit",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: F\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|f|zoom-to-fit"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-arrowleft-rotate-view-left",
+      "layer": "Base",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "ArrowLeft",
+      "action": "Rotate View Left",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: ArrowLeft\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|arrowleft|rotate-view-left"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-arrowright-rotate-view-right",
+      "layer": "Base",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "ArrowRight",
+      "action": "Rotate View Right",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: ArrowRight\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|arrowright|rotate-view-right"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-arrowup-rotate-view-up",
+      "layer": "Base",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "ArrowUp",
+      "action": "Rotate View Up",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: ArrowUp\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|arrowup|rotate-view-up"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-arrowdown-rotate-view-down",
+      "layer": "Base",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "ArrowDown",
+      "action": "Rotate View Down",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: ArrowDown\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|view|arrowdown|rotate-view-down"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-l-line",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "Line",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Sketch\nOriginal key: L\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "Sketch"
+      ],
+      "active": true,
+      "sourceFolder": "Sketch",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|sketch|l|line"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-c-circle",
+      "layer": "Base",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "C",
+      "action": "Circle",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Sketch\nOriginal key: C\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "Sketch"
+      ],
+      "active": true,
+      "sourceFolder": "Sketch",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|sketch|c|circle"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-r-rectangle",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Rectangle",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Sketch\nOriginal key: R\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "Sketch"
+      ],
+      "active": true,
+      "sourceFolder": "Sketch",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|sketch|r|rectangle"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-s-shortcut-bar",
+      "layer": "Base",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "S",
+      "action": "Shortcut Bar",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Sketch\nOriginal key: S\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "Sketch"
+      ],
+      "active": true,
+      "sourceFolder": "Sketch",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|sketch|s|shortcut-bar"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-solidworks-m-measure",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Measure",
+      "app": "SolidWorks",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Features\nOriginal key: M\nSource: https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "SolidWorks",
+        "CAD & Engineering",
+        "Features"
+      ],
+      "active": true,
+      "sourceFolder": "Features",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|solidworks|features|m|measure"
+    }
+  ]
+}

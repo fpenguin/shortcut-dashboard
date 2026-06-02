@@ -1,0 +1,193 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-zeplin-081259b03e",
+      "layer": "Option",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "Option+J",
+      "action": "Jump to Screen",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Navigation\nOriginal key: alt+j\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Navigation|alt+j|Jump to Screen"
+    },
+    {
+      "id": "starter-zeplin-fbc805de3c",
+      "layer": "Option",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Option+D",
+      "action": "Go to Dashboard",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Navigation\nOriginal key: alt+d\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Navigation|alt+d|Go to Dashboard"
+    },
+    {
+      "id": "starter-zeplin-e6309eb163",
+      "layer": "Option",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Option+S",
+      "action": "Go to Styleguide",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Navigation\nOriginal key: alt+s\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Navigation|alt+s|Go to Styleguide"
+    },
+    {
+      "id": "starter-zeplin-4beaa0bd3c",
+      "layer": "Option",
+      "key": "0",
+      "keyLabel": "0",
+      "shortcut": "Option+0",
+      "action": "Actual Size",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Screen\nOriginal key: alt+0\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Screen"
+      ],
+      "active": true,
+      "sourceFolder": "Screen",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Screen|alt+0|Actual Size"
+    },
+    {
+      "id": "starter-zeplin-cb6b5e5b16",
+      "layer": "Option",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "Option+O",
+      "action": "Pop Screen Out",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Screen\nOriginal key: alt+o\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Screen"
+      ],
+      "active": true,
+      "sourceFolder": "Screen",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Screen|alt+o|Pop Screen Out"
+    },
+    {
+      "id": "starter-zeplin-4b3c419dd4",
+      "layer": "Base",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Right",
+      "action": "Next Screen",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Screen\nOriginal key: right\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Screen"
+      ],
+      "active": true,
+      "sourceFolder": "Screen",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Screen|right|Next Screen"
+    },
+    {
+      "id": "starter-zeplin-7ec404b72f",
+      "layer": "Base",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "Left",
+      "action": "Previous Screen",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Screen\nOriginal key: left\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Screen"
+      ],
+      "active": true,
+      "sourceFolder": "Screen",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Screen|left|Previous Screen"
+    },
+    {
+      "id": "starter-zeplin-77fa8bd951",
+      "layer": "Option",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Option+T",
+      "action": "Manage Tags",
+      "app": "Zeplin",
+      "category": "Design",
+      "notes": "Starter pack category: Design\nSection: Screen\nOriginal key: alt+t\nSource: https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts\nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Zeplin",
+        "Design",
+        "Screen"
+      ],
+      "active": true,
+      "sourceFolder": "Screen",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Windows|Zeplin|Screen|alt+t|Manage Tags"
+    }
+  ],
+  "starterPack": {
+    "app": "Zeplin",
+    "platform": "Windows",
+    "category": "Design",
+    "source": "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",
+    "additionalSources": [],
+    "sourceRepository": "https://github.com/solomkinmv/hotkys",
+    "sourceLicense": "MIT",
+    "notes": "Generated from Hotkys public shortcut data. Includes 10 dashboard-placeable shortcuts after filtering universal edit commands and unsupported keys. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "path": "starter-packs/Windows/Design/Zeplin.json",
+    "updated": "2026-06-01",
+    "coverage": "expanded-public-reference"
+  }
+}

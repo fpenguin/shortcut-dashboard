@@ -1,0 +1,214 @@
+{
+  "starterPack": {
+    "name": "DBeaver",
+    "platform": "Mac",
+    "category": "Database",
+    "sourceType": "Curated public documentation",
+    "sourceName": "DBeaver keyboard shortcuts",
+    "source": "https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "DBeaver",
+    "path": "starter-packs/Mac/Database/DBeaver.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-enter-execute-sql-statement",
+      "layer": "Cmd",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Enter",
+      "action": "Execute SQL Statement",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: SQL Editor\nOriginal key: Cmd+Enter\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "SQL Editor"
+      ],
+      "active": true,
+      "sourceFolder": "SQL Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|sql-editor|cmd-enter|execute-sql-statement"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-option-x-execute-script",
+      "layer": "Cmd+Option",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "Cmd+Option+X",
+      "action": "Execute Script",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: SQL Editor\nOriginal key: Cmd+Option+X\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "SQL Editor"
+      ],
+      "active": true,
+      "sourceFolder": "SQL Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|sql-editor|cmd-option-x|execute-script"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-shift-f-format-sql",
+      "layer": "Cmd+Shift",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Shift+F",
+      "action": "Format SQL",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: SQL Editor\nOriginal key: Cmd+Shift+F\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "SQL Editor"
+      ],
+      "active": true,
+      "sourceFolder": "SQL Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|sql-editor|cmd-shift-f|format-sql"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-option-l-format-active-query",
+      "layer": "Cmd+Option",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Cmd+Option+L",
+      "action": "Format Active Query",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: SQL Editor\nOriginal key: Cmd+Option+L\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "SQL Editor"
+      ],
+      "active": true,
+      "sourceFolder": "SQL Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|sql-editor|cmd-option-l|format-active-query"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-shift-d-open-database-navigator",
+      "layer": "Cmd+Shift",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Cmd+Shift+D",
+      "action": "Open Database Navigator",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Shift+D\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|navigation|cmd-shift-d|open-database-navigator"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-option-arrowdown-next-editor",
+      "layer": "Cmd+Option",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "Cmd+Option+ArrowDown",
+      "action": "Next Editor",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Option+ArrowDown\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|navigation|cmd-option-arrowdown|next-editor"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-option-arrowup-previous-editor",
+      "layer": "Cmd+Option",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "Cmd+Option+ArrowUp",
+      "action": "Previous Editor",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Option+ArrowUp\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|navigation|cmd-option-arrowup|previous-editor"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-f5-refresh",
+      "layer": "Base",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "F5",
+      "action": "Refresh",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Data\nOriginal key: F5\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|data|f5|refresh"
+    },
+    {
+      "id": "starter-pack-mac-database-dbeaver-cmd-shift-s-save-changes",
+      "layer": "Cmd+Shift",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Cmd+Shift+S",
+      "action": "Save Changes",
+      "app": "DBeaver",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Data\nOriginal key: Cmd+Shift+S\nSource: https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DBeaver",
+        "Database",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|dbeaver|data|cmd-shift-s|save-changes"
+    }
+  ]
+}

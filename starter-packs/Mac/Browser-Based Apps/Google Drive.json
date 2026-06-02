@@ -1,0 +1,257 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-cmd-show-keyboard-shortcut-list",
+      "layer": "Cmd",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "Cmd+/",
+      "action": "Show keyboard shortcut list",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Help\nOriginal key: Cmd+/\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Help"
+      ],
+      "active": true,
+      "sourceFolder": "Help",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|help|cmd|show-keyboard-shortcut-list|0"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-x-select-or-deselect-item",
+      "layer": "Base",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "X",
+      "action": "Select or deselect item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Selection\nOriginal key: X\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Selection"
+      ],
+      "active": true,
+      "sourceFolder": "Selection",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|selection|x|select-or-deselect-item|1"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-j-go-to-next-item",
+      "layer": "Base",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "J",
+      "action": "Go to next item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: J\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|navigation|j|go-to-next-item|2"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-k-go-to-previous-item",
+      "layer": "Base",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "K",
+      "action": "Go to previous item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: K\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|navigation|k|go-to-previous-item|3"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-return-open-selected-item",
+      "layer": "Base",
+      "key": "Enter",
+      "keyLabel": "Return",
+      "shortcut": "Return",
+      "action": "Open selected item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Navigation\nOriginal key: Enter\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|navigation|return|open-selected-item|4"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-a-open-actions-menu",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Open actions menu",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: A\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|a|open-actions-menu|5"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-n-rename-selected-item",
+      "layer": "Base",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "N",
+      "action": "Rename selected item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: N\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|n|rename-selected-item|6"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-z-move-selected-item",
+      "layer": "Base",
+      "key": "Z",
+      "keyLabel": "Z",
+      "shortcut": "Z",
+      "action": "Move selected item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: Z\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|z|move-selected-item|7"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-s-star-or-unstar-selected-item",
+      "layer": "Base",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "S",
+      "action": "Star or unstar selected item",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: S\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|s|star-or-unstar-selected-item|8"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-d-show-or-hide-details-pane",
+      "layer": "Base",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "D",
+      "action": "Show or hide details pane",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: D\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|d|show-or-hide-details-pane|9"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-google-drive-v-switch-grid-list-view",
+      "layer": "Base",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "V",
+      "action": "Switch grid/list view",
+      "app": "Google Drive",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Actions\nOriginal key: V\nSource: https://support.google.com/drive/answer/2563044\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Drive",
+        "Browser-Based Apps",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-drive|actions|v|switch-grid-list-view|10"
+    }
+  ],
+  "starterPack": {
+    "app": "Google Drive",
+    "platform": "Mac",
+    "category": "Browser-Based Apps",
+    "source": "https://support.google.com/drive/answer/2563044",
+    "sourceRepository": "",
+    "sourceLicense": "Public documentation; shortcut facts curated, no vendor assets included.",
+    "notes": "Shortcut Dashboard starter pack. Merge this JSON from Backup & Import. Common universal edit commands are intentionally omitted.",
+    "path": "starter-packs/Mac/Browser-Based Apps/Google Drive.json",
+    "updated": "2026-06-01"
+  }
+}

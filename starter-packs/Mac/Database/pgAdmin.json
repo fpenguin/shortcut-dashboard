@@ -1,0 +1,214 @@
+{
+  "starterPack": {
+    "name": "pgAdmin",
+    "platform": "Mac",
+    "category": "Database",
+    "sourceType": "Curated public documentation",
+    "sourceName": "pgAdmin keyboard shortcuts",
+    "source": "https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "pgAdmin",
+    "path": "starter-packs/Mac/Database/pgAdmin.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-database-pgadmin-f5-execute-query",
+      "layer": "Base",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "F5",
+      "action": "Execute Query",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query Tool\nOriginal key: F5\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Query Tool"
+      ],
+      "active": true,
+      "sourceFolder": "Query Tool",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|query-tool|f5|execute-query"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-f7-explain-query",
+      "layer": "Base",
+      "key": "F7",
+      "keyLabel": "F7",
+      "shortcut": "F7",
+      "action": "Explain Query",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query Tool\nOriginal key: F7\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Query Tool"
+      ],
+      "active": true,
+      "sourceFolder": "Query Tool",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|query-tool|f7|explain-query"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-shift-f7-explain-analyze-query",
+      "layer": "Shift",
+      "key": "F7",
+      "keyLabel": "F7",
+      "shortcut": "Shift+F7",
+      "action": "Explain Analyze Query",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query Tool\nOriginal key: Shift+F7\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Query Tool"
+      ],
+      "active": true,
+      "sourceFolder": "Query Tool",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|query-tool|shift-f7|explain-analyze-query"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-cmd-space-autocomplete",
+      "layer": "Cmd",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Cmd+Space",
+      "action": "Autocomplete",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query Tool\nOriginal key: Cmd+Space\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Query Tool"
+      ],
+      "active": true,
+      "sourceFolder": "Query Tool",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|query-tool|cmd-space|autocomplete"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-cmd-option-f-format-sql",
+      "layer": "Cmd+Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Option+F",
+      "action": "Format SQL",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query Tool\nOriginal key: Cmd+Option+F\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Query Tool"
+      ],
+      "active": true,
+      "sourceFolder": "Query Tool",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|query-tool|cmd-option-f|format-sql"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-cmd-option-arrowleft-previous-tab",
+      "layer": "Cmd+Option",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "Cmd+Option+ArrowLeft",
+      "action": "Previous Tab",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Option+ArrowLeft\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|navigation|cmd-option-arrowleft|previous-tab"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-cmd-option-arrowright-next-tab",
+      "layer": "Cmd+Option",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Cmd+Option+ArrowRight",
+      "action": "Next Tab",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Option+ArrowRight\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|navigation|cmd-option-arrowright|next-tab"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-f5-refresh-object-browser",
+      "layer": "Base",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "F5",
+      "action": "Refresh Object Browser",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Object Browser\nOriginal key: F5\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Object Browser"
+      ],
+      "active": true,
+      "sourceFolder": "Object Browser",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|object-browser|f5|refresh-object-browser"
+    },
+    {
+      "id": "starter-pack-mac-database-pgadmin-delete-delete-object",
+      "layer": "Base",
+      "key": "Delete",
+      "keyLabel": "Delete",
+      "shortcut": "Delete",
+      "action": "Delete Object",
+      "app": "pgAdmin",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Object Browser\nOriginal key: Delete\nSource: https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "pgAdmin",
+        "Database",
+        "Object Browser"
+      ],
+      "active": true,
+      "sourceFolder": "Object Browser",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|pgadmin|object-browser|delete|delete-object"
+    }
+  ]
+}

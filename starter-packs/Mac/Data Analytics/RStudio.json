@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "RStudio",
+    "platform": "Mac",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "RStudio keyboard shortcuts",
+    "source": "https://docs.posit.co/ide/user/ide/reference/shortcuts.html",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "RStudio",
+    "path": "starter-packs/Mac/Data Analytics/RStudio.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-enter-run-current-line-or-selection",
+      "layer": "Cmd",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Enter",
+      "action": "Run Current Line or Selection",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Console\nOriginal key: Cmd+Enter\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Console"
+      ],
+      "active": true,
+      "sourceFolder": "Console",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|console|cmd-enter|run-current-line-or-selection"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-shift-enter-source-file",
+      "layer": "Cmd+Shift",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Shift+Enter",
+      "action": "Source File",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Console\nOriginal key: Cmd+Shift+Enter\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Console"
+      ],
+      "active": true,
+      "sourceFolder": "Console",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|console|cmd-shift-enter|source-file"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-ctrl-1-move-focus-to-source",
+      "layer": "Ctrl",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Ctrl+1",
+      "action": "Move Focus to Source",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Console\nOriginal key: Ctrl+1\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Console"
+      ],
+      "active": true,
+      "sourceFolder": "Console",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|console|ctrl-1|move-focus-to-source"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-ctrl-2-move-focus-to-console",
+      "layer": "Ctrl",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Ctrl+2",
+      "action": "Move Focus to Console",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Console\nOriginal key: Ctrl+2\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Console"
+      ],
+      "active": true,
+      "sourceFolder": "Console",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|console|ctrl-2|move-focus-to-console"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-go-to-file-or-function",
+      "layer": "Cmd",
+      "key": ".",
+      "keyLabel": ".",
+      "shortcut": "Cmd+.",
+      "action": "Go to File or Function",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Cmd+.\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|navigation|cmd|go-to-file-or-function"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-option-i-insert-r-chunk",
+      "layer": "Cmd+Option",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Cmd+Option+I",
+      "action": "Insert R Chunk",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editing\nOriginal key: Cmd+Option+I\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|editing|cmd-option-i|insert-r-chunk"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-shift-c-comment-or-uncomment-lines",
+      "layer": "Cmd+Shift",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Cmd+Shift+C",
+      "action": "Comment or Uncomment Lines",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editing\nOriginal key: Cmd+Shift+C\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|editing|cmd-shift-c|comment-or-uncomment-lines"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-i-reindent-lines",
+      "layer": "Cmd",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Cmd+I",
+      "action": "Reindent Lines",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Editing\nOriginal key: Cmd+I\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|editing|cmd-i|reindent-lines"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-ctrl-3-move-focus-to-help",
+      "layer": "Ctrl",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Ctrl+3",
+      "action": "Move Focus to Help",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Panes\nOriginal key: Ctrl+3\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Panes"
+      ],
+      "active": true,
+      "sourceFolder": "Panes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|panes|ctrl-3|move-focus-to-help"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-ctrl-8-move-focus-to-git",
+      "layer": "Ctrl",
+      "key": "8",
+      "keyLabel": "8",
+      "shortcut": "Ctrl+8",
+      "action": "Move Focus to Git",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Panes\nOriginal key: Ctrl+8\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Panes"
+      ],
+      "active": true,
+      "sourceFolder": "Panes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|panes|ctrl-8|move-focus-to-git"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-shift-b-build-and-reload",
+      "layer": "Cmd+Shift",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Cmd+Shift+B",
+      "action": "Build and Reload",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Build\nOriginal key: Cmd+Shift+B\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Build"
+      ],
+      "active": true,
+      "sourceFolder": "Build",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|build|cmd-shift-b|build-and-reload"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-rstudio-cmd-shift-k-knit-document",
+      "layer": "Cmd+Shift",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Cmd+Shift+K",
+      "action": "Knit Document",
+      "app": "RStudio",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Presentation\nOriginal key: Cmd+Shift+K\nSource: https://docs.posit.co/ide/user/ide/reference/shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "RStudio",
+        "Data Analytics",
+        "Presentation"
+      ],
+      "active": true,
+      "sourceFolder": "Presentation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|rstudio|presentation|cmd-shift-k|knit-document"
+    }
+  ]
+}

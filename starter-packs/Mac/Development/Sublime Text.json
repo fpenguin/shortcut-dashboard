@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "Sublime Text",
+    "platform": "Mac",
+    "category": "Development",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Sublime Text key bindings",
+    "source": "https://www.sublimetext.com/docs/key_bindings.html",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "Sublime Text",
+    "path": "starter-packs/Mac/Development/Sublime Text.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-r-goto-symbol",
+      "layer": "Cmd",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+R",
+      "action": "Goto Symbol",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Navigation\nOriginal key: Cmd+R\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|navigation|cmd-r|goto-symbol"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-ctrl-g-goto-line",
+      "layer": "Ctrl",
+      "key": "G",
+      "keyLabel": "G",
+      "shortcut": "Ctrl+G",
+      "action": "Goto Line",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Navigation\nOriginal key: Ctrl+G\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|navigation|ctrl-g|goto-line"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-d-select-next-occurrence",
+      "layer": "Cmd",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Cmd+D",
+      "action": "Select Next Occurrence",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Selection\nOriginal key: Cmd+D\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Selection"
+      ],
+      "active": true,
+      "sourceFolder": "Selection",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|selection|cmd-d|select-next-occurrence"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-ctrl-g-select-all-occurrences",
+      "layer": "Cmd+Ctrl",
+      "key": "G",
+      "keyLabel": "G",
+      "shortcut": "Cmd+Ctrl+G",
+      "action": "Select All Occurrences",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Selection\nOriginal key: Cmd+Ctrl+G\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Selection"
+      ],
+      "active": true,
+      "sourceFolder": "Selection",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|selection|cmd-ctrl-g|select-all-occurrences"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-shift-d-duplicate-line",
+      "layer": "Cmd+Shift",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Cmd+Shift+D",
+      "action": "Duplicate Line",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Cmd+Shift+D\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|editing|cmd-shift-d|duplicate-line"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-ctrl-shift-k-delete-line",
+      "layer": "Ctrl+Shift",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Ctrl+Shift+K",
+      "action": "Delete Line",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Ctrl+Shift+K\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|editing|ctrl-shift-k|delete-line"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-j-join-lines",
+      "layer": "Cmd",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "Cmd+J",
+      "action": "Join Lines",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Cmd+J\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|editing|cmd-j|join-lines"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-option-arrowdown-add-cursor-below",
+      "layer": "Cmd+Option",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "Cmd+Option+ArrowDown",
+      "action": "Add Cursor Below",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Cmd+Option+ArrowDown\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|editing|cmd-option-arrowdown|add-cursor-below"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-option-arrowup-add-cursor-above",
+      "layer": "Cmd+Option",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "Cmd+Option+ArrowUp",
+      "action": "Add Cursor Above",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Cmd+Option+ArrowUp\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|editing|cmd-option-arrowup|add-cursor-above"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-k-cmd-b-toggle-sidebar",
+      "layer": "Cmd",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Cmd+K Cmd+B",
+      "action": "Toggle Sidebar",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: View\nOriginal key: Cmd+K Cmd+B\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|view|cmd-k-cmd-b|toggle-sidebar"
+    },
+    {
+      "id": "starter-pack-mac-development-sublime-text-cmd-shift-p-command-palette",
+      "layer": "Cmd+Shift",
+      "key": "P",
+      "keyLabel": "P",
+      "shortcut": "Cmd+Shift+P",
+      "action": "Command Palette",
+      "app": "Sublime Text",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Command Palette\nOriginal key: Cmd+Shift+P\nSource: https://www.sublimetext.com/docs/key_bindings.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Sublime Text",
+        "Development",
+        "Command Palette"
+      ],
+      "active": true,
+      "sourceFolder": "Command Palette",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|sublime-text|command-palette|cmd-shift-p|command-palette"
+    }
+  ]
+}

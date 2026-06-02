@@ -1,0 +1,147 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-r-refresh-your-calendar",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Refresh your calendar",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Move around the calendar\nOriginal key: r\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Move around the calendar"
+      ],
+      "active": true,
+      "sourceFolder": "Move around the calendar",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|move-around-the-calendar|r|refresh-your-calendar|0"
+    },
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-t-move-to-the-current-day",
+      "layer": "Base",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "T",
+      "action": "Move to the current day",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Move around the calendar\nOriginal key: t\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Move around the calendar"
+      ],
+      "active": true,
+      "sourceFolder": "Move around the calendar",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|move-around-the-calendar|t|move-to-the-current-day|1"
+    },
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-c-create-a-new-event",
+      "layer": "Base",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "C",
+      "action": "Create a new event",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Make changes to an event\nOriginal key: c\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Make changes to an event"
+      ],
+      "active": true,
+      "sourceFolder": "Make changes to an event",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|make-changes-to-an-event|c|create-a-new-event|2"
+    },
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-e-see-an-event-s-details",
+      "layer": "Base",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "E",
+      "action": "See an event's details",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Make changes to an event\nOriginal key: e\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Make changes to an event"
+      ],
+      "active": true,
+      "sourceFolder": "Make changes to an event",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|make-changes-to-an-event|e|see-an-event-s-details|3"
+    },
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-z-undo",
+      "layer": "Base",
+      "key": "Z",
+      "keyLabel": "Z",
+      "shortcut": "Z",
+      "action": "Undo",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Make changes to an event\nOriginal key: z\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Make changes to an event"
+      ],
+      "active": true,
+      "sourceFolder": "Make changes to an event",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|make-changes-to-an-event|z|undo|4"
+    },
+    {
+      "id": "starter-pack-windows-browser-based-apps-google-calendar-esc-return-to-calendar-grid-from-an-even",
+      "layer": "Base",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Esc",
+      "action": "Return to calendar grid from an event details page",
+      "app": "Google Calendar",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Make changes to an event\nOriginal key: esc\nSource: https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Calendar",
+        "Browser-Based Apps",
+        "Make changes to an event"
+      ],
+      "active": true,
+      "sourceFolder": "Make changes to an event",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|google-calendar|make-changes-to-an-event|esc|return-to-calendar-grid-from-an-event-details-page|5"
+    }
+  ],
+  "starterPack": {
+    "app": "Google Calendar",
+    "platform": "Windows",
+    "category": "Browser-Based Apps",
+    "source": "https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view",
+    "sourceRepository": "https://github.com/solomkinmv/hotkys",
+    "sourceLicense": "MIT",
+    "notes": "Shortcut Dashboard starter pack. Merge this JSON from Backup & Import. Common universal edit commands are intentionally omitted.",
+    "path": "starter-packs/Windows/Browser-Based Apps/Google Calendar.json",
+    "updated": "2026-06-01"
+  }
+}

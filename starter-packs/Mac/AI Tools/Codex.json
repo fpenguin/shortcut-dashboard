@@ -1,0 +1,148 @@
+{
+  "starterPack": {
+    "name": "Codex",
+    "platform": "Mac",
+    "category": "AI Tools",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Codex TUI tooltips",
+    "source": "https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Codex",
+    "path": "starter-packs/Mac/AI Tools/Codex.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-ai-tools-codex-shortcut-open-command-popup",
+      "layer": "Base",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "/",
+      "action": "Open Command Popup",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Commands\nOriginal key: /\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Commands"
+      ],
+      "active": true,
+      "sourceFolder": "Commands",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|commands|shortcut|open-command-popup"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-codex-tab-autocomplete-slash-command",
+      "layer": "Base",
+      "key": "Tab",
+      "keyLabel": "Tab",
+      "shortcut": "Tab",
+      "action": "Autocomplete Slash Command",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Commands\nOriginal key: Tab\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Commands"
+      ],
+      "active": true,
+      "sourceFolder": "Commands",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|commands|tab|autocomplete-slash-command"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-codex-esc-step-back-edit-last-message",
+      "layer": "Base",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Esc",
+      "action": "Step Back / Edit Last Message",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Conversation\nOriginal key: Esc\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Conversation"
+      ],
+      "active": true,
+      "sourceFolder": "Conversation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|conversation|esc|step-back-edit-last-message"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-codex-enter-confirm-edit-or-send-message",
+      "layer": "Base",
+      "key": "Enter",
+      "keyLabel": "Return",
+      "shortcut": "Enter",
+      "action": "Confirm Edit or Send Message",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Conversation\nOriginal key: Enter\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Conversation"
+      ],
+      "active": true,
+      "sourceFolder": "Conversation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|conversation|enter|confirm-edit-or-send-message"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-codex-shift-1-start-shell-command-prefix",
+      "layer": "Shift",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Shift+1",
+      "action": "Start Shell Command Prefix",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Shell\nOriginal key: Shift+1\nThe visible character is !; the dashboard stores it as Shift+1 so it can sit on the keyboard map.\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Shell"
+      ],
+      "active": true,
+      "sourceFolder": "Shell",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|shell|shift-1|start-shell-command-prefix"
+    },
+    {
+      "id": "starter-pack-mac-ai-tools-codex-ctrl-o-copy-latest-response-as-markdown",
+      "layer": "Ctrl",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "Ctrl+O",
+      "action": "Copy Latest Response as Markdown",
+      "app": "Codex",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Output\nOriginal key: Ctrl+O\nSource: https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Codex",
+        "AI Tools",
+        "Output"
+      ],
+      "active": true,
+      "sourceFolder": "Output",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|codex|output|ctrl-o|copy-latest-response-as-markdown"
+    }
+  ]
+}

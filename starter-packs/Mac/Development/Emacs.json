@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "Emacs",
+    "platform": "Mac",
+    "category": "Development",
+    "sourceType": "Curated public documentation",
+    "sourceName": "GNU Emacs reference card",
+    "source": "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "Emacs",
+    "path": "starter-packs/Mac/Development/Emacs.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-b-backward-character",
+      "layer": "Ctrl",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Ctrl+B",
+      "action": "Backward Character",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Movement\nOriginal key: Ctrl+B\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Movement"
+      ],
+      "active": true,
+      "sourceFolder": "Movement",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|movement|ctrl-b|backward-character"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-n-next-line",
+      "layer": "Ctrl",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Ctrl+N",
+      "action": "Next Line",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Movement\nOriginal key: Ctrl+N\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Movement"
+      ],
+      "active": true,
+      "sourceFolder": "Movement",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|movement|ctrl-n|next-line"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-option-f-forward-word",
+      "layer": "Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Option+F",
+      "action": "Forward Word",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Movement\nOriginal key: Option+F\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Movement"
+      ],
+      "active": true,
+      "sourceFolder": "Movement",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|movement|option-f|forward-word"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-option-b-backward-word",
+      "layer": "Option",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Option+B",
+      "action": "Backward Word",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Movement\nOriginal key: Option+B\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Movement"
+      ],
+      "active": true,
+      "sourceFolder": "Movement",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|movement|option-b|backward-word"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-x-b-switch-buffer",
+      "layer": "Ctrl",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Ctrl+X B",
+      "action": "Switch Buffer",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Buffers\nOriginal key: Ctrl+X B\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Buffers"
+      ],
+      "active": true,
+      "sourceFolder": "Buffers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|buffers|ctrl-x-b|switch-buffer"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-x-ctrl-f-find-file",
+      "layer": "Ctrl",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Ctrl+X Ctrl+F",
+      "action": "Find File",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Files\nOriginal key: Ctrl+X Ctrl+F\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Files"
+      ],
+      "active": true,
+      "sourceFolder": "Files",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|files|ctrl-x-ctrl-f|find-file"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-x-ctrl-s-save-buffer",
+      "layer": "Ctrl",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Ctrl+X Ctrl+S",
+      "action": "Save Buffer",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Files\nOriginal key: Ctrl+X Ctrl+S\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Files"
+      ],
+      "active": true,
+      "sourceFolder": "Files",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|files|ctrl-x-ctrl-s|save-buffer"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-r-search-backward",
+      "layer": "Ctrl",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Ctrl+R",
+      "action": "Search Backward",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Search\nOriginal key: Ctrl+R\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Search"
+      ],
+      "active": true,
+      "sourceFolder": "Search",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|search|ctrl-r|search-backward"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-k-kill-line",
+      "layer": "Ctrl",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Ctrl+K",
+      "action": "Kill Line",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Ctrl+K\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|editing|ctrl-k|kill-line"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-ctrl-y-yank",
+      "layer": "Ctrl",
+      "key": "Y",
+      "keyLabel": "Y",
+      "shortcut": "Ctrl+Y",
+      "action": "Yank",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editing\nOriginal key: Ctrl+Y\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|editing|ctrl-y|yank"
+    },
+    {
+      "id": "starter-pack-mac-development-emacs-option-x-execute-extended-command",
+      "layer": "Option",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "Option+X",
+      "action": "Execute Extended Command",
+      "app": "Emacs",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Command\nOriginal key: Option+X\nSource: https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Emacs",
+        "Development",
+        "Command"
+      ],
+      "active": true,
+      "sourceFolder": "Command",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|emacs|command|option-x|execute-extended-command"
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "starterPack": {
+    "name": "KiCad",
+    "platform": "Mac",
+    "category": "CAD & Engineering",
+    "sourceType": "Curated public documentation",
+    "sourceName": "KiCad hotkeys",
+    "source": "https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "KiCad",
+    "path": "starter-packs/Mac/CAD & Engineering/KiCad.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-f3-find-next",
+      "layer": "Base",
+      "key": "F3",
+      "keyLabel": "F3",
+      "shortcut": "F3",
+      "action": "Find Next",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Navigation\nOriginal key: F3\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|navigation|f3|find-next"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-ctrl-e-zoom-to-fit",
+      "layer": "Ctrl",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Ctrl+E",
+      "action": "Zoom to Fit",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: View\nOriginal key: Ctrl+E\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|view|ctrl-e|zoom-to-fit"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-a-add-symbol",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Add Symbol",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: A\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|schematic|a|add-symbol"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-w-place-wire",
+      "layer": "Base",
+      "key": "W",
+      "keyLabel": "W",
+      "shortcut": "W",
+      "action": "Place Wire",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: W\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|schematic|w|place-wire"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-l-label-net",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "Label Net",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: L\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|schematic|l|label-net"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-p-place-power-port",
+      "layer": "Base",
+      "key": "P",
+      "keyLabel": "P",
+      "shortcut": "P",
+      "action": "Place Power Port",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: P\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|schematic|p|place-power-port"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-x-route-tracks",
+      "layer": "Base",
+      "key": "X",
+      "keyLabel": "X",
+      "shortcut": "X",
+      "action": "Route Tracks",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: X\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|x|route-tracks"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-v-add-via",
+      "layer": "Base",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "V",
+      "action": "Add Via",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: V\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|v|add-via"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-m-move-item",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Move Item",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: M\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|m|move-item"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-r-rotate-item",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Rotate Item",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: R\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|r|rotate-item"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-e-edit-item",
+      "layer": "Base",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "E",
+      "action": "Edit Item",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: E\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|e|edit-item"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-delete-delete-item",
+      "layer": "Base",
+      "key": "Delete",
+      "keyLabel": "Delete",
+      "shortcut": "Delete",
+      "action": "Delete Item",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: Delete\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|pcb|delete|delete-item"
+    },
+    {
+      "id": "starter-pack-mac-cad-and-engineering-kicad-ctrl-l-open-3d-viewer",
+      "layer": "Ctrl",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Ctrl+L",
+      "action": "Open 3D Viewer",
+      "app": "KiCad",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Tools\nOriginal key: Ctrl+L\nSource: https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "KiCad",
+        "CAD & Engineering",
+        "Tools"
+      ],
+      "active": true,
+      "sourceFolder": "Tools",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|kicad|tools|ctrl-l|open-3d-viewer"
+    }
+  ]
+}

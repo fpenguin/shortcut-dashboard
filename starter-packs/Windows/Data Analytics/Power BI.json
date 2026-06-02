@@ -1,0 +1,192 @@
+{
+  "starterPack": {
+    "name": "Power BI",
+    "platform": "Windows",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Microsoft Power BI Desktop keyboard shortcuts",
+    "source": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "Power BI",
+    "path": "starter-packs/Windows/Data Analytics/Power BI.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-f6-move-focus-between-sections",
+      "layer": "Ctrl",
+      "key": "F6",
+      "keyLabel": "F6",
+      "shortcut": "Ctrl+F6",
+      "action": "Move Focus Between Sections",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Ctrl+F6\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|navigation|ctrl-f6|move-focus-between-sections"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-shift-f6-move-focus-backward-between-sections",
+      "layer": "Ctrl+Shift",
+      "key": "F6",
+      "keyLabel": "F6",
+      "shortcut": "Ctrl+Shift+F6",
+      "action": "Move Focus Backward Between Sections",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Ctrl+Shift+F6\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|navigation|ctrl-shift-f6|move-focus-backward-between-sections"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-alt-show-key-tips",
+      "layer": "Option",
+      "key": "Option",
+      "keyLabel": "Option",
+      "shortcut": "Alt",
+      "action": "Show Key Tips",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Ribbon\nOriginal key: Alt\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Ribbon"
+      ],
+      "active": true,
+      "sourceFolder": "Ribbon",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|ribbon|alt|show-key-tips"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-enter-enter-or-exit-full-screen-visual-mode",
+      "layer": "Ctrl",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Ctrl+Enter",
+      "action": "Enter or Exit Full Screen Visual Mode",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Report\nOriginal key: Ctrl+Enter\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Report"
+      ],
+      "active": true,
+      "sourceFolder": "Report",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|report|ctrl-enter|enter-or-exit-full-screen-visual-mode"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-shift-f10-open-context-menu",
+      "layer": "Shift",
+      "key": "F10",
+      "keyLabel": "F10",
+      "shortcut": "Shift+F10",
+      "action": "Open Context Menu",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Report\nOriginal key: Shift+F10\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Report"
+      ],
+      "active": true,
+      "sourceFolder": "Report",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|report|shift-f10|open-context-menu"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-arrowright-move-to-next-visual",
+      "layer": "Ctrl",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Ctrl+ArrowRight",
+      "action": "Move to Next Visual",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Visuals\nOriginal key: Ctrl+ArrowRight\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Visuals"
+      ],
+      "active": true,
+      "sourceFolder": "Visuals",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|visuals|ctrl-arrowright|move-to-next-visual"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-arrowleft-move-to-previous-visual",
+      "layer": "Ctrl",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "Ctrl+ArrowLeft",
+      "action": "Move to Previous Visual",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Visuals\nOriginal key: Ctrl+ArrowLeft\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Visuals"
+      ],
+      "active": true,
+      "sourceFolder": "Visuals",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|visuals|ctrl-arrowleft|move-to-previous-visual"
+    },
+    {
+      "id": "starter-pack-windows-data-analytics-power-bi-ctrl-shift-f-open-filter-pane",
+      "layer": "Ctrl+Shift",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Ctrl+Shift+F",
+      "action": "Open Filter Pane",
+      "app": "Power BI",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Panes\nOriginal key: Ctrl+Shift+F\nSource: https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Power BI",
+        "Data Analytics",
+        "Panes"
+      ],
+      "active": true,
+      "sourceFolder": "Panes",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|power-bi|panes|ctrl-shift-f|open-filter-pane"
+    }
+  ]
+}

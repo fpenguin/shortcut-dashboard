@@ -1,0 +1,170 @@
+{
+  "starterPack": {
+    "name": "OpenClaw",
+    "platform": "Windows",
+    "category": "AI Tools",
+    "sourceType": "Curated public documentation",
+    "sourceName": "OpenClaw TUI keyboard shortcuts",
+    "source": "https://docs.openclaw.ai/web/tui",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "OpenClaw",
+    "path": "starter-packs/Windows/AI Tools/OpenClaw.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-enter-send-message",
+      "layer": "Base",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Enter",
+      "action": "Send Message",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Chat\nOriginal key: Enter\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Chat"
+      ],
+      "active": true,
+      "sourceFolder": "Chat",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|chat|enter|send-message"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-esc-abort-active-run",
+      "layer": "Base",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Esc",
+      "action": "Abort Active Run",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Run Control\nOriginal key: Esc\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Run Control"
+      ],
+      "active": true,
+      "sourceFolder": "Run Control",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|run-control|esc|abort-active-run"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-ctrl-d-exit-openclaw",
+      "layer": "Ctrl",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Ctrl+D",
+      "action": "Exit OpenClaw",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: App\nOriginal key: Ctrl+D\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "App"
+      ],
+      "active": true,
+      "sourceFolder": "App",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|app|ctrl-d|exit-openclaw"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-ctrl-l-open-model-picker",
+      "layer": "Ctrl",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Ctrl+L",
+      "action": "Open Model Picker",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Pickers\nOriginal key: Ctrl+L\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Pickers"
+      ],
+      "active": true,
+      "sourceFolder": "Pickers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|pickers|ctrl-l|open-model-picker"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-ctrl-g-open-agent-picker",
+      "layer": "Ctrl",
+      "key": "G",
+      "keyLabel": "G",
+      "shortcut": "Ctrl+G",
+      "action": "Open Agent Picker",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Pickers\nOriginal key: Ctrl+G\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Pickers"
+      ],
+      "active": true,
+      "sourceFolder": "Pickers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|pickers|ctrl-g|open-agent-picker"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-ctrl-o-toggle-tool-output-expansion",
+      "layer": "Ctrl",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "Ctrl+O",
+      "action": "Toggle Tool Output Expansion",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Tool Output\nOriginal key: Ctrl+O\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Tool Output"
+      ],
+      "active": true,
+      "sourceFolder": "Tool Output",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|tool-output|ctrl-o|toggle-tool-output-expansion"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-openclaw-ctrl-t-toggle-thinking-visibility",
+      "layer": "Ctrl",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Ctrl+T",
+      "action": "Toggle Thinking Visibility",
+      "app": "OpenClaw",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Reasoning\nOriginal key: Ctrl+T\nSource: https://docs.openclaw.ai/web/tui\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "OpenClaw",
+        "AI Tools",
+        "Reasoning"
+      ],
+      "active": true,
+      "sourceFolder": "Reasoning",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|openclaw|reasoning|ctrl-t|toggle-thinking-visibility"
+    }
+  ]
+}

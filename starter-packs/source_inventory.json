@@ -1,0 +1,4739 @@
+{
+  "generated": "2026-06-02",
+  "scope": "Shortcut Dashboard starter pack source inventory",
+  "sourceStatusCounts": {
+    "third-party-only": 100,
+    "official-only": 166,
+    "mixed": 24
+  },
+  "packCount": 290,
+  "shortcutCount": 12530,
+  "uniqueSourceCount": 171,
+  "packs": [
+    {
+      "path": "Mac/3D, VFX & Game Engines/Blender.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Blender",
+      "shortcutCount": 15,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://quickref.me/blender.html",
+          "domain": "quickref.me",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/Cinema 4D.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Cinema 4D",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.maxon.net/c4d/en-us/#html/5748.html",
+          "domain": "help.maxon.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/Houdini.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Houdini",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.sidefx.com/docs/houdini/start/hotkeys.html",
+          "domain": "sidefx.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/Maya.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Maya",
+      "shortcutCount": 27,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/maya",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/Unity.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Unity",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.unity3d.com/Manual/UnityHotkeys.html",
+          "domain": "docs.unity3d.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/Unreal Engine.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "Unreal Engine",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/viewport-controls-in-unreal-engine",
+          "domain": "dev.epicgames.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/3D, VFX & Game Engines/ZBrush.json",
+      "platform": "Mac",
+      "category": "3D, VFX & Game Engines",
+      "app": "ZBrush",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.maxon.net/zbr/en-us/Content/html/user-guide/keyboard-shortcuts/keyboard-shortcuts.html",
+          "domain": "help.maxon.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/ChatGPT.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "ChatGPT",
+      "shortcutCount": 8,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts",
+          "domain": "help.openai.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/Claude.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "Claude",
+      "shortcutCount": 10,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac",
+          "domain": "support.claude.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/Codex.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "Codex",
+      "shortcutCount": 6,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/Ollama.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "Ollama",
+      "shortcutCount": 5,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.ollama.com/quickstart",
+          "domain": "docs.ollama.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/OpenClaw.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "OpenClaw",
+      "shortcutCount": 7,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.openclaw.ai/web/tui",
+          "domain": "docs.openclaw.ai",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/AI Tools/OpenCode.json",
+      "platform": "Mac",
+      "category": "AI Tools",
+      "app": "OpenCode",
+      "shortcutCount": 7,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://opencode.ai/docs/keybinds/",
+          "domain": "opencode.ai",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Automation & Launchers/Alfred.json",
+      "platform": "Mac",
+      "category": "Automation & Launchers",
+      "app": "Alfred",
+      "shortcutCount": 29,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.alfredapp.com/help/getting-started/cheatsheet/",
+          "domain": "alfredapp.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Automation & Launchers/Hammerspoon.json",
+      "platform": "Mac",
+      "category": "Automation & Launchers",
+      "app": "Hammerspoon",
+      "shortcutCount": 8,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.hammerspoon.org/docs/hs.hotkey.html",
+          "domain": "hammerspoon.org",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Automation & Launchers/Keyboard Maestro.json",
+      "platform": "Mac",
+      "category": "Automation & Launchers",
+      "app": "Keyboard Maestro",
+      "shortcutCount": 9,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://wiki.keyboardmaestro.com/manual/Macros",
+          "domain": "wiki.keyboardmaestro.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Automation & Launchers/Raycast.json",
+      "platform": "Mac",
+      "category": "Automation & Launchers",
+      "app": "Raycast",
+      "shortcutCount": 21,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://manual.raycast.com/keyboard-shortcuts",
+          "domain": "manual.raycast.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browser-Based Apps/GitHub.json",
+      "platform": "Mac",
+      "category": "Browser-Based Apps",
+      "app": "GitHub",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
+          "domain": "docs.github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browser-Based Apps/Google Calendar.json",
+      "platform": "Mac",
+      "category": "Browser-Based Apps",
+      "app": "Google Calendar",
+      "shortcutCount": 6,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browser-Based Apps/Google Docs.json",
+      "platform": "Mac",
+      "category": "Browser-Based Apps",
+      "app": "Google Docs",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/docs/answer/179738",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browser-Based Apps/Google Drive.json",
+      "platform": "Mac",
+      "category": "Browser-Based Apps",
+      "app": "Google Drive",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/drive/answer/2563044",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browser-Based Apps/Google Keep.json",
+      "platform": "Mac",
+      "category": "Browser-Based Apps",
+      "app": "Google Keep",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browsers/Firefox.json",
+      "platform": "Mac",
+      "category": "Browsers",
+      "app": "Firefox",
+      "shortcutCount": 45,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browsers/Google Chrome.json",
+      "platform": "Mac",
+      "category": "Browsers",
+      "app": "Google Chrome",
+      "shortcutCount": 35,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/chrome/answer/157179",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Browsers/Safari.json",
+      "platform": "Mac",
+      "category": "Browsers",
+      "app": "Safari",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/CAD & Engineering/AutoCAD.json",
+      "platform": "Mac",
+      "category": "CAD & Engineering",
+      "app": "AutoCAD",
+      "shortcutCount": 34,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/autocad",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://damassets.autodesk.net/content/dam/autodesk/www/shortcuts/autocad/AutoCAD-Shortcuts-Guide-Autodesk.pdf",
+          "domain": "damassets.autodesk.net",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/CAD & Engineering/Fusion 360.json",
+      "platform": "Mac",
+      "category": "CAD & Engineering",
+      "app": "Fusion 360",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/fusion-360",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/CAD & Engineering/KiCad.json",
+      "platform": "Mac",
+      "category": "CAD & Engineering",
+      "app": "KiCad",
+      "shortcutCount": 13,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys",
+          "domain": "docs.kicad.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/CAD & Engineering/Rhino 3D.json",
+      "platform": "Mac",
+      "category": "CAD & Engineering",
+      "app": "Rhino 3D",
+      "shortcutCount": 14,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.mcneel.com/rhino/8/help/en-us/index.htm#information/keyboard_shortcuts.htm",
+          "domain": "docs.mcneel.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/CAD & Engineering/SketchUp.json",
+      "platform": "Mac",
+      "category": "CAD & Engineering",
+      "app": "SketchUp",
+      "shortcutCount": 22,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.sketchup.com/en/default-keyboard-shortcuts",
+          "domain": "help.sketchup.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Discord.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Discord",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/discord.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Fastmail.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Fastmail",
+      "shortcutCount": 141,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.fastmail.help/hc/en-us/articles/360058753534-Keyboard-shortcuts",
+          "domain": "fastmail.help",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Gmail.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Gmail",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/mail/answer/6594",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Microsoft Outlook.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Microsoft Outlook",
+      "shortcutCount": 25,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/microsoft-outlook.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Microsoft Teams.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Microsoft Teams",
+      "shortcutCount": 35,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-for-microsoft-teams-2e8e2a70-e8d8-4a19-949b-4c36dd5292d2",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Mimestream.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Mimestream",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://mimestream.com/help/user-guide/keyboard-shortcuts",
+          "domain": "mimestream.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Signal.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Signal",
+      "shortcutCount": 49,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.signal.org/hc/en-us/articles/360036517511-Signal-Desktop-Keyboard-Shortcuts",
+          "domain": "support.signal.org",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Slack.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Slack",
+      "shortcutCount": 27,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts",
+          "domain": "slack.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Superhuman.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Superhuman",
+      "shortcutCount": 110,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.superhuman.com/hc/en-us/articles/43658258433299-Desktop-Shortcuts",
+          "domain": "help.superhuman.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Telegram.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Telegram",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Communication/Zoom.json",
+      "platform": "Mac",
+      "category": "Communication",
+      "app": "Zoom",
+      "shortcutCount": 69,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050",
+          "domain": "support.zoom.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/Airtable.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "Airtable",
+      "shortcutCount": 38,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.airtable.com/docs/airtable-keyboard-shortcuts",
+          "domain": "support.airtable.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/Google Sheets.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "Google Sheets",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/docs/answer/181110",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/JupyterLab.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "JupyterLab",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts",
+          "domain": "jupyterlab.readthedocs.io",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/MATLAB.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "MATLAB",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html",
+          "domain": "mathworks.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/Microsoft Excel.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "Microsoft Excel",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-excel-1798d9d5-842a-42b8-9c99-9b7213f0040f",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/Numbers.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "Numbers",
+      "shortcutCount": 93,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/RStudio.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "RStudio",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.posit.co/ide/user/ide/reference/shortcuts.html",
+          "domain": "docs.posit.co",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Data Analytics/Tableau.json",
+      "platform": "Mac",
+      "category": "Data Analytics",
+      "app": "Tableau",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm",
+          "domain": "help.tableau.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Database/DataGrip.json",
+      "platform": "Mac",
+      "category": "Database",
+      "app": "DataGrip",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Database/DBeaver.json",
+      "platform": "Mac",
+      "category": "Database",
+      "app": "DBeaver",
+      "shortcutCount": 9,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Database/pgAdmin.json",
+      "platform": "Mac",
+      "category": "Database",
+      "app": "pgAdmin",
+      "shortcutCount": 9,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html",
+          "domain": "pgadmin.org",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Database/TablePlus.json",
+      "platform": "Mac",
+      "category": "Database",
+      "app": "TablePlus",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.tableplus.com/utilities/shortcut-keys",
+          "domain": "docs.tableplus.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Adobe Illustrator.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Adobe Illustrator",
+      "shortcutCount": 180,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/illustrator/using/default-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Adobe InDesign.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Adobe InDesign",
+      "shortcutCount": 91,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/indesign/using/default-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Adobe Lightroom.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Adobe Lightroom",
+      "shortcutCount": 67,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/lightroom-cc/using/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Adobe Photoshop.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Adobe Photoshop",
+      "shortcutCount": 179,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/photoshop/desktop/get-started/settings-and-preferences/view-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Adobe XD.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Adobe XD",
+      "shortcutCount": 52,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/xd/help/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Affinity Designer.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Affinity Designer",
+      "shortcutCount": 16,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://support.affinity.co/s/article/Keyboard-Shortcuts",
+          "domain": "support.affinity.co",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Affinity Photo.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Affinity Photo",
+      "shortcutCount": 129,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.affinity.co/s/article/Keyboard-Shortcuts",
+          "domain": "support.affinity.co",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/FigJam.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "FigJam",
+      "shortcutCount": 36,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.figma.com/hc/en-us/articles/360040328653-Use-shortcuts-and-quick-actions",
+          "domain": "help.figma.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Figma.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Figma",
+      "shortcutCount": 88,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.figma.com/hc/en-us/articles/360040328653-Use-Figma-products-with-a-keyboard",
+          "domain": "help.figma.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Framer.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Framer",
+      "shortcutCount": 39,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.framer.com/help/articles/keyboard-shortcuts/",
+          "domain": "framer.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Pixelmator Pro.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Pixelmator Pro",
+      "shortcutCount": 69,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Proto.io.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Proto.io",
+      "shortcutCount": 32,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.proto.io/hc/en-us/articles/115001423511-Keyboard-shortcuts",
+          "domain": "support.proto.io",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Sketch.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Sketch",
+      "shortcutCount": 79,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.sketch.com/docs/shortcuts/mac/",
+          "domain": "sketch.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Design/Zeplin.json",
+      "platform": "Mac",
+      "category": "Design",
+      "app": "Zeplin",
+      "shortcutCount": 29,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",
+          "domain": "support.zeplin.io",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Android Studio.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Android Studio",
+      "shortcutCount": 63,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://developer.android.com/studio/intro/keyboard-shortcuts",
+          "domain": "developer.android.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Atom.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Atom",
+      "shortcutCount": 60,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/atom/atom",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Cursor.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Cursor",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.cursor.com/kbd",
+          "domain": "docs.cursor.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Emacs.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Emacs",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf",
+          "domain": "gnu.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/IntelliJ IDEA.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "IntelliJ IDEA",
+      "shortcutCount": 19,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/intellij-idea.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Neovim.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Neovim",
+      "shortcutCount": 71,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://neovim.io/doc/user/quickref.html",
+          "domain": "neovim.io",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Postman.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Postman",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/PyCharm.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "PyCharm",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/pycharm/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Rider.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Rider",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/rider/mastering_keyboard_shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Sublime Text.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Sublime Text",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.sublimetext.com/docs/key_bindings.html",
+          "domain": "sublimetext.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Vim.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Vim",
+      "shortcutCount": 16,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://vimhelp.org/quickref.txt.html",
+          "domain": "vimhelp.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Visual Studio Code.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Visual Studio Code",
+      "shortcutCount": 43,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://code.visualstudio.com/docs/configure/keybindings",
+          "domain": "code.visualstudio.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/WebStorm.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "WebStorm",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Windsurf.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Windsurf",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.windsurf.com/windsurf/getting-started/keyboard-shortcuts",
+          "domain": "docs.windsurf.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Development/Xcode.json",
+      "platform": "Mac",
+      "category": "Development",
+      "app": "Xcode",
+      "shortcutCount": 42,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/xcode_help-command_shortcuts/Introduction/Introduction.html",
+          "domain": "developer.apple.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Diagramming & Whiteboards/Excalidraw.json",
+      "platform": "Mac",
+      "category": "Diagramming & Whiteboards",
+      "app": "Excalidraw",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/packages/excalidraw/components/HelpDialog.tsx",
+          "domain": "raw.githubusercontent.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Diagramming & Whiteboards/Lucidchart.json",
+      "platform": "Mac",
+      "category": "Diagramming & Whiteboards",
+      "app": "Lucidchart",
+      "shortcutCount": 90,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://community.lucid.co/product-questions-3/list-of-available-keyboard-shortcuts-in-lucid-11502",
+          "domain": "community.lucid.co",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Diagramming & Whiteboards/Miro.json",
+      "platform": "Mac",
+      "category": "Diagramming & Whiteboards",
+      "app": "Miro",
+      "shortcutCount": 30,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://help.miro.com/hc/en-us/articles/360017731033-Shortcuts-and-hotkeys",
+          "domain": "help.miro.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Diagramming & Whiteboards/Whimsical.json",
+      "platform": "Mac",
+      "category": "Diagramming & Whiteboards",
+      "app": "Whimsical",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://whimsical.com/learn/shortcuts/mac",
+          "domain": "whimsical.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/File Management/Finder.json",
+      "platform": "Mac",
+      "category": "File Management",
+      "app": "Finder",
+      "shortcutCount": 44,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/apple-finder.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/File Management/Path Finder.json",
+      "platform": "Mac",
+      "category": "File Management",
+      "app": "Path Finder",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://cocoatech.com/#/support/pathfinder",
+          "domain": "cocoatech.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Baldur's Gate 3.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Baldur's Gate 3",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://bg3.wiki/wiki/Controls",
+          "domain": "bg3.wiki",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Dota 2.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Dota 2",
+      "shortcutCount": 30,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://dota2.fandom.com/wiki/Controls",
+          "domain": "dota2.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Factorio.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Factorio",
+      "shortcutCount": 23,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://wiki.factorio.com/Keyboard_bindings",
+          "domain": "wiki.factorio.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/League of Legends.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "League of Legends",
+      "shortcutCount": 28,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://leagueoflegends.fandom.com/wiki/Hotkeys_and_commands",
+          "domain": "leagueoflegends.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Minecraft Java Edition.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Minecraft Java Edition",
+      "shortcutCount": 39,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.minecraft.net/hc/en-us/articles/360059148111-Minecraft-Java-Edition-Hotkeys",
+          "domain": "help.minecraft.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/No Man's Sky.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "No Man's Sky",
+      "shortcutCount": 21,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://nomanssky.fandom.com/wiki/Controls",
+          "domain": "nomanssky.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/RimWorld.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "RimWorld",
+      "shortcutCount": 22,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://rimworldwiki.com/wiki/Keyboard_controls",
+          "domain": "rimworldwiki.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Roblox.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Roblox",
+      "shortcutCount": 26,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://create.roblox.com/docs/studio/testing-modes#controls",
+          "domain": "create.roblox.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Sid Meier's Civilization VI.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Sid Meier's Civilization VI",
+      "shortcutCount": 18,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://civilization.fandom.com/wiki/Controls_(Civ6",
+          "domain": "civilization.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Stardew Valley.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Stardew Valley",
+      "shortcutCount": 24,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://stardewvalleywiki.com/Controls",
+          "domain": "stardewvalleywiki.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/Terraria.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "Terraria",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://terraria.wiki.gg/wiki/Controls",
+          "domain": "terraria.wiki.gg",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/The Sims 4.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "The Sims 4",
+      "shortcutCount": 25,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.ea.com/en/help/the-sims/the-sims-4/the-sims-4-keyboard-shortcuts/",
+          "domain": "help.ea.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Gaming/World of Warcraft.json",
+      "platform": "Mac",
+      "category": "Gaming",
+      "app": "World of Warcraft",
+      "shortcutCount": 36,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://warcraft.wiki.gg/wiki/Hotkeys",
+          "domain": "warcraft.wiki.gg",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Git Clients/GitHub Desktop.json",
+      "platform": "Mac",
+      "category": "Git Clients",
+      "app": "GitHub Desktop",
+      "shortcutCount": 10,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/github-desktop.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Git Clients/Sourcetree.json",
+      "platform": "Mac",
+      "category": "Git Clients",
+      "app": "Sourcetree",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/sourcetree/docs/keyboard-shortcuts/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Ableton Live.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Ableton Live",
+      "shortcutCount": 189,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.ableton.com/en/manual/live-keyboard-shortcuts/",
+          "domain": "ableton.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Cubase.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Cubase",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://steinberg.help/cubase_pro/v13/en/cubase_nuendo/topics/key_commands/key_commands_default_key_commands_r.html",
+          "domain": "steinberg.help",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/FL Studio.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "FL Studio",
+      "shortcutCount": 16,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.image-line.com/fl-studio-learning-content/fl-studio-online-manual/html/basics_shortcuts.htm",
+          "domain": "image-line.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Logic Pro.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Logic Pro",
+      "shortcutCount": 152,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.apple.com/en-ie/guide/logicpro/lgcp02bf31b6/mac",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://support.apple.com/en-ie/guide/logicpro/lgcp3bc760d6/mac",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Pro Tools.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Pro Tools",
+      "shortcutCount": 550,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_12.8.2.pdf",
+          "domain": "resources.avid.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Reaper.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Reaper",
+      "shortcutCount": 14,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://reaper.fm/userguide.php",
+          "domain": "reaper.fm",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Music Production/Studio One.json",
+      "platform": "Mac",
+      "category": "Music Production",
+      "app": "Studio One",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://s1manual.presonus.com/Content/Fundamentals_Topics/Keyboard_Shortcuts.htm",
+          "domain": "s1manual.presonus.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Office & Documents/Microsoft PowerPoint.json",
+      "platform": "Mac",
+      "category": "Office & Documents",
+      "app": "Microsoft PowerPoint",
+      "shortcutCount": 47,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accessibility/powerpoint/use-keyboard-shortcuts-to-create-powerpoint-presentations",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Office & Documents/Microsoft Word.json",
+      "platform": "Mac",
+      "category": "Office & Documents",
+      "app": "Microsoft Word",
+      "shortcutCount": 35,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accessibility/word/keyboard-shortcuts-in-word",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/OS Essentials/macOS.json",
+      "platform": "Mac",
+      "category": "OS Essentials",
+      "app": "macOS",
+      "shortcutCount": 96,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.apple.com/en-ca/102650",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Asana.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Asana",
+      "shortcutCount": 61,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.asana.com/s/article/keyboard-shortcuts?language=en_US",
+          "domain": "help.asana.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/ClickUp.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "ClickUp",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.clickup.com/hc/en-us/articles/6309661545623-Keyboard-shortcuts",
+          "domain": "help.clickup.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Jira.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Jira",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/jira-software-cloud/docs/use-keyboard-shortcuts/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Linear.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Linear",
+      "shortcutCount": 61,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://linear.app/changelog/2021-03-25-keyboard-shortcuts-help",
+          "domain": "linear.app",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Monday.com.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Monday.com",
+      "shortcutCount": 10,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.monday.com/hc/en-us/articles/115005339905-monday-com-Shortcuts",
+          "domain": "support.monday.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Todoist.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Todoist",
+      "shortcutCount": 20,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.todoist.com/help/articles/use-keyboard-shortcuts-in-todoist-Wyovn2",
+          "domain": "todoist.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Project Management/Trello.json",
+      "platform": "Mac",
+      "category": "Project Management",
+      "app": "Trello",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/trello/docs/using-keyboard-shortcuts-in-trello/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Security & Passwords/1Password.json",
+      "platform": "Mac",
+      "category": "Security & Passwords",
+      "app": "1Password",
+      "shortcutCount": 39,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.1password.com/keyboard-shortcuts/",
+          "domain": "support.1password.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Terminal & Shell/iTerm2.json",
+      "platform": "Mac",
+      "category": "Terminal & Shell",
+      "app": "iTerm2",
+      "shortcutCount": 32,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://gist.github.com/squarism/ae3613daf5c01a98ba3a",
+          "domain": "gist.github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Terminal & Shell/kitty.json",
+      "platform": "Mac",
+      "category": "Terminal & Shell",
+      "app": "kitty",
+      "shortcutCount": 42,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://sw.kovidgoyal.net/kitty/overview/",
+          "domain": "sw.kovidgoyal.net",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Terminal & Shell/Terminal.json",
+      "platform": "Mac",
+      "category": "Terminal & Shell",
+      "app": "Terminal",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Terminal & Shell/tmux.json",
+      "platform": "Mac",
+      "category": "Terminal & Shell",
+      "app": "tmux",
+      "shortcutCount": 13,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://man7.org/linux/man-pages/man1/tmux.1.html",
+          "domain": "man7.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Terminal & Shell/Warp.json",
+      "platform": "Mac",
+      "category": "Terminal & Shell",
+      "app": "Warp",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.warp.dev/features/keyboard-shortcuts",
+          "domain": "docs.warp.dev",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Text Editors/BBEdit.json",
+      "platform": "Mac",
+      "category": "Text Editors",
+      "app": "BBEdit",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://s3.amazonaws.com/BBSW-download/BBEdit_16.0_User_Manual.pdf",
+          "domain": "s3.amazonaws.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Text Editors/TextMate.json",
+      "platform": "Mac",
+      "category": "Text Editors",
+      "app": "TextMate",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://macromates.com/manual/en/key_bindings",
+          "domain": "macromates.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Text Editors/UltraEdit.json",
+      "platform": "Mac",
+      "category": "Text Editors",
+      "app": "UltraEdit",
+      "shortcutCount": 127,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.ultraedit.com/support/tutorials-power-tips/ultraedit/mac-keyboard-shortcuts/",
+          "domain": "ultraedit.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/Adobe After Effects.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "Adobe After Effects",
+      "shortcutCount": 195,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/Adobe Premiere Pro.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "Adobe Premiere Pro",
+      "shortcutCount": 27,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/premiere-pro/using/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/Avid Media Composer.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "Avid Media Composer",
+      "shortcutCount": 16,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://resources.avid.com/SupportFiles/attach/Media_Composer_Shortcuts.pdf",
+          "domain": "resources.avid.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/DaVinci Resolve.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "DaVinci Resolve",
+      "shortcutCount": 15,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.davincishortcuts.com/",
+          "domain": "davincishortcuts.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/Final Cut Pro.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "Final Cut Pro",
+      "shortcutCount": 346,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.apple.com/en-ca/guide/final-cut-pro/ver90ba5929/mac",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Video Editing/Motion.json",
+      "platform": "Mac",
+      "category": "Video Editing",
+      "app": "Motion",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac",
+          "domain": "support.apple.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Apple Notes.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Apple Notes",
+      "shortcutCount": 66,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Logseq.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Logseq",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.logseq.com/#/page/keyboard%20shortcuts",
+          "domain": "docs.logseq.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Microsoft OneNote.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Microsoft OneNote",
+      "shortcutCount": 32,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Notion.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Notion",
+      "shortcutCount": 27,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.notion.com/help/keyboard-shortcuts",
+          "domain": "notion.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Obsidian.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Obsidian",
+      "shortcutCount": 24,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/obsidian.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Roam Research.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Roam Research",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://roamresearch.com/#/app/help/page/4n0ArN6Da",
+          "domain": "roamresearch.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Scrivener.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Scrivener",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://scrivener.tenderapp.com/help/kb/mac-os-x/keyboard-shortcuts",
+          "domain": "scrivener.tenderapp.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Typora.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Typora",
+      "shortcutCount": 63,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.typora.io/Shortcut-Keys/",
+          "domain": "support.typora.io",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Mac/Writing & Knowledge/Ulysses.json",
+      "platform": "Mac",
+      "category": "Writing & Knowledge",
+      "app": "Ulysses",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://ulysses.app/kb/keyboard-shortcuts",
+          "domain": "ulysses.app",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Blender.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Blender",
+      "shortcutCount": 15,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://quickref.me/blender.html",
+          "domain": "quickref.me",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Cinema 4D.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Cinema 4D",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.maxon.net/c4d/en-us/#html/5748.html",
+          "domain": "help.maxon.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Houdini.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Houdini",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.sidefx.com/docs/houdini/start/hotkeys.html",
+          "domain": "sidefx.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Maya.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Maya",
+      "shortcutCount": 27,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/maya",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Unity.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Unity",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.unity3d.com/Manual/UnityHotkeys.html",
+          "domain": "docs.unity3d.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/Unreal Engine.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "Unreal Engine",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://dev.epicgames.com/documentation/en-us/unreal-engine/viewport-controls-in-unreal-engine",
+          "domain": "dev.epicgames.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/3D, VFX & Game Engines/ZBrush.json",
+      "platform": "Windows",
+      "category": "3D, VFX & Game Engines",
+      "app": "ZBrush",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.maxon.net/zbr/en-us/Content/html/user-guide/keyboard-shortcuts/keyboard-shortcuts.html",
+          "domain": "help.maxon.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/AI Tools/Codex.json",
+      "platform": "Windows",
+      "category": "AI Tools",
+      "app": "Codex",
+      "shortcutCount": 6,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/openai/codex/blob/main/codex-rs/tui/tooltips.txt",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/AI Tools/Ollama.json",
+      "platform": "Windows",
+      "category": "AI Tools",
+      "app": "Ollama",
+      "shortcutCount": 5,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.ollama.com/quickstart",
+          "domain": "docs.ollama.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/AI Tools/OpenClaw.json",
+      "platform": "Windows",
+      "category": "AI Tools",
+      "app": "OpenClaw",
+      "shortcutCount": 7,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.openclaw.ai/web/tui",
+          "domain": "docs.openclaw.ai",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/AI Tools/OpenCode.json",
+      "platform": "Windows",
+      "category": "AI Tools",
+      "app": "OpenCode",
+      "shortcutCount": 7,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://opencode.ai/docs/keybinds/",
+          "domain": "opencode.ai",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Automation & Launchers/PowerToys.json",
+      "platform": "Windows",
+      "category": "Automation & Launchers",
+      "app": "PowerToys",
+      "shortcutCount": 8,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager",
+          "domain": "learn.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browser-Based Apps/GitHub.json",
+      "platform": "Windows",
+      "category": "Browser-Based Apps",
+      "app": "GitHub",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
+          "domain": "docs.github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browser-Based Apps/Google Calendar.json",
+      "platform": "Windows",
+      "category": "Browser-Based Apps",
+      "app": "Google Calendar",
+      "shortcutCount": 6,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/calendar/answer/37034?hl=en&sjid=11780562098575662187-NC#zippy=%2Cmove-around-the-calendar%2Cview-tasks-keep%2Cmake-changes-to-an-event%2Cchange-your-calendar-view",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browser-Based Apps/Google Docs.json",
+      "platform": "Windows",
+      "category": "Browser-Based Apps",
+      "app": "Google Docs",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/docs/answer/179738",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browser-Based Apps/Google Drive.json",
+      "platform": "Windows",
+      "category": "Browser-Based Apps",
+      "app": "Google Drive",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/drive/answer/2563044",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browser-Based Apps/Google Keep.json",
+      "platform": "Windows",
+      "category": "Browser-Based Apps",
+      "app": "Google Keep",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/keep/answer/12862970?hl=en&co=GENIE.Platform%3DDesktop&sjid=11780562098575662187-NC#zippy=%2Cpc-shortcuts",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browsers/Firefox.json",
+      "platform": "Windows",
+      "category": "Browsers",
+      "app": "Firefox",
+      "shortcutCount": 45,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Browsers/Google Chrome.json",
+      "platform": "Windows",
+      "category": "Browsers",
+      "app": "Google Chrome",
+      "shortcutCount": 33,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/chrome/answer/157179",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/Altium Designer.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "Altium Designer",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.altium.com/documentation/altium-designer/shortcut-keys",
+          "domain": "altium.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/AutoCAD.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "AutoCAD",
+      "shortcutCount": 57,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/autocad",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://damassets.autodesk.net/content/dam/autodesk/www/shortcuts/autocad/AutoCAD-Shortcuts-Guide-Autodesk.pdf",
+          "domain": "damassets.autodesk.net",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/Fusion 360.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "Fusion 360",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.autodesk.com/shortcuts/fusion-360",
+          "domain": "autodesk.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/KiCad.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "KiCad",
+      "shortcutCount": 13,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.kicad.org/master/en/kicad/kicad.html#hotkeys",
+          "domain": "docs.kicad.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/Rhino 3D.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "Rhino 3D",
+      "shortcutCount": 14,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.mcneel.com/rhino/8/help/en-us/index.htm#information/keyboard_shortcuts.htm",
+          "domain": "docs.mcneel.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/SketchUp.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "SketchUp",
+      "shortcutCount": 22,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.sketchup.com/en/default-keyboard-shortcuts",
+          "domain": "help.sketchup.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/CAD & Engineering/SolidWorks.json",
+      "platform": "Windows",
+      "category": "CAD & Engineering",
+      "app": "SolidWorks",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.solidworks.com/2024/english/SolidWorks/sldworks/r_keyboard_shortcuts.htm",
+          "domain": "help.solidworks.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Discord.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Discord",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/discord.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Fastmail.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Fastmail",
+      "shortcutCount": 141,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.fastmail.help/hc/en-us/articles/360058753534-Keyboard-shortcuts",
+          "domain": "fastmail.help",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Gmail.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Gmail",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/mail/answer/6594",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Microsoft Outlook.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Microsoft Outlook",
+      "shortcutCount": 382,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-for-outlook-3cdeb221-7ae5-4c1d-8c1d-9e63216c1efd",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Microsoft Teams.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Microsoft Teams",
+      "shortcutCount": 48,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-for-microsoft-teams-2e8e2a70-e8d8-4a19-949b-4c36dd5292d2",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Signal.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Signal",
+      "shortcutCount": 49,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.signal.org/hc/en-us/articles/360036517511-Signal-Desktop-Keyboard-Shortcuts",
+          "domain": "support.signal.org",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Slack.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Slack",
+      "shortcutCount": 17,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://slack.com/help/articles/201374536-Slack-keyboard-shortcuts",
+          "domain": "slack.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Superhuman.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Superhuman",
+      "shortcutCount": 110,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.superhuman.com/hc/en-us/articles/43658258433299-Desktop-Shortcuts",
+          "domain": "help.superhuman.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Telegram.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Telegram",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Communication/Zoom.json",
+      "platform": "Windows",
+      "category": "Communication",
+      "app": "Zoom",
+      "shortcutCount": 65,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0067050",
+          "domain": "support.zoom.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/Airtable.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "Airtable",
+      "shortcutCount": 38,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.airtable.com/docs/airtable-keyboard-shortcuts",
+          "domain": "support.airtable.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/Google Sheets.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "Google Sheets",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.google.com/docs/answer/181110",
+          "domain": "support.google.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/JupyterLab.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "JupyterLab",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts",
+          "domain": "jupyterlab.readthedocs.io",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/MATLAB.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "MATLAB",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.mathworks.com/help/matlab/matlab_env/keyboard-shortcuts.html",
+          "domain": "mathworks.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/Microsoft Excel.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "Microsoft Excel",
+      "shortcutCount": 407,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-excel-1798d9d5-842a-42b8-9c99-9b7213f0040f",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/Power BI.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "Power BI",
+      "shortcutCount": 8,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts",
+          "domain": "learn.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/RStudio.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "RStudio",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.posit.co/ide/user/ide/reference/shortcuts.html",
+          "domain": "docs.posit.co",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Data Analytics/Tableau.json",
+      "platform": "Windows",
+      "category": "Data Analytics",
+      "app": "Tableau",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm",
+          "domain": "help.tableau.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Database/DataGrip.json",
+      "platform": "Windows",
+      "category": "Database",
+      "app": "DataGrip",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Database/DBeaver.json",
+      "platform": "Windows",
+      "category": "Database",
+      "app": "DBeaver",
+      "shortcutCount": 9,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/dbeaver/dbeaver/wiki/Keyboard-Shortcuts",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Database/pgAdmin.json",
+      "platform": "Windows",
+      "category": "Database",
+      "app": "pgAdmin",
+      "shortcutCount": 9,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.pgadmin.org/docs/pgadmin4/latest/keyboard_shortcuts.html",
+          "domain": "pgadmin.org",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Database/TablePlus.json",
+      "platform": "Windows",
+      "category": "Database",
+      "app": "TablePlus",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.tableplus.com/utilities/shortcut-keys",
+          "domain": "docs.tableplus.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Adobe Illustrator.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Adobe Illustrator",
+      "shortcutCount": 180,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/illustrator/using/default-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Adobe InDesign.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Adobe InDesign",
+      "shortcutCount": 98,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/indesign/using/default-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Adobe Lightroom.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Adobe Lightroom",
+      "shortcutCount": 67,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/lightroom-cc/using/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Adobe Photoshop.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Adobe Photoshop",
+      "shortcutCount": 214,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/photoshop/desktop/get-started/settings-and-preferences/view-keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Adobe XD.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Adobe XD",
+      "shortcutCount": 52,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/xd/help/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Affinity Photo.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Affinity Photo",
+      "shortcutCount": 130,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.affinity.co/s/article/Keyboard-Shortcuts",
+          "domain": "support.affinity.co",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/FigJam.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "FigJam",
+      "shortcutCount": 37,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.figma.com/hc/en-us/articles/360040328653-Use-shortcuts-and-quick-actions",
+          "domain": "help.figma.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Figma.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Figma",
+      "shortcutCount": 85,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.figma.com/hc/en-us/articles/360040328653-Use-Figma-products-with-a-keyboard",
+          "domain": "help.figma.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Framer.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Framer",
+      "shortcutCount": 39,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.framer.com/help/articles/keyboard-shortcuts/",
+          "domain": "framer.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Proto.io.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Proto.io",
+      "shortcutCount": 33,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.proto.io/hc/en-us/articles/115001423511-Keyboard-shortcuts",
+          "domain": "support.proto.io",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Design/Zeplin.json",
+      "platform": "Windows",
+      "category": "Design",
+      "app": "Zeplin",
+      "shortcutCount": 8,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.zeplin.io/en/articles/9685993-keyboard-shortcuts",
+          "domain": "support.zeplin.io",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Android Studio.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Android Studio",
+      "shortcutCount": 61,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://developer.android.com/studio/intro/keyboard-shortcuts",
+          "domain": "developer.android.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Atom.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Atom",
+      "shortcutCount": 60,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/atom/atom",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Cursor.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Cursor",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.cursor.com/kbd",
+          "domain": "docs.cursor.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Emacs.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Emacs",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf",
+          "domain": "gnu.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/IntelliJ IDEA.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "IntelliJ IDEA",
+      "shortcutCount": 19,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/intellij-idea.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Neovim.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Neovim",
+      "shortcutCount": 71,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://neovim.io/doc/user/quickref.html",
+          "domain": "neovim.io",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Postman.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Postman",
+      "shortcutCount": 34,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/PyCharm.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "PyCharm",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/pycharm/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Rider.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Rider",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/rider/mastering_keyboard_shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Sublime Text (Windows).json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Sublime Text (Windows)",
+      "shortcutCount": 34,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://docs.sublimetext.io/reference/keyboard_shortcuts_win.html",
+          "domain": "docs.sublimetext.io",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Sublime Text.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Sublime Text",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.sublimetext.com/docs/key_bindings.html",
+          "domain": "sublimetext.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Vim.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Vim",
+      "shortcutCount": 16,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://vimhelp.org/quickref.txt.html",
+          "domain": "vimhelp.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Visual Studio Code.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Visual Studio Code",
+      "shortcutCount": 5,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://code.visualstudio.com/docs/configure/keybindings",
+          "domain": "code.visualstudio.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/WebStorm.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "WebStorm",
+      "shortcutCount": 14,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html",
+          "domain": "jetbrains.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Development/Windsurf.json",
+      "platform": "Windows",
+      "category": "Development",
+      "app": "Windsurf",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.windsurf.com/windsurf/getting-started/keyboard-shortcuts",
+          "domain": "docs.windsurf.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Diagramming & Whiteboards/Excalidraw.json",
+      "platform": "Windows",
+      "category": "Diagramming & Whiteboards",
+      "app": "Excalidraw",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/packages/excalidraw/components/HelpDialog.tsx",
+          "domain": "raw.githubusercontent.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Diagramming & Whiteboards/Lucidchart.json",
+      "platform": "Windows",
+      "category": "Diagramming & Whiteboards",
+      "app": "Lucidchart",
+      "shortcutCount": 90,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://community.lucid.co/product-questions-3/list-of-available-keyboard-shortcuts-in-lucid-11502",
+          "domain": "community.lucid.co",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Diagramming & Whiteboards/Miro.json",
+      "platform": "Windows",
+      "category": "Diagramming & Whiteboards",
+      "app": "Miro",
+      "shortcutCount": 31,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://help.miro.com/hc/en-us/articles/360017731033-Shortcuts-and-hotkeys",
+          "domain": "help.miro.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Diagramming & Whiteboards/Whimsical.json",
+      "platform": "Windows",
+      "category": "Diagramming & Whiteboards",
+      "app": "Whimsical",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://whimsical.com/learn/shortcuts/mac",
+          "domain": "whimsical.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/File Management/Directory Opus.json",
+      "platform": "Windows",
+      "category": "File Management",
+      "app": "Directory Opus",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.gpsoft.com.au/help/opus12/index.html#!Documents/Keyboard_Shortcuts.htm",
+          "domain": "gpsoft.com.au",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/File Management/Total Commander.json",
+      "platform": "Windows",
+      "category": "File Management",
+      "app": "Total Commander",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.ghisler.ch/board/viewtopic.php?t=49383",
+          "domain": "ghisler.ch",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Apex Legends.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Apex Legends",
+      "shortcutCount": 22,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://apexlegends.fandom.com/wiki/Controls",
+          "domain": "apexlegends.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Baldur's Gate 3.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Baldur's Gate 3",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://bg3.wiki/wiki/Controls",
+          "domain": "bg3.wiki",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Call of Duty Warzone.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Call of Duty Warzone",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://callofduty.fandom.com/wiki/Controls",
+          "domain": "callofduty.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Counter-Strike 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Counter-Strike 2",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://counterstrike.fandom.com/wiki/Controls",
+          "domain": "counterstrike.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Destiny 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Destiny 2",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://destiny.fandom.com/wiki/Controls",
+          "domain": "destiny.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Dota 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Dota 2",
+      "shortcutCount": 30,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://dota2.fandom.com/wiki/Controls",
+          "domain": "dota2.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Elden Ring.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Elden Ring",
+      "shortcutCount": 19,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://eldenring.wiki.fextralife.com/Controls",
+          "domain": "eldenring.wiki.fextralife.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Factorio.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Factorio",
+      "shortcutCount": 23,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://wiki.factorio.com/Keyboard_bindings",
+          "domain": "wiki.factorio.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Fortnite.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Fortnite",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://fortnite.fandom.com/wiki/Controls",
+          "domain": "fortnite.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Grand Theft Auto V.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Grand Theft Auto V",
+      "shortcutCount": 25,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://gta.fandom.com/wiki/Controls_for_GTA_V",
+          "domain": "gta.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Helldivers 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Helldivers 2",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://helldivers.wiki.gg/wiki/Controls",
+          "domain": "helldivers.wiki.gg",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/League of Legends.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "League of Legends",
+      "shortcutCount": 28,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://leagueoflegends.fandom.com/wiki/Hotkeys_and_commands",
+          "domain": "leagueoflegends.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Marvel Rivals.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Marvel Rivals",
+      "shortcutCount": 21,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://marvelrivals.fandom.com/wiki/Controls",
+          "domain": "marvelrivals.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Minecraft Java Edition.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Minecraft Java Edition",
+      "shortcutCount": 39,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.minecraft.net/hc/en-us/articles/360059148111-Minecraft-Java-Edition-Hotkeys",
+          "domain": "help.minecraft.net",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/No Man's Sky.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "No Man's Sky",
+      "shortcutCount": 21,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://nomanssky.fandom.com/wiki/Controls",
+          "domain": "nomanssky.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Overwatch 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Overwatch 2",
+      "shortcutCount": 19,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://overwatch.fandom.com/wiki/Controls",
+          "domain": "overwatch.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Path of Exile 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Path of Exile 2",
+      "shortcutCount": 19,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.poewiki.net/wiki/Keyboard_shortcuts",
+          "domain": "poewiki.net",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/PUBG Battlegrounds.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "PUBG Battlegrounds",
+      "shortcutCount": 28,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://pubg.fandom.com/wiki/Controls",
+          "domain": "pubg.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Rainbow Six Siege.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Rainbow Six Siege",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://rainbowsix.fandom.com/wiki/Controls",
+          "domain": "rainbowsix.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/RimWorld.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "RimWorld",
+      "shortcutCount": 22,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://rimworldwiki.com/wiki/Keyboard_controls",
+          "domain": "rimworldwiki.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Roblox.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Roblox",
+      "shortcutCount": 26,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://create.roblox.com/docs/studio/testing-modes#controls",
+          "domain": "create.roblox.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Rocket League.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Rocket League",
+      "shortcutCount": 17,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://rocketleague.fandom.com/wiki/Controls",
+          "domain": "rocketleague.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Rust.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Rust",
+      "shortcutCount": 25,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://rust.fandom.com/wiki/Keybinds",
+          "domain": "rust.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Sid Meier's Civilization VI.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Sid Meier's Civilization VI",
+      "shortcutCount": 18,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://civilization.fandom.com/wiki/Controls_(Civ6",
+          "domain": "civilization.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/StarCraft.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "StarCraft",
+      "shortcutCount": 35,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://starcraft.fandom.com/wiki/Hotkey",
+          "domain": "starcraft.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Stardew Valley.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Stardew Valley",
+      "shortcutCount": 24,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://stardewvalleywiki.com/Controls",
+          "domain": "stardewvalleywiki.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Team Fortress 2.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Team Fortress 2",
+      "shortcutCount": 26,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://wiki.teamfortress.com/wiki/List_of_default_keys",
+          "domain": "wiki.teamfortress.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Terraria.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Terraria",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://terraria.wiki.gg/wiki/Controls",
+          "domain": "terraria.wiki.gg",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/The Finals.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "The Finals",
+      "shortcutCount": 26,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.thefinals.wiki/wiki/Controls",
+          "domain": "thefinals.wiki",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/The Sims 4.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "The Sims 4",
+      "shortcutCount": 25,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.ea.com/en/help/the-sims/the-sims-4/the-sims-4-keyboard-shortcuts/",
+          "domain": "help.ea.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/VALORANT.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "VALORANT",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://valorant.fandom.com/wiki/Controls",
+          "domain": "valorant.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/Warframe.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "Warframe",
+      "shortcutCount": 23,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://warframe.fandom.com/wiki/Key_Bindings",
+          "domain": "warframe.fandom.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Gaming/World of Warcraft.json",
+      "platform": "Windows",
+      "category": "Gaming",
+      "app": "World of Warcraft",
+      "shortcutCount": 36,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://warcraft.wiki.gg/wiki/Hotkeys",
+          "domain": "warcraft.wiki.gg",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Git Clients/Sourcetree.json",
+      "platform": "Windows",
+      "category": "Git Clients",
+      "app": "Sourcetree",
+      "shortcutCount": 11,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/sourcetree/docs/keyboard-shortcuts/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/Ableton Live.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "Ableton Live",
+      "shortcutCount": 188,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.ableton.com/en/manual/live-keyboard-shortcuts/",
+          "domain": "ableton.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/Cubase.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "Cubase",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://steinberg.help/cubase_pro/v13/en/cubase_nuendo/topics/key_commands/key_commands_default_key_commands_r.html",
+          "domain": "steinberg.help",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/FL Studio.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "FL Studio",
+      "shortcutCount": 16,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.image-line.com/fl-studio-learning-content/fl-studio-online-manual/html/basics_shortcuts.htm",
+          "domain": "image-line.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/Pro Tools.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "Pro Tools",
+      "shortcutCount": 545,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://resources.avid.com/SupportFiles/PT/Pro_Tools_Shortcuts_12.8.2.pdf",
+          "domain": "resources.avid.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/Reaper.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "Reaper",
+      "shortcutCount": 14,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://reaper.fm/userguide.php",
+          "domain": "reaper.fm",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Music Production/Studio One.json",
+      "platform": "Windows",
+      "category": "Music Production",
+      "app": "Studio One",
+      "shortcutCount": 15,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://s1manual.presonus.com/Content/Fundamentals_Topics/Keyboard_Shortcuts.htm",
+          "domain": "s1manual.presonus.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Office & Documents/Microsoft PowerPoint.json",
+      "platform": "Windows",
+      "category": "Office & Documents",
+      "app": "Microsoft PowerPoint",
+      "shortcutCount": 307,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-US/accessibility/powerpoint/use-keyboard-shortcuts-to-deliver-powerpoint-presentations",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Office & Documents/Microsoft Word.json",
+      "platform": "Windows",
+      "category": "Office & Documents",
+      "app": "Microsoft Word",
+      "shortcutCount": 340,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/office/keyboard-shortcuts-in-word-95ef89dd-7142-4b50-afb2-f762f663ceb2",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/OS Essentials/Windows 11 and 10.json",
+      "platform": "Windows",
+      "category": "OS Essentials",
+      "app": "Windows 11 and 10",
+      "shortcutCount": 227,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/windows/keyboard-shortcuts-in-windows-dcc61a57-8ff0-cffe-9796-cb9706c75eec",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://www.techradar.com/computing/windows/i-use-these-10-windows-keyboard-shortcuts-daily-they-help-me-work-smarter-not-harder",
+          "domain": "techradar.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Asana.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Asana",
+      "shortcutCount": 61,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.asana.com/s/article/keyboard-shortcuts?language=en_US",
+          "domain": "help.asana.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/ClickUp.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "ClickUp",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://help.clickup.com/hc/en-us/articles/6309661545623-Keyboard-shortcuts",
+          "domain": "help.clickup.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Jira.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Jira",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/jira-software-cloud/docs/use-keyboard-shortcuts/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Linear.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Linear",
+      "shortcutCount": 61,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://linear.app/changelog/2021-03-25-keyboard-shortcuts-help",
+          "domain": "linear.app",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Monday.com.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Monday.com",
+      "shortcutCount": 10,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.monday.com/hc/en-us/articles/115005339905-monday-com-Shortcuts",
+          "domain": "support.monday.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Todoist.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Todoist",
+      "shortcutCount": 20,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://www.todoist.com/help/articles/use-keyboard-shortcuts-in-todoist-Wyovn2",
+          "domain": "todoist.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Project Management/Trello.json",
+      "platform": "Windows",
+      "category": "Project Management",
+      "app": "Trello",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.atlassian.com/trello/docs/using-keyboard-shortcuts-in-trello/",
+          "domain": "support.atlassian.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Security & Passwords/1Password.json",
+      "platform": "Windows",
+      "category": "Security & Passwords",
+      "app": "1Password",
+      "shortcutCount": 39,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.1password.com/keyboard-shortcuts/",
+          "domain": "support.1password.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Terminal & Shell/kitty.json",
+      "platform": "Windows",
+      "category": "Terminal & Shell",
+      "app": "kitty",
+      "shortcutCount": 42,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://sw.kovidgoyal.net/kitty/overview/",
+          "domain": "sw.kovidgoyal.net",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Terminal & Shell/tmux.json",
+      "platform": "Windows",
+      "category": "Terminal & Shell",
+      "app": "tmux",
+      "shortcutCount": 13,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://man7.org/linux/man-pages/man1/tmux.1.html",
+          "domain": "man7.org",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Terminal & Shell/Warp.json",
+      "platform": "Windows",
+      "category": "Terminal & Shell",
+      "app": "Warp",
+      "shortcutCount": 10,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://docs.warp.dev/features/keyboard-shortcuts",
+          "domain": "docs.warp.dev",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Text Editors/UltraEdit.json",
+      "platform": "Windows",
+      "category": "Text Editors",
+      "app": "UltraEdit",
+      "shortcutCount": 127,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.ultraedit.com/support/tutorials-power-tips/ultraedit/mac-keyboard-shortcuts/",
+          "domain": "ultraedit.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Video Editing/Adobe After Effects.json",
+      "platform": "Windows",
+      "category": "Video Editing",
+      "app": "Adobe After Effects",
+      "shortcutCount": 196,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Video Editing/Adobe Premiere Pro.json",
+      "platform": "Windows",
+      "category": "Video Editing",
+      "app": "Adobe Premiere Pro",
+      "shortcutCount": 27,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://helpx.adobe.com/premiere-pro/using/keyboard-shortcuts.html",
+          "domain": "helpx.adobe.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Video Editing/Avid Media Composer.json",
+      "platform": "Windows",
+      "category": "Video Editing",
+      "app": "Avid Media Composer",
+      "shortcutCount": 16,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://resources.avid.com/SupportFiles/attach/Media_Composer_Shortcuts.pdf",
+          "domain": "resources.avid.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Video Editing/DaVinci Resolve.json",
+      "platform": "Windows",
+      "category": "Video Editing",
+      "app": "DaVinci Resolve",
+      "shortcutCount": 15,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://www.davincishortcuts.com/",
+          "domain": "davincishortcuts.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Logseq.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Logseq",
+      "shortcutCount": 12,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://docs.logseq.com/#/page/keyboard%20shortcuts",
+          "domain": "docs.logseq.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Microsoft OneNote.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Microsoft OneNote",
+      "shortcutCount": 32,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accessibility/onenote/keyboard-shortcuts-in-onenote",
+          "domain": "support.microsoft.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Notion.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Notion",
+      "shortcutCount": 28,
+      "sourceStatus": "mixed",
+      "sources": [
+        {
+          "url": "https://www.notion.com/help/keyboard-shortcuts",
+          "domain": "notion.com",
+          "classification": "third-party/reference"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Obsidian.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Obsidian",
+      "shortcutCount": 24,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://github.com/solomkinmv/hotkys/blob/main/shortcuts-disco-site/shortcuts-data/obsidian.json",
+          "domain": "github.com",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Roam Research.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Roam Research",
+      "shortcutCount": 11,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://roamresearch.com/#/app/help/page/4n0ArN6Da",
+          "domain": "roamresearch.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Scrivener.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Scrivener",
+      "shortcutCount": 12,
+      "sourceStatus": "third-party-only",
+      "sources": [
+        {
+          "url": "https://scrivener.tenderapp.com/help/kb/mac-os-x/keyboard-shortcuts",
+          "domain": "scrivener.tenderapp.com",
+          "classification": "third-party/reference"
+        }
+      ]
+    },
+    {
+      "path": "Windows/Writing & Knowledge/Typora.json",
+      "platform": "Windows",
+      "category": "Writing & Knowledge",
+      "app": "Typora",
+      "shortcutCount": 63,
+      "sourceStatus": "official-only",
+      "sources": [
+        {
+          "url": "https://support.typora.io/Shortcut-Keys/",
+          "domain": "support.typora.io",
+          "classification": "official/developer"
+        },
+        {
+          "url": "https://github.com/solomkinmv/hotkys",
+          "domain": "github.com",
+          "classification": "official/developer"
+        }
+      ]
+    }
+  ]
+}

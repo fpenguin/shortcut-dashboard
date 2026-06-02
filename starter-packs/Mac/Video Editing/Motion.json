@@ -1,0 +1,288 @@
+{
+  "starterPack": {
+    "name": "Motion",
+    "platform": "Mac",
+    "category": "Video Editing",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Apple Motion User Guide",
+    "source": "https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Motion",
+    "path": "starter-packs/Mac/Video Editing/Motion.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-video-editing-motion-a-toggle-animation-recording",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Toggle animation recording",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: A\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|a|toggle-animation-recording|0"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-space-play-or-pause-project",
+      "layer": "Base",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Space",
+      "action": "Play or pause project",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: Transport\nOriginal key: Space\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "Transport"
+      ],
+      "active": true,
+      "sourceFolder": "Transport",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|transport|space|play-or-pause-project|1"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-cmd-j-open-project-properties-inspector",
+      "layer": "Cmd",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "Cmd+J",
+      "action": "Open project properties inspector",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Cmd+J\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|cmd-j|open-project-properties-inspector|2"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-cmd-i-import-file",
+      "layer": "Cmd",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Cmd+I",
+      "action": "Import file",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Cmd+I\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|cmd-i|import-file|3"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-shift-cmd-i-import-file-as-project",
+      "layer": "Shift+Cmd",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Shift+Cmd+I",
+      "action": "Import file as project",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Shift+Cmd+I\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|shift-cmd-i|import-file-as-project|4"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-cmd-e-export-movie",
+      "layer": "Cmd",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Cmd+E",
+      "action": "Export movie",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Cmd+E\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|cmd-e|export-movie|5"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-option-cmd-e-export-selection-as-movie",
+      "layer": "Option+Cmd",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Option+Cmd+E",
+      "action": "Export selection as movie",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Option+Cmd+E\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|option-cmd-e|export-selection-as-movie|6"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-cmd-d-duplicate-selection",
+      "layer": "Cmd",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Cmd+D",
+      "action": "Duplicate selection",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Cmd+D\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|cmd-d|duplicate-selection|7"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-shift-cmd-a-deselect-all-items",
+      "layer": "Shift+Cmd",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "Shift+Cmd+A",
+      "action": "Deselect all items",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Shift+Cmd+A\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|shift-cmd-a|deselect-all-items|8"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-option-cmd-t-show-or-hide-toolbar",
+      "layer": "Option+Cmd",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Option+Cmd+T",
+      "action": "Show or hide toolbar",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Option+Cmd+T\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|option-cmd-t|show-or-hide-toolbar|9"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-cmd-open-motion-settings",
+      "layer": "Cmd",
+      "key": ",",
+      "keyLabel": ",",
+      "shortcut": "Cmd+,",
+      "action": "Open Motion settings",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Cmd+,\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|cmd|open-motion-settings|10"
+    },
+    {
+      "id": "starter-pack-mac-video-editing-motion-shift-cmd-p-display-page-setup-dialog",
+      "layer": "Shift+Cmd",
+      "key": "P",
+      "keyLabel": "P",
+      "shortcut": "Shift+Cmd+P",
+      "action": "Display Page Setup dialog",
+      "app": "Motion",
+      "category": "Video Editing",
+      "notes": "Starter pack category: Video Editing\nSection: General\nOriginal key: Shift+Cmd+P\nSource: https://support.apple.com/en-ca/guide/motion/motnbd1da7fd/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Motion",
+        "Video Editing",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|motion|general|shift-cmd-p|display-page-setup-dialog|11"
+    }
+  ],
+  "textTrigger": {
+    "columns": [
+      "",
+      "",
+      ""
+    ],
+    "fontSize": 16
+  }
+}

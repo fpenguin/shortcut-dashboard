@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "JupyterLab",
+    "platform": "Mac",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "JupyterLab keyboard shortcuts",
+    "source": "https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "JupyterLab",
+    "path": "starter-packs/Mac/Data Analytics/JupyterLab.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-a-insert-cell-above",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Insert Cell Above",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: A\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|a|insert-cell-above"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-b-insert-cell-below",
+      "layer": "Base",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "B",
+      "action": "Insert Cell Below",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: B\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|b|insert-cell-below"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-d-d-delete-selected-cells",
+      "layer": "Base",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "D D",
+      "action": "Delete Selected Cells",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: D D\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|d-d|delete-selected-cells"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-m-change-cell-to-markdown",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Change Cell to Markdown",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: M\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|m|change-cell-to-markdown"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-y-change-cell-to-code",
+      "layer": "Base",
+      "key": "Y",
+      "keyLabel": "Y",
+      "shortcut": "Y",
+      "action": "Change Cell to Code",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: Y\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|y|change-cell-to-code"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-enter-enter-edit-mode",
+      "layer": "Base",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Enter",
+      "action": "Enter Edit Mode",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Command Mode\nOriginal key: Enter\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Command Mode"
+      ],
+      "active": true,
+      "sourceFolder": "Command Mode",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|command-mode|enter|enter-edit-mode"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-shift-enter-run-cell-and-select-below",
+      "layer": "Shift",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Shift+Enter",
+      "action": "Run Cell and Select Below",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Execution\nOriginal key: Shift+Enter\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Execution"
+      ],
+      "active": true,
+      "sourceFolder": "Execution",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|execution|shift-enter|run-cell-and-select-below"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-cmd-enter-run-selected-cells",
+      "layer": "Cmd",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Enter",
+      "action": "Run Selected Cells",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Execution\nOriginal key: Cmd+Enter\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Execution"
+      ],
+      "active": true,
+      "sourceFolder": "Execution",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|execution|cmd-enter|run-selected-cells"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-option-enter-run-cell-and-insert-below",
+      "layer": "Option",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Option+Enter",
+      "action": "Run Cell and Insert Below",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Execution\nOriginal key: Option+Enter\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Execution"
+      ],
+      "active": true,
+      "sourceFolder": "Execution",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|execution|option-enter|run-cell-and-insert-below"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-s-save-notebook",
+      "layer": "Base",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "S",
+      "action": "Save Notebook",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Notebook\nOriginal key: S\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Notebook"
+      ],
+      "active": true,
+      "sourceFolder": "Notebook",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|notebook|s|save-notebook"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-0-0-restart-kernel",
+      "layer": "Base",
+      "key": "0",
+      "keyLabel": "0",
+      "shortcut": "0 0",
+      "action": "Restart Kernel",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Notebook\nOriginal key: 0 0\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Notebook"
+      ],
+      "active": true,
+      "sourceFolder": "Notebook",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|notebook|0-0|restart-kernel"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-jupyterlab-cmd-shift-c-open-command-palette",
+      "layer": "Cmd+Shift",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Cmd+Shift+C",
+      "action": "Open Command Palette",
+      "app": "JupyterLab",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Palette\nOriginal key: Cmd+Shift+C\nSource: https://jupyterlab.readthedocs.io/en/stable/user/interface.html#keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "JupyterLab",
+        "Data Analytics",
+        "Palette"
+      ],
+      "active": true,
+      "sourceFolder": "Palette",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|jupyterlab|palette|cmd-shift-c|open-command-palette"
+    }
+  ]
+}

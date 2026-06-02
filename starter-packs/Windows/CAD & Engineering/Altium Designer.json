@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "Altium Designer",
+    "platform": "Windows",
+    "category": "CAD & Engineering",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Altium Designer shortcut keys",
+    "source": "https://www.altium.com/documentation/altium-designer/shortcut-keys",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Altium Designer",
+    "path": "starter-packs/Windows/CAD & Engineering/Altium Designer.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-ctrl-q-toggle-units",
+      "layer": "Ctrl",
+      "key": "Q",
+      "keyLabel": "Q",
+      "shortcut": "Ctrl+Q",
+      "action": "Toggle Units",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: General\nOriginal key: Ctrl+Q\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|general|ctrl-q|toggle-units"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-shift-f4-tile-documents",
+      "layer": "Shift",
+      "key": "F4",
+      "keyLabel": "F4",
+      "shortcut": "Shift+F4",
+      "action": "Tile Documents",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: General\nOriginal key: Shift+F4\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "General"
+      ],
+      "active": true,
+      "sourceFolder": "General",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|general|shift-f4|tile-documents"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-p-w-place-wire",
+      "layer": "Base",
+      "key": "W",
+      "keyLabel": "W",
+      "shortcut": "P W",
+      "action": "Place Wire",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: P W\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|schematic|p-w|place-wire"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-p-p-place-part",
+      "layer": "Base",
+      "key": "P",
+      "keyLabel": "P",
+      "shortcut": "P P",
+      "action": "Place Part",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: P P\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|schematic|p-p|place-part"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-p-n-place-net-label",
+      "layer": "Base",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "P N",
+      "action": "Place Net Label",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Schematic\nOriginal key: P N\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "Schematic"
+      ],
+      "active": true,
+      "sourceFolder": "Schematic",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|schematic|p-n|place-net-label"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-p-t-place-track",
+      "layer": "Base",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "P T",
+      "action": "Place Track",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: P T\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|p-t|place-track"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-p-v-place-via",
+      "layer": "Base",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "P V",
+      "action": "Place Via",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: P V\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|p-v|place-via"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-m-m-move-component",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M M",
+      "action": "Move Component",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: M M\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|m-m|move-component"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-l-view-configurations",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "View Configurations",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: L\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|l|view-configurations"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-3-switch-to-3d-layout-mode",
+      "layer": "Base",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "3",
+      "action": "Switch to 3D Layout Mode",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: 3\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|3|switch-to-3d-layout-mode"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-2-switch-to-2d-layout-mode",
+      "layer": "Base",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "2",
+      "action": "Switch to 2D Layout Mode",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: PCB\nOriginal key: 2\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "PCB"
+      ],
+      "active": true,
+      "sourceFolder": "PCB",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|pcb|2|switch-to-2d-layout-mode"
+    },
+    {
+      "id": "starter-pack-windows-cad-and-engineering-altium-designer-shift-r-cycle-routing-conflict-mode",
+      "layer": "Shift",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Shift+R",
+      "action": "Cycle Routing Conflict Mode",
+      "app": "Altium Designer",
+      "category": "CAD & Engineering",
+      "notes": "Starter pack category: CAD & Engineering\nSection: Routing\nOriginal key: Shift+R\nSource: https://www.altium.com/documentation/altium-designer/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Altium Designer",
+        "CAD & Engineering",
+        "Routing"
+      ],
+      "active": true,
+      "sourceFolder": "Routing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|altium-designer|routing|shift-r|cycle-routing-conflict-mode"
+    }
+  ]
+}

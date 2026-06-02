@@ -1,0 +1,200 @@
+{
+  "starterPack": {
+    "name": "Hammerspoon",
+    "platform": "Mac",
+    "category": "Automation & Launchers",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Hammerspoon hs.hotkey API reference",
+    "source": "https://www.hammerspoon.org/docs/hs.hotkey.html",
+    "notes": "Template-style starter pack for common Hammerspoon hotkey patterns; Hammerspoon itself is user-scripted, so verify against your own config.",
+    "app": "Hammerspoon",
+    "path": "starter-packs/Mac/Automation & Launchers/Hammerspoon.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-h-bind-window-left",
+      "layer": "Hyper",
+      "key": "H",
+      "keyLabel": "H",
+      "shortcut": "Hyper+H",
+      "action": "Bind Window Left",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+H\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-h|bind-window-left"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-l-bind-window-right",
+      "layer": "Hyper",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Hyper+L",
+      "action": "Bind Window Right",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+L\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-l|bind-window-right"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-k-bind-window-top",
+      "layer": "Hyper",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Hyper+K",
+      "action": "Bind Window Top",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+K\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-k|bind-window-top"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-j-bind-window-bottom",
+      "layer": "Hyper",
+      "key": "J",
+      "keyLabel": "J",
+      "shortcut": "Hyper+J",
+      "action": "Bind Window Bottom",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+J\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-j|bind-window-bottom"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-r-reload-hammerspoon-config",
+      "layer": "Hyper",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Hyper+R",
+      "action": "Reload Hammerspoon Config",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+R\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-r|reload-hammerspoon-config"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-c-center-window",
+      "layer": "Hyper",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Hyper+C",
+      "action": "Center Window",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+C\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-c|center-window"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-space-show-hammerspoon-console",
+      "layer": "Hyper",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Hyper+Space",
+      "action": "Show Hammerspoon Console",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+Space\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-space|show-hammerspoon-console"
+    },
+    {
+      "id": "starter-pack-mac-automation-hammerspoon-hyper-m-move-window-to-next-monitor",
+      "layer": "Hyper",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "Hyper+M",
+      "action": "Move Window to Next Monitor",
+      "app": "Hammerspoon",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Starter Ideas\nOriginal key: Hyper+M\nSource: https://www.hammerspoon.org/docs/hs.hotkey.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Hammerspoon",
+        "Automation & Launchers",
+        "Starter Ideas",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Starter Ideas",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|hammerspoon|starter-ideas|hyper-m|move-window-to-next-monitor"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-development-visual-studio-code-shift-option-f-format-document",
+      "layer": "Shift+Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Shift+Option+F",
+      "action": "Format Document",
+      "app": "Visual Studio Code",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Format\nOriginal key: shift+opt+f\nSource: https://code.visualstudio.com/docs/configure/keybindings\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Visual Studio Code",
+        "Development",
+        "Format"
+      ],
+      "active": true,
+      "sourceFolder": "Format",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|visual-studio-code|format|shift-opt-f|format-document|0"
+    },
+    {
+      "id": "starter-pack-windows-development-visual-studio-code-cmd-shift-e-open-editor-tab",
+      "layer": "Cmd+Shift",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Cmd+Shift+E",
+      "action": "Open Editor Tab",
+      "app": "Visual Studio Code",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editor\nOriginal key: shift+cmd+e\nSource: https://code.visualstudio.com/docs/configure/keybindings\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Visual Studio Code",
+        "Development",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|visual-studio-code|editor|shift-cmd-e|open-editor-tab|1"
+    },
+    {
+      "id": "starter-pack-windows-development-visual-studio-code-shift-ctrl-left-shrink-selection",
+      "layer": "Shift+Ctrl",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "Shift+Ctrl+Left",
+      "action": "Shrink Selection",
+      "app": "Visual Studio Code",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editor\nOriginal key: ctrl+shift+left\nSource: https://code.visualstudio.com/docs/configure/keybindings\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Visual Studio Code",
+        "Development",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|visual-studio-code|editor|ctrl-shift-left|shrink-selection|2"
+    },
+    {
+      "id": "starter-pack-windows-development-visual-studio-code-shift-ctrl-right-increase-selection",
+      "layer": "Shift+Ctrl",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Shift+Ctrl+Right",
+      "action": "Increase Selection",
+      "app": "Visual Studio Code",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Editor\nOriginal key: ctrl+shift+right\nSource: https://code.visualstudio.com/docs/configure/keybindings\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Visual Studio Code",
+        "Development",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|visual-studio-code|editor|ctrl-shift-right|increase-selection|3"
+    },
+    {
+      "id": "starter-pack-windows-development-visual-studio-code-f2-rename",
+      "layer": "Base",
+      "key": "F2",
+      "keyLabel": "F2",
+      "shortcut": "F2",
+      "action": "Rename",
+      "app": "Visual Studio Code",
+      "category": "Development",
+      "notes": "Starter pack category: Development\nSection: Refactor\nOriginal key: f2\nSource: https://code.visualstudio.com/docs/configure/keybindings\nDerived from Hotkys MIT-licensed public data.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Visual Studio Code",
+        "Development",
+        "Refactor"
+      ],
+      "active": true,
+      "sourceFolder": "Refactor",
+      "importSource": "Shortcut Starter Pack / Hotkys",
+      "importKey": "Windows|visual-studio-code|refactor|f2|rename|6"
+    }
+  ],
+  "starterPack": {
+    "app": "Visual Studio Code",
+    "platform": "Windows",
+    "category": "Development",
+    "source": "https://code.visualstudio.com/docs/configure/keybindings",
+    "sourceRepository": "https://github.com/solomkinmv/hotkys",
+    "sourceLicense": "MIT",
+    "notes": "Shortcut Dashboard starter pack. Merge this JSON from Backup & Import. Common universal edit commands are intentionally omitted.",
+    "path": "starter-packs/Windows/Development/Visual Studio Code.json",
+    "updated": "2026-06-01"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "starterPack": {
+    "name": "PowerToys",
+    "platform": "Windows",
+    "category": "Automation & Launchers",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Microsoft PowerToys keyboard manager",
+    "source": "https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "PowerToys",
+    "path": "starter-packs/Windows/Automation & Launchers/PowerToys.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-automation-powertoys-alt-space-open-powertoys-run",
+      "layer": "Option",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Alt+Space",
+      "action": "Open PowerToys Run",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: PowerToys\nOriginal key: Alt+Space\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "PowerToys",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|powertoys|alt-space|open-powertoys-run"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-shift-c-color-picker",
+      "layer": "Cmd+Shift",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Win+Shift+C",
+      "action": "Color Picker",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: PowerToys\nOriginal key: Win+Shift+C\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "PowerToys",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|powertoys|win-shift-c|color-picker"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-shift-t-text-extractor",
+      "layer": "Cmd+Shift",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Win+Shift+T",
+      "action": "Text Extractor",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: PowerToys\nOriginal key: Win+Shift+T\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "PowerToys",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|powertoys|win-shift-t|text-extractor"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-ctrl-t-always-on-top",
+      "layer": "Cmd+Ctrl",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Win+Ctrl+T",
+      "action": "Always On Top",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: PowerToys\nOriginal key: Win+Ctrl+T\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "PowerToys",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|powertoys|win-ctrl-t|always-on-top"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-arrowleft-snap-window-left",
+      "layer": "Cmd",
+      "key": "ArrowLeft",
+      "keyLabel": "Left",
+      "shortcut": "Win+ArrowLeft",
+      "action": "Snap Window Left",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Window Management\nOriginal key: Win+ArrowLeft\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Window Management",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Window Management",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|window-management|win-arrowleft|snap-window-left"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-arrowright-snap-window-right",
+      "layer": "Cmd",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Win+ArrowRight",
+      "action": "Snap Window Right",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Window Management\nOriginal key: Win+ArrowRight\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Window Management",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Window Management",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|window-management|win-arrowright|snap-window-right"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-arrowup-maximize-window",
+      "layer": "Cmd",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "Win+ArrowUp",
+      "action": "Maximize Window",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Window Management\nOriginal key: Win+ArrowUp\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Window Management",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Window Management",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|window-management|win-arrowup|maximize-window"
+    },
+    {
+      "id": "starter-pack-windows-automation-powertoys-win-arrowdown-minimize-or-restore-window",
+      "layer": "Cmd",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "Win+ArrowDown",
+      "action": "Minimize or Restore Window",
+      "app": "PowerToys",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Window Management\nOriginal key: Win+ArrowDown\nSource: https://learn.microsoft.com/en-us/windows/powertoys/keyboard-manager\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "PowerToys",
+        "Automation & Launchers",
+        "Window Management",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Window Management",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|powertoys|window-management|win-arrowdown|minimize-or-restore-window"
+    }
+  ]
+}

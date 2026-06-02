@@ -1,0 +1,223 @@
+{
+  "starterPack": {
+    "name": "Keyboard Maestro",
+    "platform": "Mac",
+    "category": "Automation & Launchers",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Keyboard Maestro editor manual",
+    "source": "https://wiki.keyboardmaestro.com/manual/Macros",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "app": "Keyboard Maestro",
+    "path": "starter-packs/Mac/Automation & Launchers/Keyboard Maestro.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-n-new-macro",
+      "layer": "Cmd",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+N",
+      "action": "New Macro",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+N\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-n|new-macro"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-shift-n-new-macro-group",
+      "layer": "Cmd+Shift",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+Shift+N",
+      "action": "New Macro Group",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Shift+N\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-shift-n|new-macro-group"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-option-n-new-action",
+      "layer": "Cmd+Option",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+Option+N",
+      "action": "New Action",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Option+N\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-option-n|new-action"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-e-edit-macro",
+      "layer": "Cmd",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Cmd+E",
+      "action": "Edit Macro",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+E\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-e|edit-macro"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-r-try-macro",
+      "layer": "Cmd",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+R",
+      "action": "Try Macro",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+R\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-r|try-macro"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-shift-f-search-all-macros",
+      "layer": "Cmd+Shift",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Shift+F",
+      "action": "Search All Macros",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Shift+F\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-shift-f|search-all-macros"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-option-c-copy-as-xml",
+      "layer": "Cmd+Option",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Cmd+Option+C",
+      "action": "Copy as XML",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Option+C\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-option-c|copy-as-xml"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-option-v-paste-replacing",
+      "layer": "Cmd+Option",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "Cmd+Option+V",
+      "action": "Paste Replacing",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Option+V\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-option-v|paste-replacing"
+    },
+    {
+      "id": "starter-pack-mac-automation-keyboard-maestro-cmd-option-s-sort-macros",
+      "layer": "Cmd+Option",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Cmd+Option+S",
+      "action": "Sort Macros",
+      "app": "Keyboard Maestro",
+      "category": "Automation & Launchers",
+      "notes": "Starter pack category: Automation & Launchers\nSection: Editor\nOriginal key: Cmd+Option+S\nSource: https://wiki.keyboardmaestro.com/manual/Macros\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Keyboard Maestro",
+        "Automation & Launchers",
+        "Editor",
+        "Automation"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|keyboard-maestro|editor|cmd-option-s|sort-macros"
+    }
+  ]
+}

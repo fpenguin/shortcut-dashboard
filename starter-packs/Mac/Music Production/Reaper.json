@@ -1,0 +1,332 @@
+{
+  "starterPack": {
+    "name": "Reaper",
+    "platform": "Mac",
+    "category": "Music Production",
+    "sourceType": "Curated public documentation",
+    "sourceName": "REAPER User Guide",
+    "source": "https://reaper.fm/userguide.php",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Reaper",
+    "path": "starter-packs/Mac/Music Production/Reaper.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-music-production-reaper-space-play-or-stop",
+      "layer": "Base",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Space",
+      "action": "Play or stop",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Transport\nOriginal key: Space\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Transport"
+      ],
+      "active": true,
+      "sourceFolder": "Transport",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|transport|space|play-or-stop|0"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-r-record",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Record",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Transport\nOriginal key: R\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Transport"
+      ],
+      "active": true,
+      "sourceFolder": "Transport",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|transport|r|record|1"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-m-insert-marker-at-current-position",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Insert marker at current position",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Markers\nOriginal key: M\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Markers"
+      ],
+      "active": true,
+      "sourceFolder": "Markers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|markers|m|insert-marker-at-current-position|2"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-shift-m-insert-region-from-time-selection",
+      "layer": "Shift",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "Shift+M",
+      "action": "Insert region from time selection",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Markers\nOriginal key: Shift+M\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Markers"
+      ],
+      "active": true,
+      "sourceFolder": "Markers",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|markers|shift-m|insert-region-from-time-selection|3"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-s-split-selected-items-at-cursor",
+      "layer": "Base",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "S",
+      "action": "Split selected items at cursor",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Editing\nOriginal key: S\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|editing|s|split-selected-items-at-cursor|4"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-f2-open-item-properties",
+      "layer": "Base",
+      "key": "F2",
+      "keyLabel": "F2",
+      "shortcut": "F2",
+      "action": "Open item properties",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Editing\nOriginal key: F2\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|editing|f2|open-item-properties|5"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-f8-show-action-list",
+      "layer": "Base",
+      "key": "F8",
+      "keyLabel": "F8",
+      "shortcut": "F8",
+      "action": "Show action list",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Actions\nOriginal key: F8\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Actions"
+      ],
+      "active": true,
+      "sourceFolder": "Actions",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|actions|f8|show-action-list|6"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-cmd-m-show-or-hide-mixer",
+      "layer": "Cmd",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "Cmd+M",
+      "action": "Show or hide mixer",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Views\nOriginal key: Cmd+M\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Views"
+      ],
+      "active": true,
+      "sourceFolder": "Views",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|views|cmd-m|show-or-hide-mixer|7"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-cmd-option-m-show-master-track",
+      "layer": "Cmd+Option",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "Cmd+Option+M",
+      "action": "Show master track",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Views\nOriginal key: Cmd+Option+M\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Views"
+      ],
+      "active": true,
+      "sourceFolder": "Views",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|views|cmd-option-m|show-master-track|8"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-option-return-open-project-settings",
+      "layer": "Option",
+      "key": "Enter",
+      "keyLabel": "Return",
+      "shortcut": "Option+Return",
+      "action": "Open project settings",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Project\nOriginal key: Option+Return\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Project"
+      ],
+      "active": true,
+      "sourceFolder": "Project",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|project|option-return|open-project-settings|9"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-shift-space-play-with-pause-behavior",
+      "layer": "Shift",
+      "key": "Space",
+      "keyLabel": "Space",
+      "shortcut": "Shift+Space",
+      "action": "Play with pause behavior",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Transport\nOriginal key: Shift+Space\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Transport"
+      ],
+      "active": true,
+      "sourceFolder": "Transport",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|transport|shift-space|play-with-pause-behavior|10"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-w-go-to-start-of-project",
+      "layer": "Base",
+      "key": "W",
+      "keyLabel": "W",
+      "shortcut": "W",
+      "action": "Go to start of project",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Navigation\nOriginal key: W\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|navigation|w|go-to-start-of-project|11"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-shift-w-go-to-end-of-project",
+      "layer": "Shift",
+      "key": "W",
+      "keyLabel": "W",
+      "shortcut": "Shift+W",
+      "action": "Go to end of project",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Navigation\nOriginal key: Shift+W\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|navigation|shift-w|go-to-end-of-project|12"
+    },
+    {
+      "id": "starter-pack-mac-music-production-reaper-option-s-toggle-snap",
+      "layer": "Option",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Option+S",
+      "action": "Toggle snap",
+      "app": "Reaper",
+      "category": "Music Production",
+      "notes": "Starter pack category: Music Production\nSection: Editing\nOriginal key: Option+S\nSource: https://reaper.fm/userguide.php\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Reaper",
+        "Music Production",
+        "Editing"
+      ],
+      "active": true,
+      "sourceFolder": "Editing",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|reaper|editing|option-s|toggle-snap|13"
+    }
+  ],
+  "textTrigger": {
+    "columns": [
+      "",
+      "",
+      ""
+    ],
+    "fontSize": 16
+  }
+}

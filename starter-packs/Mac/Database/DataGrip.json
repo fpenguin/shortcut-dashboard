@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "DataGrip",
+    "platform": "Mac",
+    "category": "Database",
+    "sourceType": "Curated public documentation",
+    "sourceName": "JetBrains DataGrip shortcuts",
+    "source": "https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "DataGrip",
+    "path": "starter-packs/Mac/Database/DataGrip.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-database-datagrip-shift-shift-search-everywhere",
+      "layer": "Shift",
+      "key": "Shift",
+      "keyLabel": "Shift",
+      "shortcut": "Shift Shift",
+      "action": "Search Everywhere",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Shift Shift\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|navigation|shift-shift|search-everywhere"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-shift-a-find-action",
+      "layer": "Cmd+Shift",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "Cmd+Shift+A",
+      "action": "Find Action",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Shift+A\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|navigation|cmd-shift-a|find-action"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-o-go-to-database-object",
+      "layer": "Cmd",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "Cmd+O",
+      "action": "Go to Database Object",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+O\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|navigation|cmd-o|go-to-database-object"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-enter-execute-statement",
+      "layer": "Cmd",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Enter",
+      "action": "Execute Statement",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Editor\nOriginal key: Cmd+Enter\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|editor|cmd-enter|execute-statement"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-option-l-reformat-code",
+      "layer": "Cmd+Option",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Cmd+Option+L",
+      "action": "Reformat Code",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Editor\nOriginal key: Cmd+Option+L\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|editor|cmd-option-l|reformat-code"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-option-enter-show-intention-actions",
+      "layer": "Option",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Option+Enter",
+      "action": "Show Intention Actions",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Editor\nOriginal key: Option+Enter\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Editor"
+      ],
+      "active": true,
+      "sourceFolder": "Editor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|editor|option-enter|show-intention-actions"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-f5-refresh",
+      "layer": "Cmd",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "Cmd+F5",
+      "action": "Refresh",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Data\nOriginal key: Cmd+F5\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|data|cmd-f5|refresh"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-cmd-shift-f-find-in-files",
+      "layer": "Cmd+Shift",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Shift+F",
+      "action": "Find in Files",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Search\nOriginal key: Cmd+Shift+F\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Search"
+      ],
+      "active": true,
+      "sourceFolder": "Search",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|search|cmd-shift-f|find-in-files"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-shift-f6-rename",
+      "layer": "Shift",
+      "key": "F6",
+      "keyLabel": "F6",
+      "shortcut": "Shift+F6",
+      "action": "Rename",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Refactor\nOriginal key: Shift+F6\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Refactor"
+      ],
+      "active": true,
+      "sourceFolder": "Refactor",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|refactor|shift-f6|rename"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-ctrl-r-run",
+      "layer": "Ctrl",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Ctrl+R",
+      "action": "Run",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Run\nOriginal key: Ctrl+R\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Run"
+      ],
+      "active": true,
+      "sourceFolder": "Run",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|run|ctrl-r|run"
+    },
+    {
+      "id": "starter-pack-mac-database-datagrip-ctrl-d-debug",
+      "layer": "Ctrl",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Ctrl+D",
+      "action": "Debug",
+      "app": "DataGrip",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Debug\nOriginal key: Ctrl+D\nSource: https://www.jetbrains.com/help/datagrip/mastering-keyboard-shortcuts.html\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "DataGrip",
+        "Database",
+        "Debug"
+      ],
+      "active": true,
+      "sourceFolder": "Debug",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|datagrip|debug|ctrl-d|debug"
+    }
+  ]
+}

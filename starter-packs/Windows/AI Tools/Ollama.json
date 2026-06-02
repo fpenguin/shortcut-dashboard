@@ -1,0 +1,126 @@
+{
+  "starterPack": {
+    "name": "Ollama",
+    "platform": "Windows",
+    "category": "AI Tools",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Ollama quickstart interactive menu",
+    "source": "https://docs.ollama.com/quickstart",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Ollama",
+    "path": "starter-packs/Windows/AI Tools/Ollama.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-windows-ai-tools-ollama-up-move-to-previous-menu-item",
+      "layer": "Base",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "Up",
+      "action": "Move to Previous Menu Item",
+      "app": "Ollama",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Interactive Menu\nOriginal key: Up\nSource: https://docs.ollama.com/quickstart\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Ollama",
+        "AI Tools",
+        "Interactive Menu"
+      ],
+      "active": true,
+      "sourceFolder": "Interactive Menu",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|ollama|interactive-menu|up|move-to-previous-menu-item"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-ollama-down-move-to-next-menu-item",
+      "layer": "Base",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "Down",
+      "action": "Move to Next Menu Item",
+      "app": "Ollama",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Interactive Menu\nOriginal key: Down\nSource: https://docs.ollama.com/quickstart\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Ollama",
+        "AI Tools",
+        "Interactive Menu"
+      ],
+      "active": true,
+      "sourceFolder": "Interactive Menu",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|ollama|interactive-menu|down|move-to-next-menu-item"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-ollama-enter-launch-selected-item",
+      "layer": "Base",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Enter",
+      "action": "Launch Selected Item",
+      "app": "Ollama",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Interactive Menu\nOriginal key: Enter\nSource: https://docs.ollama.com/quickstart\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Ollama",
+        "AI Tools",
+        "Interactive Menu"
+      ],
+      "active": true,
+      "sourceFolder": "Interactive Menu",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|ollama|interactive-menu|enter|launch-selected-item"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-ollama-right-change-model",
+      "layer": "Base",
+      "key": "ArrowRight",
+      "keyLabel": "Right",
+      "shortcut": "Right",
+      "action": "Change Model",
+      "app": "Ollama",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Interactive Menu\nOriginal key: Right\nSource: https://docs.ollama.com/quickstart\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Ollama",
+        "AI Tools",
+        "Interactive Menu"
+      ],
+      "active": true,
+      "sourceFolder": "Interactive Menu",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|ollama|interactive-menu|right|change-model"
+    },
+    {
+      "id": "starter-pack-windows-ai-tools-ollama-esc-quit-interactive-menu",
+      "layer": "Base",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Esc",
+      "action": "Quit Interactive Menu",
+      "app": "Ollama",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Interactive Menu\nOriginal key: Esc\nSource: https://docs.ollama.com/quickstart\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Ollama",
+        "AI Tools",
+        "Interactive Menu"
+      ],
+      "active": true,
+      "sourceFolder": "Interactive Menu",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Windows|ollama|interactive-menu|esc|quit-interactive-menu"
+    }
+  ]
+}

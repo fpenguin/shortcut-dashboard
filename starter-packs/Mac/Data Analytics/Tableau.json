@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "Tableau",
+    "platform": "Mac",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Tableau keyboard shortcuts",
+    "source": "https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Tableau",
+    "path": "starter-packs/Mac/Data Analytics/Tableau.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-1-go-to-sheet-1",
+      "layer": "Cmd",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+1",
+      "action": "Go to Sheet 1",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Cmd+1\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|navigation|cmd-1|go-to-sheet-1"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-2-go-to-sheet-2",
+      "layer": "Cmd",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+2",
+      "action": "Go to Sheet 2",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Cmd+2\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|navigation|cmd-2|go-to-sheet-2"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-3-go-to-sheet-3",
+      "layer": "Cmd",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Cmd+3",
+      "action": "Go to Sheet 3",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Cmd+3\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|navigation|cmd-3|go-to-sheet-3"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-f5-refresh-data-source",
+      "layer": "Base",
+      "key": "F5",
+      "keyLabel": "F5",
+      "shortcut": "F5",
+      "action": "Refresh Data Source",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Data\nOriginal key: F5\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|data|f5|refresh-data-source"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-shift-b-show-me",
+      "layer": "Cmd+Shift",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Cmd+Shift+B",
+      "action": "Show Me",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Marks\nOriginal key: Cmd+Shift+B\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Marks"
+      ],
+      "active": true,
+      "sourceFolder": "Marks",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|marks|cmd-shift-b|show-me"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-f7-presentation-mode",
+      "layer": "Base",
+      "key": "F7",
+      "keyLabel": "F7",
+      "shortcut": "F7",
+      "action": "Presentation Mode",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Presentation\nOriginal key: F7\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Presentation"
+      ],
+      "active": true,
+      "sourceFolder": "Presentation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|presentation|f7|presentation-mode"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-option-0-fit-entire-view",
+      "layer": "Cmd+Option",
+      "key": "0",
+      "keyLabel": "0",
+      "shortcut": "Cmd+Option+0",
+      "action": "Fit Entire View",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: View\nOriginal key: Cmd+Option+0\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|view|cmd-option-0|fit-entire-view"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-option-1-fit-width",
+      "layer": "Cmd+Option",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+Option+1",
+      "action": "Fit Width",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: View\nOriginal key: Cmd+Option+1\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|view|cmd-option-1|fit-width"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-option-2-fit-height",
+      "layer": "Cmd+Option",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+Option+2",
+      "action": "Fit Height",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: View\nOriginal key: Cmd+Option+2\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "View"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|view|cmd-option-2|fit-height"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-shift-n-new-worksheet",
+      "layer": "Cmd+Shift",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+Shift+N",
+      "action": "New Worksheet",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Worksheet\nOriginal key: Cmd+Shift+N\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Worksheet"
+      ],
+      "active": true,
+      "sourceFolder": "Worksheet",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|worksheet|cmd-shift-n|new-worksheet"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-shift-d-new-dashboard",
+      "layer": "Cmd+Shift",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Cmd+Shift+D",
+      "action": "New Dashboard",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Dashboard\nOriginal key: Cmd+Shift+D\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Dashboard"
+      ],
+      "active": true,
+      "sourceFolder": "Dashboard",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|dashboard|cmd-shift-d|new-dashboard"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-tableau-cmd-shift-m-new-story",
+      "layer": "Cmd+Shift",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "Cmd+Shift+M",
+      "action": "New Story",
+      "app": "Tableau",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Story\nOriginal key: Cmd+Shift+M\nSource: https://help.tableau.com/current/pro/desktop/en-us/shortcut.htm\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Tableau",
+        "Data Analytics",
+        "Story"
+      ],
+      "active": true,
+      "sourceFolder": "Story",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableau|story|cmd-shift-m|new-story"
+    }
+  ]
+}

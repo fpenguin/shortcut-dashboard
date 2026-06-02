@@ -1,0 +1,200 @@
+{
+  "starterPack": {
+    "name": "ChatGPT",
+    "platform": "Mac",
+    "category": "AI Tools",
+    "sourceType": "Curated public documentation",
+    "sourceName": "ChatGPT keyboard shortcuts",
+    "source": "https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "ChatGPT",
+    "path": "starter-packs/Mac/AI Tools/ChatGPT.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-k-search-chats",
+      "layer": "Cmd",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Cmd+K",
+      "action": "Search Chats",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Navigation\nOriginal key: Cmd+K\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Navigation",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|navigation|cmd-k|search-chats"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-shift-o-new-chat",
+      "layer": "Cmd+Shift",
+      "key": "O",
+      "keyLabel": "O",
+      "shortcut": "Cmd+Shift+O",
+      "action": "New Chat",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Chat\nOriginal key: Cmd+Shift+O\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Chat",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Chat",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|chat|cmd-shift-o|new-chat"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-shift-esc-focus-chat-input",
+      "layer": "Shift",
+      "key": "Escape",
+      "keyLabel": "Esc",
+      "shortcut": "Shift+Esc",
+      "action": "Focus Chat Input",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Chat\nOriginal key: Shift+Esc\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Chat",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Chat",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|chat|shift-esc|focus-chat-input"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-shift-c-copy-last-response",
+      "layer": "Cmd+Shift",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Cmd+Shift+C",
+      "action": "Copy Last Response",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Chat\nOriginal key: Cmd+Shift+C\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Chat",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Chat",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|chat|cmd-shift-c|copy-last-response"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-shift-s-toggle-sidebar",
+      "layer": "Cmd+Shift",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "Cmd+Shift+S",
+      "action": "Toggle Sidebar",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Chat\nOriginal key: Cmd+Shift+S\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Chat",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Chat",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|chat|cmd-shift-s|toggle-sidebar"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-shift-v-start-voice-mode",
+      "layer": "Cmd+Shift",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "Cmd+Shift+V",
+      "action": "Start Voice Mode",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Voice\nOriginal key: Cmd+Shift+V\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Voice",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Voice",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|voice|cmd-shift-v|start-voice-mode"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-option-enter-add-new-line",
+      "layer": "Option",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Option+Enter",
+      "action": "Add New Line",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Input\nOriginal key: Option+Enter\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Input",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Input",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|input|option-enter|add-new-line"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-chatgpt-cmd-open-keyboard-shortcuts",
+      "layer": "Cmd",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "Cmd+/",
+      "action": "Open Keyboard Shortcuts",
+      "app": "ChatGPT",
+      "category": "AI Tools",
+      "notes": "Starter pack category: AI Tools\nSection: Help\nOriginal key: Cmd+/\nSource: https://help.openai.com/en/articles/9675209-chatgpt-keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "ChatGPT",
+        "AI Tools",
+        "Help",
+        "Browser-Based Apps"
+      ],
+      "active": true,
+      "sourceFolder": "Help",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|chatgpt|help|cmd|open-keyboard-shortcuts"
+    }
+  ]
+}

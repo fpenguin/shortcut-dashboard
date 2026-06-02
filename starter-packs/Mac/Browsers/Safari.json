@@ -1,0 +1,259 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-safari-b7b3ecede9",
+      "layer": "Option+Cmd",
+      "key": "B",
+      "keyLabel": "B",
+      "shortcut": "Option+Cmd+B",
+      "action": "Open Bookmarks Manager",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Bookmarks\nOriginal key: opt+cmd+b\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Bookmarks"
+      ],
+      "active": true,
+      "sourceFolder": "Bookmarks",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Bookmarks|opt+cmd+b|Open Bookmarks Manager"
+    },
+    {
+      "id": "starter-safari-84676a8664",
+      "layer": "Cmd",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Cmd+L",
+      "action": "Select the Smart Search field",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Current Webpage\nOriginal key: cmd+l\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Current Webpage"
+      ],
+      "active": true,
+      "sourceFolder": "Current Webpage",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Current Webpage|cmd+l|Select the Smart Search field"
+    },
+    {
+      "id": "starter-safari-ec014cc205",
+      "layer": "Shift+Cmd",
+      "key": "\\",
+      "keyLabel": "\\",
+      "shortcut": "Shift+Cmd+\\",
+      "action": "Show tab overview",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Tabs\nOriginal key: shift+cmd+\\\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Tabs"
+      ],
+      "active": true,
+      "sourceFolder": "Tabs",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Tabs|shift+cmd+\\|Show tab overview"
+    },
+    {
+      "id": "starter-safari-9c4f1fe178",
+      "layer": "Ctrl",
+      "key": "Tab",
+      "keyLabel": "Tab",
+      "shortcut": "Ctrl+Tab",
+      "action": "Go to the next tab",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Tabs\nOriginal key: ctrl+tab\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Tabs"
+      ],
+      "active": true,
+      "sourceFolder": "Tabs",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Tabs|ctrl+tab|Go to the next tab"
+    },
+    {
+      "id": "starter-safari-32f2da0968",
+      "layer": "Shift+Ctrl",
+      "key": "Tab",
+      "keyLabel": "Tab",
+      "shortcut": "Shift+Ctrl+Tab",
+      "action": "Go to the previous tab",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Tabs\nOriginal key: ctrl+shift+tab\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Tabs"
+      ],
+      "active": true,
+      "sourceFolder": "Tabs",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Tabs|ctrl+shift+tab|Go to the previous tab"
+    },
+    {
+      "id": "starter-safari-732b84088c",
+      "layer": "Ctrl+Cmd",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Ctrl+Cmd+R",
+      "action": "Toggle Responsive Design Mode",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: ctrl+cmd+r\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|ctrl+cmd+r|Toggle Responsive Design Mode"
+    },
+    {
+      "id": "starter-safari-04a0cba89a",
+      "layer": "Option+Cmd",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Option+Cmd+E",
+      "action": "Empty Caches",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: opt+cmd+e\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|opt+cmd+e|Empty Caches"
+    },
+    {
+      "id": "starter-safari-15be7328bf",
+      "layer": "Option+Cmd",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Option+Cmd+I",
+      "action": "Show Web Inspector",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: opt+cmd+i\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|opt+cmd+i|Show Web Inspector"
+    },
+    {
+      "id": "starter-safari-33c18af4d4",
+      "layer": "Option+Cmd",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "Option+Cmd+C",
+      "action": "Show JavaScript Console",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: opt+cmd+c\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|opt+cmd+c|Show JavaScript Console"
+    },
+    {
+      "id": "starter-safari-986604130c",
+      "layer": "Option+Cmd",
+      "key": "U",
+      "keyLabel": "U",
+      "shortcut": "Option+Cmd+U",
+      "action": "Show Page Source",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: opt+cmd+u\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|opt+cmd+u|Show Page Source"
+    },
+    {
+      "id": "starter-safari-50fbe7a367",
+      "layer": "Option+Cmd",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "Option+Cmd+A",
+      "action": "Show Page Resources",
+      "app": "Safari",
+      "category": "Browser",
+      "notes": "Starter pack category: Browser\nSection: Develop\nOriginal key: opt+cmd+a\nSource: \nSource repository: https://github.com/solomkinmv/hotkys\nSource/license: MIT\nCommon universal shortcuts are omitted; verify in-app because defaults can change by version, platform, and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Safari",
+        "Browser",
+        "Develop"
+      ],
+      "active": true,
+      "sourceFolder": "Develop",
+      "importSource": "Shortcut Starter Pack",
+      "importKey": "Mac|Safari|Develop|opt+cmd+a|Show Page Resources"
+    }
+  ],
+  "starterPack": {
+    "app": "Safari",
+    "platform": "Mac",
+    "category": "Browser",
+    "source": "",
+    "additionalSources": [],
+    "sourceRepository": "https://github.com/solomkinmv/hotkys",
+    "sourceLicense": "MIT",
+    "notes": "Generated from Hotkys public shortcut data. Includes 13 dashboard-placeable shortcuts after filtering universal edit commands and unsupported keys. Standard Undo/Cut/Copy/Paste/Select All/Save/Print/Find shortcuts are omitted.",
+    "path": "starter-packs/Mac/Browsers/Safari.json",
+    "updated": "2026-06-01",
+    "coverage": "expanded-public-reference"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "starterPack": {
+    "name": "TablePlus",
+    "platform": "Mac",
+    "category": "Database",
+    "sourceType": "Curated public documentation",
+    "sourceName": "TablePlus keyboard shortcuts",
+    "source": "https://docs.tableplus.com/utilities/shortcut-keys",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "TablePlus",
+    "path": "starter-packs/Mac/Database/TablePlus.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-enter-run-current-query",
+      "layer": "Cmd",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Enter",
+      "action": "Run Current Query",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query\nOriginal key: Cmd+Enter\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Query"
+      ],
+      "active": true,
+      "sourceFolder": "Query",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|query|cmd-enter|run-current-query"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-shift-enter-run-all-queries",
+      "layer": "Cmd+Shift",
+      "key": "Enter",
+      "keyLabel": "Enter",
+      "shortcut": "Cmd+Shift+Enter",
+      "action": "Run All Queries",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query\nOriginal key: Cmd+Shift+Enter\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Query"
+      ],
+      "active": true,
+      "sourceFolder": "Query",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|query|cmd-shift-enter|run-all-queries"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-option-f-format-sql",
+      "layer": "Cmd+Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Option+F",
+      "action": "Format SQL",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query\nOriginal key: Cmd+Option+F\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Query"
+      ],
+      "active": true,
+      "sourceFolder": "Query",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|query|cmd-option-f|format-sql"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-k-open-command-menu",
+      "layer": "Cmd",
+      "key": "K",
+      "keyLabel": "K",
+      "shortcut": "Cmd+K",
+      "action": "Open Command Menu",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Query\nOriginal key: Cmd+K\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Query"
+      ],
+      "active": true,
+      "sourceFolder": "Query",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|query|cmd-k|open-command-menu"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-r-refresh",
+      "layer": "Cmd",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+R",
+      "action": "Refresh",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Data\nOriginal key: Cmd+R\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|data|cmd-r|refresh"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-option-r-reload-workspace",
+      "layer": "Cmd+Option",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "Cmd+Option+R",
+      "action": "Reload Workspace",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Data\nOriginal key: Cmd+Option+R\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Data"
+      ],
+      "active": true,
+      "sourceFolder": "Data",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|data|cmd-option-r|reload-workspace"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-1-open-structure",
+      "layer": "Cmd",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+1",
+      "action": "Open Structure",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+1\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|navigation|cmd-1|open-structure"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-2-open-data",
+      "layer": "Cmd",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+2",
+      "action": "Open Data",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+2\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|navigation|cmd-2|open-data"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-3-open-query",
+      "layer": "Cmd",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Cmd+3",
+      "action": "Open Query",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+3\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|navigation|cmd-3|open-query"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-shift-f-search-database",
+      "layer": "Cmd+Shift",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Cmd+Shift+F",
+      "action": "Search Database",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Navigation\nOriginal key: Cmd+Shift+F\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|navigation|cmd-shift-f|search-database"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-t-new-tab",
+      "layer": "Cmd",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Cmd+T",
+      "action": "New Tab",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Tabs\nOriginal key: Cmd+T\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Tabs"
+      ],
+      "active": true,
+      "sourceFolder": "Tabs",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|tabs|cmd-t|new-tab"
+    },
+    {
+      "id": "starter-pack-mac-database-tableplus-cmd-w-close-tab",
+      "layer": "Cmd",
+      "key": "W",
+      "keyLabel": "W",
+      "shortcut": "Cmd+W",
+      "action": "Close Tab",
+      "app": "TablePlus",
+      "category": "Database",
+      "notes": "Starter pack category: Database\nSection: Tabs\nOriginal key: Cmd+W\nSource: https://docs.tableplus.com/utilities/shortcut-keys\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "TablePlus",
+        "Database",
+        "Tabs"
+      ],
+      "active": true,
+      "sourceFolder": "Tabs",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|tableplus|tabs|cmd-w|close-tab"
+    }
+  ]
+}

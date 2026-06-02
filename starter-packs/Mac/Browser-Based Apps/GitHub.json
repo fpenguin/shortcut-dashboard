@@ -1,0 +1,257 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-shortcut-show-keyboard-shortcuts",
+      "layer": "Shift",
+      "key": "/",
+      "keyLabel": "/",
+      "shortcut": "Shift+/",
+      "action": "Show keyboard shortcuts",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Global\nOriginal key: ?\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Global"
+      ],
+      "active": true,
+      "sourceFolder": "Global",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|global|shortcut|show-keyboard-shortcuts|0"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-s-focus-site-search",
+      "layer": "Base",
+      "key": "S",
+      "keyLabel": "S",
+      "shortcut": "S",
+      "action": "Focus site search",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Global\nOriginal key: S\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Global"
+      ],
+      "active": true,
+      "sourceFolder": "Global",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|global|s|focus-site-search|1"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-g-open-go-to-menu-prefix",
+      "layer": "Base",
+      "key": "G",
+      "keyLabel": "G",
+      "shortcut": "G",
+      "action": "Open go-to menu prefix",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Global\nOriginal key: G\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Global"
+      ],
+      "active": true,
+      "sourceFolder": "Global",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|global|g|open-go-to-menu-prefix|2"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-c-create-issue",
+      "layer": "Base",
+      "key": "C",
+      "keyLabel": "C",
+      "shortcut": "C",
+      "action": "Create issue",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Issues\nOriginal key: C\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Issues"
+      ],
+      "active": true,
+      "sourceFolder": "Issues",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|issues|c|create-issue|3"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-l-edit-labels",
+      "layer": "Base",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "L",
+      "action": "Edit labels",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Issues\nOriginal key: L\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Issues"
+      ],
+      "active": true,
+      "sourceFolder": "Issues",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|issues|l|edit-labels|4"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-m-edit-milestone",
+      "layer": "Base",
+      "key": "M",
+      "keyLabel": "M",
+      "shortcut": "M",
+      "action": "Edit milestone",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Issues\nOriginal key: M\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Issues"
+      ],
+      "active": true,
+      "sourceFolder": "Issues",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|issues|m|edit-milestone|5"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-a-edit-assignee",
+      "layer": "Base",
+      "key": "A",
+      "keyLabel": "A",
+      "shortcut": "A",
+      "action": "Edit assignee",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Issues\nOriginal key: A\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Issues"
+      ],
+      "active": true,
+      "sourceFolder": "Issues",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|issues|a|edit-assignee|6"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-r-request-reviewers",
+      "layer": "Base",
+      "key": "R",
+      "keyLabel": "R",
+      "shortcut": "R",
+      "action": "Request reviewers",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Pull Requests\nOriginal key: R\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Pull Requests"
+      ],
+      "active": true,
+      "sourceFolder": "Pull Requests",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|pull-requests|r|request-reviewers|7"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-y-mark-notification-done",
+      "layer": "Base",
+      "key": "Y",
+      "keyLabel": "Y",
+      "shortcut": "Y",
+      "action": "Mark notification done",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notifications\nOriginal key: Y\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Notifications"
+      ],
+      "active": true,
+      "sourceFolder": "Notifications",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|notifications|y|mark-notification-done|8"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-shift-i-mark-notification-read",
+      "layer": "Shift",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Shift+I",
+      "action": "Mark notification read",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notifications\nOriginal key: Shift+I\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Notifications"
+      ],
+      "active": true,
+      "sourceFolder": "Notifications",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|notifications|shift-i|mark-notification-read|9"
+    },
+    {
+      "id": "starter-pack-mac-browser-based-apps-github-shift-u-mark-notification-unread",
+      "layer": "Shift",
+      "key": "U",
+      "keyLabel": "U",
+      "shortcut": "Shift+U",
+      "action": "Mark notification unread",
+      "app": "GitHub",
+      "category": "Browser-Based Apps",
+      "notes": "Starter pack category: Browser-Based Apps\nSection: Notifications\nOriginal key: Shift+U\nSource: https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "GitHub",
+        "Browser-Based Apps",
+        "Notifications"
+      ],
+      "active": true,
+      "sourceFolder": "Notifications",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|github|notifications|shift-u|mark-notification-unread|10"
+    }
+  ],
+  "starterPack": {
+    "app": "GitHub",
+    "platform": "Mac",
+    "category": "Browser-Based Apps",
+    "source": "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts",
+    "sourceRepository": "",
+    "sourceLicense": "Public documentation; shortcut facts curated, no vendor assets included.",
+    "notes": "Shortcut Dashboard starter pack. Merge this JSON from Backup & Import. Common universal edit commands are intentionally omitted.",
+    "path": "starter-packs/Mac/Browser-Based Apps/GitHub.json",
+    "updated": "2026-06-01"
+  }
+}

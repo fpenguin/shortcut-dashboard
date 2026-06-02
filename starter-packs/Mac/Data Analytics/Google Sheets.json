@@ -1,0 +1,258 @@
+{
+  "starterPack": {
+    "name": "Google Sheets",
+    "platform": "Mac",
+    "category": "Data Analytics",
+    "sourceType": "Curated public documentation",
+    "sourceName": "Google Sheets keyboard shortcuts",
+    "source": "https://support.google.com/docs/answer/181110",
+    "notes": "Curated starter pack. Obvious universal shortcuts and unsupported extended keys are intentionally omitted.",
+    "app": "Google Sheets",
+    "path": "starter-packs/Mac/Data Analytics/Google Sheets.json",
+    "updated": "2026-06-01"
+  },
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-option-arrowdown-move-to-next-sheet",
+      "layer": "Option",
+      "key": "ArrowDown",
+      "keyLabel": "Down",
+      "shortcut": "Option+ArrowDown",
+      "action": "Move to Next Sheet",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Option+ArrowDown\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|navigation|option-arrowdown|move-to-next-sheet"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-option-arrowup-move-to-previous-sheet",
+      "layer": "Option",
+      "key": "ArrowUp",
+      "keyLabel": "Up",
+      "shortcut": "Option+ArrowUp",
+      "action": "Move to Previous Sheet",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Navigation\nOriginal key: Option+ArrowUp\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Navigation"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|navigation|option-arrowup|move-to-previous-sheet"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-cmd-option-1-apply-heading-1",
+      "layer": "Cmd+Option",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+Option+1",
+      "action": "Apply Heading 1",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Formatting\nOriginal key: Cmd+Option+1\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Formatting"
+      ],
+      "active": true,
+      "sourceFolder": "Formatting",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|formatting|cmd-option-1|apply-heading-1"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-cmd-option-2-apply-heading-2",
+      "layer": "Cmd+Option",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+Option+2",
+      "action": "Apply Heading 2",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Formatting\nOriginal key: Cmd+Option+2\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Formatting"
+      ],
+      "active": true,
+      "sourceFolder": "Formatting",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|formatting|cmd-option-2|apply-heading-2"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-cmd-option-3-apply-heading-3",
+      "layer": "Cmd+Option",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Cmd+Option+3",
+      "action": "Apply Heading 3",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Formatting\nOriginal key: Cmd+Option+3\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Formatting"
+      ],
+      "active": true,
+      "sourceFolder": "Formatting",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|formatting|cmd-option-3|apply-heading-3"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-i-open-insert-menu",
+      "layer": "Ctrl+Option",
+      "key": "I",
+      "keyLabel": "I",
+      "shortcut": "Ctrl+Option+I",
+      "action": "Open Insert Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Rows Columns\nOriginal key: Ctrl+Option+I\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Rows Columns"
+      ],
+      "active": true,
+      "sourceFolder": "Rows Columns",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|rows-columns|ctrl-option-i|open-insert-menu"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-d-open-delete-menu",
+      "layer": "Ctrl+Option",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Ctrl+Option+D",
+      "action": "Open Delete Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Rows Columns\nOriginal key: Ctrl+Option+D\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Rows Columns"
+      ],
+      "active": true,
+      "sourceFolder": "Rows Columns",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|rows-columns|ctrl-option-d|open-delete-menu"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-f-open-file-menu",
+      "layer": "Ctrl+Option",
+      "key": "F",
+      "keyLabel": "F",
+      "shortcut": "Ctrl+Option+F",
+      "action": "Open File Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Menus\nOriginal key: Ctrl+Option+F\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Menus"
+      ],
+      "active": true,
+      "sourceFolder": "Menus",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|menus|ctrl-option-f|open-file-menu"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-e-open-edit-menu",
+      "layer": "Ctrl+Option",
+      "key": "E",
+      "keyLabel": "E",
+      "shortcut": "Ctrl+Option+E",
+      "action": "Open Edit Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Menus\nOriginal key: Ctrl+Option+E\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Menus"
+      ],
+      "active": true,
+      "sourceFolder": "Menus",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|menus|ctrl-option-e|open-edit-menu"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-v-open-view-menu",
+      "layer": "Ctrl+Option",
+      "key": "V",
+      "keyLabel": "V",
+      "shortcut": "Ctrl+Option+V",
+      "action": "Open View Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Menus\nOriginal key: Ctrl+Option+V\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Menus"
+      ],
+      "active": true,
+      "sourceFolder": "Menus",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|menus|ctrl-option-v|open-view-menu"
+    },
+    {
+      "id": "starter-pack-mac-data-analytics-google-sheets-ctrl-option-h-open-help-menu",
+      "layer": "Ctrl+Option",
+      "key": "H",
+      "keyLabel": "H",
+      "shortcut": "Ctrl+Option+H",
+      "action": "Open Help Menu",
+      "app": "Google Sheets",
+      "category": "Data Analytics",
+      "notes": "Starter pack category: Data Analytics\nSection: Menus\nOriginal key: Ctrl+Option+H\nSource: https://support.google.com/docs/answer/181110\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Google Sheets",
+        "Data Analytics",
+        "Menus"
+      ],
+      "active": true,
+      "sourceFolder": "Menus",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|google-sheets|menus|ctrl-option-h|open-help-menu"
+    }
+  ]
+}

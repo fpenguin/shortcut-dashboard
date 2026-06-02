@@ -1,0 +1,323 @@
+{
+  "shortcuts": [
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-n-new-window",
+      "layer": "Cmd",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+N",
+      "action": "New window",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Windows\nOriginal key: Cmd+N\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Windows",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Windows",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|windows|cmd-n|new-window|0"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-t-new-tab",
+      "layer": "Cmd",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Cmd+T",
+      "action": "New tab",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Windows\nOriginal key: Cmd+T\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Windows",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Windows",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|windows|cmd-t|new-tab|1"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-shift-n-new-command",
+      "layer": "Cmd+Shift",
+      "key": "N",
+      "keyLabel": "N",
+      "shortcut": "Cmd+Shift+N",
+      "action": "New command",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Windows\nOriginal key: Cmd+Shift+N\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Windows",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Windows",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|windows|cmd-shift-n|new-command|2"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-shift-t-show-or-hide-tab-bar",
+      "layer": "Cmd+Shift",
+      "key": "T",
+      "keyLabel": "T",
+      "shortcut": "Cmd+Shift+T",
+      "action": "Show or hide tab bar",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Windows\nOriginal key: Cmd+Shift+T\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Windows",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Windows",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|windows|cmd-shift-t|show-or-hide-tab-bar|3"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-shift-next-tab",
+      "layer": "Cmd+Shift",
+      "key": "]",
+      "keyLabel": "]",
+      "shortcut": "Cmd+Shift+]",
+      "action": "Next tab",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Navigation\nOriginal key: Cmd+Shift+]\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Navigation",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|navigation|cmd-shift|next-tab|4"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-shift-previous-tab",
+      "layer": "Cmd+Shift",
+      "key": "[",
+      "keyLabel": "[",
+      "shortcut": "Cmd+Shift+[",
+      "action": "Previous tab",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Navigation\nOriginal key: Cmd+Shift+[\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Navigation",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|navigation|cmd-shift|previous-tab|5"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-1-select-tab-1",
+      "layer": "Cmd",
+      "key": "1",
+      "keyLabel": "1",
+      "shortcut": "Cmd+1",
+      "action": "Select tab 1",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Navigation\nOriginal key: Cmd+1\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Navigation",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|navigation|cmd-1|select-tab-1|6"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-2-select-tab-2",
+      "layer": "Cmd",
+      "key": "2",
+      "keyLabel": "2",
+      "shortcut": "Cmd+2",
+      "action": "Select tab 2",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Navigation\nOriginal key: Cmd+2\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Navigation",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|navigation|cmd-2|select-tab-2|7"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-3-select-tab-3",
+      "layer": "Cmd",
+      "key": "3",
+      "keyLabel": "3",
+      "shortcut": "Cmd+3",
+      "action": "Select tab 3",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Navigation\nOriginal key: Cmd+3\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Navigation",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Navigation",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|navigation|cmd-3|select-tab-3|8"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-equals-make-text-bigger",
+      "layer": "Cmd",
+      "key": "=",
+      "keyLabel": "=",
+      "shortcut": "Cmd+=",
+      "action": "Make text bigger",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: View\nOriginal key: Cmd+= / Cmd+Plus\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "View",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|view|cmd-equals|make-text-bigger|9"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-make-text-smaller",
+      "layer": "Cmd",
+      "key": "-",
+      "keyLabel": "-",
+      "shortcut": "Cmd+-",
+      "action": "Make text smaller",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: View\nOriginal key: Cmd+-\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "View",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|view|cmd|make-text-smaller|10"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-cmd-0-return-to-default-text-size",
+      "layer": "Cmd",
+      "key": "0",
+      "keyLabel": "0",
+      "shortcut": "Cmd+0",
+      "action": "Return to default text size",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: View\nOriginal key: Cmd+0\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "View",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "View",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|view|cmd-0|return-to-default-text-size|11"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-ctrl-d-end-input",
+      "layer": "Ctrl",
+      "key": "D",
+      "keyLabel": "D",
+      "shortcut": "Ctrl+D",
+      "action": "End input",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Shell\nOriginal key: Ctrl+D\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Shell",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Shell",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|shell|ctrl-d|end-input|13"
+    },
+    {
+      "id": "starter-pack-mac-terminal-terminal-ctrl-l-clear-screen",
+      "layer": "Ctrl",
+      "key": "L",
+      "keyLabel": "L",
+      "shortcut": "Ctrl+L",
+      "action": "Clear screen",
+      "app": "Terminal",
+      "category": "Terminal & Shell",
+      "notes": "Starter pack category: Terminal & Shell\nSection: Shell\nOriginal key: Ctrl+L\nSource: https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac\nCurated from public shortcut documentation; verify in-app because defaults can change by version and keyboard layout.",
+      "mnemonic": "",
+      "favorite": false,
+      "aliases": [
+        "Terminal & Shell",
+        "Shell",
+        "Terminal"
+      ],
+      "active": true,
+      "sourceFolder": "Shell",
+      "importSource": "Shortcut Starter Pack / Public Docs",
+      "importKey": "Mac|terminal|shell|ctrl-l|clear-screen|14"
+    }
+  ],
+  "starterPack": {
+    "app": "Terminal",
+    "platform": "Mac",
+    "category": "Terminal & Shell",
+    "source": "https://support.apple.com/guide/terminal/use-keyboard-shortcuts-trmlshtcts/mac",
+    "sourceRepository": "",
+    "sourceLicense": "Public documentation; shortcut facts curated, no vendor assets included.",
+    "notes": "Shortcut Dashboard starter pack. Merge this JSON from Backup & Import. Common universal edit commands are intentionally omitted.",
+    "path": "starter-packs/Mac/Terminal & Shell/Terminal.json",
+    "updated": "2026-06-01"
+  }
+}

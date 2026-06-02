@@ -1940,6 +1940,91 @@
       overflow: hidden;
     }
 
+    /* ===== Starter Packs overlay ===== */
+    .packs-card {
+      width: min(1080px, 100%);
+      max-height: calc(100vh - 14vh);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow: hidden;
+    }
+    .packs-head {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+      padding: 18px 20px 14px; border-bottom: 1px solid var(--line);
+    }
+    .packs-head-brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
+    .packs-mark {
+      width: 42px; height: 42px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 10px;
+      background: linear-gradient(145deg, rgba(105,230,199,.92), rgba(156,200,255,.85));
+      color: #081117; font-family: var(--mono); font-weight: 900;
+    }
+    .packs-head h2 { margin: 0; font-size: 19px; }
+    .packs-head p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+    .packs-view { padding: 16px 20px; }
+    .packs-card > .packs-view:not([hidden]) { flex: 1 1 auto; min-height: 0; overflow: auto; }
+    .packs-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .packs-platform { flex: 0 0 auto; width: 220px; max-width: 240px; }
+    .packs-search { position: relative; flex: 1 1 220px; min-width: 180px; }
+    .packs-search input {
+      width: 100%; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px;
+      outline: none; color: var(--text); background: rgba(255,255,255,.04); font: inherit;
+    }
+    .packs-search input:focus { border-color: rgba(156,200,255,.62); box-shadow: 0 0 0 4px rgba(156,200,255,.12); }
+    .packs-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .packs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+    .packs-app {
+      position: relative; text-align: left; padding: 14px; border: 1px solid var(--line); border-radius: 12px;
+      background: rgba(255,255,255,.025); color: var(--text); cursor: pointer; font: inherit;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .packs-app:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+    .packs-app.sel { border-color: rgba(105,230,199,.7); background: rgba(105,230,199,.09); box-shadow: 0 0 0 1px rgba(105,230,199,.35); }
+    .packs-app-top { display: flex; align-items: center; gap: 11px; }
+    .packs-mono {
+      width: 40px; height: 40px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 10px;
+      font-weight: 900; font-size: 15px; color: var(--mono, var(--accent));
+      background: color-mix(in srgb, var(--mono, var(--accent)) 18%, transparent);
+      border: 1px solid color-mix(in srgb, var(--mono, var(--accent)) 40%, transparent);
+    }
+    .packs-app h3 { margin: 0; font-size: 14.5px; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .packs-app .cat { margin-top: 2px; color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .packs-app-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 13px; }
+    .packs-app .cuts { color: var(--muted); font-size: 12px; }
+    .packs-app .cuts b { color: var(--text); font-variant-numeric: tabular-nums; }
+    .packs-add {
+      width: 30px; height: 30px; flex: 0 0 auto; border-radius: 8px; border: 1px solid var(--line);
+      background: rgba(255,255,255,.04); color: var(--muted); font-size: 17px; font-weight: 800; display: grid; place-items: center;
+    }
+    .packs-app.sel .packs-add { background: var(--accent); color: #06231d; border-color: transparent; }
+    .packs-state { padding: 44px 16px; text-align: center; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .packs-state .spin {
+      display: inline-block; width: 26px; height: 26px; border-radius: 99px;
+      border: 3px solid var(--line); border-top-color: var(--accent); animation: packspin .8s linear infinite; margin-bottom: 12px;
+    }
+    @keyframes packspin { to { transform: rotate(360deg); } }
+    .packs-kick { color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 8px; }
+    .packs-selist { display: grid; gap: 8px; margin: 0 0 18px; }
+    .packs-selrow { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); }
+    .packs-selrow .packs-mono { width: 32px; height: 32px; font-size: 13px; }
+    .packs-selrow .nm { flex: 1 1 auto; min-width: 0; }
+    .packs-selrow .nm b { font-size: 14px; }
+    .packs-selrow .nm span { display: block; color: var(--muted); font-size: 12px; }
+    .packs-selrow .n { color: var(--text); font-family: var(--mono); font-size: 13px; flex: 0 0 auto; }
+    .packs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .packs-stats .accent-num { color: var(--accent); }
+    .packs-stats .focus-num { color: var(--focus); }
+    .packs-note { color: var(--muted); font-size: 12.5px; line-height: 1.5; margin: 0 0 4px; }
+    .packs-done { text-align: center; padding: 36px 20px; }
+    .packs-done-mark { width: 60px; height: 60px; margin: 0 auto 14px; border-radius: 99px; display: grid; place-items: center; font-size: 30px; background: rgba(105,230,199,.16); color: var(--accent); }
+    .packs-done h3 { margin: 0 0 6px; font-size: 22px; }
+    .packs-done p { margin: 0; color: var(--muted); font-size: 14px; }
+    .packs-actions { display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-top: 1px solid var(--line); }
+    .packs-summary { flex: 1 1 auto; min-width: 0; }
+    .packs-summary b { font-size: 14px; }
+    .packs-summary span { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .packs-actions .spacer { flex: 1 1 auto; }
+
     .palette-input {
       width: 100%;
       height: 62px;
@@ -2754,6 +2839,7 @@
       <div class="top-actions">
         <div class="utility-group">
           <button class="pill-btn icon-text-btn" id="addButton" title="Add shortcut" aria-label="Add shortcut" data-icon="plus"></button>
+          <button class="icon-btn icon-only" id="starterPacksButton" title="Browse starter packs" aria-label="Browse starter packs" data-icon="packs"></button>
           <button class="icon-btn icon-only" id="settingsButton" title="Settings" aria-label="Settings" data-icon="settings"></button>
           <button class="icon-btn icon-only" id="importExportButton" title="Save shortcuts" aria-label="Save shortcuts" data-icon="save"></button>
           <button class="icon-btn icon-only" id="printButton" title="Print cheat sheet" aria-label="Print cheat sheet" data-icon="print"></button>
@@ -3121,6 +3207,54 @@
     </div>
   </div>
 
+  <div class="overlay" id="packsOverlay" role="dialog" aria-modal="true" aria-label="Starter packs">
+    <div class="modal-card packs-card">
+      <div class="packs-head">
+        <div class="packs-head-brand">
+          <div class="packs-mark">KS</div>
+          <div>
+            <h2 id="packsTitle">Starter Packs</h2>
+            <p id="packsSubtitle">Pick the apps you use — we fetch just those from GitHub and merge them in.</p>
+          </div>
+        </div>
+        <button class="icon-btn icon-only" id="packsCloseButton" type="button" aria-label="Close" title="Close" data-icon="close"></button>
+      </div>
+
+      <!-- BROWSE -->
+      <div class="packs-view" id="packsBrowse">
+        <div class="packs-controls">
+          <div class="segmented packs-platform" id="packsPlatform" role="group" aria-label="Platform"></div>
+          <label class="packs-search"><input id="packsSearch" type="search" placeholder="Search apps…" autocomplete="off"></label>
+        </div>
+        <div class="packs-chips" id="packsChips"></div>
+        <div class="packs-grid" id="packsGrid"></div>
+        <div class="packs-state" id="packsState" hidden></div>
+      </div>
+
+      <!-- REVIEW -->
+      <div class="packs-view" id="packsReview" hidden>
+        <p class="packs-kick">You're adding</p>
+        <div class="packs-selist" id="packsSelist"></div>
+        <p class="packs-kick">Merge preview</p>
+        <div class="packs-stats">
+          <div class="import-stat"><strong id="packsStIncoming">0</strong><span>Incoming</span></div>
+          <div class="import-stat"><strong id="packsStNew" class="accent-num">0</strong><span>New</span></div>
+          <div class="import-stat"><strong id="packsStDup" class="focus-num">0</strong><span>Already added</span></div>
+        </div>
+        <p class="packs-note" id="packsReviewNote">Shortcuts are added to your dashboard. Where two apps share a key, both are kept and shown as a conflict you can resolve later.</p>
+      </div>
+
+      <!-- DONE -->
+      <div class="packs-view packs-done" id="packsDone" hidden>
+        <div class="packs-done-mark">✓</div>
+        <h3 id="packsDoneTitle">You're set up.</h3>
+        <p id="packsDoneMsg"></p>
+      </div>
+
+      <div class="packs-actions" id="packsActions"></div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
@@ -3335,6 +3469,16 @@
     let tipNudgeTimer = null;    // same
     let modifierRenderHandle = 0;
     const renderSignatures = { layers: "", layerMenu: "", categories: "", appSources: "", filterLayout: "" };
+
+    // ── Starter Packs (onboarding) state — declared before init() to avoid the TDZ trap ──
+    const STARTER_PACKS_BASE = "https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/starter-packs/";
+    let packsManifest = null;       // cached manifest object once fetched
+    let packsView = "browse";       // browse | review | done
+    let packsPlatform = "Mac";
+    let packsCat = "All";
+    const packsSel = new Set();     // selected pack paths
+    const packsCache = new Map();   // path -> normalized shortcuts[] (fetched once)
+    let packsBound = false;
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
     let settings = normalizeSettings(readJson(SETTINGS_KEY, defaultSettings));
     let drafts = normalizeShortcuts(readJson(DRAFTS_KEY, []));
@@ -3367,6 +3511,7 @@
       paletteResults: document.getElementById("paletteResults"),
       jsonOverlay: document.getElementById("jsonOverlay"),
       aboutOverlay: document.getElementById("aboutOverlay"),
+      packsOverlay: document.getElementById("packsOverlay"),
       settingsOverlay: document.getElementById("settingsOverlay"),
       leftModifierList: document.getElementById("leftModifierList"),
       rightModifierList: document.getElementById("rightModifierList"),
@@ -3432,6 +3577,7 @@
       } else {
         showDetails(initialShortcut);
       }
+      maybeAutoOpenPacks();
     }
 
     function key(code, label = code, w = 1) {
@@ -3516,7 +3662,8 @@
         close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>',
         search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
         external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7"/><path d="m10 14 11-11"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>',
-        pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>'
+        pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>',
+        packs: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg>'
       };
       return icons[name] || "";
     }
@@ -3528,6 +3675,7 @@
       document.getElementById("importExportButton").addEventListener("click", openJsonModal);
       document.getElementById("printButton").addEventListener("click", () => { renderPrintSheet(); window.print(); });
       document.getElementById("aboutButton").addEventListener("click", openAboutModal);
+      initStarterPacks();
       el.layerMenuButton.addEventListener("click", event => {
         event.stopPropagation();
         toggleLayerMenu();
@@ -4658,6 +4806,7 @@
         closeJsonModal();
         closeAboutModal();
         closeSettingsModal();
+        closePacksModal();
         return;
       }
 
@@ -4743,7 +4892,8 @@
       return el.jsonOverlay.classList.contains("open")
         || el.aboutOverlay.classList.contains("open")
         || el.settingsOverlay.classList.contains("open")
-        || el.editOverlay.classList.contains("open");
+        || el.editOverlay.classList.contains("open")
+        || el.packsOverlay.classList.contains("open");
     }
 
     function isModifierKeyEvent(event) {
@@ -6314,6 +6464,261 @@
           </div>
         `).join("")}
       `;
+    }
+
+    // ===== Starter Packs (onboarding browser) =====
+    function packMono(app) {
+      const w = String(app || "").trim().split(/\s+/).filter(Boolean);
+      if (!w.length) return "?";
+      if (w.length === 1) return w[0].slice(0, 1).toUpperCase();
+      return (w[0][0] + w[1][0]).toUpperCase();
+    }
+    function packMonoColor(cat) {
+      const s = String(cat || "");
+      let h = 0;
+      for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+      return `hsl(${h % 360} 68% 68%)`;
+    }
+    function packStarterPackUrl(path) {
+      return STARTER_PACKS_BASE + String(path).split("/").map(encodeURIComponent).join("/");
+    }
+    async function loadPacksManifest() {
+      if (packsManifest) return packsManifest;
+      const res = await fetch(STARTER_PACKS_BASE + "manifest.json", { cache: "no-cache" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      packsManifest = data && Array.isArray(data.starterPacks) ? data : { starterPacks: [] };
+      return packsManifest;
+    }
+    async function fetchPack(path) {
+      if (packsCache.has(path)) return packsCache.get(path);
+      const res = await fetch(packStarterPackUrl(path), { cache: "no-cache" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      const arr = normalizeShortcuts(Array.isArray(data) ? data : (data.shortcuts || []));
+      packsCache.set(path, arr);
+      return arr;
+    }
+
+    function selectedPacks() {
+      const byPath = new Map((packsManifest?.starterPacks || []).map(p => [p.path, p]));
+      return [...packsSel].map(path => byPath.get(path)).filter(Boolean);
+    }
+    function selectedPackShortcuts() {
+      const out = [];
+      [...packsSel].forEach(path => { const arr = packsCache.get(path); if (arr) out.push(...arr); });
+      return out;
+    }
+    function mergeStarterPackShortcuts(incoming) {
+      // Dedup by the pack's stable importKey (prevents re-adding the same pack), but keep
+      // cross-app overlaps on the same layer+key — those are legitimate conflicts to surface.
+      const existingKeys = new Set([...shortcuts, ...drafts].map(s => normalize(s.importKey || "")).filter(Boolean));
+      let added = 0, skipped = 0;
+      incoming.forEach(item => {
+        const k = normalize(item.importKey || "");
+        if (k && existingKeys.has(k)) { skipped += 1; return; }
+        shortcuts.push(withUniqueShortcutId(item));
+        if (k) existingKeys.add(k);
+        added += 1;
+      });
+      return { added, skipped };
+    }
+
+    function openPacksModal() {
+      silentClearModifiers();
+      try { localStorage.setItem("ks-packs-welcomed", "1"); } catch {}
+      document.body.classList.add("modal-open");
+      document.getElementById("packsOverlay").classList.add("open");
+      setPacksView("browse");
+      if (packsManifest) {
+        renderPacksBrowse();
+      } else {
+        setPacksState('<div class="spin"></div><div>Loading starter packs…</div>');
+        renderPacksActions();
+        loadPacksManifest()
+          .then(() => renderPacksBrowse())
+          .catch(() => {
+            setPacksState("Couldn't load the starter-pack library.<br><br>It's fetched from GitHub, so you need a connection — and the packs may not be published in this build yet. You can close this and add shortcuts manually anytime.");
+            renderPacksActions();
+          });
+      }
+    }
+    function closePacksModal() {
+      try { localStorage.setItem("ks-packs-welcomed", "1"); } catch {}
+      document.getElementById("packsOverlay").classList.remove("open");
+      document.body.classList.remove("modal-open");
+      setPacksView("browse");
+      clearActiveFocus();
+    }
+    function setPacksView(v) {
+      packsView = v;
+      document.getElementById("packsBrowse").hidden = v !== "browse";
+      document.getElementById("packsReview").hidden = v !== "review";
+      document.getElementById("packsDone").hidden = v !== "done";
+      document.getElementById("packsTitle").textContent = v === "review" ? "Review & merge" : v === "done" ? "All set" : "Starter Packs";
+      document.getElementById("packsSubtitle").hidden = v !== "browse";
+      renderPacksActions();
+    }
+    function setPacksState(html) {
+      const st = document.getElementById("packsState");
+      const grid = document.getElementById("packsGrid");
+      const chips = document.getElementById("packsChips");
+      const controls = document.querySelector("#packsBrowse .packs-controls");
+      const showState = Boolean(html);
+      st.hidden = !showState; st.innerHTML = html || "";
+      grid.hidden = showState; chips.hidden = showState;
+      if (controls) controls.hidden = showState;
+    }
+    function renderPacksBrowse() {
+      setPacksState("");
+      const packs = packsManifest?.starterPacks || [];
+      const platforms = [...new Set(packs.map(p => p.platform))];
+      if (!platforms.includes(packsPlatform)) packsPlatform = platforms[0] || "Mac";
+      document.getElementById("packsPlatform").innerHTML = platforms.map(pl =>
+        `<button class="segment-btn ${pl === packsPlatform ? "active" : ""}" type="button" data-packs-plat="${escapeHtml(pl)}">${escapeHtml(pl === "Mac" ? "macOS" : pl)}</button>`
+      ).join("");
+      const catCounts = new Map();
+      packs.filter(p => p.platform === packsPlatform).forEach(p => catCounts.set(p.category, (catCounts.get(p.category) || 0) + 1));
+      if (packsCat !== "All" && !catCounts.has(packsCat)) packsCat = "All";
+      const total = packs.filter(p => p.platform === packsPlatform).length;
+      const cats = [...catCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+      let chipsHtml = `<button class="chip ${packsCat === "All" ? "active" : ""}" type="button" style="--chip-color:var(--accent)" data-packs-cat="All"><span class="dot"></span>All <span class="chip-count">${total}</span></button>`;
+      chipsHtml += cats.map(([c, n]) => `<button class="chip ${packsCat === c ? "active" : ""}" type="button" style="--chip-color:${packMonoColor(c)}" data-packs-cat="${escapeHtml(c)}"><span class="dot"></span>${escapeHtml(c)} <span class="chip-count">${n}</span></button>`).join("");
+      document.getElementById("packsChips").innerHTML = chipsHtml;
+      renderPacksGrid();
+      renderPacksActions();
+    }
+    function packsVisible() {
+      const q = (document.getElementById("packsSearch").value || "").trim().toLowerCase();
+      return (packsManifest?.starterPacks || []).filter(p =>
+        p.platform === packsPlatform &&
+        (packsCat === "All" || p.category === packsCat) &&
+        (!q || p.app.toLowerCase().includes(q) || p.category.toLowerCase().includes(q))
+      );
+    }
+    function renderPacksGrid() {
+      const list = packsVisible();
+      document.getElementById("packsGrid").innerHTML = list.map(p => {
+        const on = packsSel.has(p.path);
+        return `<button class="packs-app ${on ? "sel" : ""}" type="button" data-packs-path="${escapeHtml(p.path)}" aria-pressed="${on}">
+          <div class="packs-app-top">
+            <span class="packs-mono" style="--mono:${packMonoColor(p.category)}">${escapeHtml(packMono(p.app))}</span>
+            <div style="min-width:0"><h3>${escapeHtml(p.app)}</h3><div class="cat">${escapeHtml(p.category)}</div></div>
+          </div>
+          <div class="packs-app-foot">
+            <span class="cuts"><b>${Number(p.shortcutCount) || 0}</b> shortcuts</span>
+            <span class="packs-add">${on ? "✓" : "+"}</span>
+          </div>
+        </button>`;
+      }).join("") || `<p style="color:var(--muted)">No apps match — try another search or category.</p>`;
+    }
+    function togglePackSel(path) {
+      if (packsSel.has(path)) packsSel.delete(path); else packsSel.add(path);
+      renderPacksGrid();
+      renderPacksActions();
+    }
+    function renderPacksActions() {
+      const a = document.getElementById("packsActions");
+      if (packsView === "browse") {
+        const items = selectedPacks();
+        const cuts = items.reduce((s, p) => s + (Number(p.shortcutCount) || 0), 0);
+        const sub = items.length ? escapeHtml(items.map(p => p.app).slice(0, 4).join(", ") + (items.length > 4 ? ` +${items.length - 4} more` : "")) : "Pick the apps you use to get started";
+        a.innerHTML = `<div class="packs-summary"><b>${items.length} app${items.length !== 1 ? "s" : ""} · ${cuts} shortcuts</b><span>${sub}</span></div>
+          <button class="pill-btn" type="button" data-packs-act="clear" ${items.length ? "" : "disabled"}>Clear</button>
+          <button class="pill-btn ${items.length ? "ready" : ""}" type="button" data-packs-act="review" ${items.length ? "" : "disabled"}>Add &amp; merge →</button>`;
+      } else if (packsView === "review") {
+        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="back">← Back</button><button class="pill-btn ready" type="button" data-packs-act="confirm">Confirm &amp; build</button>`;
+      } else {
+        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="more">Add more</button><button class="pill-btn ready" type="button" data-packs-act="close">Done</button>`;
+      }
+    }
+    async function showPacksReview() {
+      const items = selectedPacks();
+      if (!items.length) return;
+      setPacksView("review");
+      document.getElementById("packsSelist").innerHTML = items.map(p =>
+        `<div class="packs-selrow"><span class="packs-mono" style="--mono:${packMonoColor(p.category)}">${escapeHtml(packMono(p.app))}</span><div class="nm"><b>${escapeHtml(p.app)}</b><span>${escapeHtml(p.category)} · ${escapeHtml(p.platform)}</span></div><span class="n">${Number(p.shortcutCount) || 0}</span></div>`
+      ).join("");
+      ["packsStIncoming", "packsStNew", "packsStDup"].forEach(id => { document.getElementById(id).textContent = "…"; });
+      try {
+        await Promise.all(items.map(p => fetchPack(p.path)));
+        const incoming = selectedPackShortcuts();
+        const fresh = !hasStoredData();
+        const existingKeys = new Set([...shortcuts, ...drafts].map(s => normalize(s.importKey || "")).filter(Boolean));
+        let nw = 0, dup = 0;
+        incoming.forEach(item => {
+          const k = normalize(item.importKey || "");
+          if (!fresh && k && existingKeys.has(k)) dup += 1; else nw += 1;
+        });
+        document.getElementById("packsStIncoming").textContent = incoming.length;
+        document.getElementById("packsStNew").textContent = nw;
+        document.getElementById("packsStDup").textContent = dup;
+        document.getElementById("packsReviewNote").textContent = fresh
+          ? "This starts your dashboard fresh with the packs you picked. Where two apps share a key, both are kept and shown as a conflict you can resolve later."
+          : "Shortcuts are added to your current dashboard. Where two apps share a key, both are kept and shown as a conflict you can resolve later.";
+      } catch (e) {
+        ["packsStIncoming", "packsStNew", "packsStDup"].forEach(id => { document.getElementById(id).textContent = "—"; });
+        toast("Couldn't fetch some packs: " + e.message);
+      }
+    }
+    async function confirmPacksMerge() {
+      const items = selectedPacks();
+      if (!items.length) return;
+      try {
+        await Promise.all(items.map(p => fetchPack(p.path)));
+      } catch (e) { toast("Merge failed: " + e.message); return; }
+      const incoming = selectedPackShortcuts();
+      if (!incoming.length) { toast("Nothing to merge."); return; }
+      const fresh = !hasStoredData();
+      if (fresh) { shortcuts = []; drafts = []; }
+      const res = mergeStarterPackShortcuts(incoming);
+      const packCount = items.length;
+      packsSel.clear();
+      closeDetailPopover();
+      selectedId = shortcuts[0]?.id || null;
+      persistShortcuts();
+      persistDrafts();
+      renderAll();
+      if (!isDetailCollapsed()) showDetails(shortcuts[0] || null);
+      nudgeBackupButton();
+      document.getElementById("packsDoneMsg").textContent =
+        `Added ${res.added} shortcut${res.added !== 1 ? "s" : ""} from ${packCount} pack${packCount !== 1 ? "s" : ""}${res.skipped ? ` (${res.skipped} already in your dashboard)` : ""}. Download a backup to keep it safe.`;
+      setPacksView("done");
+    }
+    function initStarterPacks() {
+      if (packsBound) return;
+      packsBound = true;
+      document.getElementById("starterPacksButton").addEventListener("click", openPacksModal);
+      document.getElementById("packsCloseButton").addEventListener("click", closePacksModal);
+      const overlay = document.getElementById("packsOverlay");
+      overlay.addEventListener("click", e => { if (e.target === overlay) closePacksModal(); });
+      document.getElementById("packsPlatform").addEventListener("click", e => {
+        const b = e.target.closest("[data-packs-plat]"); if (!b) return;
+        packsPlatform = b.dataset.packsPlat; packsCat = "All"; renderPacksBrowse();
+      });
+      document.getElementById("packsChips").addEventListener("click", e => {
+        const b = e.target.closest("[data-packs-cat]"); if (!b) return;
+        packsCat = b.dataset.packsCat; renderPacksBrowse();
+      });
+      document.getElementById("packsGrid").addEventListener("click", e => {
+        const b = e.target.closest("[data-packs-path]"); if (!b) return;
+        togglePackSel(b.dataset.packsPath);
+      });
+      document.getElementById("packsSearch").addEventListener("input", renderPacksGrid);
+      document.getElementById("packsActions").addEventListener("click", e => {
+        const b = e.target.closest("[data-packs-act]"); if (!b) return;
+        const act = b.dataset.packsAct;
+        if (act === "clear") { packsSel.clear(); renderPacksGrid(); renderPacksActions(); }
+        else if (act === "review") showPacksReview();
+        else if (act === "back" || act === "more") { setPacksView("browse"); renderPacksBrowse(); }
+        else if (act === "confirm") confirmPacksMerge();
+        else if (act === "close") closePacksModal();
+      });
+    }
+    function maybeAutoOpenPacks() {
+      if (hasStoredData()) return;
+      try { if (localStorage.getItem("ks-packs-welcomed")) return; } catch {}
+      loadPacksManifest().then(() => openPacksModal()).catch(() => { /* packs unavailable — keep the normal dashboard */ });
     }
 
     function applyPrefs() {
