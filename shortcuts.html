@@ -1941,9 +1941,16 @@
     }
 
     /* ===== Starter Packs overlay ===== */
+    #packsOverlay {
+      align-items: center;
+      padding: 24px 16px;
+    }
     .packs-card {
       width: min(1080px, 100%);
-      max-height: calc(100vh - 14vh);
+      /* Fixed height so the modal doesn't grow/shrink as the category filter changes,
+         and so the footer stays pinned (only the content scrolls — like Settings). */
+      height: min(840px, calc(100dvh - 48px));
+      max-height: calc(100dvh - 48px);
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -2014,6 +2021,12 @@
     .packs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
     .packs-stats .accent-num { color: var(--accent); }
     .packs-stats .focus-num { color: var(--focus); }
+    #packsChips .chip.packs-chip-zero { opacity: .45; }
+    .packs-dup { margin: 0 0 16px; }
+    .packs-dup-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .packs-dup-opt { flex: 1 1 120px; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.025); color: var(--muted); font: inherit; font-size: 13px; font-weight: 750; cursor: pointer; transition: background 120ms ease, color 120ms ease, border-color 120ms ease; }
+    .packs-dup-opt:hover { background: rgba(255,255,255,.06); color: var(--text); }
+    .packs-dup-opt.active { color: var(--text); border-color: rgba(156,200,255,.55); background: rgba(156,200,255,.1); }
     .packs-note { color: var(--muted); font-size: 12.5px; line-height: 1.5; margin: 0 0 4px; }
     .packs-done { text-align: center; padding: 36px 20px; }
     .packs-done-mark { width: 60px; height: 60px; margin: 0 auto 14px; border-radius: 99px; display: grid; place-items: center; font-size: 30px; background: rgba(105,230,199,.16); color: var(--accent); }
@@ -3239,7 +3252,15 @@
         <div class="packs-stats">
           <div class="import-stat"><strong id="packsStIncoming">0</strong><span>Incoming</span></div>
           <div class="import-stat"><strong id="packsStNew" class="accent-num">0</strong><span>New</span></div>
-          <div class="import-stat"><strong id="packsStDup" class="focus-num">0</strong><span>Already added</span></div>
+          <div class="import-stat"><strong id="packsStDup" class="focus-num">0</strong><span>Duplicates</span></div>
+        </div>
+        <div class="packs-dup" id="packsDupRow" hidden>
+          <p class="packs-kick">If a shortcut already exists in your dashboard</p>
+          <div class="packs-dup-opts" id="packsDupOpts" role="group" aria-label="Duplicate handling">
+            <button class="packs-dup-opt active" type="button" data-packs-dup="ignore">Keep mine</button>
+            <button class="packs-dup-opt" type="button" data-packs-dup="overwrite">Overwrite</button>
+            <button class="packs-dup-opt" type="button" data-packs-dup="draft">Save as draft</button>
+          </div>
         </div>
         <p class="packs-note" id="packsReviewNote">Shortcuts are added to your dashboard. Where two apps share a key, both are kept and shown as a conflict you can resolve later.</p>
       </div>
@@ -3479,6 +3500,7 @@
     const packsSel = new Set();     // selected pack paths
     const packsCache = new Map();   // path -> normalized shortcuts[] (fetched once)
     let packsBound = false;
+    let packsDupMode = "ignore";    // how pack shortcuts that collide with EXISTING dashboard shortcuts are handled: ignore | overwrite | draft
     let textTrigger = readJson(TEXT_TRIGGER_KEY, { columns: ["", "", ""], fontSize: 16 });
     let settings = normalizeSettings(readJson(SETTINGS_KEY, defaultSettings));
     let drafts = normalizeShortcuts(readJson(DRAFTS_KEY, []));
@@ -5525,6 +5547,7 @@
       silentClearModifiers();
       renderSettingsModal();
       el.settingsOverlay.classList.add("open");
+      nudgeEl("saveSettingsButton"); // pulse the Save button until the modal closes (cleared in closeSettingsModal)
       const body = document.getElementById("settingsBody");
       if (body) body.scrollTop = 0;
       requestAnimationFrame(updateSettingsNavActive);
@@ -6509,19 +6532,65 @@
       [...packsSel].forEach(path => { const arr = packsCache.get(path); if (arr) out.push(...arr); });
       return out;
     }
-    function mergeStarterPackShortcuts(incoming) {
-      // Dedup by the pack's stable importKey (prevents re-adding the same pack), but keep
-      // cross-app overlaps on the same layer+key — those are legitimate conflicts to surface.
-      const existingKeys = new Set([...shortcuts, ...drafts].map(s => normalize(s.importKey || "")).filter(Boolean));
-      let added = 0, skipped = 0;
+    // Build the snapshot used by both the preview and the merge so they always agree.
+    function starterPackMergeSnapshot() {
+      // importKeys already in the dashboard → re-adding the same pack record is always skipped.
+      const importKeys = new Set([...shortcuts, ...drafts].map(s => normalize(s.importKey || "")).filter(Boolean));
+      // layer+key slots of the user's EXISTING shortcuts, captured BEFORE any incoming is added,
+      // so cross-app overlaps among the incoming packs are NOT treated as collisions (both are kept).
+      const slots = new Map();
+      shortcuts.forEach((s, i) => { if (!slots.has(slotKey(s))) slots.set(slotKey(s), i); });
+      return { importKeys, slots };
+    }
+
+    // Non-mutating preview of how `incoming` will land given the duplicate `mode`.
+    function previewStarterPackMerge(incoming, mode) {
+      const res = { incoming: incoming.length, added: 0, overwritten: 0, drafted: 0, ignored: 0, already: 0 };
+      const { importKeys, slots } = starterPackMergeSnapshot();
       incoming.forEach(item => {
         const k = normalize(item.importKey || "");
-        if (k && existingKeys.has(k)) { skipped += 1; return; }
-        shortcuts.push(withUniqueShortcutId(item));
-        if (k) existingKeys.add(k);
-        added += 1;
+        if (k && importKeys.has(k)) { res.already += 1; return; }
+        if (slots.has(slotKey(item))) {
+          if (mode === "overwrite") res.overwritten += 1;
+          else if (mode === "draft") res.drafted += 1;
+          else res.ignored += 1;
+          return;
+        }
+        res.added += 1;
       });
-      return { added, skipped };
+      return res;
+    }
+
+    // Apply the merge. importKey re-adds are skipped; collisions with EXISTING shortcuts follow `mode`;
+    // everything else is added (cross-app overlaps among incoming packs are kept as conflicts).
+    function mergeStarterPackShortcuts(incoming, mode) {
+      const res = { incoming: incoming.length, added: 0, overwritten: 0, drafted: 0, ignored: 0, already: 0 };
+      const { importKeys, slots } = starterPackMergeSnapshot();
+      incoming.forEach(item => {
+        const k = normalize(item.importKey || "");
+        if (k && importKeys.has(k)) { res.already += 1; return; }
+        if (slots.has(slotKey(item))) {
+          if (mode === "overwrite") {
+            const idx = slots.get(slotKey(item));
+            shortcuts[idx] = { ...item, id: shortcuts[idx].id, favorite: shortcuts[idx].favorite || item.favorite };
+            res.overwritten += 1;
+            if (k) importKeys.add(k);
+            return;
+          }
+          if (mode === "draft") {
+            drafts.push(withUniqueDraftId({ ...item, status: "draft", draftReason: "duplicate-shortcut", conflictsWith: shortcuts[slots.get(slotKey(item))].id, active: true }));
+            res.drafted += 1;
+            if (k) importKeys.add(k);
+            return;
+          }
+          res.ignored += 1; // ignore: keep the user's shortcut, drop the pack's
+          return;
+        }
+        shortcuts.push(withUniqueShortcutId(item));
+        if (k) importKeys.add(k);
+        res.added += 1;
+      });
+      return res;
     }
 
     function openPacksModal() {
@@ -6577,23 +6646,50 @@
       document.getElementById("packsPlatform").innerHTML = platforms.map(pl =>
         `<button class="segment-btn ${pl === packsPlatform ? "active" : ""}" type="button" data-packs-plat="${escapeHtml(pl)}">${escapeHtml(pl === "Mac" ? "macOS" : pl)}</button>`
       ).join("");
-      const catCounts = new Map();
-      packs.filter(p => p.platform === packsPlatform).forEach(p => catCounts.set(p.category, (catCounts.get(p.category) || 0) + 1));
-      if (packsCat !== "All" && !catCounts.has(packsCat)) packsCat = "All";
-      const total = packs.filter(p => p.platform === packsPlatform).length;
-      const cats = [...catCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-      let chipsHtml = `<button class="chip ${packsCat === "All" ? "active" : ""}" type="button" style="--chip-color:var(--accent)" data-packs-cat="All"><span class="dot"></span>All <span class="chip-count">${total}</span></button>`;
-      chipsHtml += cats.map(([c, n]) => `<button class="chip ${packsCat === c ? "active" : ""}" type="button" style="--chip-color:${packMonoColor(c)}" data-packs-cat="${escapeHtml(c)}"><span class="dot"></span>${escapeHtml(c)} <span class="chip-count">${n}</span></button>`).join("");
-      document.getElementById("packsChips").innerHTML = chipsHtml;
+      renderPacksChips();
       renderPacksGrid();
       renderPacksActions();
     }
+    function packsSearchQuery() {
+      return (document.getElementById("packsSearch").value || "").trim().toLowerCase();
+    }
+    function packMatchesSearch(p, q) {
+      return !q || p.app.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+    }
+    // Build the category chip row. Order is stable (by total packs in the platform) so chips
+    // don't reshuffle while typing; counts are filled by syncPacksChipCounts (faceted by search).
+    function renderPacksChips() {
+      const packs = (packsManifest?.starterPacks || []).filter(p => p.platform === packsPlatform);
+      const totalByCat = new Map();
+      packs.forEach(p => totalByCat.set(p.category, (totalByCat.get(p.category) || 0) + 1));
+      if (packsCat !== "All" && !totalByCat.has(packsCat)) packsCat = "All";
+      const cats = [...totalByCat.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([c]) => c);
+      let html = `<button class="chip ${packsCat === "All" ? "active" : ""}" type="button" style="--chip-color:var(--accent)" data-packs-cat="All"><span class="dot"></span>All <span class="chip-count"></span></button>`;
+      html += cats.map(c => `<button class="chip ${packsCat === c ? "active" : ""}" type="button" style="--chip-color:${packMonoColor(c)}" data-packs-cat="${escapeHtml(c)}"><span class="dot"></span>${escapeHtml(c)} <span class="chip-count"></span></button>`).join("");
+      document.getElementById("packsChips").innerHTML = html;
+      syncPacksChipCounts();
+    }
+    // Update chip counts in place (no rebuild → no flicker) so the number matches the grid for the active search.
+    function syncPacksChipCounts() {
+      const packs = (packsManifest?.starterPacks || []).filter(p => p.platform === packsPlatform);
+      const q = packsSearchQuery();
+      const facet = new Map();
+      let total = 0;
+      packs.forEach(p => { if (packMatchesSearch(p, q)) { total += 1; facet.set(p.category, (facet.get(p.category) || 0) + 1); } });
+      document.querySelectorAll("#packsChips .chip").forEach(chip => {
+        const cat = chip.dataset.packsCat;
+        const n = cat === "All" ? total : (facet.get(cat) || 0);
+        const cc = chip.querySelector(".chip-count");
+        if (cc) cc.textContent = n;
+        chip.classList.toggle("packs-chip-zero", cat !== "All" && n === 0);
+      });
+    }
     function packsVisible() {
-      const q = (document.getElementById("packsSearch").value || "").trim().toLowerCase();
+      const q = packsSearchQuery();
       return (packsManifest?.starterPacks || []).filter(p =>
         p.platform === packsPlatform &&
         (packsCat === "All" || p.category === packsCat) &&
-        (!q || p.app.toLowerCase().includes(q) || p.category.toLowerCase().includes(q))
+        packMatchesSearch(p, q)
       );
     }
     function renderPacksGrid() {
@@ -6612,25 +6708,44 @@
         </button>`;
       }).join("") || `<p style="color:var(--muted)">No apps match — try another search or category.</p>`;
     }
-    function togglePackSel(path) {
-      if (packsSel.has(path)) packsSel.delete(path); else packsSel.add(path);
-      renderPacksGrid();
-      renderPacksActions();
+    function togglePackSel(path, card) {
+      // Update only the clicked card (no full grid rebuild) to avoid flicker on selection.
+      const on = !packsSel.has(path);
+      if (on) packsSel.add(path); else packsSel.delete(path);
+      if (card) {
+        card.classList.toggle("sel", on);
+        card.setAttribute("aria-pressed", String(on));
+        const add = card.querySelector(".packs-add");
+        if (add) add.textContent = on ? "✓" : "+";
+      }
+      syncPacksBrowseActions();
     }
     function renderPacksActions() {
       const a = document.getElementById("packsActions");
       if (packsView === "browse") {
-        const items = selectedPacks();
-        const cuts = items.reduce((s, p) => s + (Number(p.shortcutCount) || 0), 0);
-        const sub = items.length ? escapeHtml(items.map(p => p.app).slice(0, 4).join(", ") + (items.length > 4 ? ` +${items.length - 4} more` : "")) : "Pick the apps you use to get started";
-        a.innerHTML = `<div class="packs-summary"><b>${items.length} app${items.length !== 1 ? "s" : ""} · ${cuts} shortcuts</b><span>${sub}</span></div>
-          <button class="pill-btn" type="button" data-packs-act="clear" ${items.length ? "" : "disabled"}>Clear</button>
-          <button class="pill-btn ${items.length ? "ready" : ""}" type="button" data-packs-act="review" ${items.length ? "" : "disabled"}>Add &amp; merge →</button>`;
+        // Build the skeleton once; syncPacksBrowseActions fills the summary + button states in place
+        // so the pulse on "Add & merge" doesn't restart every time a card is toggled.
+        a.innerHTML = `<div class="packs-summary" id="packsSummary"></div>
+          <button class="pill-btn" id="packsClearBtn" type="button" data-packs-act="clear">Clear</button>
+          <button class="pill-btn" id="packsReviewBtn" type="button" data-packs-act="review">Add &amp; merge →</button>`;
+        syncPacksBrowseActions();
       } else if (packsView === "review") {
-        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="back">← Back</button><button class="pill-btn ready" type="button" data-packs-act="confirm">Confirm &amp; build</button>`;
+        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="back">← Back</button><button class="pill-btn backup-nudge" type="button" data-packs-act="confirm">Confirm &amp; build</button>`;
       } else {
-        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="more">Add more</button><button class="pill-btn ready" type="button" data-packs-act="close">Done</button>`;
+        a.innerHTML = `<span class="spacer"></span><button class="pill-btn" type="button" data-packs-act="more">Add more</button><button class="pill-btn" type="button" data-packs-act="close">Done</button>`;
       }
+    }
+    function syncPacksBrowseActions() {
+      if (packsView !== "browse") return;
+      const items = selectedPacks();
+      const cuts = items.reduce((s, p) => s + (Number(p.shortcutCount) || 0), 0);
+      const sub = items.length ? escapeHtml(items.map(p => p.app).slice(0, 4).join(", ") + (items.length > 4 ? ` +${items.length - 4} more` : "")) : "Pick the apps you use to get started";
+      const summary = document.getElementById("packsSummary");
+      const clearBtn = document.getElementById("packsClearBtn");
+      const reviewBtn = document.getElementById("packsReviewBtn");
+      if (summary) summary.innerHTML = `<b>${items.length} app${items.length !== 1 ? "s" : ""} · ${cuts} shortcuts</b><span>${sub}</span>`;
+      if (clearBtn) clearBtn.disabled = !items.length;
+      if (reviewBtn) { reviewBtn.disabled = !items.length; reviewBtn.classList.toggle("backup-nudge", items.length > 0); }
     }
     async function showPacksReview() {
       const items = selectedPacks();
@@ -6640,26 +6755,33 @@
         `<div class="packs-selrow"><span class="packs-mono" style="--mono:${packMonoColor(p.category)}">${escapeHtml(packMono(p.app))}</span><div class="nm"><b>${escapeHtml(p.app)}</b><span>${escapeHtml(p.category)} · ${escapeHtml(p.platform)}</span></div><span class="n">${Number(p.shortcutCount) || 0}</span></div>`
       ).join("");
       ["packsStIncoming", "packsStNew", "packsStDup"].forEach(id => { document.getElementById(id).textContent = "…"; });
+      packsDupMode = "ignore";
+      renderPacksDupOpts();
       try {
         await Promise.all(items.map(p => fetchPack(p.path)));
         const incoming = selectedPackShortcuts();
         const fresh = !hasStoredData();
-        const existingKeys = new Set([...shortcuts, ...drafts].map(s => normalize(s.importKey || "")).filter(Boolean));
-        let nw = 0, dup = 0;
-        incoming.forEach(item => {
-          const k = normalize(item.importKey || "");
-          if (!fresh && k && existingKeys.has(k)) dup += 1; else nw += 1;
-        });
-        document.getElementById("packsStIncoming").textContent = incoming.length;
-        document.getElementById("packsStNew").textContent = nw;
-        document.getElementById("packsStDup").textContent = dup;
+        // On a fresh first run the sample data is replaced, so nothing collides — everything is new.
+        const prev = fresh ? { incoming: incoming.length, added: incoming.length, overwritten: 0, drafted: 0, ignored: 0, already: 0 }
+                           : previewStarterPackMerge(incoming, packsDupMode);
+        const dupes = prev.incoming - prev.added; // collisions with existing data + packs already added
+        document.getElementById("packsStIncoming").textContent = prev.incoming;
+        document.getElementById("packsStNew").textContent = prev.added;
+        document.getElementById("packsStDup").textContent = dupes;
+        // The duplicate selector only matters when there is existing data to collide with.
+        document.getElementById("packsDupRow").hidden = fresh || dupes === 0;
         document.getElementById("packsReviewNote").textContent = fresh
           ? "This starts your dashboard fresh with the packs you picked. Where two apps share a key, both are kept and shown as a conflict you can resolve later."
-          : "Shortcuts are added to your current dashboard. Where two apps share a key, both are kept and shown as a conflict you can resolve later.";
+          : "Added to your current dashboard. “Keep mine” leaves your shortcut and skips the pack’s; “Overwrite” replaces yours; “Save as draft” keeps both. Packs you already added are always skipped. Cross-app key overlaps are kept as conflicts.";
       } catch (e) {
         ["packsStIncoming", "packsStNew", "packsStDup"].forEach(id => { document.getElementById(id).textContent = "—"; });
         toast("Couldn't fetch some packs: " + e.message);
       }
+    }
+
+    function renderPacksDupOpts() {
+      document.querySelectorAll("#packsDupOpts [data-packs-dup]").forEach(b =>
+        b.classList.toggle("active", b.dataset.packsDup === packsDupMode));
     }
     async function confirmPacksMerge() {
       const items = selectedPacks();
@@ -6671,7 +6793,7 @@
       if (!incoming.length) { toast("Nothing to merge."); return; }
       const fresh = !hasStoredData();
       if (fresh) { shortcuts = []; drafts = []; }
-      const res = mergeStarterPackShortcuts(incoming);
+      const res = mergeStarterPackShortcuts(incoming, packsDupMode);
       const packCount = items.length;
       packsSel.clear();
       closeDetailPopover();
@@ -6681,8 +6803,13 @@
       renderAll();
       if (!isDetailCollapsed()) showDetails(shortcuts[0] || null);
       nudgeBackupButton();
+      const extras = [];
+      if (res.overwritten) extras.push(`${res.overwritten} overwritten`);
+      if (res.drafted) extras.push(`${res.drafted} saved as drafts`);
+      if (res.ignored) extras.push(`${res.ignored} kept as-is`);
+      if (res.already) extras.push(`${res.already} already added`);
       document.getElementById("packsDoneMsg").textContent =
-        `Added ${res.added} shortcut${res.added !== 1 ? "s" : ""} from ${packCount} pack${packCount !== 1 ? "s" : ""}${res.skipped ? ` (${res.skipped} already in your dashboard)` : ""}. Download a backup to keep it safe.`;
+        `Added ${res.added} shortcut${res.added !== 1 ? "s" : ""} from ${packCount} pack${packCount !== 1 ? "s" : ""}${extras.length ? ` (${extras.join(", ")})` : ""}. Download a backup to keep it safe.`;
       setPacksView("done");
     }
     function initStarterPacks() {
@@ -6702,13 +6829,18 @@
       });
       document.getElementById("packsGrid").addEventListener("click", e => {
         const b = e.target.closest("[data-packs-path]"); if (!b) return;
-        togglePackSel(b.dataset.packsPath);
+        togglePackSel(b.dataset.packsPath, b);
       });
-      document.getElementById("packsSearch").addEventListener("input", renderPacksGrid);
+      document.getElementById("packsSearch").addEventListener("input", () => { syncPacksChipCounts(); renderPacksGrid(); });
+      document.getElementById("packsDupOpts").addEventListener("click", e => {
+        const b = e.target.closest("[data-packs-dup]"); if (!b) return;
+        packsDupMode = b.dataset.packsDup;
+        renderPacksDupOpts();
+      });
       document.getElementById("packsActions").addEventListener("click", e => {
         const b = e.target.closest("[data-packs-act]"); if (!b) return;
         const act = b.dataset.packsAct;
-        if (act === "clear") { packsSel.clear(); renderPacksGrid(); renderPacksActions(); }
+        if (act === "clear") { packsSel.clear(); renderPacksGrid(); syncPacksBrowseActions(); }
         else if (act === "review") showPacksReview();
         else if (act === "back" || act === "more") { setPacksView("browse"); renderPacksBrowse(); }
         else if (act === "confirm") confirmPacksMerge();

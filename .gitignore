@@ -26,6 +26,9 @@ shortcuts.json
 handoff.md
 HANDOFF.md
 
+# Private agent definitions / working notes
+/agents/
+
 # Keep publishable examples
 !shortcuts_example.json
 !example.json
