@@ -29,18 +29,56 @@
 
     [data-theme="light"] {
       color-scheme: light;
-      --bg: #f5f7fb;
-      --bg-2: #e9eef7;
-      --panel: rgba(255, 255, 255, 0.78);
-      --panel-strong: rgba(255, 255, 255, 0.95);
-      --text: #141821;
-      --muted: #5e6878;
-      --faint: #7b8492;
-      --line: rgba(20, 24, 33, 0.1);
-      --line-strong: rgba(20, 24, 33, 0.16);
-      --key-bg: linear-gradient(180deg, #ffffff, #dfe6f2);
-      --key-edge: rgba(20, 24, 33, 0.12);
-      --shadow: 0 20px 60px rgba(42, 56, 86, 0.18);
+      --bg: #f7f9fd;
+      --bg-2: #eaf0fa;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.97);
+      --text: #141a24;
+      --muted: #59677a;
+      --faint: #8a94a4;
+      --line: rgba(35, 48, 68, 0.11);
+      --line-strong: rgba(35, 48, 68, 0.18);
+      --key-bg: linear-gradient(180deg, #ffffff, #e8edf5);
+      --key-edge: rgba(35, 48, 68, 0.14);
+      --shadow: 0 22px 62px rgba(53, 70, 105, 0.18);
+      --accent: #59d8c5;
+      --focus: #76aef6;
+    }
+
+    [data-theme="mint-choco"] {
+      color-scheme: light;
+      --bg: #f4fbf2;
+      --bg-2: #e7f1e2;
+      --panel: rgba(253, 250, 242, 0.84);
+      --panel-strong: rgba(255, 252, 246, 0.97);
+      --text: #221b16;
+      --muted: #6d6257;
+      --faint: #9c9287;
+      --line: rgba(82, 67, 52, 0.13);
+      --line-strong: rgba(82, 67, 52, 0.22);
+      --key-bg: linear-gradient(180deg, #fffdf6, #e9f0df);
+      --key-edge: rgba(82, 67, 52, 0.16);
+      --shadow: 0 22px 62px rgba(78, 102, 69, 0.2);
+      --accent: #63cfa2;
+      --focus: #a88468;
+    }
+
+    [data-theme="beige"] {
+      color-scheme: light;
+      --bg: #f7f2e8;
+      --bg-2: #e8dfcf;
+      --panel: rgba(255, 250, 240, 0.84);
+      --panel-strong: rgba(255, 252, 246, 0.97);
+      --text: #211c18;
+      --muted: #695f57;
+      --faint: #9b9084;
+      --line: rgba(82, 60, 44, 0.14);
+      --line-strong: rgba(82, 60, 44, 0.22);
+      --key-bg: linear-gradient(180deg, #fff8eb, #e9dfce);
+      --key-edge: rgba(82, 60, 44, 0.17);
+      --shadow: 0 22px 62px rgba(88, 66, 45, 0.18);
+      --accent: #d74f52;
+      --focus: #2f8793;
     }
 
     * { box-sizing: border-box; }
@@ -283,6 +321,16 @@
       backdrop-filter: blur(24px);
     }
 
+    [data-theme="light"] .palette-card,
+    [data-theme="light"] .modal-card,
+    [data-theme="mint-choco"] .palette-card,
+    [data-theme="mint-choco"] .modal-card,
+    [data-theme="beige"] .palette-card,
+    [data-theme="beige"] .modal-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
+      backdrop-filter: none;
+    }
+
     .main-stage {
       position: relative;
       padding: 18px;
@@ -326,18 +374,8 @@
     .layer-btn.active {
       color: var(--text);
       border-color: rgba(105, 230, 199, 0.55);
+      border-width: 2px;
       background: linear-gradient(180deg, rgba(105, 230, 199, 0.16), rgba(156, 200, 255, 0.08));
-    }
-
-    .layer-btn.active::after {
-      content: "";
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: -4px;
-      height: 2px;
-      border-radius: 99px;
-      background: var(--accent);
     }
 
     .mode-tab {
@@ -753,7 +791,6 @@
       box-shadow:
         0 0 0 3px color-mix(in srgb, var(--key-color, var(--focus)) 58%, transparent),
         0 18px 34px rgba(0, 0, 0, 0.24);
-      animation: breathe 1.15s ease-in-out infinite;
     }
 
     .key.live {
@@ -796,17 +833,35 @@
       color: rgba(20, 24, 33, 0.8);
     }
 
-    [data-theme="light"] .key.assigned {
-      color: #f8fbff;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.36);
+    [data-theme="light"] .key.assigned,
+    [data-theme="mint-choco"] .key.assigned,
+    [data-theme="beige"] .key.assigned {
+      border-color: color-mix(in srgb, var(--key-color) 64%, white 18%);
+      background:
+        linear-gradient(180deg,
+          color-mix(in srgb, var(--key-color) 22%, #ffffff 78%),
+          color-mix(in srgb, var(--key-color) 13%, #edf3f8 87%) 76%),
+        var(--key-bg);
+      color: #141a24;
+      text-shadow: none;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.88),
+        inset 0 -9px 18px rgba(35, 48, 68, 0.08),
+        0 8px 18px rgba(35, 48, 68, 0.14),
+        0 0 0 1px color-mix(in srgb, var(--key-color) 18%, transparent);
     }
 
-    [data-theme="light"] .key.assigned .key-action {
-      color: rgba(248, 251, 255, 0.9);
+    [data-theme="light"] .key.assigned .key-action,
+    [data-theme="mint-choco"] .key.assigned .key-action,
+    [data-theme="beige"] .key.assigned .key-action {
+      color: rgba(20, 26, 36, 0.76);
+      font-weight: 760;
     }
 
-    [data-theme="light"] .key.assigned .key-label {
-      color: #f8fbff;
+    [data-theme="light"] .key.assigned .key-label,
+    [data-theme="mint-choco"] .key.assigned .key-label,
+    [data-theme="beige"] .key.assigned .key-label {
+      color: #141a24;
     }
 
     .key-badge {
@@ -1057,11 +1112,13 @@
       padding: 12px 16px 16px;
       border-top: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(22, 26, 34, 0.92), rgba(22, 26, 34, 0.98)), var(--panel);
-      box-shadow: 0 -18px 34px rgba(0, 0, 0, 0.22);
+      box-shadow: none;
     }
 
-    [data-theme="light"] .settings-card .modal-actions {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.98)), var(--panel);
+    [data-theme="light"] .settings-card .modal-actions,
+    [data-theme="mint-choco"] .settings-card .modal-actions,
+    [data-theme="beige"] .settings-card .modal-actions {
+      background: rgba(255, 255, 255, 0.98);
     }
 
     .settings-section {
@@ -1147,7 +1204,9 @@
       box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
     }
 
-    [data-theme="light"] .settings-number {
+    [data-theme="light"] .settings-number,
+    [data-theme="mint-choco"] .settings-number,
+    [data-theme="beige"] .settings-number {
       background: #ffffff;
       color: #141922;
       color-scheme: light;
@@ -1159,15 +1218,44 @@
       font-weight: 700;
     }
 
-    [data-theme="light"] .settings-select {
+    [data-theme="light"] .settings-select,
+    [data-theme="mint-choco"] .settings-select,
+    [data-theme="beige"] .settings-select {
       background: #ffffff;
       color: #141922;
       color-scheme: light;
     }
 
-    [data-theme="light"] .settings-select option {
+    [data-theme="light"] .segmented,
+    [data-theme="light"] .modifier-row,
+    [data-theme="light"] .filter-setting-row,
+    [data-theme="light"] .category-row,
+    [data-theme="light"] .hyper-option-row,
+    [data-theme="light"] .modifier-grid,
+    [data-theme="mint-choco"] .segmented,
+    [data-theme="mint-choco"] .modifier-row,
+    [data-theme="mint-choco"] .filter-setting-row,
+    [data-theme="mint-choco"] .category-row,
+    [data-theme="mint-choco"] .hyper-option-row,
+    [data-theme="mint-choco"] .modifier-grid,
+    [data-theme="beige"] .segmented,
+    [data-theme="beige"] .modifier-row,
+    [data-theme="beige"] .filter-setting-row,
+    [data-theme="beige"] .category-row,
+    [data-theme="beige"] .hyper-option-row,
+    [data-theme="beige"] .modifier-grid {
+      background: rgba(255, 255, 255, 0.56);
+    }
+
+    [data-theme="light"] .settings-select option,
+    [data-theme="mint-choco"] .settings-select option,
+    [data-theme="beige"] .settings-select option {
       background: #ffffff;
       color: #141922;
+    }
+
+    .theme-select {
+      width: min(100%, 300px);
     }
 
     .settings-section h3,
@@ -1193,10 +1281,6 @@
     .detail-layout-segments {
       grid-template-columns: repeat(3, minmax(108px, 1fr));
       max-width: min(100%, 460px);
-    }
-
-    .theme-segments {
-      max-width: min(100%, 300px);
     }
 
     .segment-btn {
@@ -1796,6 +1880,15 @@
       overflow: hidden;
     }
 
+    [data-theme="light"] .json-pane,
+    [data-theme="light"] .import-plan,
+    [data-theme="mint-choco"] .json-pane,
+    [data-theme="mint-choco"] .import-plan,
+    [data-theme="beige"] .json-pane,
+    [data-theme="beige"] .import-plan {
+      background: rgba(255, 255, 255, 0.62);
+    }
+
     .json-pane-header {
       display: flex;
       align-items: flex-start;
@@ -1971,7 +2064,7 @@
       background: rgba(103, 232, 203, 0.16) !important;
       color: var(--text) !important;
       box-shadow: 0 0 0 3px rgba(103, 232, 203, 0.08), 0 8px 20px rgba(103, 232, 203, 0.08);
-      animation: nudge-pulse 2s ease-in-out infinite;
+      animation: nudge-pulse 1.6s ease-in-out 2;
     }
 
     .pill-btn:disabled {
@@ -2078,6 +2171,28 @@
       line-height: 1.5;
     }
 
+    [data-theme="light"] .json-area,
+    [data-theme="mint-choco"] .json-area,
+    [data-theme="beige"] .json-area {
+      background: #ffffff;
+      color: #141922;
+      border-color: rgba(35, 48, 68, 0.18);
+      color-scheme: light;
+    }
+
+    [data-theme="light"] .json-area::placeholder,
+    [data-theme="mint-choco"] .json-area::placeholder,
+    [data-theme="beige"] .json-area::placeholder {
+      color: #7b8797;
+    }
+
+    [data-theme="light"] .readonly-json,
+    [data-theme="mint-choco"] .readonly-json,
+    [data-theme="beige"] .readonly-json {
+      opacity: 1;
+      background: #f8fbff;
+    }
+
 
     .form-grid {
       display: grid;
@@ -2114,6 +2229,39 @@
       outline: none;
       background: rgba(0, 0, 0, 0.2);
       color: var(--text);
+    }
+
+    [data-theme="light"] .field input,
+    [data-theme="light"] .field select,
+    [data-theme="light"] .field textarea,
+    [data-theme="light"] .modifier-row input[type="text"],
+    [data-theme="light"] .category-row input[type="text"],
+    [data-theme="light"] .hyper-key-settings input[type="text"],
+    [data-theme="mint-choco"] .field input,
+    [data-theme="mint-choco"] .field select,
+    [data-theme="mint-choco"] .field textarea,
+    [data-theme="mint-choco"] .modifier-row input[type="text"],
+    [data-theme="mint-choco"] .category-row input[type="text"],
+    [data-theme="mint-choco"] .hyper-key-settings input[type="text"],
+    [data-theme="beige"] .field input,
+    [data-theme="beige"] .field select,
+    [data-theme="beige"] .field textarea,
+    [data-theme="beige"] .modifier-row input[type="text"],
+    [data-theme="beige"] .category-row input[type="text"],
+    [data-theme="beige"] .hyper-key-settings input[type="text"] {
+      background: #ffffff;
+      color: #141922;
+      border-color: rgba(35, 48, 68, 0.18);
+      color-scheme: light;
+    }
+
+    [data-theme="light"] .field input::placeholder,
+    [data-theme="light"] .field textarea::placeholder,
+    [data-theme="mint-choco"] .field input::placeholder,
+    [data-theme="mint-choco"] .field textarea::placeholder,
+    [data-theme="beige"] .field input::placeholder,
+    [data-theme="beige"] .field textarea::placeholder {
+      color: #7b8797;
     }
 
     .field select {
@@ -2235,6 +2383,10 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.45;
+    }
+
+    .memo-note {
+      margin-bottom: 12px;
     }
 
     .modal-actions {
@@ -2622,10 +2774,12 @@
         </div>
         <div class="settings-section">
           <h3>Theme</h3>
-          <div class="segmented theme-segments" role="group" aria-label="Theme">
-            <button class="segment-btn" id="themeLight" type="button" data-theme-option="light">Light</button>
-            <button class="segment-btn" id="themeDark" type="button" data-theme-option="dark">Dark</button>
-          </div>
+          <select id="themeSelect" class="settings-select theme-select" aria-label="Theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="mint-choco">Mint</option>
+            <option value="beige">Blush</option>
+          </select>
         </div>
       </div>
       <div class="settings-section" id="set-modifiers">
@@ -2713,7 +2867,7 @@
       </div>
       <div class="settings-section" id="set-memo">
         <h3>Memo</h3>
-        <p class="modal-note">Number of freeform columns on the Memo board (1–10).</p>
+        <p class="modal-note memo-note">Number of freeform columns on the Memo board (1–10).</p>
         <label class="settings-inline-select" for="memoColumns">
           <span>Columns</span>
           <input type="number" id="memoColumns" class="settings-number" min="1" max="10" step="1" inputmode="numeric">
@@ -2874,8 +3028,16 @@
       { id: "contextual", name: "Contextual", color: "#b8c0cc", emoji: "⚪" }
     ];
 
+    const themeOptions = [
+      { id: "dark", label: "Dark", night: true },
+      { id: "light", label: "Light", night: false },
+      { id: "mint-choco", label: "Mint", night: false },
+      { id: "beige", label: "Blush", night: false }
+    ];
+
     const defaultSettings = {
       platform: "mac",
+      theme: "dark",
       nightmode: true,
       detailLayout: "auto",
       detailPopoverAutoClose: 5,
@@ -3067,6 +3229,7 @@
       rightModifierList: document.getElementById("rightModifierList"),
       categorySettingsList: document.getElementById("categorySettingsList"),
       filterSettingsList: document.getElementById("filterSettingsList"),
+      themeSelect: document.getElementById("themeSelect"),
       hyperKeyEnabled: document.getElementById("hyperKeyEnabled"),
       hyperKeyPhysical: document.getElementById("hyperKeyPhysical"),
       hyperKeyLabel: document.getElementById("hyperKeyLabel"),
@@ -3100,9 +3263,9 @@
       const storedData = readJson(STORAGE_KEY, sampleShortcuts);
       if (storedData && !Array.isArray(storedData) && Array.isArray(storedData.shortcuts)) {
         shortcuts = normalizeShortcuts(storedData.shortcuts);
-        textTrigger = normalizeTextTrigger(storedData.textTrigger || storedData.alfred || textTrigger);
+        textTrigger = normalizeTextTrigger(memoPayload(storedData) || textTrigger);
         settings = normalizeSettings(storedData.settings || settings);
-        if (storedData.settings) prefs.theme = settings.nightmode ? "dark" : "light";
+        if (storedData.settings) prefs.theme = settings.theme;
         drafts = normalizeShortcuts(storedData.drafts || drafts);
         persistShortcuts();
         persistTextTrigger();
@@ -3239,9 +3402,7 @@
       document.getElementById("platformPc").addEventListener("click", () => setSettingsPlatform("pc"));
       document.getElementById("addCategoryButton").addEventListener("click", addCategorySetting);
       document.getElementById("resetCategoriesButton").addEventListener("click", resetCategorySettings);
-      document.querySelectorAll("[data-theme-option]").forEach(button => {
-        button.addEventListener("click", () => setSettingsTheme(button.dataset.themeOption));
-      });
+      el.themeSelect.addEventListener("change", () => setSettingsTheme(el.themeSelect.value));
       document.querySelectorAll("[data-detail-layout-option]").forEach(button => {
         button.addEventListener("click", () => setSettingsDetailLayout(button.dataset.detailLayoutOption));
       });
@@ -3576,7 +3737,14 @@
     // Cmd+J / Ctrl+J: switch between the keyboard map and the Memo board.
     function toggleMemoMode() {
       closeDetailPopover();
-      if (activeMode === "textTrigger") {
+      const baseState = modifierPreviewState || { layer: activeLayer, mode: activeMode, selectedId };
+      cancelModifierRender();
+      heldModifiers.clear();
+      liveKeys = new Set();
+      modifierPreviewState = null;
+      activeLayer = baseState.layer || activeLayer;
+
+      if (baseState.mode === "textTrigger") {
         activeMode = "keyboard";
         selectedId = null;
         renderAll({ showSelectedDetails: false });
@@ -4110,11 +4278,11 @@
         </div>
         <div class="section">
           <h3>Mode</h3>
-          <p>This top tab replaces the keyboard with three editable text columns for text triggers, snippets, keywords, and launcher mnemonics.</p>
+          <p>This top tab replaces the keyboard with editable memo columns for text triggers, snippets, keywords, and launcher mnemonics.</p>
         </div>
         <div class="section">
           <h3>Saved Data</h3>
-          <p>The three columns and font size autosave locally and are included in JSON export/import under <span class="shortcut-token">textTrigger</span>.</p>
+          <p>Column text and font size autosave locally and are included in JSON export/import under <span class="shortcut-token">memo</span>. Older <span class="shortcut-token">textTrigger</span> backups still import.</p>
         </div>
       `, { openPopover: false });
     }
@@ -4357,10 +4525,16 @@
         return;
       }
 
-      // Cmd+J (Ctrl+J on PC) toggles the Memo board. Works even while typing in a Memo column.
-      if (commandPaletteChord && event.key.toLowerCase() === "j" && !modalWasOpen) {
+      // Cmd+J / Ctrl+J toggles the Memo board. Works even while typing in a Memo column.
+      const memoChord = event.metaKey || event.ctrlKey;
+      if (memoChord && event.key.toLowerCase() === "j" && !modalWasOpen) {
         event.preventDefault();
         toggleMemoMode();
+        return;
+      }
+
+      if (activeMode === "textTrigger") {
+        silentClearModifiers();
         return;
       }
 
@@ -4395,6 +4569,10 @@
     }
 
     function handleGlobalKeyup(event) {
+      if (activeMode === "textTrigger") {
+        silentClearModifiers();
+        return;
+      }
       if (isWritingTextTrigger()) return;
       if (isModalOpen() || el.paletteOverlay.classList.contains("open")) return;
       if (isHyperPhysicalKeyEvent(event)) {
@@ -5054,7 +5232,6 @@
       silentClearModifiers();
       renderSettingsModal();
       el.settingsOverlay.classList.add("open");
-      nudgeEl("saveSettingsButton");
       const body = document.getElementById("settingsBody");
       if (body) body.scrollTop = 0;
       requestAnimationFrame(updateSettingsNavActive);
@@ -5171,9 +5348,7 @@
     }
 
     function renderThemeSettings() {
-      document.querySelectorAll("[data-theme-option]").forEach(button => {
-        button.classList.toggle("active", button.dataset.themeOption === (prefs.theme || "dark"));
-      });
+      if (el.themeSelect) el.themeSelect.value = normalizeTheme(prefs.theme);
     }
 
     function renderDetailLayoutSettings() {
@@ -5436,8 +5611,9 @@
     }
 
     function setSettingsTheme(theme) {
-      prefs.theme = theme === "light" ? "light" : "dark";
-      settings.nightmode = prefs.theme !== "light";
+      prefs.theme = normalizeTheme(theme);
+      settings.theme = prefs.theme;
+      settings.nightmode = isNightTheme(prefs.theme);
       applyPrefs();
       renderThemeSettings();
     }
@@ -5463,7 +5639,8 @@
       clearNudgeEl("saveSettingsButton");
       applyCategorySettingsFromRows();
       settings.hyperKey = hyperKeyFromSettingsForm();
-      settings.nightmode = prefs.theme !== "light";
+      settings.theme = normalizeTheme(prefs.theme);
+      settings.nightmode = isNightTheme(settings.theme);
       if (el.memoColumns) settings.memoColumns = normalizeMemoColumns(el.memoColumns.value);
       settings = normalizeSettings(settings);
       savePrefs();
@@ -5715,7 +5892,7 @@
       return {
         shortcuts,
         drafts,
-        textTrigger: normalizeTextTrigger(textTrigger),
+        memo: normalizeTextTrigger(textTrigger),
         settings: exportSettings()
       };
     }
@@ -5758,7 +5935,7 @@
         message: "Preview only. Existing settings and Memo columns are preserved unless you opt in below.",
         stats,
         hasSettings: !Array.isArray(next) && Boolean(next.settings),
-        hasTextTrigger: !Array.isArray(next) && Boolean(next.textTrigger || next.alfred)
+        hasTextTrigger: !Array.isArray(next) && Boolean(memoPayload(next))
       };
     }
 
@@ -5823,10 +6000,10 @@
       const imported = normalizeShortcuts(importedShortcuts);
       const result = mergeImportedShortcuts(imported, duplicateMode);
       if (!Array.isArray(next)) {
-        if (options.includeTextTrigger && (next.textTrigger || next.alfred)) textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred);
+        if (options.includeTextTrigger && memoPayload(next)) textTrigger = normalizeTextTrigger(memoPayload(next));
         if (options.includeSettings && next.settings) {
           settings = normalizeSettings(next.settings);
-          prefs.theme = settings.nightmode ? "dark" : "light";
+          prefs.theme = settings.theme;
           savePrefs();
           applyPrefs();
         }
@@ -5852,10 +6029,10 @@
         drafts = [];
       } else {
         drafts = normalizeShortcuts(next.drafts || []);
-        textTrigger = normalizeTextTrigger(next.textTrigger || next.alfred || textTrigger);
+        textTrigger = normalizeTextTrigger(memoPayload(next) || textTrigger);
         if (next.settings) {
           settings = normalizeSettings(next.settings);
-          prefs.theme = settings.nightmode ? "dark" : "light";
+          prefs.theme = settings.theme;
           savePrefs();
           applyPrefs();
         }
@@ -5951,7 +6128,7 @@
       drafts = [];
       textTrigger = normalizeTextTrigger({ columns: ["", "", ""], fontSize: 16 });
       settings = normalizeSettings(defaultSettings);
-      prefs.theme = settings.nightmode ? "dark" : "light";
+      prefs.theme = settings.theme;
       savePrefs();
       applyPrefs();
       persistShortcuts();
@@ -5987,7 +6164,8 @@
     }
 
     function applyPrefs() {
-      document.documentElement.dataset.theme = prefs.theme || "dark";
+      prefs.theme = normalizeTheme(prefs.theme);
+      document.documentElement.dataset.theme = prefs.theme;
       renderThemeSettings();
     }
 
@@ -6186,11 +6364,13 @@
     function normalizeSettings(value) {
       const source = value && typeof value === "object" ? value : defaultSettings;
       const platform = source.platform === "pc" ? "pc" : "mac";
+      const theme = normalizeTheme(source);
       const preset = structuredClone(platformPresets[platform] || platformPresets.mac);
       const layout = source.modifierLayout || {};
       return {
         platform,
-        nightmode: normalizeNightMode(source),
+        theme,
+        nightmode: isNightTheme(theme),
         detailLayout: normalizeDetailLayout(source.detailLayout),
         detailPopoverAutoClose: normalizeDetailPopoverAutoClose(source.detailPopoverAutoClose ?? source.popoverAutoClose),
         memoColumns: normalizeMemoColumns(source.memoColumns),
@@ -6202,6 +6382,21 @@
           right: normalizeModifierSide(layout.right, preset.right)
         }
       };
+    }
+
+    function normalizeTheme(value) {
+      const source = value && typeof value === "object" ? value : null;
+      const raw = typeof source?.theme === "string" ? source.theme : (typeof value === "string" ? value : "");
+      if (raw === "famicom") return "beige";
+      if (themeOptions.some(option => option.id === raw)) return raw;
+      if (typeof source?.nightmode === "boolean") return source.nightmode ? "dark" : "light";
+      if (typeof source?.nightMode === "boolean") return source.nightMode ? "dark" : "light";
+      return defaultSettings.theme;
+    }
+
+    function isNightTheme(theme) {
+      const id = normalizeTheme(theme);
+      return themeOptions.find(option => option.id === id)?.night !== false;
     }
 
     function normalizeDetailLayout(value) {
@@ -6252,17 +6447,12 @@
       };
     }
 
-    function normalizeNightMode(source) {
-      if (typeof source?.nightmode === "boolean") return source.nightmode;
-      if (typeof source?.nightMode === "boolean") return source.nightMode;
-      if (typeof source?.theme === "string") return source.theme !== "light";
-      return defaultSettings.nightmode;
-    }
-
     function exportSettings() {
+      const theme = normalizeTheme(prefs.theme);
       return normalizeSettings({
         ...settings,
-        nightmode: prefs.theme !== "light"
+        theme,
+        nightmode: isNightTheme(theme)
       });
     }
 
@@ -6283,6 +6473,11 @@
       });
       return normalized;
     }
+    function memoPayload(source) {
+      if (!source || typeof source !== "object" || Array.isArray(source)) return null;
+      return source.memo || source.textTrigger || source.alfred || null;
+    }
+
     function normalizeTextTrigger(value) {
       // Column content is decoupled from the visible column count (settings.memoColumns):
       // keep up to 10 columns of content so shrinking then re-growing never loses text.
@@ -6384,9 +6579,11 @@
     }
 
     function persistSettings() {
+      const theme = normalizeTheme(prefs.theme);
       settings = normalizeSettings({
         ...settings,
-        nightmode: prefs.theme !== "light"
+        theme,
+        nightmode: isNightTheme(theme)
       });
       safeSetStorage(SETTINGS_KEY, settings);
     }

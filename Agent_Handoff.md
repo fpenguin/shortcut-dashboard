@@ -14,7 +14,7 @@ Use `import_shortcuts.html` as the reference implementation and preferred integr
 
 - Add a clear option in `import_shortcuts.html` for the new source tool, or create a separate offline HTML importer only when the source format is large enough to justify it.
 - Produce JSON that can be pasted into `shortcuts.html` -> `Backup & Import` -> `Merge with Other Data`.
-- Preserve the existing `shortcuts.html` settings, category list, text trigger board, theme, Hyper key alias, and modifier layout unless the user explicitly opts into importing those fields.
+- Preserve the existing `shortcuts.html` settings, category list, Memo board, theme, Hyper key alias, and modifier layout unless the user explicitly opts into importing those fields.
 - Keep all parsing local in the browser with a user-selected export file.
 
 Good importer examples:
@@ -182,11 +182,11 @@ Avoid in exported JSON:
 
 It is fine to show sensitive debugging details in the local-only import log while the user is inspecting their own file, but do not put those details into the generated portable JSON.
 
-## Settings and Text Trigger Data
+## Settings and Memo Data
 
-Most importers should output only `shortcuts`. Do not output `settings` or `textTrigger` unless your importer intentionally manages those sections.
+Most importers should output only `shortcuts`. Do not output `settings` or `memo` unless your importer intentionally manages those sections. Older dashboard backups may use `textTrigger`; the app still accepts that field for backward compatibility, but new JSON should use `memo`.
 
-The dashboard may contain user-specific settings like custom categories, modifier layout, Hyper key alias, detail panel mode, theme preference, and text trigger columns. A preset importer for another tool should not overwrite those by default.
+The dashboard may contain user-specific settings like custom categories, modifier layout, Hyper key alias, detail panel mode, theme preference, and Memo columns. A preset importer for another tool should not overwrite those by default.
 
 ## Testing Checklist
 

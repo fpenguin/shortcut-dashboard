@@ -1,6 +1,22 @@
 # macOS
 .DS_Store
 
+# Local temp/cache output
+*.tmp
+*.log
+*.bak
+*~
+.cache/
+.pytest_cache/
+__pycache__/
+*.pyc
+tmp/
+temp/
+source-cache/
+shortcut-dashboard-source-cache/
+current_manifest_scan.json
+manifest.tsv
+
 # Personal shortcut data and exports
 shortcuts.json
 *.bttpreset

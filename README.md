@@ -14,18 +14,18 @@ For people whose shortcuts live everywhere: OS settings, launcher apps, automati
 - Search, favorite, print, and rehearse commands fast
 - Catch active conflicts before muscle memory betrays you
 - Keep snippets, launcher notes, and command memory on the Memo board beside your keyboard map
-- Seed your dashboard with 179 starter packs, then layer your own shortcuts on top
+- Starter packs and guided setup are coming soon in v2.0; today you can add your own shortcuts, restore backups, and import BetterTouchTool presets
 - Customize macOS/Windows layouts, categories, colors, Hyper aliases, and visible groups
 
-## Starter Packs
+## Starter Packs (Coming Soon in v2.0)
 
-Shortcut Dashboard ships with **179 optional starter packs** and **9,816 curated shortcuts** for keyboard-heavy apps. They are not demo filler. They are importable command maps that help you get from a blank dashboard to a useful personal reference in minutes.
+Shortcut Dashboard is being prepared to ship with optional starter packs for keyboard-heavy apps. They are not part of the current v1.7 release yet. The v2.0 goal is to make them importable command maps that help you get from a blank dashboard to a useful personal reference in minutes.
 
-Import the apps you actually use, remove commands you do not care about, favorite the ones you want to rehearse, then add your own custom layers from BetterTouchTool, Raycast, Keyboard Maestro, Alfred, macOS, Windows, scripts, and app-specific workflows.
+The planned flow: choose the apps you actually use, preview the shortcuts, merge them into your dashboard, remove commands you do not care about, favorite the ones you want to rehearse, then add your own custom layers from BetterTouchTool, Raycast, Keyboard Maestro, Alfred, macOS, Windows, scripts, and app-specific workflows.
 
-Starter packs cover tools where keyboard fluency actually pays off: Vim, Neovim, Emacs, tmux, VS Code, Cursor, Figma, Photoshop, Illustrator, Blender, Unity, Unreal Engine, Logic Pro, Ableton Live, Reaper, DaVinci Resolve, Final Cut Pro, Excel, Google Sheets, Obsidian, Linear, Gmail, Superhuman, Raycast, Alfred, Keyboard Maestro, BetterTouchTool, AutoCAD, Fusion 360, KiCad, DataGrip, TablePlus, Finder, Path Finder, PowerToys, Directory Opus, Chrome, Safari, Firefox, Windows and macOS essentials, Minecraft Java Edition, StarCraft, Microsoft Word, PowerPoint, Outlook, Teams, Zoom, and more.
+Planned starter packs target tools where keyboard fluency actually pays off: Vim, Neovim, Emacs, tmux, VS Code, Cursor, Figma, Photoshop, Illustrator, Blender, Unity, Unreal Engine, Logic Pro, Ableton Live, Reaper, DaVinci Resolve, Final Cut Pro, Excel, Google Sheets, Obsidian, Linear, Gmail, Superhuman, Raycast, Alfred, Keyboard Maestro, BetterTouchTool, AutoCAD, Fusion 360, KiCad, DataGrip, TablePlus, Finder, Path Finder, PowerToys, Directory Opus, Chrome, Safari, Firefox, Windows and macOS essentials, Minecraft Java Edition, StarCraft, Microsoft Word, PowerPoint, Outlook, Teams, Zoom, and more.
 
-The packs live in `starter-packs/{Platform}/{Category Name}/{App Name}.json`, so they are easy to browse, copy, edit, audit, and contribute to.
+The planned folder shape is `starter-packs/{Platform}/{Category Name}/{App Name}.json`, so packs will be easy to browse, copy, edit, audit, and contribute to once they are released.
 
 ## Screenshots
 
@@ -92,13 +92,13 @@ This is a browser limitation, not a Shortcut Dashboard bug.
 5. Open `shortcuts.html`, click the save icon, then use `Backup & Import` -> `Merge with Other Data`.
 6. Paste the JSON or choose `Import JSON`, review `Merge Preview`, click `Confirm Merge`, then click `Download Backup`.
 
-Everything runs locally. Your preset is not uploaded anywhere. If an imported shortcut already exists, choose whether to ignore it, overwrite the existing entry, or save it as a draft for review. Existing text trigger notes, category settings, keyboard settings, Hyper alias settings, detail panel preference, and theme preference are preserved unless you explicitly opt into importing those sections from the JSON.
+Everything runs locally. Your preset is not uploaded anywhere. If an imported shortcut already exists, choose whether to ignore it, overwrite the existing entry, or save it as a draft for review. Existing Memo board notes, category settings, keyboard settings, Hyper alias settings, detail panel preference, and theme preference are preserved unless you explicitly opt into importing those sections from the JSON.
 
 Want support for another automation tool? Open `import_shortcuts.html` and download `Agent_Handoff.md`. Give it to Claude, Codex, or another coding agent so it can build a parser that outputs Shortcut Dashboard JSON, then contribute the verified importer back on GitHub.
 
-## Starter-Pack Library
+## Starter-Pack Library (Coming Soon in v2.0)
 
-The `starter-packs/` folder contains optional JSON starter packs for popular keyboard-heavy apps. They are organized as:
+The `starter-packs/` folder is planned for v2.0. It is not included in the current v1.7 release. The intended organization is:
 
 ```text
 starter-packs/{Platform}/{Category Name}/{App Name}.json
@@ -114,17 +114,17 @@ Examples:
 - `starter-packs/Windows/Office & Documents/Microsoft PowerPoint.json`
 - `starter-packs/Windows/CAD & Engineering/AutoCAD.json`
 
-To use one, open `shortcuts.html`, go to `Backup & Import` -> `Merge with Other Data`, choose `Import JSON`, select a starter pack, review `Merge Preview`, and click `Confirm Merge`. Then use `Download Backup`. Starter packs merge into your current browser data, so you can combine multiple apps into one personal command center.
+Once starter packs ship, you will be able to open `shortcuts.html`, go to `Backup & Import` -> `Merge with Other Data`, choose `Import JSON`, select a starter pack, review `Merge Preview`, and click `Confirm Merge`. Then use `Download Backup`. Starter packs will merge into your current browser data, so you can combine multiple apps into one personal command center.
 
-The library now includes 179 starter packs across Mac and Windows, organized by workflow: Design, Browsers, Video Editing, Music Production, 3D, VFX & Game Engines, Development, Terminal & Shell, Git Clients, Office & Documents, Writing & Knowledge, Project Management, Communication, Data Analytics, CAD & Engineering, Automation & Launchers, Diagramming & Whiteboards, Database, File Management, Text Editors, AI Tools, Browser-Based Apps, OS Essentials, and Gaming. Recent additions include OS Essentials, Gaming, browser packs, fuller Ableton Live, Pro Tools, Final Cut Pro, Asana, Airtable, Fastmail, Neovim, UltraEdit, Windows Microsoft Word/Excel/PowerPoint/Outlook, Microsoft Teams, Zoom, expanded AutoCAD packs, Adobe Lightroom, Framer, Proto.io, Zeplin, Apple Notes, Numbers, 1Password, Todoist, and more.
+The planned library targets Mac and Windows packs organized by workflow: Design, Browsers, Video Editing, Music Production, 3D, VFX & Game Engines, Development, Terminal & Shell, Git Clients, Office & Documents, Writing & Knowledge, Project Management, Communication, Data Analytics, CAD & Engineering, Automation & Launchers, Diagramming & Whiteboards, Database, File Management, Text Editors, AI Tools, Browser-Based Apps, OS Essentials, and Gaming.
 
-These starter packs aim to be practical, useful references rather than tiny samples. For large creative, CAD, audio, video, Office, and engineering tools, the goal is broad coverage of meaningful default commands. For modal tools like Vim, Neovim, Emacs, and tmux, the goal is a curated keyboard map of high-value commands rather than copying an entire manual into the dashboard.
+These starter packs should be practical, useful references rather than tiny samples. For large creative, CAD, audio, video, Office, and engineering tools, the goal is broad coverage of meaningful default commands. For modal tools like Vim, Neovim, Emacs, and tmux, the goal is a curated keyboard map of high-value commands rather than copying an entire manual into the dashboard.
 
-Obvious universal commands like Undo, Cut, Copy, Paste, Save, Print, Select All, and simple Find are intentionally filtered out so the dashboard stays focused on shortcuts people actually forget. Shortcuts that use keys not drawn on the current dashboard keyboard, such as dedicated Home/End/Page keys, are also filtered from starter packs for now. Shortcuts change, users customize apps, and some public sources are incomplete, so `starter-packs/COVERAGE_AUDIT.md` tracks packs that still need deeper expansion.
+Obvious universal commands like Undo, Cut, Copy, Paste, Save, Print, Select All, and simple Find will be intentionally filtered out so the dashboard stays focused on shortcuts people actually forget. Shortcuts that use keys not drawn on the current dashboard keyboard, such as dedicated Home/End/Page keys, may also be filtered from starter packs at first. Shortcuts change, users customize apps, and some public sources are incomplete, so the v2.0 starter-pack release should include clear source notes and coverage status.
 
 Platform-specific starter packs are preferred over automatic `Ctrl` -> `Command` conversion. On Windows starter packs, Shortcut Dashboard stores `Alt` as the logical `Option` key and the Windows key as the logical `Cmd` key so the existing keyboard model can display it.
 
-The starter-pack library combines the MIT-licensed [Hotkys](https://github.com/solomkinmv/hotkys) public shortcut dataset with curated packs from public vendor/support documentation and other public shortcut references. Source URLs are preserved inside each starter pack and attribution lives in `starter-packs/NOTICE.md`.
+The planned starter-pack library will combine public shortcut datasets, vendor/support documentation, and other public shortcut references, with source URLs and attribution preserved.
 
 ## Files
 
@@ -132,7 +132,7 @@ The starter-pack library combines the MIT-licensed [Hotkys](https://github.com/s
 - `import_shortcuts.html` - offline preset importer, currently focused on BetterTouchTool
 - `Agent_Handoff.md` - guide for AI agents and contributors building importers for other tools
 - `shortcuts_example.json` - safe sample data you can try or publish
-- `starter-packs/` - optional public starter shortcut packs for popular apps
+- `starter-packs/` - optional public starter shortcut packs for popular apps, coming soon in v2.0
 - `ROADMAP.md` - future ideas, including AI-assisted category cleanup
 - `screenshots/` - images used in this README
 - `LICENSE` - MIT license
@@ -151,7 +151,7 @@ curl -LO https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/shor
 curl -LO https://raw.githubusercontent.com/fpenguin/shortcut-dashboard/main/Agent_Handoff.md
 ```
 
-The optional `starter-packs/` folder is easiest to get by downloading the repository ZIP or cloning the repo, because GitHub raw URLs do not download whole folders cleanly.
+Starter packs are coming soon in v2.0. When released, the optional `starter-packs/` folder will be easiest to get by downloading the repository ZIP or cloning the repo, because GitHub raw URLs do not download whole folders cleanly.
 
 ## Privacy
 
@@ -164,7 +164,7 @@ Shortcut Dashboard is local-first:
 - No CDN or external assets
 - Browser storage stays inside that browser/profile
 
-Important: use `Download Backup` in `Backup & Import` to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, text triggers, category settings, modifier layout settings, Hyper Key settings, detail panel preference, and theme preference.
+Important: use `Download Backup` in `Backup & Import` to keep a portable JSON backup. Browser storage is convenient, but if your browser profile or cache is cleared, browser-saved shortcuts can disappear. The JSON backup includes shortcuts, drafts, Memo columns, category settings, modifier layout settings, Hyper Key settings, detail panel preference, and theme preference.
 
 ## Support
 

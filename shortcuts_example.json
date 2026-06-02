@@ -1337,9 +1337,9 @@
       "sourceFolder": "macOS Essentials"
     }
   ],
-  "textTrigger": {
+  "memo": {
     "columns": [
-      "Write anything you want to remember \nin 3 different panes...",
+      "Write anything you want to remember in memo columns.\n\nThe default is 3 columns, but Settings > Memo can reduce or increase the visible column count from 1 to 10.",
       ":: Alfred Workflow ::\n\n`shhh` : Close Notifications\n`ds` : timestamp in YYYY-MM-DD (CTRL+T)\n\n",
       ":: BTT Triggers ::\n\n`BTT-ClaudeCoworkTryAgain` : Auto-click \"Try Again\" at a set time while away/asleep.\n"
     ],
@@ -1347,6 +1347,7 @@
   },
   "settings": {
     "platform": "mac",
+    "theme": "dark",
     "nightmode": true,
     "detailLayout": "auto",
     "modifierLayout": {

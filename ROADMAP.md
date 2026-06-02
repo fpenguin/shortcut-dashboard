@@ -1,5 +1,25 @@
 # Roadmap
 
+## v2.0 - Starter Packs and Guided Onboarding
+
+Starter packs are planned for v2.0. They should make the first-run experience useful without forcing users to hunt through folders or import one JSON file at a time.
+
+Planned starter-pack work:
+
+- Release curated `starter-packs/{Platform}/{Category Name}/{App Name}.json` files for popular keyboard-heavy apps.
+- Prefer platform-specific packs over automatic `Ctrl` -> `Command` conversion.
+- Preserve source URLs, attribution, and coverage notes for each pack.
+- Filter obvious universal commands such as Undo, Cut, Copy, Paste, Save, Print, Select All, and simple Find.
+- Keep starter packs optional so users can build a focused personal dashboard instead of importing a giant manual.
+
+Planned onboarding work:
+
+- Add a welcome/setup flow for first-time users.
+- Let users browse starter packs by platform, category, and app.
+- Allow multi-select import with a preview of incoming shortcuts, duplicates, drafts, and conflicts.
+- Merge selected starter packs without overwriting existing browser data, settings, categories, Hyper aliases, theme, or Memo board unless explicitly chosen.
+- Encourage users to download a backup after setup.
+
 ## AI Categorization Helper
 
 Future versions may include a copyable AI prompt that helps users recategorize imported shortcuts after import.
