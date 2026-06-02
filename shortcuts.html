@@ -476,10 +476,10 @@
       font-weight: 850;
     }
 
-    /* Four aligned columns: checkbox | modifier combo | modifier name | counter. */
+    /* Five aligned columns: checkbox | modifier combo | modifier name | counter | pin. */
     .layer-menu-item {
       display: grid;
-      grid-template-columns: auto 76px minmax(0, 1fr) auto;
+      grid-template-columns: auto 76px minmax(0, 1fr) auto 26px;
       gap: 10px;
       align-items: center;
       padding: 8px 7px;
@@ -574,6 +574,41 @@
       color: var(--text);
     }
 
+    .layer-menu-pin {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--faint);
+      cursor: pointer;
+      transition: background 120ms ease, color 120ms ease;
+    }
+
+    .layer-menu-pin:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+    }
+
+    .layer-menu-pin.pinned {
+      color: var(--accent);
+    }
+
+    .layer-menu-pin svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .layer-menu-pin.pinned svg {
+      fill: currentColor;
+    }
+
     .keyboard-shell {
       overflow-x: auto;
       padding: 12px 2px 20px;
@@ -650,7 +685,7 @@
 
     .text-trigger-columns {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(var(--memo-cols, 3), minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -1091,6 +1126,31 @@
     .settings-select:focus {
       border-color: rgba(156, 200, 255, 0.62);
       box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    .settings-number {
+      width: 100%;
+      min-height: 42px;
+      padding: 0 11px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      outline: none;
+      background: linear-gradient(180deg, rgba(16, 22, 32, 0.96), rgba(8, 13, 20, 0.96));
+      color: var(--text);
+      font: inherit;
+      font-weight: 750;
+      color-scheme: dark;
+    }
+
+    .settings-number:focus {
+      border-color: rgba(156, 200, 255, 0.62);
+      box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    [data-theme="light"] .settings-number {
+      background: #ffffff;
+      color: #141922;
+      color-scheme: light;
     }
 
     .settings-select option {
@@ -2419,11 +2479,11 @@
 
         <div class="keyboard-shell" aria-label="Scrollable keyboard">
           <div class="keyboard" id="keyboard"></div>
-          <section class="text-trigger-board" id="textTriggerBoard" aria-label="Text Trigger memory notes">
+          <section class="text-trigger-board" id="textTriggerBoard" aria-label="Memo notes">
             <div class="text-trigger-toolbar">
               <div class="text-trigger-title">
-                <strong>Text Trigger Board</strong>
-                <span>Three freeform columns for text triggers, snippets, keywords, and launcher habits.</span>
+                <strong>Memo Board</strong>
+                <span>Freeform columns for text triggers, snippets, keywords, and launcher habits. Set the column count in Settings.</span>
               </div>
               <label class="font-control" for="textTriggerFontSize">
                 Font
@@ -2431,11 +2491,7 @@
                 <span id="textTriggerFontSizeValue">16px</span>
               </label>
             </div>
-            <div class="text-trigger-columns">
-              <textarea class="text-trigger-note" id="textTriggerNote1" placeholder="Column 1"></textarea>
-              <textarea class="text-trigger-note" id="textTriggerNote2" placeholder="Column 2"></textarea>
-              <textarea class="text-trigger-note" id="textTriggerNote3" placeholder="Column 3"></textarea>
-            </div>
+            <div class="text-trigger-columns" id="textTriggerColumns"></div>
           </section>
         </div>
 
@@ -2449,7 +2505,7 @@
         </div>
         <div class="hint-row" id="hintRow">
           <button class="chip conflict-chip" id="conflictButton" type="button" hidden aria-label="Show shortcut conflicts"><span class="dot"></span><span id="conflictButtonText">0 conflicts</span></button>
-          <div class="kbd-help">Tip: press ? or <span id="commandHelpShortcut">Cmd+K</span> for the command palette. Press a real shortcut to light it up.</div>
+          <div class="kbd-help" id="kbdHelp"></div>
         </div>
         <div class="layer-note" id="fnLayerNote"><strong>Fn note:</strong> browsers usually cannot detect real-time Fn holds. Use the Fn tab manually or remap Fn to F18/F19. <a href="https://github.com/fpenguin/shortcut-dashboard#fn-key-detection" target="_blank" rel="noopener noreferrer">Full workaround guide</a>.</div>
       </section>
@@ -2518,7 +2574,7 @@
               </label>
               <label class="import-option-check">
                 <input type="checkbox" id="importTextTrigger">
-                <span>Import text trigger board if present</span>
+                <span>Import Memo board if present</span>
               </label>
             </div>
             <div class="merge-action-row">
@@ -2553,6 +2609,7 @@
           <button type="button" class="settings-nav-item" data-target="set-filters">Filters</button>
           <button type="button" class="settings-nav-item" data-target="set-categories">Categories</button>
           <button type="button" class="settings-nav-item" data-target="set-hyper">Hyper Key</button>
+          <button type="button" class="settings-nav-item" data-target="set-memo">Memo</button>
         </nav>
         <div class="settings-body" id="settingsBody">
       <div class="settings-split-row" id="set-general">
@@ -2653,6 +2710,14 @@
             <span class="hyper-preview-pill" id="hyperKeyPreviewPill"></span>
           </div>
         </div>
+      </div>
+      <div class="settings-section" id="set-memo">
+        <h3>Memo</h3>
+        <p class="modal-note">Number of freeform columns on the Memo board (1–10).</p>
+        <label class="settings-inline-select" for="memoColumns">
+          <span>Columns</span>
+          <input type="number" id="memoColumns" class="settings-number" min="1" max="10" step="1" inputmode="numeric">
+        </label>
       </div>
         </div>
       </div>
@@ -2814,6 +2879,7 @@
       nightmode: true,
       detailLayout: "auto",
       detailPopoverAutoClose: 5,
+      memoColumns: 3,
       // Filter rails under the keyboard. Order = on-page order; mode = always | hide0 | never.
       filters: [
         { id: "category", mode: "always" },
@@ -2977,11 +3043,8 @@
       textTriggerBoard: document.getElementById("textTriggerBoard"),
       textTriggerFontSize: document.getElementById("textTriggerFontSize"),
       textTriggerFontSizeValue: document.getElementById("textTriggerFontSizeValue"),
-      textTriggerNotes: [
-        document.getElementById("textTriggerNote1"),
-        document.getElementById("textTriggerNote2"),
-        document.getElementById("textTriggerNote3")
-      ],
+      textTriggerColumns: document.getElementById("textTriggerColumns"),
+      kbdHelp: document.getElementById("kbdHelp"),
       layerTabs: document.getElementById("layerTabs"),
       categoryRail: document.getElementById("categoryRail"),
       appSourceRow: document.getElementById("appSourceRow"),
@@ -3012,6 +3075,7 @@
       hyperKeyPreview: document.getElementById("hyperKeyPreview"),
       hyperKeyPreviewPill: document.getElementById("hyperKeyPreviewPill"),
       detailPopoverAutoClose: document.getElementById("detailPopoverAutoClose"),
+      memoColumns: document.getElementById("memoColumns"),
       duplicateMode: document.getElementById("duplicateMode"),
       importSettings: document.getElementById("importSettings"),
       importTextTrigger: document.getElementById("importTextTrigger"),
@@ -3115,6 +3179,18 @@
       if (helpLabel) helpLabel.textContent = label;
     }
 
+    // Mode-aware tip line under the keyboard/Memo board.
+    function renderHintTip() {
+      if (!el.kbdHelp) return;
+      const mod = settings.platform === "pc" ? "Ctrl" : "Cmd";
+      const sig = (activeMode === "textTrigger" ? "memo:" : "kbd:") + mod;
+      if (el.kbdHelp.dataset.tipSig === sig) return;
+      el.kbdHelp.dataset.tipSig = sig;
+      el.kbdHelp.textContent = activeMode === "textTrigger"
+        ? `Tip: ${mod}+J toggles the Memo board. Make frequent backups to avoid data loss if your browser cache is reset — backup files contain unencrypted copies of your data.`
+        : `Tip: press ? or ${mod}+K for the command palette, ${mod}+J for the Memo board. Press a real shortcut to light it up.`;
+    }
+
     function iconSvg(name) {
       const icons = {
         plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
@@ -3133,7 +3209,8 @@
         trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>',
         close: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>',
         search: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
-        external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7"/><path d="m10 14 11-11"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>'
+        external: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7"/><path d="m10 14 11-11"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>',
+        pin: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>'
       };
       return icons[name] || "";
     }
@@ -3205,12 +3282,6 @@
         persistTextTrigger();
         renderTextTrigger();
       });
-      el.textTriggerNotes.forEach((note, index) => {
-        note.addEventListener("input", () => {
-          textTrigger.columns[index] = note.value;
-          persistTextTrigger();
-        });
-      });
       el.paletteInput.addEventListener("input", () => { paletteIndex = 0; renderPalette(); });
       el.paletteOverlay.addEventListener("click", event => {
         if (event.target === el.paletteOverlay) closePalette();
@@ -3262,6 +3333,7 @@
       renderAppSources();
       applyFilterOrder();
       renderStats();
+      renderHintTip();
       // renderPrintSheet() intentionally NOT called here — it rebuilds hidden DOM on
       // every render. It now runs only just before window.print().
       if (selectedId && showSelectedDetails) showDetails(findShortcutById(selectedId), undefined, "", { skipKeyboard: true });
@@ -3324,6 +3396,7 @@
       }
       const counts = tabs.map(layer => filteredShortcuts({ ignoreLayer: false, layerId: layer.id }).length);
       const textTriggerVisible = isTextTriggerVisible();
+      const memoPinned = isLayerPinned(TEXT_TRIGGER_LAYER_ID);
       // Structure signature deliberately excludes activeLayer/activeMode so that a layer
       // change (frequent during modifier preview) updates highlights without a full rebuild.
       const structureSig = JSON.stringify({
@@ -3331,6 +3404,7 @@
         labels: tabs.map(layer => layer.label),
         counts,
         tt: textTriggerVisible,
+        memoPinned,
         hyper: settings.hyperKey?.enabled ? hyperKeyDisplayLabel() : ""
       });
 
@@ -3339,8 +3413,9 @@
         const layerButtons = tabs.map((layer, index) =>
           `<button class="layer-btn" data-layer="${escapeHtml(layer.id)}" title="${escapeHtml(layer.label)}" aria-label="${escapeHtml(layer.label)} layer, ${counts[index]} shortcuts">${layerGlyph(layer.id)} <span class="layer-count ${counts[index] === 0 ? "count-zero" : ""}">${counts[index]}</span></button>`
         ).join("");
-        const textTriggerButton = textTriggerVisible ? `<button class="mode-tab" id="textTriggerTab" type="button">Text Trigger</button>` : "";
-        el.layerTabs.innerHTML = `${layerButtons}${textTriggerButton}`;
+        // Pinned Memo sits at the front of the tab strip; otherwise it stays at the end.
+        const memoButton = textTriggerVisible ? `<button class="mode-tab" id="textTriggerTab" type="button">Memo</button>` : "";
+        el.layerTabs.innerHTML = memoPinned ? `${memoButton}${layerButtons}` : `${layerButtons}${memoButton}`;
         el.layerTabs.querySelectorAll(".layer-btn").forEach(button => {
           button.addEventListener("click", () => {
             activeMode = "keyboard";
@@ -3398,7 +3473,12 @@
     }
 
     function getLayerMenuOptions() {
-      return getLayerOptions().concat([{ id: TEXT_TRIGGER_LAYER_ID, count: 3, label: "Text Trigger", isMode: true }]);
+      const options = getLayerOptions();
+      const memo = { id: TEXT_TRIGGER_LAYER_ID, count: 3, label: "Memo", isMode: true };
+      // Pinned Memo joins the top tier; otherwise it stays at the bottom of the list.
+      if (isLayerPinned(TEXT_TRIGGER_LAYER_ID)) options.unshift(memo);
+      else options.push(memo);
+      return options;
     }
 
     function getLayerOptions() {
@@ -3422,6 +3502,22 @@
 
     function hiddenLayerSet() {
       return new Set(Array.isArray(prefs.hiddenLayers) ? prefs.hiddenLayers : []);
+    }
+
+    // Pinned groups sort into a top tier. Browser-only (prefs), never exported.
+    function isLayerPinned(layerId) {
+      return Array.isArray(prefs.pinnedLayers) && prefs.pinnedLayers.includes(layerId);
+    }
+
+    function toggleLayerPinned(layerId) {
+      const pinned = new Set(Array.isArray(prefs.pinnedLayers) ? prefs.pinnedLayers : []);
+      if (pinned.has(layerId)) pinned.delete(layerId);
+      else pinned.add(layerId);
+      prefs.pinnedLayers = Array.from(pinned);
+      savePrefs();
+      // Re-render without re-opening the detail popover (it would cover the open menu).
+      closeDetailPopover();
+      renderAll({ showSelectedDetails: false });
     }
 
     function setLayerHidden(layerId, hidden) {
@@ -3477,6 +3573,22 @@
       return `<span class="mod-glyph" aria-hidden="true">${symbols.map(item => `<span class="mod-symbol ${item.kind === "fn" ? "fn" : ""} ${item.on ? "on" : "off"}">${item.symbol}</span>`).join("")}</span>`;
     }
 
+    // Cmd+J / Ctrl+J: switch between the keyboard map and the Memo board.
+    function toggleMemoMode() {
+      closeDetailPopover();
+      if (activeMode === "textTrigger") {
+        activeMode = "keyboard";
+        selectedId = null;
+        renderAll({ showSelectedDetails: false });
+        if (!isDetailCollapsed()) showDetails(filteredShortcuts()[0] || null, undefined, "", { openPopover: false });
+      } else {
+        activeMode = "textTrigger";
+        selectedId = null;
+        renderAll({ showSelectedDetails: false });
+        showTextTriggerDetails();
+      }
+    }
+
     function renderLayerMenu() {
       const hidden = hiddenLayerSet();
       const rows = getLayerMenuOptions().map(layer => ({
@@ -3484,9 +3596,10 @@
         isMode: Boolean(layer.isMode),
         name: layer.label || layerDisplayName(layer.id),
         count: facetedLayerCount(layer.id),
-        hidden: hidden.has(layer.id)
+        hidden: hidden.has(layer.id),
+        pinned: isLayerPinned(layer.id)
       }));
-      const menuSig = JSON.stringify(rows.map(row => [row.id, row.name, row.count, row.hidden]));
+      const menuSig = JSON.stringify(rows.map(row => [row.id, row.name, row.count, row.hidden, row.pinned]));
       if (menuSig === renderSignatures.layerMenu) return;
       renderSignatures.layerMenu = menuSig;
       el.layerMenuPanel.innerHTML = `
@@ -3497,6 +3610,7 @@
             <span class="layer-menu-glyph">${layerMenuGlyphHtml(row.id, row.isMode)}</span>
             <span class="layer-menu-name">${escapeHtml(row.name)}</span>
             <span class="layer-menu-count ${row.count === 0 ? "count-zero" : ""}">${row.count}</span>
+            <button type="button" class="layer-menu-pin ${row.pinned ? "pinned" : ""}" data-pin-toggle="${escapeHtml(row.id)}" aria-pressed="${row.pinned}" title="${row.pinned ? "Unpin group" : "Pin group to top"}" aria-label="${row.pinned ? "Unpin group" : "Pin group to top"}">${iconSvg("pin")}</button>
           </label>
         `).join("")}
         <div class="layer-menu-actions">
@@ -3507,6 +3621,14 @@
       `;
       el.layerMenuPanel.querySelectorAll("input[data-layer-toggle]").forEach(input => {
         input.addEventListener("change", () => setLayerHidden(input.dataset.layerToggle, !input.checked));
+      });
+      el.layerMenuPanel.querySelectorAll("[data-pin-toggle]").forEach(button => {
+        button.addEventListener("click", event => {
+          // Don't let the click bubble to the row label (which toggles visibility).
+          event.preventDefault();
+          event.stopPropagation();
+          toggleLayerPinned(button.dataset.pinToggle);
+        });
       });
       el.layerMenuPanel.querySelectorAll("[data-bulk]").forEach(button => {
         button.addEventListener("click", () => bulkSetLayerVisibility(button.dataset.bulk));
@@ -3524,6 +3646,10 @@
     }
 
     function compareLayerTabs(a, b) {
+      // Pinned groups form a top tier; within each tier the existing count-first order applies.
+      const aPinned = isLayerPinned(a.id);
+      const bPinned = isLayerPinned(b.id);
+      if (aPinned !== bPinned) return aPinned ? -1 : 1;
       if (a.count !== b.count) return b.count - a.count;
       const aIndex = layerSortIndex(a.id);
       const bIndex = layerSortIndex(b.id);
@@ -3657,10 +3783,29 @@
       el.textTriggerBoard.style.setProperty("--alfred-font-size", `${fontSize}px`);
       el.textTriggerFontSize.value = fontSize;
       el.textTriggerFontSizeValue.textContent = `${fontSize}px`;
-      el.textTriggerNotes.forEach((note, index) => {
-        if (note.value !== (textTrigger.columns[index] || "")) {
+
+      const count = normalizeMemoColumns(settings.memoColumns);
+      el.textTriggerColumns.style.setProperty("--memo-cols", Math.max(1, count));
+      // Rebuild the textareas only when the count changes, so typing is never interrupted.
+      if (el.textTriggerColumns.childElementCount !== count) {
+        el.textTriggerColumns.innerHTML = Array.from({ length: count }, (_, index) =>
+          `<textarea class="text-trigger-note" data-col="${index}" placeholder="Column ${index + 1}"></textarea>`
+        ).join("");
+        el.textTriggerColumns.querySelectorAll(".text-trigger-note").forEach(note => {
+          const index = Number(note.dataset.col);
           note.value = textTrigger.columns[index] || "";
-        }
+          note.addEventListener("input", () => {
+            textTrigger.columns[index] = note.value;
+            persistTextTrigger();
+          });
+        });
+        return;
+      }
+      // Count unchanged: sync values without disturbing focus/cursor.
+      el.textTriggerColumns.querySelectorAll(".text-trigger-note").forEach(note => {
+        const index = Number(note.dataset.col);
+        const value = textTrigger.columns[index] || "";
+        if (note.value !== value) note.value = value;
       });
     }
 
@@ -3960,7 +4105,7 @@
         <div class="panel-header">
           <div>
             <div class="panel-kicker">Freeform Memory</div>
-            <h2 class="panel-title">Text Trigger</h2>
+            <h2 class="panel-title">Memo</h2>
           </div>
         </div>
         <div class="section">
@@ -4209,6 +4354,13 @@
       if ((commandPaletteChord && event.key.toLowerCase() === "k") || (!inTextField && event.key === "?")) {
         event.preventDefault();
         openPalette();
+        return;
+      }
+
+      // Cmd+J (Ctrl+J on PC) toggles the Memo board. Works even while typing in a Memo column.
+      if (commandPaletteChord && event.key.toLowerCase() === "j" && !modalWasOpen) {
+        event.preventDefault();
+        toggleMemoMode();
         return;
       }
 
@@ -4959,6 +5111,7 @@
       renderFilterSettings();
       renderDetailLayoutSettings();
       renderHyperKeySettings();
+      if (el.memoColumns) el.memoColumns.value = String(normalizeMemoColumns(settings.memoColumns));
     }
 
     function renderFilterSettings() {
@@ -5311,6 +5464,7 @@
       applyCategorySettingsFromRows();
       settings.hyperKey = hyperKeyFromSettingsForm();
       settings.nightmode = prefs.theme !== "light";
+      if (el.memoColumns) settings.memoColumns = normalizeMemoColumns(el.memoColumns.value);
       settings = normalizeSettings(settings);
       savePrefs();
       persistShortcuts();
@@ -5437,6 +5591,8 @@
         try {
           const handles = await window.showOpenFilePicker({
             multiple: false,
+            id: "shortcut-dashboard-backup",
+            startIn: "downloads",
             types: [{ description: "Shortcut JSON", accept: { "application/json": [".json"] } }]
           });
           const handle = handles[0];
@@ -5457,6 +5613,8 @@
         try {
           const handles = await window.showOpenFilePicker({
             multiple: false,
+            id: "shortcut-dashboard-backup",
+            startIn: "downloads",
             types: [{ description: "Shortcut JSON backup", accept: { "application/json": [".json"] } }]
           });
           const handle = handles[0];
@@ -5519,7 +5677,7 @@
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 3000);
-      toast("Backup JSON downloaded.");
+      toast("Request sent to the browser. Find your saved settings in your browser's download folder.");
     }
 
     // ── Generic nudge engine ──────────────────────────────────────────────────
@@ -5597,7 +5755,7 @@
       const stats = previewMergeResult(imported, duplicateMode);
       return {
         ready: true,
-        message: "Preview only. Existing settings and text trigger columns are preserved unless you opt in below.",
+        message: "Preview only. Existing settings and Memo columns are preserved unless you opt in below.",
         stats,
         hasSettings: !Array.isArray(next) && Boolean(next.settings),
         hasTextTrigger: !Array.isArray(next) && Boolean(next.textTrigger || next.alfred)
@@ -6035,6 +6193,7 @@
         nightmode: normalizeNightMode(source),
         detailLayout: normalizeDetailLayout(source.detailLayout),
         detailPopoverAutoClose: normalizeDetailPopoverAutoClose(source.detailPopoverAutoClose ?? source.popoverAutoClose),
+        memoColumns: normalizeMemoColumns(source.memoColumns),
         filters: normalizeFilters(source.filters),
         categories: normalizeCategories(source.categories),
         hyperKey: normalizeHyperKey(source.hyperKey),
@@ -6047,6 +6206,12 @@
 
     function normalizeDetailLayout(value) {
       return ["auto", "sidebar", "collapsed"].includes(value) ? value : defaultSettings.detailLayout;
+    }
+
+    function normalizeMemoColumns(value) {
+      const n = Math.round(Number(value));
+      if (!Number.isFinite(n)) return defaultSettings.memoColumns;
+      return Math.min(10, Math.max(1, n));
     }
 
     function normalizeFilters(value) {
@@ -6119,9 +6284,11 @@
       return normalized;
     }
     function normalizeTextTrigger(value) {
+      // Column content is decoupled from the visible column count (settings.memoColumns):
+      // keep up to 10 columns of content so shrinking then re-growing never loses text.
       const columns = Array.isArray(value?.columns) ? value.columns : ["", "", ""];
       return {
-        columns: [0, 1, 2].map(index => String(columns[index] || "")),
+        columns: columns.slice(0, 10).map(text => String(text || "")),
         fontSize: Math.min(28, Math.max(12, Number(value?.fontSize) || 16))
       };
     }
