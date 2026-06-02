@@ -29,17 +29,21 @@ The planned folder shape is `starter-packs/{Platform}/{Category Name}/{App Name}
 
 ## Screenshots
 
-| Dashboard | Search |
+| Dashboard | Light Mode |
 | --- | --- |
-| <img src="screenshots/Shortcut%20Dashboard%20(dark).jpeg" alt="Shortcut Dashboard dark mode keyboard map" width="420"> | <img src="screenshots/Shortcut%20Dashboard%20(search).png" alt="Shortcut Dashboard search" width="420"> |
+| <img src="screenshots/Shortcut%20Dashboard%20(dark).jpeg" alt="Shortcut Dashboard dark mode keyboard map" width="420"> | <img src="screenshots/Shortcut%20Dashboard%20(daylight).jpeg" alt="Shortcut Dashboard light mode keyboard map" width="420"> |
 
-| Memo Board | Importer |
+| Search | Memo Board |
 | --- | --- |
-| <img src="screenshots/Shortcut%20Dashboard%20(3%20columns).png" alt="Memo board with multiple columns" width="420"> | <img src="screenshots/Shortcut%20Importer.png" alt="Shortcut Importer" width="420"> |
+| <img src="screenshots/Shortcut%20Dashboard%20(search).png" alt="Shortcut Dashboard search" width="420"> | <img src="screenshots/Shortcut%20Dashboard%20(3%20columns).png" alt="Memo board with multiple columns" width="420"> |
 
-| Conflicts | Printable Cheat Sheet |
+| Importer | Conflicts |
 | --- | --- |
-| <img src="screenshots/Shortcut%20Conflicts.jpeg" alt="Shortcut conflict inspection" width="420"> | <img src="screenshots/Shortcut%20Print.png" alt="Printable shortcut cheat sheet" width="420"> |
+| <img src="screenshots/Shortcut%20Importer.png" alt="Shortcut Importer" width="420"> | <img src="screenshots/Shortcut%20Conflicts.jpeg" alt="Shortcut conflict inspection" width="420"> |
+
+| Printable Cheat Sheet |
+| --- | --- |
+| <img src="screenshots/Shortcut%20Print.png" alt="Printable shortcut cheat sheet" width="420"> |
 
 ## Important Disclaimer
 

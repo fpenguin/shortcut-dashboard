@@ -43,6 +43,13 @@
       --shadow: 0 22px 62px rgba(53, 70, 105, 0.18);
       --accent: #59d8c5;
       --focus: #76aef6;
+      --settings-surface: #fbfcff;
+      --settings-sidebar: #f5f8fc;
+      --settings-cell: #ffffff;
+      --settings-cell-hover: #f7fbff;
+      --settings-control: #ffffff;
+      --settings-active: #e8faf7;
+      --settings-active-border: #7ddccf;
     }
 
     [data-theme="mint-choco"] {
@@ -61,6 +68,13 @@
       --shadow: 0 22px 62px rgba(78, 102, 69, 0.2);
       --accent: #63cfa2;
       --focus: #a88468;
+      --settings-surface: #fbfbf4;
+      --settings-sidebar: #f3f7ec;
+      --settings-cell: #fffefa;
+      --settings-cell-hover: #f7fbef;
+      --settings-control: #fffef9;
+      --settings-active: #e5f8ef;
+      --settings-active-border: #82d6b3;
     }
 
     [data-theme="beige"] {
@@ -79,6 +93,13 @@
       --shadow: 0 22px 62px rgba(88, 66, 45, 0.18);
       --accent: #d74f52;
       --focus: #2f8793;
+      --settings-surface: #fffaf7;
+      --settings-sidebar: #f9f1ee;
+      --settings-cell: #fffdfb;
+      --settings-cell-hover: #fff6f3;
+      --settings-control: #fffdfb;
+      --settings-active: #fff0ed;
+      --settings-active-border: #f2a39a;
     }
 
     * { box-sizing: border-box; }
@@ -291,6 +312,29 @@
       background: var(--panel-strong);
     }
 
+    [data-theme="light"] .settings-card .pill-btn,
+    [data-theme="mint-choco"] .settings-card .pill-btn,
+    [data-theme="beige"] .settings-card .pill-btn {
+      background: color-mix(in srgb, var(--settings-cell) 92%, var(--bg-2));
+      border-color: color-mix(in srgb, var(--line-strong) 76%, transparent);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="light"] .settings-card .pill-btn:hover,
+    [data-theme="mint-choco"] .settings-card .pill-btn:hover,
+    [data-theme="beige"] .settings-card .pill-btn:hover {
+      background: var(--settings-cell-hover);
+      border-color: color-mix(in srgb, var(--accent) 36%, var(--line-strong));
+    }
+
+    [data-theme="light"] #saveSettingsButton,
+    [data-theme="mint-choco"] #saveSettingsButton,
+    [data-theme="beige"] #saveSettingsButton {
+      background: linear-gradient(180deg, var(--settings-active), color-mix(in srgb, var(--settings-active) 82%, white));
+      border-color: var(--settings-active-border);
+      color: var(--text);
+    }
+
     .toggle-btn.active,
     .toggle-btn[aria-pressed="true"] {
       border-color: rgba(105, 230, 199, 0.55);
@@ -329,6 +373,20 @@
     [data-theme="beige"] .modal-card {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.98));
       backdrop-filter: none;
+    }
+
+    [data-theme="light"] .settings-card,
+    [data-theme="mint-choco"] .settings-card,
+    [data-theme="beige"] .settings-card {
+      background: linear-gradient(180deg, var(--settings-surface), color-mix(in srgb, var(--settings-surface) 92%, var(--bg-2)));
+      border-color: color-mix(in srgb, var(--line-strong) 72%, transparent);
+      box-shadow: 0 28px 80px rgba(54, 66, 82, 0.2);
+    }
+
+    [data-theme="light"] .settings-card .modal-head,
+    [data-theme="mint-choco"] .settings-card .modal-head,
+    [data-theme="beige"] .settings-card .modal-head {
+      background: var(--settings-surface);
     }
 
     .main-stage {
@@ -673,12 +731,20 @@
     .text-trigger-board {
       display: none;
       padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
       border-radius: 8px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-        rgba(7, 9, 13, 0.2);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        rgba(7, 9, 13, 0.18);
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    [data-theme="light"] .text-trigger-board,
+    [data-theme="mint-choco"] .text-trigger-board,
+    [data-theme="beige"] .text-trigger-board {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--settings-surface) 84%, var(--bg-2)), var(--settings-surface));
+      border-color: color-mix(in srgb, var(--line-strong) 72%, transparent);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
     }
 
     .text-trigger-board.active {
@@ -723,8 +789,11 @@
 
     .text-trigger-columns {
       display: grid;
-      grid-template-columns: repeat(var(--memo-cols, 3), minmax(0, 1fr));
+      grid-template-columns: repeat(var(--memo-cols, 3), minmax(min(100%, 180px), 1fr));
       gap: 12px;
+      overflow-x: auto;
+      padding: 2px 2px 6px;
+      scrollbar-width: thin;
     }
 
     .text-trigger-note {
@@ -739,9 +808,35 @@
       font: var(--alfred-font-size, 16px)/1.55 var(--font);
     }
 
+    [data-theme="light"] .text-trigger-note,
+    [data-theme="mint-choco"] .text-trigger-note,
+    [data-theme="beige"] .text-trigger-note {
+      background: linear-gradient(180deg, var(--settings-cell), color-mix(in srgb, var(--settings-cell) 92%, var(--bg-2)));
+      border-color: color-mix(in srgb, var(--line-strong) 78%, transparent);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.92),
+        0 8px 18px rgba(48, 58, 72, 0.055);
+      color: var(--text);
+    }
+
+    [data-theme="light"] .text-trigger-note::placeholder,
+    [data-theme="mint-choco"] .text-trigger-note::placeholder,
+    [data-theme="beige"] .text-trigger-note::placeholder {
+      color: color-mix(in srgb, var(--muted) 74%, transparent);
+    }
+
     .text-trigger-note:focus {
       border-color: rgba(156, 200, 255, 0.62);
       box-shadow: 0 0 0 4px rgba(156, 200, 255, 0.1);
+    }
+
+    [data-theme="light"] .text-trigger-note:focus,
+    [data-theme="mint-choco"] .text-trigger-note:focus,
+    [data-theme="beige"] .text-trigger-note:focus {
+      border-color: color-mix(in srgb, var(--accent) 58%, var(--settings-active-border));
+      box-shadow:
+        0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent),
+        0 10px 22px rgba(48, 58, 72, 0.07);
     }
 
     .key-row {
@@ -1118,7 +1213,35 @@
     [data-theme="light"] .settings-card .modal-actions,
     [data-theme="mint-choco"] .settings-card .modal-actions,
     [data-theme="beige"] .settings-card .modal-actions {
-      background: rgba(255, 255, 255, 0.98);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--settings-surface) 88%, transparent), var(--settings-surface));
+      border-top-color: color-mix(in srgb, var(--line) 70%, transparent);
+    }
+
+    [data-theme="light"] .settings-nav,
+    [data-theme="mint-choco"] .settings-nav,
+    [data-theme="beige"] .settings-nav {
+      background: linear-gradient(180deg, var(--settings-sidebar), color-mix(in srgb, var(--settings-sidebar) 74%, var(--settings-surface)));
+    }
+
+    [data-theme="light"] .settings-nav-item,
+    [data-theme="mint-choco"] .settings-nav-item,
+    [data-theme="beige"] .settings-nav-item {
+      color: color-mix(in srgb, var(--muted) 88%, var(--text));
+    }
+
+    [data-theme="light"] .settings-nav-item:hover,
+    [data-theme="mint-choco"] .settings-nav-item:hover,
+    [data-theme="beige"] .settings-nav-item:hover {
+      background: color-mix(in srgb, var(--settings-cell) 86%, var(--accent) 14%);
+      color: var(--text);
+    }
+
+    [data-theme="light"] .settings-nav-item.active,
+    [data-theme="mint-choco"] .settings-nav-item.active,
+    [data-theme="beige"] .settings-nav-item.active {
+      background: var(--settings-active);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--settings-active-border) 62%, transparent);
+      color: var(--text);
     }
 
     .settings-section {
@@ -1207,9 +1330,10 @@
     [data-theme="light"] .settings-number,
     [data-theme="mint-choco"] .settings-number,
     [data-theme="beige"] .settings-number {
-      background: #ffffff;
+      background: var(--settings-control);
       color: #141922;
       color-scheme: light;
+      border-color: color-mix(in srgb, var(--line-strong) 76%, transparent);
     }
 
     .settings-select option {
@@ -1221,9 +1345,10 @@
     [data-theme="light"] .settings-select,
     [data-theme="mint-choco"] .settings-select,
     [data-theme="beige"] .settings-select {
-      background: #ffffff;
+      background: var(--settings-control);
       color: #141922;
       color-scheme: light;
+      border-color: color-mix(in srgb, var(--line-strong) 76%, transparent);
     }
 
     [data-theme="light"] .segmented,
@@ -1244,7 +1369,25 @@
     [data-theme="beige"] .category-row,
     [data-theme="beige"] .hyper-option-row,
     [data-theme="beige"] .modifier-grid {
-      background: rgba(255, 255, 255, 0.56);
+      background: var(--settings-cell);
+      border-color: color-mix(in srgb, var(--line-strong) 72%, transparent);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.82);
+    }
+
+    [data-theme="light"] .modifier-row:hover,
+    [data-theme="light"] .filter-setting-row:hover,
+    [data-theme="light"] .category-row:hover,
+    [data-theme="light"] .hyper-option-row:hover,
+    [data-theme="mint-choco"] .modifier-row:hover,
+    [data-theme="mint-choco"] .filter-setting-row:hover,
+    [data-theme="mint-choco"] .category-row:hover,
+    [data-theme="mint-choco"] .hyper-option-row:hover,
+    [data-theme="beige"] .modifier-row:hover,
+    [data-theme="beige"] .filter-setting-row:hover,
+    [data-theme="beige"] .category-row:hover,
+    [data-theme="beige"] .hyper-option-row:hover {
+      background: var(--settings-cell-hover);
+      border-color: color-mix(in srgb, var(--accent) 34%, var(--line-strong));
     }
 
     [data-theme="light"] .settings-select option,
@@ -2174,9 +2317,9 @@
     [data-theme="light"] .json-area,
     [data-theme="mint-choco"] .json-area,
     [data-theme="beige"] .json-area {
-      background: #ffffff;
+      background: var(--settings-control, #ffffff);
       color: #141922;
-      border-color: rgba(35, 48, 68, 0.18);
+      border-color: color-mix(in srgb, var(--line-strong) 76%, transparent);
       color-scheme: light;
     }
 
@@ -2190,7 +2333,7 @@
     [data-theme="mint-choco"] .readonly-json,
     [data-theme="beige"] .readonly-json {
       opacity: 1;
-      background: #f8fbff;
+      background: color-mix(in srgb, var(--settings-cell) 86%, var(--bg-2));
     }
 
 
@@ -2249,9 +2392,9 @@
     [data-theme="beige"] .modifier-row input[type="text"],
     [data-theme="beige"] .category-row input[type="text"],
     [data-theme="beige"] .hyper-key-settings input[type="text"] {
-      background: #ffffff;
+      background: var(--settings-control, #ffffff);
       color: #141922;
-      border-color: rgba(35, 48, 68, 0.18);
+      border-color: color-mix(in srgb, var(--line-strong) 76%, transparent);
       color-scheme: light;
     }
 
@@ -3092,14 +3235,14 @@
       mac: defaultSettings.modifierLayout,
       pc: {
         left: [
-          { id: "control", keyCode: "Control", label: "Control", enabled: true },
-          { id: "command", keyCode: "Meta", label: "Windows", enabled: true },
+          { id: "control", keyCode: "Control", label: "Ctrl", enabled: true },
+          { id: "command", keyCode: "Meta", label: "Win", enabled: true },
           { id: "option", keyCode: "Option", label: "Alt", enabled: true },
           { id: "fn", keyCode: "Fn", label: "Fn", enabled: false }
         ],
         right: [
           { id: "option", keyCode: "OptionRight", label: "Alt", enabled: true },
-          { id: "command", keyCode: "MetaRight", label: "Windows", enabled: true },
+          { id: "command", keyCode: "MetaRight", label: "Win", enabled: true },
           { id: "copilot", keyCode: "Copilot", label: "Copilot", enabled: true }
         ]
       }
@@ -5550,11 +5693,13 @@
         const input = row.querySelector('input[type="text"]');
         checkbox.addEventListener("change", () => {
           settings.modifierLayout[side][index].enabled = checkbox.checked;
+          refreshModifierLayoutPreview();
         });
         input.addEventListener("input", () => {
           const id = settings.modifierLayout[side][index].id;
           settings.modifierLayout[side][index].label = input.value;
           syncModifierLabel(side, id, input.value);
+          refreshModifierLayoutPreview();
         });
       });
       // scope = side so a left-list row can't be dropped into the right list and vice-versa.
@@ -5563,6 +5708,7 @@
         const [moved] = list.splice(from, 1);
         list.splice(to, 0, moved);
         renderModifierList(side);
+        refreshModifierLayoutPreview();
       }, { scope: "modifier-" + side });
     }
 
@@ -5574,6 +5720,12 @@
         });
       });
       renderModifierList("right");
+    }
+
+    function refreshModifierLayoutPreview() {
+      renderKeyboard();
+      renderModifierGridLabels();
+      if (isDetailCollapsed()) updateDetailPanel();
     }
 
     function modifierSettingLabel(side, id, fallback) {
@@ -5608,6 +5760,7 @@
       settings.modifierLayout = structuredClone(platformPresets[platform] || platformPresets.mac);
       renderSettingsModal();
       renderCommandShortcutLabels();
+      renderAll();
     }
 
     function setSettingsTheme(theme) {
@@ -6378,8 +6531,8 @@
         categories: normalizeCategories(source.categories),
         hyperKey: normalizeHyperKey(source.hyperKey),
         modifierLayout: {
-          left: normalizeModifierSide(layout.left, preset.left),
-          right: normalizeModifierSide(layout.right, preset.right)
+          left: normalizeModifierSide(layout.left, preset.left, platform),
+          right: normalizeModifierSide(layout.right, preset.right, platform)
         }
       };
     }
@@ -6456,7 +6609,7 @@
       });
     }
 
-    function normalizeModifierSide(value, fallback) {
+    function normalizeModifierSide(value, fallback, platform = "mac") {
       const fallbackMap = new Map(fallback.map(item => [item.id, item]));
       const rows = Array.isArray(value) ? value : fallback;
       const normalized = rows.map(item => {
@@ -6464,7 +6617,7 @@
         return {
           id: item.id || base.id,
           keyCode: item.keyCode || base.keyCode,
-          label: String(item.label || base.label || item.id || "Modifier"),
+          label: normalizeModifierDisplayLabel(item.id || base.id, String(item.label || base.label || item.id || "Modifier"), platform),
           enabled: item.enabled !== false
         };
       }).filter(item => item.id && item.keyCode);
@@ -6472,6 +6625,14 @@
         if (!normalized.some(row => row.id === item.id)) normalized.push(structuredClone(item));
       });
       return normalized;
+    }
+
+    function normalizeModifierDisplayLabel(id, label, platform) {
+      const text = String(label || "").trim();
+      if (platform !== "pc") return text || "Modifier";
+      if (id === "control" && text.toLowerCase() === "control") return "Ctrl";
+      if (id === "command" && text.toLowerCase() === "windows") return "Win";
+      return text || "Modifier";
     }
     function memoPayload(source) {
       if (!source || typeof source !== "object" || Array.isArray(source)) return null;
